@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Home",
+    "icon": "home",
+    "to": "/docs"
+  },
+  {
+    "name": "Getting started",
+    "icon": "info",
+    "children": [
+      {
+        "name": "Getting started with MagicBell",
+        "to": "/docs/getting-started-with-magicbell"
+      },
+      {
+        "name": "Sending notifications",
+        "to": "/docs/sending-notifications"
+      },
+      {
+        "name": "Adding MagicBell to your product",
+        "to": "/docs/adding-magicbell-to-your-product"
+      },
+      {
+        "name": "What's next?",
+        "to": "/docs/whats-next"
+      }
+    ]
+  },
+  {
+    "name": "Rest API",
+    "icon": "terminal",
+    "children": [
+      {
+        "name": "Overview",
+        "to": "/docs/rest-api/overview"
+      },
+      {
+        "name": "Authentication",
+        "to": "/docs/rest-api/authentication"
+      },
+      {
+        "name": "API reference",
+        "to": "/docs/rest-api/reference"
+      }
+    ]
+  },
+  {
+    "name": "API wrappers and libraries",
+    "icon": "library",
+    "to": "/docs/libraries-api-wrappers"
+  },
+  {
+    "name": "Guides",
+    "icon": "book-open",
+    "children": [
+      {
+        "name": "Turn on HMAC authentication",
+        "to": "/docs/turn-on-hmac-authentication"
+      },
+      {
+        "name": "Email Setup",
+        "children": [
+          {
+            "name": "3rd party email providers",
+            "to": "/docs/email/3rd-party-email-providers"
+          }
+        ]
+      },
+      {
+        "name": "React",
+        "children": [
+          {
+            "name": "Identifying users",
+            "to": "/docs/react/identifying-users"
+          },
+          {
+            "name": "Customizing the theme",
+            "to": "/docs/react/theme-customization"
+          },
+          {
+            "name": "Localization and internationalization (i18n)",
+            "to": "/docs/react/localization-internationalization"
+          },
+          {
+            "name": "Changing the position of the notification inbox",
+            "to": "/docs/react/positioning-floating-notification-inbox"
+          },
+          {
+            "name": "Setting a custom click handler",
+            "to": "/docs/react/setting-notification-click-handler"
+          },
+          {
+            "name": "Changing the default notification component",
+            "to": "/docs/react/changing-default-notification-component"
+          },
+          {
+            "name": "Play a sound when a notification arrives",
+            "to": "/docs/react/play-sound-new-notification"
+          }
+        ]
+      },
+      {
+        "name": "React Native",
+        "children": [
+          {
+            "name": "Getting started",
+            "to": "/docs/react-native/getting-started"
+          }
+        ]
+      },
+      {
+        "name": "Browser",
+        "children": [
+          {
+            "name": "Changing the default font",
+            "to": "/docs/browser/changing-default-font"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Glossary",
+    "icon": "newspaper",
+    "to": "/docs/glossary"
+  },
+  {
+    "name": "FAQ",
+    "icon": "support",
+    "to": "/docs/faq"
+  }
+]
