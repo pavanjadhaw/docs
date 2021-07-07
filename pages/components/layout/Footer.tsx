@@ -132,13 +132,13 @@ export default function Footer() {
           <h6 className="uppercase mb-4 text-sm">Legal</h6>
           <ul>
             <li className="mb-3">
-              <a href="/terms">Terms of Service</a>
+              <a href="https://magicbell.com/terms">Terms of Service</a>
             </li>
             <li className="mb-3">
-              <a href="/privacy-policy">Privacy Policy</a>
+              <a href="https://magicbell.com/privacy-policy">Privacy Policy</a>
             </li>
             <li className="mb-3">
-              <a href="/cookie-policy">Cookie Policy</a>
+              <a href="https://magicbell.com/cookie-policy">Cookie Policy</a>
             </li>
           </ul>
         </div>
