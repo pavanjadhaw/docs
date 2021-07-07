@@ -28,7 +28,11 @@
   }
 
   h3 {
-    @apply text-xl mt-10 mb-4 font-bold;
+    @apply text-xl font-bold;
+  }
+
+  .mdx-content h3 {
+    @apply mt-10 mb-4;
   }
 
   p {
@@ -43,7 +47,7 @@
     text-decoration: none !important;
   }
 
-  ul {
+  main ul {
     @apply list-disc;
     @apply list-inside;
     @apply space-y-2;

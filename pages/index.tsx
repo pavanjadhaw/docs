@@ -20,12 +20,12 @@ export default function index({ mdxSource, metadata = {} }: Props) {
       <h1 className="mt-12 mb-2">{metadata.title}</h1>
       <h3 className="mb-12 font-normal text-gray-500">{metadata.subtitle}</h3>
       {mdxSource ? (
-        <div className="main-content">
+        <article className="mdx-content">
           <MDXRemote
             {...mdxSource}
             components={{ Note: Callout, code: Code }}
           />
-        </div>
+        </article>
       ) : (
         <p>Loading...</p>
       )}

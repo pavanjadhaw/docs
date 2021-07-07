@@ -23,7 +23,12 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
     <Page title={title}>
       <h1 className="mt-12">{title}</h1>
       {mdxSource ? (
-        <MDXRemote {...mdxSource} components={{ Note: Callout, code: Code }} />
+        <article className="mdx-content">
+          <MDXRemote
+            {...mdxSource}
+            components={{ Note: Callout, code: Code }}
+          />
+        </article>
       ) : (
         <p>Loading...</p>
       )}
