@@ -3,12 +3,11 @@ import * as matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
 import path from "path";
 import { flatten, reject } from "ramda";
 import React from "react";
 import sitemap from "../lib/sitemap";
-import PageLayout from "./components/layout/PageLayout";
+import Page from "./components/layout/Page";
 import Note from "./components/note";
 
 interface Props {
@@ -20,17 +19,14 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
   const { title = "Docs" } = metadata;
 
   return (
-    <PageLayout>
-      <Head>
-        <title>{title} | MagicBell</title>
-      </Head>
+    <Page title={title}>
       <h1 className="mt-12">{title}</h1>
       {mdxSource ? (
         <MDXRemote {...mdxSource} components={{ Note }} />
       ) : (
         <p>Loading...</p>
       )}
-    </PageLayout>
+    </Page>
   );
 }
 
