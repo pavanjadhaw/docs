@@ -42,6 +42,14 @@
   a:hover {
     text-decoration: none !important;
   }
+
+  ul {
+    @apply list-disc;
+    @apply list-inside;
+    @apply space-y-2;
+    @apply mb-4;
+    @apply ml-4;
+  }
 }
 
 @tailwind components;
