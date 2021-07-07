@@ -9,7 +9,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-export default function PageLayout({ children }: Props) {
+export default function Page({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(true);
 
