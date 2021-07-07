@@ -37,7 +37,7 @@ export default function Code({ children: code, className }: CodeProps) {
   const language = className?.replace("language-", "") || "bash";
 
   function parseCode(str: string) {
-    return hljs.highlight(language, str).value;
+    return hljs.highlight(str, { language }).value;
   }
 
   return (
