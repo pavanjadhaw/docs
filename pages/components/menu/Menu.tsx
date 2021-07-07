@@ -6,7 +6,11 @@ interface Props {
   navigationItems: SitemapItem[];
 }
 
-export default function Menu({ navigationItems }: Props) {
+/**
+ * Menu component. The `navigationItems` might be undefined when the site is
+ * prerendered.
+ */
+export default function Menu({ navigationItems = [] }: Props) {
   return (
     <div className="pb-4 overflow-y-auto">
       <nav className="py-8 space-y-1">

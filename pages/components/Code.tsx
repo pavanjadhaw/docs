@@ -34,6 +34,8 @@ export interface CodeProps {
 }
 
 export default function Code({ children: code, className }: CodeProps) {
+  if (!code) return null;
+
   const language = className?.replace("language-", "") || "bash";
 
   function parseCode(str: string) {
