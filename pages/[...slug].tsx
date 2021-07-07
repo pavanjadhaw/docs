@@ -7,6 +7,7 @@ import path from "path";
 import { flatten, reject } from "ramda";
 import React from "react";
 import sitemap from "../lib/sitemap";
+import Code from "./components/Code";
 import Page from "./components/layout/Page";
 import Note from "./components/note";
 
@@ -22,7 +23,7 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
     <Page title={title}>
       <h1 className="mt-12">{title}</h1>
       {mdxSource ? (
-        <MDXRemote {...mdxSource} components={{ Note }} />
+        <MDXRemote {...mdxSource} components={{ Note, code: Code }} />
       ) : (
         <p>Loading...</p>
       )}
