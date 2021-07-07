@@ -12,7 +12,7 @@ export default function ParentMenuItem({ name, icon, children }: SitemapItem) {
   return (
     <div className="submenu">
       <button
-        className="group py-4 px-6 flex items-center w-full hover:bg-white group-hover:text-gray-800"
+        className="group py-3 px-6 flex items-center w-full hover:bg-white group-hover:text-gray-800"
         onClick={toggle}
       >
         {icon ? <LinkIcon name={icon} /> : null}
