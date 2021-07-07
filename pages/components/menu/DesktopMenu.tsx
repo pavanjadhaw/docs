@@ -8,7 +8,7 @@ interface Props {
 
 export default function DesktopMenu({ navigationItems }: Props) {
   return (
-    <div className="h-full bg-gray-100 overflow-hidden flex">
+    <div className="h-full border-r border-gray-200 overflow-hidden flex">
       <div className="hidden md:flex md:flex-shrink-0">
         <div className="w-72 xl:w-80">
           <Menu navigationItems={navigationItems} />
