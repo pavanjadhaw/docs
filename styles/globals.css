@@ -86,9 +86,3 @@ footer {
 footer a {
   color: white !important;
 }
-
-/* Menu */
-.submenu > ul > a {
-  @apply ml-4;
-  @apply rounded-l-md;
-}
