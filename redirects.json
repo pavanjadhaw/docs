@@ -1,0 +1,22 @@
+[
+  {
+    "source": "/core-concepts",
+    "destination": "/glossary",
+    "permanent": true
+  },
+  {
+    "source": "/enabling-email-delivery",
+    "destination": "/email/3rd-party-email-providers",
+    "permanent": true
+  },
+  {
+    "source": "/configure-postfix-to-bcc-emails",
+    "destination": "/email/configure-postfix-to-bcc-emails",
+    "permanent": true
+  },
+  {
+    "source": "/customizing-notifications-using-email-headers",
+    "destination": "/email/customizing-notifications-using-email-headers",
+    "permanent": true
+  }
+]

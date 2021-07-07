@@ -1,3 +1,5 @@
+const redirects = require("./redirects.json");
+
 module.exports = {
   reactStrictMode: true,
   webpack: (config, options) => {
@@ -13,5 +15,8 @@ module.exports = {
     });
 
     return config;
+  },
+  async redirects() {
+    return redirects;
   },
 };
