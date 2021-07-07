@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full ">
+    <footer className="w-full z-10 relative">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center pt-8 pb-24 space-x-12">
         <div className="mb-8 ml-12 md:pr-24 md:ml-0">
           <span className="text-2xl font-bold">MagicBell</span>
