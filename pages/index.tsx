@@ -1,13 +1,13 @@
-import fs from "fs";
-import * as matter from "gray-matter";
-import { GetStaticProps } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import path from "path";
-import React from "react";
-import Callout from "./components/Callout";
-import Code from "./components/Code";
-import Page from "./components/layout/Page";
+import fs from 'fs';
+import * as matter from 'gray-matter';
+import { GetStaticProps } from 'next';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import path from 'path';
+import React from 'react';
+import Callout from './components/Callout';
+import Code from './components/code_snippets/Code';
+import Page from './components/layout/Page';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -21,10 +21,7 @@ export default function index({ mdxSource, metadata = {} }: Props) {
       <h3 className="mb-12 font-normal text-gray-500">{metadata.subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
-          <MDXRemote
-            {...mdxSource}
-            components={{ Note: Callout, code: Code }}
-          />
+          <MDXRemote {...mdxSource} components={{ Note: Callout, code: Code }} />
         </article>
       ) : (
         <p>Loading...</p>
@@ -69,8 +66,8 @@ export default function index({ mdxSource, metadata = {} }: Props) {
                   Jun 17, 2021
                 </time>
                 <p className="md:col-start-3 md:col-span-6 xl:col-span-7 ml-9 md:ml-0 text-gray-600">
-                  This update allows you to have create instances of the
-                  MagicBell client with different keys.
+                  This update allows you to have create instances of the MagicBell client
+                  with different keys.
                 </p>
               </a>
             </article>
@@ -108,10 +105,9 @@ export default function index({ mdxSource, metadata = {} }: Props) {
                   Mar 15, 2021
                 </time>
                 <p className="md:col-start-3 md:col-span-6 xl:col-span-7 ml-9 md:ml-0 text-gray-600">
-                  We've added support for multiple push apps per project. This
-                  is useful if you use different app bundles for
-                  test/canary/production. Please see the updated documentation
-                  or write us if you have any questions.
+                  We've added support for multiple push apps per project. This is useful
+                  if you use different app bundles for test/canary/production. Please see
+                  the updated documentation or write us if you have any questions.
                 </p>
               </a>
             </article>
@@ -142,12 +138,11 @@ export default function index({ mdxSource, metadata = {} }: Props) {
                   Nov 18, 2020
                 </time>
                 <p className="md:col-start-3 md:col-span-6 xl:col-span-7 ml-9 md:ml-0 text-gray-600">
-                  We rolled out a compose button in our dashboard that lets you
-                  send notifications to your users. You can add multiple email
-                  addresses or external IDs. We have had some requests for
-                  sending notifications to a group or to all users, and if you'd
-                  like to see that, please let us know - we are looking for some
-                  feedback on this use case.
+                  We rolled out a compose button in our dashboard that lets you send
+                  notifications to your users. You can add multiple email addresses or
+                  external IDs. We have had some requests for sending notifications to a
+                  group or to all users, and if you'd like to see that, please let us know
+                  - we are looking for some feedback on this use case.
                 </p>
               </a>
             </article>
@@ -178,11 +173,10 @@ export default function index({ mdxSource, metadata = {} }: Props) {
                   Nov 18, 2020
                 </time>
                 <p className="md:col-start-3 md:col-span-6 xl:col-span-7 ml-9 md:ml-0">
-                  We've added support for delivering email notifications via
-                  Postmark. If you'd like it setup, please contact us. We'll
-                  roll out integrations to our dashboard in the coming months,
-                  but we are happy to set them up for you in the meantime. . We
-                  also support Mailgun, and Sendgrid.
+                  We've added support for delivering email notifications via Postmark. If
+                  you'd like it setup, please contact us. We'll roll out integrations to
+                  our dashboard in the coming months, but we are happy to set them up for
+                  you in the meantime. . We also support Mailgun, and Sendgrid.
                 </p>
               </a>
             </article>
@@ -194,9 +188,9 @@ export default function index({ mdxSource, metadata = {} }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const docsDirectory = path.join(process.cwd(), "docs");
-  const filePath = path.join(docsDirectory, "index.mdx");
-  const fileContents = fs.readFileSync(filePath, "utf8");
+  const docsDirectory = path.join(process.cwd(), 'docs');
+  const filePath = path.join(docsDirectory, 'index.mdx');
+  const fileContents = fs.readFileSync(filePath, 'utf8');
 
   // @ts-ignore
   const { content, data } = matter(fileContents);
