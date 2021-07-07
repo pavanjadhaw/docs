@@ -2,7 +2,7 @@
   {
     "name": "Home",
     "icon": "home",
-    "to": "/docs"
+    "to": "/"
   },
   {
     "name": "Getting started",
@@ -10,19 +10,19 @@
     "children": [
       {
         "name": "Getting started with MagicBell",
-        "to": "/docs/getting-started-with-magicbell"
+        "to": "/getting-started-with-magicbell"
       },
       {
         "name": "Sending notifications",
-        "to": "/docs/sending-notifications"
+        "to": "/sending-notifications"
       },
       {
         "name": "Adding MagicBell to your product",
-        "to": "/docs/adding-magicbell-to-your-product"
+        "to": "/adding-magicbell-to-your-product"
       },
       {
         "name": "What's next?",
-        "to": "/docs/whats-next"
+        "to": "/whats-next"
       }
     ]
   },
@@ -32,22 +32,22 @@
     "children": [
       {
         "name": "Overview",
-        "to": "/docs/rest-api/overview"
+        "to": "/rest-api/overview"
       },
       {
         "name": "Authentication",
-        "to": "/docs/rest-api/authentication"
+        "to": "/rest-api/authentication"
       },
       {
         "name": "API reference",
-        "to": "/docs/rest-api/reference"
+        "to": "/rest-api/reference"
       }
     ]
   },
   {
     "name": "API wrappers and libraries",
     "icon": "library",
-    "to": "/docs/libraries-api-wrappers"
+    "to": "/libraries-api-wrappers"
   },
   {
     "name": "Guides",
@@ -55,14 +55,14 @@
     "children": [
       {
         "name": "Turn on HMAC authentication",
-        "to": "/docs/turn-on-hmac-authentication"
+        "to": "/turn-on-hmac-authentication"
       },
       {
         "name": "Email Setup",
         "children": [
           {
             "name": "3rd party email providers",
-            "to": "/docs/email/3rd-party-email-providers"
+            "to": "/email/3rd-party-email-providers"
           }
         ]
       },
@@ -71,31 +71,31 @@
         "children": [
           {
             "name": "Identifying users",
-            "to": "/docs/react/identifying-users"
+            "to": "/react/identifying-users"
           },
           {
             "name": "Customizing the theme",
-            "to": "/docs/react/theme-customization"
+            "to": "/react/theme-customization"
           },
           {
             "name": "Localization and internationalization (i18n)",
-            "to": "/docs/react/localization-internationalization"
+            "to": "/react/localization-internationalization"
           },
           {
             "name": "Changing the position of the notification inbox",
-            "to": "/docs/react/positioning-floating-notification-inbox"
+            "to": "/react/positioning-floating-notification-inbox"
           },
           {
             "name": "Setting a custom click handler",
-            "to": "/docs/react/setting-notification-click-handler"
+            "to": "/react/setting-notification-click-handler"
           },
           {
             "name": "Changing the default notification component",
-            "to": "/docs/react/changing-default-notification-component"
+            "to": "/react/changing-default-notification-component"
           },
           {
             "name": "Play a sound when a notification arrives",
-            "to": "/docs/react/play-sound-new-notification"
+            "to": "/react/play-sound-new-notification"
           }
         ]
       },
@@ -104,7 +104,7 @@
         "children": [
           {
             "name": "Getting started",
-            "to": "/docs/react-native/getting-started"
+            "to": "/react-native/getting-started"
           }
         ]
       },
@@ -113,7 +113,7 @@
         "children": [
           {
             "name": "Changing the default font",
-            "to": "/docs/browser/changing-default-font"
+            "to": "/browser/changing-default-font"
           }
         ]
       }
@@ -122,11 +122,11 @@
   {
     "name": "Glossary",
     "icon": "newspaper",
-    "to": "/docs/glossary"
+    "to": "/glossary"
   },
   {
     "name": "FAQ",
     "icon": "support",
-    "to": "/docs/faq"
+    "to": "/faq"
   }
 ]

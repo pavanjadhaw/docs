@@ -2,6 +2,7 @@ const redirects = require("./redirects.json");
 
 module.exports = {
   reactStrictMode: true,
+  basePath: "/docs",
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.mdx?/,
