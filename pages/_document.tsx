@@ -6,7 +6,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>MagicBell - Docs</Head>
+        <Head>
+          <title>MagicBell - Docs</title>
+        </Head>
         <body>
           <Main />
           <NextScript />
