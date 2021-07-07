@@ -1,0 +1,42 @@
+---
+title: Overview
+---
+
+Welcome! This is the official documentation for MagicBell's REST API. MagicBell is the Notification Inbox for your product. Use MagicBell's API to send notifications to your users and retrieve notifications previously sent to a user.
+
+With a single request, MagicBell can deliver notifications to your users' Notification Inboxes, their email addresses, their browsers, etc.
+
+The REST API is hosted at https://api.magicbell.com. It utilizes standard HTTP response codes and returns JSON responses.
+
+If you're new to our API, we highly recommend starting with our [Getting started](/docs/getting-started-with-magicbell) guide. If you've queries regarding the API or hit upon a problem while utilizing it, write to us at hello@magicbell.io, we'll be happy to help!
+
+## Error codes
+
+MagicBell's API utilizes [HTTP response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) to indicate the success or failure of an API request. A `2xx` response code indicates success, and a `4xx` response code means that the API request is incorrect (like when a required parameter is missing or a resource, like a user, could not be found). A `5xx` response code indicates an error in MagicBell's servers. These are rare, and we always act quickly to solve them.
+
+When MagicBell's API responds with a `4xx` response code, the response body includes an array that contains all the errors that have happened. For example:
+
+```json
+{
+  "errors": [
+    {
+      "code": "api_secret_not_provided",
+      "suggestion": "Please provide the 'X-MAGICBELL-API-SECRET' header containing your MagicBell project's API secret. Alternatively, if you intend to use MagicBell's API in JavaScript in your web application's frontend, please provide the 'X-MAGICBELL-USER-EMAIL' header containing a user's email and the 'X-MAGICBELL-USER-HMAC' containing the user's HMAC.",
+      "message": "API Secret not provided",
+      "help_link": "https://developer.magicbell.com/reference#authentication"
+    }
+  ]
+}
+```
+
+Each error has a `code` that briefly describes the error that has happened. These are the available error codes:
+
+- `api_key_not_provided`
+- `incorrect_api_key`
+- `api_secret_not_provided`
+- `api_secret_is_incorrect`
+- `forbidden`
+- `neither_user_hmac_nor_api_secret_provided`
+- `user_email_not_provided`
+
+You can programmatically handle these error codes and take necessary action (like displaying an appropriate error message to the users).
