@@ -5,6 +5,7 @@ export type SitemapItem = {
   to?: string;
   icon?: string;
   children?: SitemapItem[];
+  staticRoute?: boolean;
 };
 
-export default sitemap;
+export default sitemap as SitemapItem[];

@@ -2,7 +2,8 @@
   {
     "name": "Home",
     "icon": "home",
-    "to": "/"
+    "to": "/",
+    "staticRoute": true
   },
   {
     "name": "Getting started",
@@ -35,12 +36,9 @@
         "to": "/rest-api/overview"
       },
       {
-        "name": "Authentication",
-        "to": "/rest-api/authentication"
-      },
-      {
         "name": "API reference",
-        "to": "/rest-api/reference"
+        "to": "/rest-api/reference",
+        "staticRoute": true
       }
     ]
   },
@@ -122,7 +120,8 @@
   {
     "name": "Glossary",
     "icon": "newspaper",
-    "to": "/glossary"
+    "to": "/glossary",
+    "staticRoute": true
   },
   {
     "name": "FAQ",
