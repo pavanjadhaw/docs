@@ -1,0 +1,207 @@
+---
+title: Customizing the default theme
+---
+
+The notification inbox has a default theme, but you might want to change it, so it matches your site's style. You can do so by overriding default rules.
+
+In the following example, we show how to change the color of the bell icon, the header's font, and the background color of the footer of the notification inbox.
+
+<Code>
+
+```jsx
+import React from 'react';
+import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
+
+export default function Notifications() {
+  // Your custom theme definition
+  const theme = {
+    icon: { borderColor: 'white' },
+    header: { fontFamily: 'Arial' },
+    footer: { backgroundColor: 'blue' },
+  };
+
+  return (
+    <MagicBell apiKey="MAGICBELL_API_KEY" userExternalId="mary@example.com" theme={theme}>
+      {(props) => <FloatingNotificationInbox height={500} {...props} />}
+    </MagicBell>
+  );
+}
+```
+
+```html
+<script type="module">
+  import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
+
+  // Your custom theme definition
+  let theme = {
+    icon: { borderColor: 'white' },
+    header: { fontFamily: 'Arial' },
+    footer: { backgroundColor: 'blue' },
+  };
+
+  let targetEl = document.getElementById('notifications-inbox');
+  let options = {
+    apiKey: 'MAGICBELL_API_KEY',
+    userExternalId: 'u001',
+    height: 500,
+    theme,
+  };
+
+  magicbell('render', targetEl, options);
+</script>
+```
+
+</Code>
+
+### The Bell Icon
+
+This is an SVG image, you can change the size and color of it.
+
+| Property name | Default value |
+| ------------- | ------------- |
+| borderColor   | #3498F4       |
+| width         | 24px          |
+
+### The header
+
+You can change the background color and its opacity, the text color and size and the border radius among others.
+
+This is a complete list of the customizable setttings:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | #3498F4                                                                                                             |
+| backgroundOpacity | 1                                                                                                                   |
+| borderRadius      | 8px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 14px                                                                                                                |
+| textAlign         | left                                                                                                                |
+| textTransform     | none                                                                                                                |
+
+### The unseen badge
+
+This element shows the number of unseen notifications for the current user. You can change the background color and opacity, the border radius, and the font size among others. The size of this element is relative to the size of the bell.
+
+This is a complete list of the customizable setttings:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | #DF4759                                                                                                             |
+| backgroundOpacity | 1                                                                                                                   |
+| borderRadius      | 2px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 10px                                                                                                                |
+| textAlign         | left                                                                                                                |
+| textTransform     | none                                                                                                                |
+
+### The footer
+
+You can change the background color and its opacity, the text color and size and the border radius among others.
+
+This is a complete list of the customizable setttings:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | #3498F4                                                                                                             |
+| backgroundOpacity | 1                                                                                                                   |
+| borderRadius      | 8px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 10px                                                                                                                |
+| textAlign         | left                                                                                                                |
+
+### The notification
+
+The style of a notification depends on its state. It can be unseen, unread or read.
+
+This is the default style of a read notification:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | transparent, #3498F4 on hover. If you change this setting, _only the hover state will be affected_.                 |
+| backgroundOpacity | 0.1                                                                                                                 |
+| borderRadius      | 8px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 14px                                                                                                                |
+| textAlign         | left                                                                                                                |
+| textColor         | #3A424D                                                                                                             |
+| textTransform     | none                                                                                                                |
+
+This is the default style of an unseen notification:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | #3498F4                                                                                                             |
+| backgroundOpacity | 0.05                                                                                                                |
+| borderRadius      | 8px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 14px                                                                                                                |
+| textAlign         | left                                                                                                                |
+| textColor         | #3A424D                                                                                                             |
+| textTransform     | none                                                                                                                |
+
+And this is the default style of an unread (but seen) notification:
+
+| Property name     | Default value                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| backgroundColor   | #3498F4                                                                                                             |
+| backgroundOpacity | 0.1                                                                                                                 |
+| borderRadius      | 8px                                                                                                                 |
+| textColor         | white                                                                                                               |
+| fontFamily        | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif |
+| fontSize          | 14px                                                                                                                |
+| textAlign         | left                                                                                                                |
+| textColor         | #3A424D                                                                                                             |
+| textTransform     | none                                                                                                                |
+
+By combining the above options you can get a huge variety of themes. For example, this is the definition of a dark theme:
+
+```javascript
+var theme = {
+  icon: { borderColor: 'white' },
+  header: {
+    backgroundColor: '#FAD776',
+    backgroundOpacity: 0,
+    borderRadius: '4px',
+    textColor: 'white',
+  },
+  footer: {
+    backgroundColor: '#333A40',
+    backgroundOpacity: 1,
+    borderRadius: '4px',
+    textColor: 'white',
+  },
+  container: { backgroundColor: '#333A40' },
+  notification: {
+    default: {
+      backgroundColor: '#333A40',
+      borderRadius: '4px',
+      textColor: 'white',
+    },
+    unread: {
+      backgroundColor: '#212328',
+      backgroundOpacity: 0.75,
+      borderRadius: '4px',
+      textColor: 'white',
+    },
+    unseen: {
+      backgroundColor: '#009FF6',
+      backgroundOpacity: 0.2,
+      borderRadius: '4px',
+      textColor: 'white',
+    },
+  },
+};
+
+var options = {
+  apiKey: MAGICBELL_API_KEY,
+  userEmail: CURRENT_USER_EMAIL,
+  theme: theme,
+};
+```
+
+<img className="full-mobile" src="/docs/uploads/7a5e8cd-Screen_Shot_2020-12-17_at_11.46.51_PM.png" style={{ width: "80%", height: 'intrinsic' }} />

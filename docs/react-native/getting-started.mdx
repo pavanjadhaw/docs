@@ -1,0 +1,64 @@
+---
+title: Getting started with React Native
+---
+
+Our [`@magicbell/react-headless`](https://www.npmjs.com/package/@magicbell/react-headless) package contains components and hooks that will help you create a notification inbox for your React Native app.
+
+## Installation
+
+To get started, install the NPM package:
+
+```shell
+npm install @magicbell/magicbell-react
+# Or
+yarn add @magicbell/magicbell-react
+```
+
+## Usage
+
+Then, wrap your app with the headless `MagicBellProvider` component. You can initialize it with either the email or ID of the user.
+
+```jsx
+import { MagicBellProvider } from '@magicbell/react-headless';
+import { Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <MagicBellProvider apiKey="MAGICBELL_API_KEY" userExternalId="u001">
+      <View>
+        <Text>Step One</Text>
+      </View>
+    </MagicBellProvider>
+  );
+}
+```
+
+Now you can display notifications using the `useNotifications` hook. In the following example, you can see how to render a list of notifications.
+
+```jsx
+import { observer, useNotifications } from '@magicbell/react-headless';
+import React from 'react';
+import { FlatList } from 'react-native';
+import Notification from './Notification';
+
+function NotificationInbox() {
+  const store = useNotifications();
+
+  if (!store) return null;
+  return (
+    <FlatList
+      data={store.items}
+      keyExtractor={(notification) => notification.id}
+      renderItem={({ item }) => <Notification notification={item} />}
+    />
+  );
+}
+
+export default observer(NotificationInbox);
+```
+
+Notice that this component is wrapped with the `observer` function to automatically update notifications in real-time.
+
+## Complete example
+
+We created a complete [example written in React Native](https://codesandbox.io/s/react-native-example-roln4). Feel free to fork it, and contact us if you have any questions.

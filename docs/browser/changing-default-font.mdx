@@ -1,0 +1,52 @@
+---
+title: How to change the default font
+---
+
+## Change the font family
+
+MagicBell uses system fonts by default (`'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'`). But you can change this in 2 easy steps.
+
+- Override the default theme setting the name of the font family for the elements you want to be affected
+- Provide the stylesheets that contain the definition of the font you want to use
+
+In the following example, we are changing the font to [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans), a font available at [Google Fonts](https://fonts.google.com/).
+
+```html
+<script type="module">
+  import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
+
+  var theme = {
+    header: { fontFamily: 'IBM Plex Sans' },
+    footer: { fontFamily: 'IBM Plex Sans' },
+    notification: {
+      default: { fontFamily: 'IBM Plex Sans' },
+      unseen: { fontFamily: 'IBM Plex Sans' },
+      unread: { fontFamily: 'IBM Plex Sans' },
+    },
+  };
+
+  var stylesheets = [
+    'https://fonts.gstatic.com',
+    'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500',
+  ];
+
+  var target = document.getElementById('notifications-inbox');
+  var options = {
+    apiKey: 'MAGICBELL_API_KEY',
+    userEmail: 'mary@example.com',
+    height: 500,
+    theme,
+    stylesheets,
+  };
+
+  magicbell('render', target, options);
+</script>
+```
+
+<Note>
+  You don't need to provide the url of your fonts if the font is a web safe one.
+</Note>
+
+<Warning>
+  The MagicBell widget sets 500 as the notification's title weight. Therefore, make sure to include in the 200 and 500 weight variations, as shown in the previous example.
+</Warning>

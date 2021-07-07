@@ -1,0 +1,61 @@
+---
+title: Setting a custom click handler
+---
+
+If you create notifications with an `action_url`, this URL will be opened in the same window when a user clicks on the notification. However, you can easily set a custom click handler by setting the `onNotificationClick` property on the `FloatingNotificationInbox` component.
+
+## Open the action url in a new tab
+
+```jsx
+import React from 'react';
+import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
+
+export default function Notifications() {
+  const openActionUrl = (notification) => {
+    // Open the action url in a new tab if the notification has one
+    if (notification.actionUrl) window.open(notification.actionUrl);
+  };
+
+  return (
+    <MagicBell apiKey="MAGICBELL_API_KEY" userExternalId="u001">
+      {(props) => (
+        <FloatingNotificationInbox
+          height={500}
+          onNotificationClick={openActionUrl}
+          {...props}
+        />
+      )}
+    </MagicBell>
+  );
+}
+```
+
+## Single page application navigation
+
+The following example shows how to do navigation in a single page application (SPA) that has [React Router](https://reactrouter.com/web).
+
+```jsx
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
+
+export default function Notifications() {
+  const history = useHistory();
+
+  const navigateToActionUrl = (notification) => {
+    if (notification.actionUrl) history.push(notification.actionUrl);
+  };
+
+  return (
+    <MagicBell apiKey="MAGICBELL_API_KEY" userExternalId="u001">
+      {(props) => (
+        <FloatingNotificationInbox
+          height={500}
+          onNotificationClick={navigateToActionUrl}
+          {...props}
+        />
+      )}
+    </MagicBell>
+  );
+}
+```

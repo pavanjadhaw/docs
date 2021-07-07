@@ -1,0 +1,82 @@
+---
+title: Changing the default notification component
+---
+
+You can change the default notification component in two easy steps:
+
+- Define your custom component for rendering notifications
+- Pass it to the `FloatingNotificationInbox` component using the `NotificationItem` property
+
+## Creating a custom notification component
+
+MagicBell uses a reactive approach to render your notification inbox. Therefore, you must register your custom components as observers of the state. You can do it by simply wrapping your components with the `observer` function, which you can also import from our [react package](https://www.npmjs.com/package/@magicbell/magicbell-react).
+
+```jsx
+import React from 'react';
+import MagicBell, { observer } from '@magicbell/magicbell-react';
+
+function CustomNotification(notification) {
+  return (
+    <a href={notification.actionUrl}>
+      <b>{notification.title}</b>
+      <p>{notification.content}</p>
+    </a>
+  );
+}
+
+export default observer(CustomNotification);
+```
+
+Then, pass it to the `FloatingNotificationInbox` component:
+
+```jsx
+import React from 'react';
+import MagicBell, { observer } from '@magicbell/magicbell-react';
+import CustomNotification from './CustomNotification';
+
+export default function Notifications() {
+  return (
+    <MagicBell apiKey="MAGICBELL_API_KEY" userEmail="mary@example.com">
+      {(props) => (
+        <FloatingNotificationInbox
+          height={500}
+          NotificationItem={CustomNotification}
+          {...props}
+        />
+      )}
+    </MagicBell>
+  );
+}
+```
+
+## Styling your custom component
+
+You can choose any method of your liking to style your custom notification component. However, MagicBell comes with a theme context, which you can leverage if you want to.
+
+You may access MagicBell's theme context using the `useTheme` hook from our [react package](https://www.npmjs.com/package/@magicbell/magicbell-react).
+
+```jsx
+import React from 'react';
+import MagicBell, { useTheme, observer } from '@magicbell/magicbell-react';
+
+function CustomNotification(notification) {
+  const theme = useTheme();
+
+  return (
+    <a
+      href={notification.actionUrl}
+      style={{
+        backgroundColor: theme.notification.default.backgroundColor,
+        fontSize: theme.notification.default.fontSize,
+      }}
+    >
+      <b>{notification.title}</b>
+      <p>{notification.content}</p>
+    </a>
+  );
+}
+
+export default observer(CustomNotification);
+```
+
+Please refer to our [theming guide](/react/theme-customization) for a complete description of the theme context.
