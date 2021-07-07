@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-export default function Note({ children, className }) {
+export default function Callout({ children, className }) {
   return (
     <div
       className={classNames(
