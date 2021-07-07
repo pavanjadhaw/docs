@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import React from "react";
 
