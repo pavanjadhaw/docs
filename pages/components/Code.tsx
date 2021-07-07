@@ -10,6 +10,7 @@ import python from "highlight.js/lib/languages/python";
 import ruby from "highlight.js/lib/languages/ruby";
 import typescript from "highlight.js/lib/languages/typescript";
 import xml from "highlight.js/lib/languages/xml";
+// @ts-ignore
 import curl from "highlightjs-curl";
 import React from "react";
 
