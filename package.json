@@ -13,6 +13,7 @@
     "@heroicons/react": "^1.0.1",
     "@types/ramda": "^0.27.42",
     "classnames": "^2.3.1",
+    "framer-motion": "^4.1.17",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.0.1",
     "highlightjs-curl": "^1.2.1",
