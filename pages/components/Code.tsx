@@ -8,6 +8,7 @@ import json from "highlight.js/lib/languages/json";
 import php from "highlight.js/lib/languages/php";
 import python from "highlight.js/lib/languages/python";
 import ruby from "highlight.js/lib/languages/ruby";
+import typescript from "highlight.js/lib/languages/typescript";
 import xml from "highlight.js/lib/languages/xml";
 import curl from "highlightjs-curl";
 import React from "react";
@@ -23,6 +24,7 @@ hljs.registerLanguage("php", php);
 hljs.registerLanguage("python", python);
 hljs.registerLanguage("ruby", ruby);
 hljs.registerLanguage("shell", bash);
+hljs.registerLanguage("typescript", typescript);
 hljs.registerLanguage("xml", xml);
 
 export interface CodeProps {
