@@ -31,9 +31,14 @@ hljs.registerLanguage('xml', xml);
 export interface CodeProps {
   children: string;
   className?: string;
+  hideHeader?: boolean;
 }
 
-export default function Code({ children: code, className }: CodeProps) {
+export default function Code({
+  children: code,
+  className,
+  hideHeader = false,
+}: CodeProps) {
   if (!code) return null;
 
   const language = className?.replace('language-', '') || 'bash';
@@ -44,14 +49,16 @@ export default function Code({ children: code, className }: CodeProps) {
 
   return (
     <code className={classNames('block my-4', className)}>
-      <div
-        className="px-6 py-3 rounded-t-md uppercase text-xs font-bold text-white"
-        style={{
-          background: '#222337',
-        }}
-      >
-        {language}
-      </div>
+      {hideHeader ? (
+        <div
+          className="px-6 py-3 rounded-t-md uppercase text-xs font-bold text-white"
+          style={{
+            background: '#222337',
+          }}
+        >
+          {language}
+        </div>
+      ) : null}
       <pre
         style={{
           background: '#31324e',
