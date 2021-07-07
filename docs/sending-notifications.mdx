@@ -5,9 +5,7 @@ title: Sending Notifications
 MagicBell allows you to send a notification to one user or many - up to 1000 users in a single request - using the [create notification API endpoint](/docs/rest-api/reference#operation/create-notification). The way you send notifications to a user depends on how you identify users in your app. MagicBell natively accepts emails and strings as unique identifiers for users.
 
 <Note>
-  Be sure to replace <code>MAGICBELL_API_KEY</code> and{" "}
-  <code>MAGICBELL_API_SECRET</code> with your actual API key and API secret
-  before running the following examples.
+Be sure to replace MAGICBELL_API_KEY and MAGICBELL_API_SECRET with your actual API key and API secret before running the following examples.
 </Note>
 
 ## You identify users by their email address
@@ -86,27 +84,24 @@ response = requests.post('https://api.magicbell.com/notifications', headers=head
 ```
 
 ```javascript
-import axios from "axios";
+import axios from 'axios';
 
 const headers = {
-  "X-MAGICBELL-API-SECRET": "MAGICBELL_API_KEY",
-  "X-MAGICBELL-API-KEY": "MAGICBELL_API_SECRET",
+  'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+  'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
 };
 
 const data = {
   notification: {
-    title: "Task assigned to you: Upgrade to Startup plan",
-    content: "Hello, can you upgrade us to the Startup plan. Thank you.",
-    category: "billing",
-    action_url: "https://magicbell.com/pricing",
-    recipients: [
-      { email: "mary@example.com" },
-      { email: "richard@example.com" },
-    ],
+    title: 'Task assigned to you: Upgrade to Startup plan',
+    content: 'Hello, can you upgrade us to the Startup plan. Thank you.',
+    category: 'billing',
+    action_url: 'https://magicbell.com/pricing',
+    recipients: [{ email: 'mary@example.com' }, { email: 'richard@example.com' }],
   },
 };
 
-axios.post("https://api.magicbell.com/notifications", data, { headers });
+axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
 </Code>
@@ -189,24 +184,24 @@ response = requests.post('https://api.magicbell.com/notifications', headers=head
 ```
 
 ```javascript
-import axios from "axios";
+import axios from 'axios';
 
 const headers = {
-  "X-MAGICBELL-API-SECRET": "MAGICBELL_API_KEY",
-  "X-MAGICBELL-API-KEY": "MAGICBELL_API_SECRET",
+  'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+  'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
 };
 
 const data = {
   notification: {
-    title: "Task assigned to you: Upgrade to Startup plan",
-    content: "Hello, can you upgrade us to the Startup plan. Thank you.",
-    category: "billing",
-    action_url: "https://magicbell.com/pricing",
-    recipients: [{ external_id: "u001" }, { external_id: "u002" }],
+    title: 'Task assigned to you: Upgrade to Startup plan',
+    content: 'Hello, can you upgrade us to the Startup plan. Thank you.',
+    category: 'billing',
+    action_url: 'https://magicbell.com/pricing',
+    recipients: [{ external_id: 'u001' }, { external_id: 'u002' }],
   },
 };
 
-axios.post("https://api.magicbell.com/notifications", data, { headers });
+axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
 </Code>
@@ -214,5 +209,5 @@ axios.post("https://api.magicbell.com/notifications", data, { headers });
 Notice that each recipient has the `external_id` key set.
 
 <Warning>
-  If you use an integer to identify users, remember to cast it to a string.
+If you use an integer to identify users, remember to cast it to a string.
 </Warning>
