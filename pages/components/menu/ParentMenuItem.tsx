@@ -2,16 +2,11 @@ import { ChevronRightIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
 import React from "react";
 import { useToggle } from "react-use";
+import { SitemapItem } from "../../../lib/sitemap";
 import LinkIcon from "./LinkIcon";
 import MenuItem from "./MenuItem";
 
-interface Props {
-  name: string;
-  icon?: string;
-  children: [];
-}
-
-export default function ParentMenuItem({ name, icon, children }: Props) {
+export default function ParentMenuItem({ name, icon, children }: SitemapItem) {
   const [isOpen, toggle] = useToggle(false);
 
   return (
@@ -31,7 +26,7 @@ export default function ParentMenuItem({ name, icon, children }: Props) {
       </button>
       {isOpen && (
         <ul className="border-l border-gray-200 border-dashed ml-9">
-          {children.map((item, index) => (
+          {children?.map((item, index) => (
             <MenuItem key={index} {...item} />
           ))}
         </ul>

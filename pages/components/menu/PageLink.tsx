@@ -2,21 +2,15 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { SitemapItem } from "../../../lib/sitemap";
 import LinkIcon from "./LinkIcon";
 
-interface Props {
-  name: string;
-  to: string;
-  icon?: string;
-}
-
-export default function PageLink({ name, to, icon }: Props) {
+export default function PageLink({ name, to, icon }: SitemapItem) {
   const router = useRouter();
   const isActive = router.asPath === to;
-  console.warn(router.asPath);
 
   return (
-    <Link href={to}>
+    <Link href={to || ""}>
       <a
         className={classNames(
           isActive

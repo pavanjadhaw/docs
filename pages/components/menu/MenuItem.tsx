@@ -1,15 +1,9 @@
 import React from "react";
+import { SitemapItem } from "../../../lib/sitemap";
 import PageLink from "./PageLink";
 import ParentMenuItem from "./ParentMenuItem";
 
-interface Props {
-  name: string;
-  to?: string;
-  icon?: string;
-  children?: [];
-}
-
-export default function MenuItem(props: Props) {
+export default function MenuItem(props: SitemapItem) {
   if (props.children) return <ParentMenuItem {...props} />;
   if (props.to) return <PageLink {...props} />;
   return null;
