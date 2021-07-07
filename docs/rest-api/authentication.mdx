@@ -1,10 +1,12 @@
 ---
-title: Authentication
+title: REST API reference
 ---
+
+## Authentication
 
 MagicBell's REST API utilizes your MagicBell's project's API key and secret to authenticate requests. Your MagicBell project's API key and secret are available in the "Settings" section of your MagicBell Admin Dashboard.
 
-## Expected headers
+### Expected headers
 
 When performing an API request, provide:
 
@@ -100,7 +102,7 @@ fetch('https://api.magicbell.com/notifications', {
 
 </Code>
 
-## Requests on behalf of your users
+### Requests on behalf of your users
 
 Your users can and will make requests to some MagicBell API endpoints to fetch their notifications, for example. To prevent users from fetching data from other users of your app, enable HMAC authentication. When HMAC is enabled, you need to provide one additional header: `X-MAGICBELL-USER-HMAC`.
 
