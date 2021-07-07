@@ -13,7 +13,7 @@ export default function SearchBar() {
         </div>
         <input
           id="search-field"
-          className="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+          className="block h-full w-full border-transparent py-4 md:py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
           placeholder="Search"
           type="search"
           name="search"
