@@ -1,7 +1,5 @@
 import { MenuAlt2Icon } from "@heroicons/react/outline";
-import Image from "next/image";
 import React from "react";
-import whiteLogo from "../../../public/white-logo.png";
 
 interface Props {
   onToggleMenu: () => void;
@@ -22,8 +20,12 @@ export default function Header({ onToggleMenu }: Props) {
         <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
       </button>
       <div className="flex-1 hidden justify-between py-2 px-4 md:flex max-w-screen-xl mx-auto">
-        <div className="flex-1 flex">
-          <Image src={whiteLogo} alt="MagicBell" height={40} />
+        <div className="flex-1 flex items-center">
+          <img
+            src="/docs/white-logo.png"
+            alt="MagicBell"
+            style={{ height: "40px" }}
+          />
         </div>
         <div className="ml-4 flex items-center md:ml-6 space-x-5 py-4">
           <a href="https://magicbell.com/pricing">Pricing</a>
