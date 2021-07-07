@@ -1,0 +1,111 @@
+/*
+ * highlightjs-material-dark-theme
+ * Material Dark theme for Highlight.js
+ * Based off of https://github.com/equinusocio/material-theme
+ * For use with Highlight.js, https://github.com/isagalaev/highlight.js
+ */
+
+.hljs::selection,
+.hljs *::selection {
+  background: #21233b;
+}
+
+.hljs-comment {
+  color: #6e778c;
+  font-style: italic;
+}
+
+.hljs-selector-tag {
+  color: #c792ea;
+}
+
+.hljs-string,
+.hljs-subst {
+  color: #aff19f;
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #ff8383;
+}
+
+.hljs-keyword {
+  color: #c792ea;
+}
+
+.hljs-function > .hljs-title {
+  color: #93ddfd;
+}
+
+.hljs-tag {
+  color: #abb2bf;
+}
+
+.hljs-type,
+.hljs-name {
+  color: #ff8383;
+}
+
+.hljs-attribute {
+  color: #80cbbf;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-builtin-name,
+.hljs-link {
+  color: #c792ea;
+}
+
+.hljs-params {
+  color: #f5d66b;
+}
+
+.hljs-meta {
+  color: #76dce8;
+}
+
+.hljs-built_in,
+.hljs-title {
+  color: #93ddfd;
+}
+
+.hljs-section {
+  color: #ffc66d;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #f5d66b;
+}
+
+.hljs-selector-id {
+  color: #ff8383;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
