@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import hljs from "highlight.js/lib/core";
 import bash from "highlight.js/lib/languages/bash";
+import diff from "highlight.js/lib/languages/diff";
 import java from "highlight.js/lib/languages/java";
 import javascript from "highlight.js/lib/languages/javascript";
+import json from "highlight.js/lib/languages/json";
 import php from "highlight.js/lib/languages/php";
 import python from "highlight.js/lib/languages/python";
 import ruby from "highlight.js/lib/languages/ruby";
@@ -12,8 +14,10 @@ import React from "react";
 
 hljs.registerLanguage("bash", bash);
 hljs.registerLanguage("curl", curl);
+hljs.registerLanguage("diff-html", diff);
 hljs.registerLanguage("java", java);
 hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("json", json);
 hljs.registerLanguage("node", javascript);
 hljs.registerLanguage("php", php);
 hljs.registerLanguage("python", python);
