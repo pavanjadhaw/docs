@@ -36,6 +36,7 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
   );
 }
 
+// @ts-ignore
 export const getStaticPaths: GetStaticPaths = async () => {
   // Load routes from the sitemap
   const [root, ...allRoutes] = flatten(
