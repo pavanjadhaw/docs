@@ -17,11 +17,12 @@ interface Props {
 }
 
 export default function Document({ mdxSource, metadata = {} }: Props) {
-  const { title = "Docs" } = metadata;
+  const { title, subtitle } = metadata;
 
   return (
-    <Page title={title}>
-      <h1 className="mt-12">{title}</h1>
+    <Page title={title || "Docs"}>
+      <h1 className="mt-12 mb-2">{title}</h1>
+      <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
           <MDXRemote
