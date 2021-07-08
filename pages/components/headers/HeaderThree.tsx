@@ -6,6 +6,8 @@ interface Props {
 }
 
 export default function HeaderThree({ children }: Props) {
+  if (!children) return null;
+
   const id = slugify(children, { lower: true });
   return <h3 id={id}>{children}</h3>;
 }
