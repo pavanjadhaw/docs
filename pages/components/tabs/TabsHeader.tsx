@@ -16,6 +16,7 @@ interface Props {
  * </TabsHeader>
  */
 export default function TabsHeader({ tabs, children, currentTabIndex }: Props) {
+  if (!tabs) return null;
   return (
     <div
       className="px-3 rounded-t-md space-x-2 text-white flex items-center"

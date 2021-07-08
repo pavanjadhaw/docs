@@ -23,12 +23,13 @@ export interface CodeTabsProps {
 export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
   const [focusedIndex, setFocusedIndex] = useState(defaultIndex);
 
-  const tabs = children.map(({ props }) => ({
+  const tabs = children?.map(({ props }) => ({
     // Get code > pre props
     title: props.children.props.title,
     code: props.children.props.children,
   }));
 
+  if (!children) return null;
   return (
     <div className="my-4">
       <TabsHeader tabs={tabs} currentTabIndex={focusedIndex}>
