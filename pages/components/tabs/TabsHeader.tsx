@@ -1,9 +1,10 @@
-import { ClipboardIcon } from '@heroicons/react/outline';
 import React from 'react';
+import CopyButton from '../CopyButton';
 
 interface Props {
   tabs: any[];
   children: (tab: any, index: number) => JSX.Element | JSX.Element[];
+  currentTabIndex: number;
 }
 
 /**
@@ -14,7 +15,7 @@ interface Props {
  *   {({ tab }) => renderTabButton(tab)}
  * </TabsHeader>
  */
-export default function TabsHeader({ tabs, children }: Props) {
+export default function TabsHeader({ tabs, children, currentTabIndex }: Props) {
   return (
     <div
       className="px-3 rounded-t-md space-x-2 text-white flex items-center"
@@ -22,9 +23,7 @@ export default function TabsHeader({ tabs, children }: Props) {
     >
       <div className="flex-1">{tabs.map((tab, index) => children(tab, index))}</div>
       <div>
-        <button className="">
-          <ClipboardIcon className="h-4 w-4" />
-        </button>
+        <CopyButton text={tabs[currentTabIndex].code} />
       </div>
     </div>
   );

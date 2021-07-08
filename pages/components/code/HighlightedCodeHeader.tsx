@@ -1,5 +1,5 @@
-import { ClipboardIcon } from '@heroicons/react/outline';
 import React from 'react';
+import CopyButton from '../CopyButton';
 
 interface Props {
   title: string;
@@ -16,9 +16,7 @@ export default function HighlightedCodeHeader({ title, code }: Props) {
     >
       <span className="flex-1">{title}</span>
       <div>
-        <button>
-          <ClipboardIcon className="h-4 w-4" />
-        </button>
+        <CopyButton text={code} />
       </div>
     </div>
   );
