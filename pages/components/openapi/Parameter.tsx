@@ -13,7 +13,11 @@ export default function Parameter({ param }: Props) {
         {param.name}
         {param.required && <span className="text-red-500 mx-4 text-xs">required</span>}
       </p>
-      <p className="opacity-60">{param.description}</p>
+      <p className="opacity-60 m-0">{param.description}</p>
+      <p className="opacity-60 m-0">
+        {/* @ts-ignore */}
+        {param.schema?.type}
+      </p>
     </div>
   );
 }
