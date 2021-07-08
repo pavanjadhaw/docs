@@ -15,7 +15,7 @@ export default function HighlightedCodeHeader({ title, code }: Props) {
       }}
     >
       <span className="flex-1">{title}</span>
-      <div>
+      <div className="border-l border-gray-500 pl-2">
         <CopyButton text={code} />
       </div>
     </div>

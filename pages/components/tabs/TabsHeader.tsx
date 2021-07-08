@@ -23,7 +23,7 @@ export default function TabsHeader({ tabs, children, currentTabIndex }: Props) {
       style={{ background: 'rgb(34, 35, 55)' }}
     >
       <div className="flex-1">{tabs.map((tab, index) => children(tab, index))}</div>
-      <div>
+      <div className="border-l border-gray-500 pl-2">
         <CopyButton text={tabs[currentTabIndex].code} />
       </div>
     </div>
