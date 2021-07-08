@@ -10,6 +10,7 @@ import sitemap from '../lib/sitemap';
 import Callout from './components/Callout';
 import HighlightedCode from './components/code/HighlightedCode';
 import Page from './components/layout/Page';
+import Table from './components/Table';
 import Tabs from './components/tabs/Tabs';
 
 interface Props {
@@ -28,7 +29,13 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
         <article className="mdx-content">
           <MDXRemote
             {...mdxSource}
-            components={{ Note: Callout, code: HighlightedCode, Tabs, HighlightedCode }}
+            components={{
+              code: HighlightedCode,
+              table: Table,
+              Note: Callout,
+              Tabs,
+              HighlightedCode,
+            }}
           />
         </article>
       ) : (

@@ -60,6 +60,26 @@
     font-size: 1rem;
     font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
   }
+
+  table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  table thead {
+    @apply bg-gray-50;
+  }
+
+  table thead th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  table tbody tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+
+  table tbody td {
+    @apply px-6 py-4 text-sm text-gray-500;
+  }
 }
 
 @tailwind components;
