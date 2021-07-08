@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Footer() {
   return (
     <footer className="w-full z-10 relative">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center pt-8 pb-24 space-x-12">
+      <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-center pt-8 pb-24 space-x-12">
         <div className="mb-8 ml-12 md:pr-24 md:ml-0">
           <span className="text-2xl font-bold">MagicBell</span>
           <div className="flex space-x-4 mt-4">
@@ -79,17 +79,13 @@ export default function Footer() {
           <h6 className="uppercase mb-4 text-sm">Learn</h6>
           <ul>
             <li className="mb-3">
-              <a href="https://magicbell.com/docs/api-reference">
-                API Documentation
-              </a>
+              <a href="https://magicbell.com/docs/api-reference">API Documentation</a>
             </li>
             <li className="mb-3">
               <a href="https://magicbell.com/docs">Reference Guides</a>
             </li>
             <li className="mb-3">
-              <a href="https://community.magicbell.io/">
-                Developer Community Forum
-              </a>
+              <a href="https://community.magicbell.io/">Developer Community Forum</a>
             </li>
             <li className="mb-3">
               <a href="https://magicbell.com/blog/building-a-user-notification-system">
@@ -112,14 +108,10 @@ export default function Footer() {
           <h6 className="uppercase mb-4 text-sm">Product</h6>
           <ul>
             <li className="mb-3">
-              <a href="https://github.com/magicbell-io/magicbell-ruby">
-                Ruby Gem
-              </a>
+              <a href="https://github.com/magicbell-io/magicbell-ruby">Ruby Gem</a>
             </li>
             <li className="mb-3">
-              <a href="https://www.npmjs.com/package/@magicbell/core">
-                Node.js Package
-              </a>
+              <a href="https://www.npmjs.com/package/@magicbell/core">Node.js Package</a>
             </li>
             <li className="mb-3">
               <a href="https://www.npmjs.com/package/@magicbell/magicbell-react">

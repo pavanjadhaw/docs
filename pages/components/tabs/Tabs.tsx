@@ -1,10 +1,11 @@
 import classNames from 'classnames';
+import { isNil, reject } from 'ramda';
 import React, { useState } from 'react';
 import TabPanel from './TabPanel';
 import TabsHeader from './TabsHeader';
 
 export interface CodeTabsProps {
-  children: JSX.Element[];
+  children: (JSX.Element | null)[];
   defaultIndex?: number;
 }
 
@@ -21,13 +22,17 @@ export interface CodeTabsProps {
  *   ```
  * </Tabs>
  */
-export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
+export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTabsProps) {
   const [focusedIndex, setFocusedIndex] = useState(defaultIndex);
 
-  const tabs = children?.map(({ props }) => ({
+  if (!allChildren) return null;
+
+  const children = reject(isNil, allChildren);
+  // @ts-ignore
+  const tabs = children?.map((component) => ({
     // Get code > pre props
-    title: props.children.props.title,
-    code: props.children.props.children,
+    title: component?.props.children.props.title,
+    code: component?.props.children.props.children,
   }));
 
   if (!children) return null;
@@ -49,7 +54,7 @@ export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
       </TabsHeader>
       {children.map((component, index) => (
         <TabPanel key={index} isActive={focusedIndex === index}>
-          {component.props.children}
+          {component?.props.children}
         </TabPanel>
       ))}
     </div>

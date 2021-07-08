@@ -2,7 +2,7 @@ import React from 'react';
 import CopyButton from '../CopyButton';
 
 interface Props {
-  title: string;
+  title: string | JSX.Element;
   code: string;
 }
 

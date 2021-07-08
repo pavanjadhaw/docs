@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
 import diff from 'highlight.js/lib/languages/diff';
+import go from 'highlight.js/lib/languages/go';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
@@ -18,6 +19,7 @@ import HighlightedCodeHeader from './HighlightedCodeHeader';
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('curl', curl);
 hljs.registerLanguage('diff-html', diff);
+hljs.registerLanguage('go', go);
 hljs.registerLanguage('java', java);
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('json', json);
@@ -31,7 +33,7 @@ hljs.registerLanguage('xml', xml);
 
 export interface HighlightedCodeProps {
   children: string;
-  title?: string;
+  title?: string | JSX.Element;
   className?: string;
   hideHeader?: boolean;
   noTopBorderRadius?: boolean;

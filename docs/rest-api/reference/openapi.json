@@ -13,7 +13,7 @@
         "operationId": "create-notification",
         "tags": ["Notification Send API"],
         "summary": "Create notification",
-        "description": "Send a notification to one or multiple users",
+        "description": "Send a notification to one or multiple users. You can identify users by their email address or by an external_id.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" }
@@ -21,7 +21,16 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/WrappedNotification" }
+              "schema": { "$ref": "#/components/schemas/WrappedNotification" },
+              "example": {
+                "title": "A guide to notification inbox design",
+                "content": "Content of the notification inbox",
+                "overrides": {
+                  "email": {
+                    "title": "A guide to notification inbox design"
+                  }
+                }
+              }
             }
           }
         },
@@ -38,13 +47,9 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification": {
-                        "id": "ffffff66-ea4f-4da2-afc6-84148b51657a"
-                      }
-                    }
+                "example": {
+                  "notification": {
+                    "id": "ffffff66-ea4f-4da2-afc6-84148b51657a"
                   }
                 }
               }
@@ -63,8 +68,8 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": { "value": { "errors": ["Recipient can't be blank"] } }
+                "example": {
+                  "errors": ["Recipient can't be blank"]
                 }
               }
             }
@@ -114,45 +119,41 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Notifications" },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "unseen_count": 1,
-                      "total": 2,
-                      "pages": 1,
-                      "per_page": 15,
-                      "current_page": 1,
-                      "notifications": [
-                        {
-                          "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                          "title": "A guide to notification center design",
-                          "action_url": "https://magicbell.com/blog/notification-system-design",
-                          "content": "Notification system design is a complex topic",
-                          "category": "new_message",
-                          "custom_attributes": {
-                            "encoding": "utf-8",
-                            "word_count": "500"
-                          },
-                          "recipient": { "email": "john@example.com" },
-                          "seen_at": null,
-                          "sent_at": 1601549080,
-                          "read_at": null
-                        },
-                        {
-                          "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
-                          "title": "Why MagicBell",
-                          "action_url": "https://magicbell.com",
-                          "content": "<p>User notifications significantly increase engagement in social apps and productivity in business apps.</p>",
-                          "category": "new_message",
-                          "custom_attributes": {},
-                          "recipient": { "email": "john@example.com" },
-                          "seen_at": 1601388747,
-                          "sent_at": 1601388730,
-                          "read_at": null
-                        }
-                      ]
+                "example": {
+                  "unseen_count": 1,
+                  "total": 2,
+                  "pages": 1,
+                  "per_page": 15,
+                  "current_page": 1,
+                  "notifications": [
+                    {
+                      "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                      "title": "A guide to notification center design",
+                      "action_url": "https://magicbell.com/blog/notification-system-design",
+                      "content": "Notification system design is a complex topic",
+                      "category": "new_message",
+                      "custom_attributes": {
+                        "encoding": "utf-8",
+                        "word_count": "500"
+                      },
+                      "recipient": { "email": "john@example.com" },
+                      "seen_at": null,
+                      "sent_at": 1601549080,
+                      "read_at": null
+                    },
+                    {
+                      "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
+                      "title": "Why MagicBell",
+                      "action_url": "https://magicbell.com",
+                      "content": "<p>User notifications significantly increase engagement in social apps and productivity in business apps.</p>",
+                      "category": "new_message",
+                      "custom_attributes": {},
+                      "recipient": { "email": "john@example.com" },
+                      "seen_at": 1601388747,
+                      "sent_at": 1601388730,
+                      "read_at": null
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -164,7 +165,8 @@
     "/notifications/{notification_id}": {
       "get": {
         "tags": ["User Notifications APIs"],
-        "summary": "Fetch user notification",
+        "summary": "Fetch a user's notification",
+        "operationId": "get-notification",
         "description": "Fetch a user's notification",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -182,25 +184,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotification"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "title": "A guide to notification center design",
-                        "action_url": "https://magicbell.com/blog/notification-system-design",
-                        "content": "Notification system design is a complex topic",
-                        "category": "new_message",
-                        "custom_attributes": {
-                          "encoding": "utf-8",
-                          "word_count": "500"
-                        },
-                        "recipient": { "email": "john@example.com" },
-                        "seen_at": null,
-                        "sent_at": 1601549080,
-                        "read_at": null
-                      }
-                    }
+                "example": {
+                  "notification": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "title": "A guide to notification center design",
+                    "action_url": "https://magicbell.com/blog/notification-system-design",
+                    "content": "Notification system design is a complex topic",
+                    "category": "new_message",
+                    "custom_attributes": {
+                      "encoding": "utf-8",
+                      "word_count": "500"
+                    },
+                    "recipient": { "email": "john@example.com" },
+                    "seen_at": null,
+                    "sent_at": 1601549080,
+                    "read_at": null
                   }
                 }
               }
@@ -232,7 +230,7 @@
         "operationId": "mark-user-notification-as-read",
         "tags": ["User Notification Actions APIs"],
         "summary": "Mark as read",
-        "description": "Mark a user notification as read",
+        "description": "Mark a user notification as read. Please keep in mind that the notification will be automatically marked as seen, too.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -320,20 +318,16 @@
           "content": {
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedUser" },
-              "examples": {
-                "response": {
-                  "value": {
-                    "user": {
-                      "external_id": "56780",
-                      "email": "hana@supportbee.com",
-                      "first_name": "Hana",
-                      "last_name": "Mohan",
-                      "custom_attributes": {
-                        "plan": "enterprise",
-                        "pricing_version": "v10",
-                        "preferred_pronoun": "She"
-                      }
-                    }
+              "example": {
+                "user": {
+                  "external_id": "56780",
+                  "email": "hana@supportbee.com",
+                  "first_name": "Hana",
+                  "last_name": "Mohan",
+                  "custom_attributes": {
+                    "plan": "enterprise",
+                    "pricing_version": "v10",
+                    "preferred_pronoun": "She"
                   }
                 }
               }
@@ -346,21 +340,17 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/WrappedUser" },
-                "examples": {
-                  "response": {
-                    "value": {
-                      "user": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "external_id": "56780",
-                        "email": "hana@supportbee.com",
-                        "first_name": "Hana",
-                        "last_name": "Mohan",
-                        "custom_attributes": {
-                          "plan": "enterprise",
-                          "pricing_version": "v10",
-                          "preferred_pronoun": "She"
-                        }
-                      }
+                "example": {
+                  "user": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "external_id": "56780",
+                    "email": "hana@supportbee.com",
+                    "first_name": "Hana",
+                    "last_name": "Mohan",
+                    "custom_attributes": {
+                      "plan": "enterprise",
+                      "pricing_version": "v10",
+                      "preferred_pronoun": "She"
                     }
                   }
                 }
@@ -390,8 +380,8 @@
           "content": {
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedUser" },
-              "examples": {
-                "1": { "value": { "user": { "email": "hana@magicbell.io" } } }
+              "example": {
+                "user": { "email": "hana@magicbell.io" }
               }
             }
           }
@@ -402,21 +392,17 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/WrappedUser" },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "user": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "external_id": "56780",
-                        "email": "hana@magicbell.io",
-                        "first_name": "Hana",
-                        "last_name": "Mohan",
-                        "custom_attributes": {
-                          "plan": "enterprise",
-                          "pricing_version": "v10",
-                          "preferred_pronoun": "She"
-                        }
-                      }
+                "example": {
+                  "user": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "external_id": "56780",
+                    "email": "hana@magicbell.io",
+                    "first_name": "Hana",
+                    "last_name": "Mohan",
+                    "custom_attributes": {
+                      "plan": "enterprise",
+                      "pricing_version": "v10",
+                      "preferred_pronoun": "She"
                     }
                   }
                 }
@@ -464,24 +450,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotificationPreferences"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification_preferences": {
-                        "categories": {
-                          "new_message": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": true,
-                            "web_push": true
-                          },
-                          "comment": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": true
-                          }
-                        }
+                "example": {
+                  "notification_preferences": {
+                    "categories": {
+                      "new_message": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": true,
+                        "web_push": true
+                      },
+                      "comment": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": true
                       }
                     }
                   }
@@ -510,14 +492,10 @@
               "schema": {
                 "$ref": "#/components/schemas/WrappedNotificationPreferences"
               },
-              "examples": {
-                "1": {
-                  "value": {
-                    "notification_preferences": {
-                      "categories": {
-                        "new_message": { "email": false, "web_push": false }
-                      }
-                    }
+              "example": {
+                "notification_preferences": {
+                  "categories": {
+                    "new_message": { "email": false, "web_push": false }
                   }
                 }
               }
@@ -532,24 +510,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotificationPreferences"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification_preferences": {
-                        "categories": {
-                          "new_message": {
-                            "email": false,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": false
-                          },
-                          "comment": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": true
-                          }
-                        }
+                "example": {
+                  "notification_preferences": {
+                    "categories": {
+                      "new_message": {
+                        "email": false,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": false
+                      },
+                      "comment": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": true
                       }
                     }
                   }
@@ -580,14 +554,10 @@
               "schema": {
                 "$ref": "#/components/schemas/WrappedPushSubscription"
               },
-              "examples": {
-                "1": {
-                  "value": {
-                    "push_subscription": {
-                      "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV",
-                      "platform": "ios"
-                    }
-                  }
+              "example": {
+                "push_subscription": {
+                  "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV",
+                  "platform": "ios"
                 }
               }
             }
@@ -606,14 +576,10 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "push_subscription": {
-                        "id": "f80a7574-b309-4395-bb26-c503fe697d52",
-                        "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV"
-                      }
-                    }
+                "example": {
+                  "push_subscription": {
+                    "id": "f80a7574-b309-4395-bb26-c503fe697d52",
+                    "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV"
                   }
                 }
               }
@@ -672,19 +638,22 @@
         "in": "header",
         "name": "X-MAGICBELL-API-KEY",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "API key of your MagicBell project"
       },
       "x_magicbell_api_secret_header": {
         "in": "header",
         "name": "X-MAGICBELL-API-SECRET",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "API secret of your MagicBell project"
       },
       "x_magicbell_user_email_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-EMAIL",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "Email address of the user"
       },
       "x_magicbell_user_external_id_header": {
         "in": "header",
@@ -758,13 +727,11 @@
         "properties": {
           "external_id": {
             "type": "string",
-            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable.",
-            "default": "1924"
+            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
           },
           "email": {
             "type": "string",
-            "description": "The user's email",
-            "default": "john@example.com"
+            "description": "The user's email"
           },
           "first_name": {
             "type": "string",
@@ -789,13 +756,11 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "The user's email",
-            "default": "john@example.com"
+            "description": "The user's email"
           },
           "external_id": {
             "type": "string",
-            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable.",
-            "default": "1924"
+            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
           }
         }
       },
@@ -808,18 +773,15 @@
         "properties": {
           "title": {
             "type": "string",
-            "description": "Title of the notification",
-            "default": "Ticket assigned to you: Do you offer demos?"
+            "description": "Title of the notification"
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to",
-            "default": "new_message"
+            "description": "Category the notification belongs to"
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification",
-            "default": "Can I see a demo of your product?"
+            "description": "Content of the notification"
           },
           "action_url": {
             "type": "string",
@@ -846,8 +808,12 @@
                 "type": "object",
                 "description": "Overrides for specific channels",
                 "properties": {
-                  "in_app": { "$ref": "#/components/schemas/ChannelOverrides" },
-                  "email": { "$ref": "#/components/schemas/ChannelOverrides" },
+                  "in_app": {
+                    "$ref": "#/components/schemas/ChannelOverrides"
+                  },
+                  "email": {
+                    "$ref": "#/components/schemas/ChannelOverrides"
+                  },
                   "web_push": {
                     "$ref": "#/components/schemas/ChannelOverrides"
                   }
@@ -861,11 +827,17 @@
       "ChannelOverrides": {
         "type": "object",
         "properties": {
-          "title": { "type": "string", "description": "Overriden title" },
-          "content": { "type": "string", "description": "Overriden content" },
+          "title": {
+            "type": "string",
+            "description": "Overriden title for this channel"
+          },
+          "content": {
+            "type": "string",
+            "description": "Overriden content for this channel"
+          },
           "action_url": {
             "type": "string",
-            "description": "Overriden action_url"
+            "description": "Overriden action_url for this channel"
           }
         }
       },
@@ -886,13 +858,11 @@
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to",
-            "default": "new_message"
+            "description": "Category the notification belongs to"
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification",
-            "default": "Can I see a demo of your product?"
+            "description": "Content of the notification"
           },
           "action_url": {
             "type": "string",
@@ -977,13 +947,11 @@
         "properties": {
           "device_token": {
             "type": "string",
-            "description": "ID of the device.",
-            "default": "JfbECC2ubtsIs1iod"
+            "description": "ID of the device."
           },
           "platform": {
             "type": "string",
-            "description": "Either 'ios', 'android' or 'safari'.",
-            "default": "ios"
+            "description": "Either 'ios', 'android' or 'safari'."
           },
           "app_bundle_id": {
             "type": "string",

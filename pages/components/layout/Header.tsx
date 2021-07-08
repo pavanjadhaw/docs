@@ -20,7 +20,7 @@ export default function Header({ onToggleMenu }: Props) {
         <span className="sr-only">Open main menu</span>
         <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
       </button>
-      <div className="flex-1 hidden justify-between py-2 px-4 md:flex max-w-screen-xl mx-auto">
+      <div className="flex-1 hidden justify-between py-2 px-4 md:flex max-w-screen-2xl mx-auto">
         <div className="flex-1 flex items-center">
           <img src="/docs/white-logo.png" alt="MagicBell" style={{ height: '40px' }} />
         </div>
