@@ -21,7 +21,7 @@ export default function DocPageLayout({ title = 'Docs', children }: Props) {
         <title>MagicBell - {title}</title>
       </Head>
       <Header onToggleMenu={toggleSidebar} />
-      <div className="max-w-screen-2xl mx-auto flex flex-1 overflow-hidden bg-white md:space-x-4 lg:space-x-20">
+      <div className="max-w-screen-xl mx-auto flex flex-1 overflow-hidden bg-white md:space-x-2 xl:space-x-10 w-full">
         <DesktopMenu navigationItems={sitemap} />
         <Content>{children}</Content>
       </div>

@@ -7,13 +7,15 @@ interface Props {
 
 export default function Content({ children }: Props) {
   return (
-    <div className="flex-1 flex flex-col md:px-8 xl:px-0 mb-20 w-full">
-      <div className="md:mt-4 md:py-4 px-4 md:px-0 border-b border-gray-200">
-        <SearchBar />
+    <div className="flex-1 mb-20 overflow-x-hidden w-full">
+      <div className="flex flex-col md:px-8 xl:px-0">
+        <div className="md:mt-4 md:py-4 px-4 md:px-0 border-b border-gray-200">
+          <SearchBar />
+        </div>
+        <main className="flex-1 relative overflow-y-auto focus:outline-none">
+          <div className="p-4 md:p-0 w-full">{children}</div>
+        </main>
       </div>
-      <main className="flex-1 relative overflow-y-auto focus:outline-none">
-        <div className="p-4 md:p-0">{children}</div>
-      </main>
     </div>
   );
 }
