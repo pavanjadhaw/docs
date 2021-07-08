@@ -33,7 +33,8 @@ export interface HighlightedCodeProps {
   children: string;
   title?: string;
   className?: string;
-  showHeader?: boolean;
+  hideHeader?: boolean;
+  noTopBorderRadius?: boolean;
 }
 
 /**
@@ -45,8 +46,8 @@ export default function HighlightedCode({
   children: code,
   title,
   className,
-  showHeader = false,
-  ...props
+  hideHeader = false,
+  noTopBorderRadius = false,
 }: HighlightedCodeProps) {
   if (!code) return null;
 
@@ -57,14 +58,14 @@ export default function HighlightedCode({
 
   return (
     <code className={classNames('block mb-4', className)}>
-      {showHeader ? (
+      {!hideHeader ? (
         <HighlightedCodeHeader title={title || language} code={code} />
       ) : null}
       <pre
         style={{ background: '#31324e' }}
         className={classNames(
           'hljs font-mono p-6 text-white overflow-x-scroll',
-          showHeader ? 'rounded-b-md' : 'rounded-md',
+          !hideHeader || noTopBorderRadius ? 'rounded-b-md' : 'rounded-md',
         )}
         dangerouslySetInnerHTML={{ __html: parseCode(code) }}
       />
