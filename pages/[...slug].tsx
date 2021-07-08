@@ -7,11 +7,7 @@ import path from 'path';
 import { flatten, reject } from 'ramda';
 import React from 'react';
 import sitemap from '../lib/sitemap';
-import Callout from './components/Callout';
-import HighlightedCode from './components/code/HighlightedCode';
 import Page from './components/layout/Page';
-import Table from './components/Table';
-import Tabs from './components/tabs/Tabs';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -27,16 +23,7 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
       <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
-          <MDXRemote
-            {...mdxSource}
-            components={{
-              code: HighlightedCode,
-              table: Table,
-              Note: Callout,
-              Tabs,
-              HighlightedCode,
-            }}
-          />
+          <MDXRemote {...mdxSource} />
         </article>
       ) : (
         <p>Loading...</p>
