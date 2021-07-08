@@ -21,7 +21,7 @@ export default function Operation({ pathKey, operation, method }: Props) {
           <HeaderParameters parameteres={operation.parameters} />
         </main>
         <aside className="w-full xl:w-1/2 space-y-12">
-          <Request method={method} location={pathKey} />
+          <Request method={method} location={pathKey} operation={operation} />
           <Responses responses={operation.responses} />
         </aside>
       </div>
