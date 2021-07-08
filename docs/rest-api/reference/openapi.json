@@ -38,13 +38,9 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification": {
-                        "id": "ffffff66-ea4f-4da2-afc6-84148b51657a"
-                      }
-                    }
+                "example": {
+                  "notification": {
+                    "id": "ffffff66-ea4f-4da2-afc6-84148b51657a"
                   }
                 }
               }
@@ -63,8 +59,8 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": { "value": { "errors": ["Recipient can't be blank"] } }
+                "example": {
+                  "errors": ["Recipient can't be blank"]
                 }
               }
             }
@@ -114,45 +110,41 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Notifications" },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "unseen_count": 1,
-                      "total": 2,
-                      "pages": 1,
-                      "per_page": 15,
-                      "current_page": 1,
-                      "notifications": [
-                        {
-                          "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                          "title": "A guide to notification center design",
-                          "action_url": "https://magicbell.com/blog/notification-system-design",
-                          "content": "Notification system design is a complex topic",
-                          "category": "new_message",
-                          "custom_attributes": {
-                            "encoding": "utf-8",
-                            "word_count": "500"
-                          },
-                          "recipient": { "email": "john@example.com" },
-                          "seen_at": null,
-                          "sent_at": 1601549080,
-                          "read_at": null
-                        },
-                        {
-                          "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
-                          "title": "Why MagicBell",
-                          "action_url": "https://magicbell.com",
-                          "content": "<p>User notifications significantly increase engagement in social apps and productivity in business apps.</p>",
-                          "category": "new_message",
-                          "custom_attributes": {},
-                          "recipient": { "email": "john@example.com" },
-                          "seen_at": 1601388747,
-                          "sent_at": 1601388730,
-                          "read_at": null
-                        }
-                      ]
+                "example": {
+                  "unseen_count": 1,
+                  "total": 2,
+                  "pages": 1,
+                  "per_page": 15,
+                  "current_page": 1,
+                  "notifications": [
+                    {
+                      "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                      "title": "A guide to notification center design",
+                      "action_url": "https://magicbell.com/blog/notification-system-design",
+                      "content": "Notification system design is a complex topic",
+                      "category": "new_message",
+                      "custom_attributes": {
+                        "encoding": "utf-8",
+                        "word_count": "500"
+                      },
+                      "recipient": { "email": "john@example.com" },
+                      "seen_at": null,
+                      "sent_at": 1601549080,
+                      "read_at": null
+                    },
+                    {
+                      "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
+                      "title": "Why MagicBell",
+                      "action_url": "https://magicbell.com",
+                      "content": "<p>User notifications significantly increase engagement in social apps and productivity in business apps.</p>",
+                      "category": "new_message",
+                      "custom_attributes": {},
+                      "recipient": { "email": "john@example.com" },
+                      "seen_at": 1601388747,
+                      "sent_at": 1601388730,
+                      "read_at": null
                     }
-                  }
+                  ]
                 }
               }
             }
@@ -183,25 +175,21 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotification"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "title": "A guide to notification center design",
-                        "action_url": "https://magicbell.com/blog/notification-system-design",
-                        "content": "Notification system design is a complex topic",
-                        "category": "new_message",
-                        "custom_attributes": {
-                          "encoding": "utf-8",
-                          "word_count": "500"
-                        },
-                        "recipient": { "email": "john@example.com" },
-                        "seen_at": null,
-                        "sent_at": 1601549080,
-                        "read_at": null
-                      }
-                    }
+                "example": {
+                  "notification": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "title": "A guide to notification center design",
+                    "action_url": "https://magicbell.com/blog/notification-system-design",
+                    "content": "Notification system design is a complex topic",
+                    "category": "new_message",
+                    "custom_attributes": {
+                      "encoding": "utf-8",
+                      "word_count": "500"
+                    },
+                    "recipient": { "email": "john@example.com" },
+                    "seen_at": null,
+                    "sent_at": 1601549080,
+                    "read_at": null
                   }
                 }
               }
@@ -321,20 +309,16 @@
           "content": {
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedUser" },
-              "examples": {
-                "response": {
-                  "value": {
-                    "user": {
-                      "external_id": "56780",
-                      "email": "hana@supportbee.com",
-                      "first_name": "Hana",
-                      "last_name": "Mohan",
-                      "custom_attributes": {
-                        "plan": "enterprise",
-                        "pricing_version": "v10",
-                        "preferred_pronoun": "She"
-                      }
-                    }
+              "example": {
+                "user": {
+                  "external_id": "56780",
+                  "email": "hana@supportbee.com",
+                  "first_name": "Hana",
+                  "last_name": "Mohan",
+                  "custom_attributes": {
+                    "plan": "enterprise",
+                    "pricing_version": "v10",
+                    "preferred_pronoun": "She"
                   }
                 }
               }
@@ -347,21 +331,17 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/WrappedUser" },
-                "examples": {
-                  "response": {
-                    "value": {
-                      "user": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "external_id": "56780",
-                        "email": "hana@supportbee.com",
-                        "first_name": "Hana",
-                        "last_name": "Mohan",
-                        "custom_attributes": {
-                          "plan": "enterprise",
-                          "pricing_version": "v10",
-                          "preferred_pronoun": "She"
-                        }
-                      }
+                "example": {
+                  "user": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "external_id": "56780",
+                    "email": "hana@supportbee.com",
+                    "first_name": "Hana",
+                    "last_name": "Mohan",
+                    "custom_attributes": {
+                      "plan": "enterprise",
+                      "pricing_version": "v10",
+                      "preferred_pronoun": "She"
                     }
                   }
                 }
@@ -391,8 +371,8 @@
           "content": {
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedUser" },
-              "examples": {
-                "1": { "value": { "user": { "email": "hana@magicbell.io" } } }
+              "example": {
+                "user": { "email": "hana@magicbell.io" }
               }
             }
           }
@@ -403,21 +383,17 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/WrappedUser" },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "user": {
-                        "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                        "external_id": "56780",
-                        "email": "hana@magicbell.io",
-                        "first_name": "Hana",
-                        "last_name": "Mohan",
-                        "custom_attributes": {
-                          "plan": "enterprise",
-                          "pricing_version": "v10",
-                          "preferred_pronoun": "She"
-                        }
-                      }
+                "example": {
+                  "user": {
+                    "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
+                    "external_id": "56780",
+                    "email": "hana@magicbell.io",
+                    "first_name": "Hana",
+                    "last_name": "Mohan",
+                    "custom_attributes": {
+                      "plan": "enterprise",
+                      "pricing_version": "v10",
+                      "preferred_pronoun": "She"
                     }
                   }
                 }
@@ -465,24 +441,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotificationPreferences"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification_preferences": {
-                        "categories": {
-                          "new_message": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": true,
-                            "web_push": true
-                          },
-                          "comment": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": true
-                          }
-                        }
+                "example": {
+                  "notification_preferences": {
+                    "categories": {
+                      "new_message": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": true,
+                        "web_push": true
+                      },
+                      "comment": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": true
                       }
                     }
                   }
@@ -511,14 +483,10 @@
               "schema": {
                 "$ref": "#/components/schemas/WrappedNotificationPreferences"
               },
-              "examples": {
-                "1": {
-                  "value": {
-                    "notification_preferences": {
-                      "categories": {
-                        "new_message": { "email": false, "web_push": false }
-                      }
-                    }
+              "example": {
+                "notification_preferences": {
+                  "categories": {
+                    "new_message": { "email": false, "web_push": false }
                   }
                 }
               }
@@ -533,24 +501,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/WrappedNotificationPreferences"
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "notification_preferences": {
-                        "categories": {
-                          "new_message": {
-                            "email": false,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": false
-                          },
-                          "comment": {
-                            "email": true,
-                            "in_app": true,
-                            "mobile_push": false,
-                            "web_push": true
-                          }
-                        }
+                "example": {
+                  "notification_preferences": {
+                    "categories": {
+                      "new_message": {
+                        "email": false,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": false
+                      },
+                      "comment": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": false,
+                        "web_push": true
                       }
                     }
                   }
@@ -581,14 +545,10 @@
               "schema": {
                 "$ref": "#/components/schemas/WrappedPushSubscription"
               },
-              "examples": {
-                "1": {
-                  "value": {
-                    "push_subscription": {
-                      "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV",
-                      "platform": "ios"
-                    }
-                  }
+              "example": {
+                "push_subscription": {
+                  "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV",
+                  "platform": "ios"
                 }
               }
             }
@@ -607,14 +567,10 @@
                     }
                   }
                 },
-                "examples": {
-                  "1": {
-                    "value": {
-                      "push_subscription": {
-                        "id": "f80a7574-b309-4395-bb26-c503fe697d52",
-                        "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV"
-                      }
-                    }
+                "example": {
+                  "push_subscription": {
+                    "id": "f80a7574-b309-4395-bb26-c503fe697d52",
+                    "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV"
                   }
                 }
               }
