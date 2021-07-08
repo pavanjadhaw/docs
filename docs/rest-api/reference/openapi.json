@@ -164,7 +164,8 @@
     "/notifications/{notification_id}": {
       "get": {
         "tags": ["User Notifications APIs"],
-        "summary": "Fetch user notification",
+        "summary": "Fetch a user's notification",
+        "operationId": "get-notification",
         "description": "Fetch a user's notification",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -672,19 +673,22 @@
         "in": "header",
         "name": "X-MAGICBELL-API-KEY",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "API key of your MagicBell project"
       },
       "x_magicbell_api_secret_header": {
         "in": "header",
         "name": "X-MAGICBELL-API-SECRET",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "API secret of your MagicBell project"
       },
       "x_magicbell_user_email_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-EMAIL",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "Email address of the user"
       },
       "x_magicbell_user_external_id_header": {
         "in": "header",
