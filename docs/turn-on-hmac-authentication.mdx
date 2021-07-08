@@ -16,16 +16,16 @@ Use your MagicBell project's API secret to compute an HMAC code of the user's em
 
 <Tabs>
 
-```ruby title=RUBY hideHeader noTopBorderRadius
-digest = OpenSSL::Digest::Digest.new('sha256')
-user_email_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, MAGICBELL_API_SECRET, user_email))
-```
-
 ```node title=NODE hideHeader noTopBorderRadius
 const userEmailHMAC = crypto
   .createHmac('sha256', MAGICBELL_API_SECRET)
   .update(userEmail)
   .digest('base64');
+```
+
+```ruby title=RUBY hideHeader noTopBorderRadius
+digest = OpenSSL::Digest::Digest.new('sha256')
+user_email_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, MAGICBELL_API_SECRET, user_email))
 ```
 
 ```java title=JAVA hideHeader noTopBorderRadius
