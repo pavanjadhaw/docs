@@ -31,7 +31,7 @@ hljs.registerLanguage('xml', xml);
 
 export interface HighlightedCodeProps {
   children: string;
-  title?: string;
+  title?: string | JSX.Element;
   className?: string;
   hideHeader?: boolean;
   noTopBorderRadius?: boolean;
