@@ -17,6 +17,7 @@ export default function HeaderParameters({ parameteres = [] }: Props) {
       {headerParams.map((param, index) => (
         <Parameter key={index} param={param} />
       ))}
+      <hr />
     </div>
   );
 }

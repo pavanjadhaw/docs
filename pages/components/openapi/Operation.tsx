@@ -12,15 +12,15 @@ interface Props {
 
 export default function Operation({ pathKey, operation, method }: Props) {
   return (
-    <article id={operation.operationId} className=" py-28 border-t border-b">
+    <article id={operation.operationId} className="py-32 border-t border-b">
       <h2 className="mt-0">{operation.summary}</h2>
-      <div className="flex space-x-0 md:space-x-4 items-start flex-wrap md:flex-nowrap">
-        <main className="w-full md:w-1/2">
+      <div className="flex space-x-0 xl:space-x-4 flex-wrap xl:flex-nowrap">
+        <main className="w-full xl:w-1/2">
           <p>{operation.description}</p>
           {/* @ts-ignore */}
           <HeaderParameters parameteres={operation.parameters} />
         </main>
-        <aside className="w-full md:w-1/2">
+        <aside className="w-full xl:w-1/2 space-y-12">
           <Request method={method} location={pathKey} />
           <Responses responses={operation.responses} />
         </aside>
