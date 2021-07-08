@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { isNil, reject } from 'ramda';
 import React, { useState } from 'react';
 import TabPanel from './TabPanel';
 import TabsHeader from './TabsHeader';
@@ -21,9 +22,10 @@ export interface CodeTabsProps {
  *   ```
  * </Tabs>
  */
-export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
+export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTabsProps) {
   const [focusedIndex, setFocusedIndex] = useState(defaultIndex);
 
+  const children = reject(isNil, allChildren || []);
   const tabs = children?.map(({ props }) => ({
     // Get code > pre props
     title: props.children.props.title,
