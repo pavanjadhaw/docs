@@ -1,3 +1,4 @@
+// @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
