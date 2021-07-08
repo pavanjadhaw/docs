@@ -14,7 +14,7 @@ export default function Document({ document }: Props) {
   return (
     <section>
       {Object.keys(paths).map((key, index) => (
-        <Path key={index} path={paths[key]} />
+        <Path key={index} pathKey={key} path={paths[key]} />
       ))}
     </section>
   );
