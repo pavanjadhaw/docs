@@ -5,10 +5,12 @@ import '../styles/globals.css';
 import '../styles/material.css';
 import Callout from './components/Callout';
 import HighlightedCode from './components/code/HighlightedCode';
+import HeaderTwo from './components/headers/HeaderTwo';
 import Table from './components/Table';
 import Tabs from './components/tabs/Tabs';
 
 const components = {
+  h2: HeaderTwo,
   code: HighlightedCode,
   table: Table,
   Note: Callout,
