@@ -10,6 +10,7 @@ import sitemap from '../lib/sitemap';
 import Callout from './components/Callout';
 import Code from './components/code_snippets/Code';
 import Page from './components/layout/Page';
+import Tabs from './components/tabs/Tabs';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -25,7 +26,10 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
       <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
-          <MDXRemote {...mdxSource} components={{ Note: Callout, code: Code }} />
+          <MDXRemote
+            {...mdxSource}
+            components={{ Note: Callout, code: Code, Tabs, Code }}
+          />
         </article>
       ) : (
         <p>Loading...</p>
