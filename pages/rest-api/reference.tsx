@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import React from 'react';
 import DocPage from '../components/DocPage';
+import APIReference from '../components/openapi/APIReference';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -21,7 +22,7 @@ export default function reference({
 }: Props) {
   return (
     <DocPage mdxSource={mdxAuthenticationSource} {...metadata}>
-      <hr />
+      <APIReference openapi={openapi} />
     </DocPage>
   );
 }
