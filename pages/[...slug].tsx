@@ -8,7 +8,7 @@ import { flatten, reject } from 'ramda';
 import React from 'react';
 import sitemap from '../lib/sitemap';
 import Callout from './components/Callout';
-import Code from './components/code_snippets/Code';
+import HighlightedCode from './components/code/HighlightedCode';
 import Page from './components/layout/Page';
 import Tabs from './components/tabs/Tabs';
 
@@ -28,7 +28,7 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
         <article className="mdx-content">
           <MDXRemote
             {...mdxSource}
-            components={{ Note: Callout, code: Code, Tabs, Code }}
+            components={{ Note: Callout, code: HighlightedCode, Tabs, HighlightedCode }}
           />
         </article>
       ) : (

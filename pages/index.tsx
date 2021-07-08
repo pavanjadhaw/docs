@@ -6,7 +6,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import React from 'react';
 import Callout from './components/Callout';
-import Code from './components/code_snippets/Code';
+import HighlightedCode from './components/code/HighlightedCode';
 import Page from './components/layout/Page';
 
 interface Props {
@@ -21,7 +21,10 @@ export default function index({ mdxSource, metadata = {} }: Props) {
       <h3 className="mb-12 font-normal text-gray-500">{metadata.subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
-          <MDXRemote {...mdxSource} components={{ Note: Callout, code: Code }} />
+          <MDXRemote
+            {...mdxSource}
+            components={{ Note: Callout, code: HighlightedCode }}
+          />
         </article>
       ) : (
         <p>Loading...</p>

@@ -28,17 +28,22 @@ hljs.registerLanguage('shell', bash);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('xml', xml);
 
-export interface CodeProps {
+export interface HighlightedCodeProps {
   children: string;
   className?: string;
   hideHeader?: boolean;
 }
 
-export default function Code({
+/**
+ * Component to render code highlighted with highlight.js.
+ *
+ * @example
+ */
+export default function HighlightedCode({
   children: code,
   className,
   hideHeader = false,
-}: CodeProps) {
+}: HighlightedCodeProps) {
   if (!code) return null;
 
   const language = className?.replace('language-', '') || 'bash';
