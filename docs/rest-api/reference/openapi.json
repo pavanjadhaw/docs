@@ -13,7 +13,7 @@
         "operationId": "create-notification",
         "tags": ["Notification Send API"],
         "summary": "Create notification",
-        "description": "Send a notification to one or multiple users",
+        "description": "Send a notification to one or multiple users. You can identify users by their email address or by an external_id.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" }
@@ -221,7 +221,7 @@
         "operationId": "mark-user-notification-as-read",
         "tags": ["User Notification Actions APIs"],
         "summary": "Mark as read",
-        "description": "Mark a user notification as read",
+        "description": "Mark a user notification as read. Please keep in mind that the notification will be automatically marked as seen, too.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
