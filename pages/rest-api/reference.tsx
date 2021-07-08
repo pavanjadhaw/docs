@@ -1,3 +1,4 @@
+import SwaggerParser from '@apidevtools/swagger-parser';
 import fs from 'fs';
 import * as matter from 'gray-matter';
 import { GetStaticProps } from 'next';
@@ -32,6 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const openapiFilePath = path.join(docsDirectory, 'rest-api/reference/openapi.json');
   const openapiFileContents = fs.readFileSync(openapiFilePath, 'utf8');
+  let openapi = await SwaggerParser.validate(JSON.parse(openapiFileContents));
 
   // @ts-ignore
   const { content, data } = matter(fileContents);
@@ -40,7 +42,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       mdxAuthenticationSource,
       metadata: data,
-      openapi: JSON.parse(openapiFileContents),
+      openapi,
     },
   };
 };
