@@ -8,9 +8,14 @@ interface Props {
 export default function RequestBody({ requestBody }: Props) {
   if (!requestBody) return null;
 
+  // @ts-ignore
   const properties = requestBody.content?.['application/json']?.schema?.properties;
 
-  const renderProperty = (propName, prop, acc = []) => {
+  const renderProperty = (
+    propName: string,
+    prop: any,
+    acc: string[] = [],
+  ): JSX.Element => {
     if (prop.type === 'object')
       return (
         <>

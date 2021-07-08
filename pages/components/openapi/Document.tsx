@@ -7,14 +7,11 @@ interface Props {
 }
 
 export default function Document({ document }: Props) {
-  const { paths } = document;
-  console.warn({ paths: Object.keys(paths) });
-
-  if (!paths) return null;
+  if (!document?.paths) return null;
   return (
     <section>
-      {Object.keys(paths).map((key, index) => (
-        <Path key={index} pathKey={key} path={paths[key]} />
+      {Object.keys(document?.paths).map((key, index) => (
+        <Path key={index} pathKey={key} path={document?.paths[key]} />
       ))}
     </section>
   );

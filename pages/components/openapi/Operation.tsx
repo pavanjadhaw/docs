@@ -12,6 +12,7 @@ interface Props {
 }
 
 export default function Operation({ pathKey, operation, method }: Props) {
+  if (!operation) return null;
   return (
     <article id={operation.operationId} className="py-32 border-t border-b">
       <h2 className="mt-0">{operation.summary}</h2>

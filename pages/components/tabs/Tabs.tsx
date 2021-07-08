@@ -25,12 +25,14 @@ export interface CodeTabsProps {
 export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTabsProps) {
   const [focusedIndex, setFocusedIndex] = useState(defaultIndex);
 
-  const children = reject(isNil, allChildren || []);
+  if (!allChildren) return null;
+
+  const children = reject(isNil, allChildren);
   // @ts-ignore
-  const tabs = children?.map(({ props }) => ({
+  const tabs = children?.map((component) => ({
     // Get code > pre props
-    title: props.children.props.title,
-    code: props.children.props.children,
+    title: component?.props.children.props.title,
+    code: component?.props.children.props.children,
   }));
 
   if (!children) return null;
@@ -52,7 +54,7 @@ export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTa
       </TabsHeader>
       {children.map((component, index) => (
         <TabPanel key={index} isActive={focusedIndex === index}>
-          {component.props.children}
+          {component?.props.children}
         </TabPanel>
       ))}
     </div>

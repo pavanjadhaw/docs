@@ -16,7 +16,15 @@ interface Props {
 export default function Request({ method, location, operation }: Props) {
   if (!method || !location || !operation) return null;
 
-  const { requestBody, parameters = [] } = operation;
+  // @ts-ignore
+  const {
+    requestBody,
+    parameters = [],
+  }: {
+    requestBody: OpenAPIV3.RequestBodyObject;
+    parameters: OpenAPIV3.ParameterObject[];
+  } = operation;
+
   const example = requestBody?.content?.['application/json'].example;
   const headerParams = reject(
     (param) => param.in !== 'header' || !param.required,
