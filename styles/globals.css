@@ -103,6 +103,11 @@ header a {
   @apply font-bold;
 }
 
+header a.main-button {
+  color: #532f70 !important;
+  @apply bg-white rounded-md;
+}
+
 /* Footer */
 footer {
   background-color: rgb(52, 23, 75);

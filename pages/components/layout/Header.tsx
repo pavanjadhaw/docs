@@ -30,7 +30,7 @@ export default function Header({ onToggleMenu }: Props) {
           <a href="https://magicbell.com/blog">Blog</a>
           <a href="https://magicbell.com/about">About</a>
           <a href="https://app.magicbell.com">Login</a>
-          <a className="bg-white rounded-md" href="https://app.magicbell.com">
+          <a className="main-button" href="https://app.magicbell.com">
             Sign Up
           </a>
         </div>
