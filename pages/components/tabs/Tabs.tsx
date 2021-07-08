@@ -31,7 +31,7 @@ export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
 
   return (
     <div className="my-4">
-      <TabsHeader tabs={tabs}>
+      <TabsHeader tabs={tabs} currentTabIndex={focusedIndex}>
         {(tab, index) => (
           <button
             className="p-3 text-xs font-bold font-mono"
