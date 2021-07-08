@@ -28,8 +28,6 @@ export default function Request({ method, location, operation }: Props) {
     value: 'STRING_VALUE',
   }));
 
-  console.warn(headers);
-
   const postData = example
     ? {
         mimeType: 'application/json',
@@ -60,6 +58,18 @@ export default function Request({ method, location, operation }: Props) {
         {location}
       </p>
       <Tabs>
+        {example ? (
+          <div>
+            <HighlightedCode
+              className="json"
+              title="PAYLOAD"
+              hideHeader
+              noTopBorderRadius
+            >
+              {JSON.stringify(example, null, 2)}
+            </HighlightedCode>
+          </div>
+        ) : null}
         <div>
           <HighlightedCode className="curl" title="cURL" hideHeader noTopBorderRadius>
             {snippet.convert('shell', 'curl')}
