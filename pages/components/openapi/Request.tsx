@@ -10,7 +10,7 @@ interface Props {
 export default function Request({ method, location }: Props) {
   return (
     <div>
-      <p className="mt-2 mb-6 font-mono text-sm">
+      <p className="font-mono text-sm">
         <span
           className={classNames(
             'py-1 px-2 text-white text-xs uppercase rounded-sm',
