@@ -5,7 +5,7 @@ import TabPanel from './TabPanel';
 import TabsHeader from './TabsHeader';
 
 export interface CodeTabsProps {
-  children: JSX.Element[];
+  children: (JSX.Element | null)[];
   defaultIndex?: number;
 }
 
@@ -26,6 +26,7 @@ export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTa
   const [focusedIndex, setFocusedIndex] = useState(defaultIndex);
 
   const children = reject(isNil, allChildren || []);
+  // @ts-ignore
   const tabs = children?.map(({ props }) => ({
     // Get code > pre props
     title: props.children.props.title,
