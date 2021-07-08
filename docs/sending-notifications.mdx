@@ -17,9 +17,9 @@ If you identify a user by their email address, you need to set the email address
 
 For example, to send a notification to Mary and Richard, whose emails are mary@example.com and richard@example.com, respectively, you can do this:
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request POST \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
@@ -38,7 +38,7 @@ curl https://api.magicbell.com/notifications \
   }'
 ```
 
-```ruby
+```ruby title=RUBY hideHeader noTopBorderRadius
 require 'httparty'
 
 headers = {
@@ -62,7 +62,7 @@ body = {
 response = HTTParty.post("https://api.magicbell.com", { body: body.to_json, headers: headers })
 ```
 
-```python
+```python title=PYTHON hideHeader noTopBorderRadius
 import requests
 
 headers = {
@@ -86,7 +86,7 @@ data = {
 response = requests.post('https://api.magicbell.com/notifications', headers=headers, json=data)
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 import axios from 'axios';
 
 const headers = {
@@ -107,7 +107,7 @@ const data = {
 axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
-</Code>
+</Tabs>
 
 Notice that each recipient has the `email` key set.
 
@@ -117,9 +117,9 @@ But what if you don't identify users by email in your app? MagicBell allows you 
 
 For example, to send a notification to Mary and Richard, whose IDs are "u001" and "u002", respectively, you can do this:
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request POST \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
@@ -138,7 +138,7 @@ curl https://api.magicbell.com/notifications \
   }'
 ```
 
-```ruby
+```ruby title=RUBY hideHeader noTopBorderRadius
 require 'httparty'
 
 headers = {
@@ -162,7 +162,7 @@ body = {
 response = HTTParty.post("https://api.magicbell.com", { body: body.to_json, headers: headers })
 ```
 
-```python
+```python title=PYTHON hideHeader noTopBorderRadius
 import requests
 
 headers = {
@@ -186,7 +186,7 @@ data = {
 response = requests.post('https://api.magicbell.com/notifications', headers=headers, json=data)
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 import axios from 'axios';
 
 const headers = {
@@ -207,7 +207,7 @@ const data = {
 axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
-</Code>
+</Tabs>
 
 Notice that each recipient has the `external_id` key set.
 

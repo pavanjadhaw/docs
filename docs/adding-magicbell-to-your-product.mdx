@@ -16,9 +16,9 @@ If you are building a web-based product, you can grab the latest MagicBell build
 
 For example, to display the notifications for Mary, whose email was mary@example.com, copy and paste the following code before the closing body tag:
 
-<Code>
+<Tabs>
 
-```html
+```html title=HTML hideHeader noTopBorderRadius
 <div id="notifications-inbox" />
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m) {i['MagicBellObject'] = r;(i[r] =i[r] ||function() {
@@ -37,7 +37,7 @@ For example, to display the notifications for Mary, whose email was mary@example
 </script>
 ```
 
-```html
+```html title=ESM hideHeader noTopBorderRadius
 <div id="notifications-inbox" />
 <script type="module">
   import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
@@ -53,7 +53,7 @@ For example, to display the notifications for Mary, whose email was mary@example
 </script>
 ```
 
-</Code>
+</Tabs>
 
 Your MagicBell will be rendered in the `notifications-inbox` div. You can place it wherever you want MagicBell to appear in your app.
 
@@ -63,7 +63,7 @@ You can get the same out-of-the-box experience with our [React SDK](https://www.
 
 Start by installing our React package:
 
-```shell
+```shell hideHeader
 npm install @magicbell/magicbell-react
 # Or
 yarn add @magicbell/magicbell-react
@@ -71,7 +71,7 @@ yarn add @magicbell/magicbell-react
 
 Then add it to your app:
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -92,7 +92,7 @@ While we don't offer a native Vue library, you can use the ESM build to render a
 
 You can either grab it from our CDN or install the embeddable package from NPM.
 
-```shell
+```shell hideHeader
 npm install @magicbell/embeddable
 # Or
 yarn add @magicbell/embeddable
@@ -100,7 +100,7 @@ yarn add @magicbell/embeddable
 
 After grabbing the library, you can import the ESM build and use it.
 
-```html
+```html title=Vue.js
 <template>
   <div ref="notifications">Notifications</div>
 </template>
@@ -123,7 +123,7 @@ After grabbing the library, you can import the ESM build and use it.
 
 If you prefer to use the CDN bundle, replace the import statement (line 6) with
 
-```javascript
+```javascript hideHeader
 import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 ```
 

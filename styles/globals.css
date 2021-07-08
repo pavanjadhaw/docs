@@ -54,6 +54,12 @@
     @apply mb-4;
     @apply ml-4;
   }
+
+  pre,
+  code {
+    font-size: 1rem;
+    font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
+  }
 }
 
 @tailwind components;
@@ -85,10 +91,4 @@ footer {
 
 footer a {
   color: white !important;
-}
-
-/* Menu */
-.submenu > ul > a {
-  @apply ml-4;
-  @apply rounded-l-md;
 }

@@ -15,9 +15,9 @@ When performing an API request, provide:
 
 Here's an example:
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request POST \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
@@ -34,7 +34,7 @@ curl https://api.magicbell.com/notifications \
   }'
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   method: 'POST',
   headers: {
@@ -54,22 +54,22 @@ fetch('https://api.magicbell.com/notifications', {
 });
 ```
 
-</Code>
+</Tabs>
 
 Some API endpoints require an additional header to identify the user whose notifications you want to read, delete, etc.
 
 If you identify users in your app by email, provide the `X-MAGICBELL-USER-EMAIL` header, like this:
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request GET \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
   --header 'X-MAGICBELL-USER-EMAIL: richard@example.com'
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   headers: {
     'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
@@ -78,20 +78,20 @@ fetch('https://api.magicbell.com/notifications', {
 });
 ```
 
-</Code>
+</Tabs>
 
 If you don't use emails to identify your users, provide the `X-MAGICBELL-USER-EXTERNAL-ID` with the ID of the user from your database:
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request GET \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
   --header 'X-MAGICBELL-USER-EXTERNAL-ID: 0e8277ec'
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   headers: {
     'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
@@ -100,7 +100,7 @@ fetch('https://api.magicbell.com/notifications', {
 });
 ```
 
-</Code>
+</Tabs>
 
 ### Requests on behalf of your users
 
@@ -108,9 +108,9 @@ Your users can and will make requests to some MagicBell API endpoints to fetch t
 
 Use your API secret to compute an HMAC of the user's email or id. Then, when performing API requests on behalf of your user, provide the `X-MAGICBELL-USER-HMAC` header containing the HMAC instead of the `X-MAGICBELL-API-SECRET` header.
 
-<Code>
+<Tabs>
 
-```curl
+```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request GET \
   --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
@@ -118,7 +118,7 @@ curl https://api.magicbell.com/notifications \
   --header 'X-MAGICBELL-USER-HMAC: USER_ID_HMAC'
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   headers: {
     'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
@@ -128,6 +128,6 @@ fetch('https://api.magicbell.com/notifications', {
 });
 ```
 
-</Code>
+</Tabs>
 
 If you're yet to turn to HMAC authentication for your MagicBell project, you don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly recommend [turning on HMAC authentication](/docs/turn-on-hmac-authentication) before releasing MagicBell to your users.

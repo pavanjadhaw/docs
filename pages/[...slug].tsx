@@ -1,15 +1,16 @@
-import fs from "fs";
-import * as matter from "gray-matter";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import path from "path";
-import { flatten, reject } from "ramda";
-import React from "react";
-import sitemap from "../lib/sitemap";
-import Callout from "./components/Callout";
-import Code from "./components/Code";
-import Page from "./components/layout/Page";
+import fs from 'fs';
+import * as matter from 'gray-matter';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import path from 'path';
+import { flatten, reject } from 'ramda';
+import React from 'react';
+import sitemap from '../lib/sitemap';
+import Callout from './components/Callout';
+import HighlightedCode from './components/code/HighlightedCode';
+import Page from './components/layout/Page';
+import Tabs from './components/tabs/Tabs';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -20,14 +21,14 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
   const { title, subtitle } = metadata;
 
   return (
-    <Page title={title || "Docs"}>
+    <Page title={title || 'Docs'}>
       <h1 className="mt-12 mb-2">{title}</h1>
       <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
           <MDXRemote
             {...mdxSource}
-            components={{ Note: Callout, code: Code }}
+            components={{ Note: Callout, code: HighlightedCode, Tabs, HighlightedCode }}
           />
         </article>
       ) : (
@@ -41,10 +42,7 @@ export default function Document({ mdxSource, metadata = {} }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   // Load routes from the sitemap
   const allRoutes = flatten(
-    reject(
-      (item) => item.to === undefined || item.staticRoute === true,
-      sitemap
-    )
+    reject((item) => item.to === undefined || item.staticRoute === true, sitemap),
   );
 
   return {
@@ -58,10 +56,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params!;
 
   // @ts-ignore
-  const filename = slug?.join("/") + ".mdx";
-  const docsDirectory = path.join(process.cwd(), "docs");
+  const filename = slug?.join('/') + '.mdx';
+  const docsDirectory = path.join(process.cwd(), 'docs');
   const filePath = path.join(docsDirectory, filename);
-  const fileContents = fs.readFileSync(filePath, "utf8");
+  const fileContents = fs.readFileSync(filePath, 'utf8');
 
   // @ts-ignore
   const { content, data } = matter(fileContents);

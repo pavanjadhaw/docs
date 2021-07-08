@@ -8,7 +8,7 @@ To render your MagicBell, you need to specify the user for whom you want to disp
 
 Set the `userEmail` property:
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -25,7 +25,7 @@ export default function Notifications() {
 
 Set the `userExternalId` property:
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -39,5 +39,10 @@ export default function Notifications() {
 ```
 
 <Note>
-<b>Important.</b> Please make sure that you use the `external_id` parameter to identify the users when <a href="/rest-api/reference#operation/create-notification">creating the notifications using the API</a>.
+  <b>Important.</b> Please make sure that you use the `external_id` parameter to identify
+  the users when{' '}
+  <a href="/rest-api/reference#operation/create-notification">
+    creating the notifications using the API
+  </a>
+  .
 </Note>

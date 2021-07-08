@@ -11,9 +11,9 @@ To change the default language, we expose the `locale` property. Set it to
 - `es` for Spanish
 - `pt_BR` for Brazilian Portuguese
 
-<Code>
+<Tabs>
 
-```jsx
+```jsx title=REACT hideHeader noTopBorderRadius
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -26,7 +26,7 @@ export default function Notifications() {
 }
 ```
 
-```html
+```html title=HTML hideHeader noTopBorderRadius
 <script type="module">
   import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 
@@ -42,7 +42,7 @@ export default function Notifications() {
 </script>
 ```
 
-</Code>
+</Tabs>
 
 ## Internationalization (i18n)
 
@@ -65,9 +65,9 @@ This is a list of all messages the UI uses:
 
 For example, let's create a locale for our German users:
 
-<Code>
+<Tabs>
 
-```jsx
+```jsx title=REACT hideHeader noTopBorderRadius
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -93,7 +93,7 @@ export default function Notifications() {
 }
 ```
 
-```html
+```html title=HTML hideHeader noTopBorderRadius
 <script type="module">
   import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 
@@ -123,7 +123,7 @@ export default function Notifications() {
 </script>
 ```
 
-</Code>
+</Tabs>
 
 As you can see, you can provide complete dictionary of definitions or a subset. If an entry is not found in your definition, MagicBell just renders the default message in English.
 
