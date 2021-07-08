@@ -55,8 +55,10 @@
     @apply ml-4;
   }
 
-  pre {
+  pre,
+  code {
     font-size: 1rem;
+    font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important;
   }
 }
 

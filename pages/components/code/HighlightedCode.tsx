@@ -13,6 +13,7 @@ import xml from 'highlight.js/lib/languages/xml';
 // @ts-ignore
 import curl from 'highlightjs-curl';
 import React from 'react';
+import HighlightedCodeHeader from './HighlightedCodeHeader';
 
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('curl', curl);
@@ -30,8 +31,9 @@ hljs.registerLanguage('xml', xml);
 
 export interface HighlightedCodeProps {
   children: string;
+  title?: string;
   className?: string;
-  hideHeader?: boolean;
+  showHeader?: boolean;
 }
 
 /**
@@ -41,36 +43,29 @@ export interface HighlightedCodeProps {
  */
 export default function HighlightedCode({
   children: code,
+  title,
   className,
-  hideHeader = false,
+  showHeader = false,
+  ...props
 }: HighlightedCodeProps) {
   if (!code) return null;
 
   const language = className?.replace('language-', '') || 'bash';
-
   function parseCode(str: string) {
     return hljs.highlight(str, { language }).value;
   }
 
   return (
     <code className={classNames('block mb-4', className)}>
-      {!hideHeader ? (
-        <div
-          className="px-6 py-3 rounded-t-md uppercase text-xs font-bold text-white"
-          style={{
-            background: '#222337',
-          }}
-        >
-          {language}
-        </div>
+      {showHeader ? (
+        <HighlightedCodeHeader title={title || language} code={code} />
       ) : null}
       <pre
-        style={{
-          background: '#31324e',
-          fontFamily:
-            'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-        }}
-        className="hljs font-mono rounded-b-md p-6 text-white overflow-x-scroll"
+        style={{ background: '#31324e' }}
+        className={classNames(
+          'hljs font-mono p-6 text-white overflow-x-scroll',
+          showHeader ? 'rounded-b-md' : 'rounded-md',
+        )}
         dangerouslySetInnerHTML={{ __html: parseCode(code) }}
       />
     </code>
