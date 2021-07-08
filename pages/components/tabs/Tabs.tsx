@@ -35,6 +35,7 @@ export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
       <TabsHeader tabs={tabs} currentTabIndex={focusedIndex}>
         {(tab, index) => (
           <button
+            key={index}
             className="p-3 text-xs font-bold font-mono"
             onClick={() => setFocusedIndex(index)}
           >
