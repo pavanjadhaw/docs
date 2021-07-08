@@ -48,8 +48,8 @@ export default function Code({
   }
 
   return (
-    <code className={classNames('block my-4', className)}>
-      {hideHeader ? (
+    <code className={classNames('block mb-4', className)}>
+      {!hideHeader ? (
         <div
           className="px-6 py-3 rounded-t-md uppercase text-xs font-bold text-white"
           style={{

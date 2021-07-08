@@ -54,6 +54,10 @@
     @apply mb-4;
     @apply ml-4;
   }
+
+  pre {
+    font-size: 1rem;
+  }
 }
 
 @tailwind components;
