@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import TabPanel from './TabPanel';
 import TabsHeader from './TabsHeader';
@@ -36,7 +37,10 @@ export default function Tabs({ children, defaultIndex = 0 }: CodeTabsProps) {
         {(tab, index) => (
           <button
             key={index}
-            className="p-3 text-xs font-bold font-mono"
+            className={classNames(
+              'p-3 text-xs font-bold font-mono',
+              focusedIndex === index ? 'text-white' : 'text-gray-400',
+            )}
             onClick={() => setFocusedIndex(index)}
           >
             {tab.title}
