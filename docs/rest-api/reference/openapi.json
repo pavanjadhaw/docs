@@ -808,8 +808,12 @@
                 "type": "object",
                 "description": "Overrides for specific channels",
                 "properties": {
-                  "in_app": { "$ref": "#/components/schemas/ChannelOverrides" },
-                  "email": { "$ref": "#/components/schemas/ChannelOverrides" },
+                  "in_app": {
+                    "$ref": "#/components/schemas/ChannelOverrides"
+                  },
+                  "email": {
+                    "$ref": "#/components/schemas/ChannelOverrides"
+                  },
                   "web_push": {
                     "$ref": "#/components/schemas/ChannelOverrides"
                   }
@@ -823,11 +827,17 @@
       "ChannelOverrides": {
         "type": "object",
         "properties": {
-          "title": { "type": "string", "description": "Overriden title" },
-          "content": { "type": "string", "description": "Overriden content" },
+          "title": {
+            "type": "string",
+            "description": "Overriden title for this channel"
+          },
+          "content": {
+            "type": "string",
+            "description": "Overriden content for this channel"
+          },
           "action_url": {
             "type": "string",
-            "description": "Overriden action_url"
+            "description": "Overriden action_url for this channel"
           }
         }
       },
