@@ -21,7 +21,16 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/WrappedNotification" }
+              "schema": { "$ref": "#/components/schemas/WrappedNotification" },
+              "example": {
+                "title": "A guide to notification inbox design",
+                "content": "Content of the notification inbox",
+                "overrides": {
+                  "email": {
+                    "title": "A guide to notification inbox design"
+                  }
+                }
+              }
             }
           }
         },
@@ -718,13 +727,11 @@
         "properties": {
           "external_id": {
             "type": "string",
-            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable.",
-            "default": "1924"
+            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
           },
           "email": {
             "type": "string",
-            "description": "The user's email",
-            "default": "john@example.com"
+            "description": "The user's email"
           },
           "first_name": {
             "type": "string",
@@ -749,13 +756,11 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "The user's email",
-            "default": "john@example.com"
+            "description": "The user's email"
           },
           "external_id": {
             "type": "string",
-            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable.",
-            "default": "1924"
+            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
           }
         }
       },
@@ -768,18 +773,15 @@
         "properties": {
           "title": {
             "type": "string",
-            "description": "Title of the notification",
-            "default": "Ticket assigned to you: Do you offer demos?"
+            "description": "Title of the notification"
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to",
-            "default": "new_message"
+            "description": "Category the notification belongs to"
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification",
-            "default": "Can I see a demo of your product?"
+            "description": "Content of the notification"
           },
           "action_url": {
             "type": "string",
@@ -846,13 +848,11 @@
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to",
-            "default": "new_message"
+            "description": "Category the notification belongs to"
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification",
-            "default": "Can I see a demo of your product?"
+            "description": "Content of the notification"
           },
           "action_url": {
             "type": "string",
@@ -937,13 +937,11 @@
         "properties": {
           "device_token": {
             "type": "string",
-            "description": "ID of the device.",
-            "default": "JfbECC2ubtsIs1iod"
+            "description": "ID of the device."
           },
           "platform": {
             "type": "string",
-            "description": "Either 'ios', 'android' or 'safari'.",
-            "default": "ios"
+            "description": "Either 'ios', 'android' or 'safari'."
           },
           "app_bundle_id": {
             "type": "string",
