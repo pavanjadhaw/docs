@@ -1,12 +1,12 @@
 import fs from 'fs';
 import * as matter from 'gray-matter';
 import { GetStaticProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import React from 'react';
+import DocPage from './components/DocPage';
 import HomeChangelog from './components/HomeChangelog';
-import Page from './components/layout/Page';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -15,18 +15,9 @@ interface Props {
 
 export default function index({ mdxSource, metadata = {} }: Props) {
   return (
-    <Page title="Docs">
-      <h1 className="mt-12 mb-2">{metadata.title}</h1>
-      <h3 className="mb-12 font-normal text-gray-500">{metadata.subtitle}</h3>
-      {mdxSource ? (
-        <article className="mdx-content">
-          <MDXRemote {...mdxSource} />
-        </article>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <DocPage mdxSource={mdxSource} {...metadata}>
       <HomeChangelog />
-    </Page>
+    </DocPage>
   );
 }
 

@@ -1,17 +1,17 @@
-import Head from "next/head";
-import React, { useState } from "react";
-import sitemap from "../../../lib/sitemap";
-import DesktopMenu from "../menu/DesktopMenu";
-import Content from "./Content";
-import Footer from "./Footer";
-import Header from "./Header";
+import Head from 'next/head';
+import React, { useState } from 'react';
+import sitemap from '../../../lib/sitemap';
+import DesktopMenu from '../menu/DesktopMenu';
+import Content from './Content';
+import Footer from './Footer';
+import Header from './Header';
 
 interface Props {
   title?: string;
   children: JSX.Element | JSX.Element[];
 }
 
-export default function Page({ title = "Docs", children }: Props) {
+export default function DocPageLayout({ title = 'Docs', children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(true);
 

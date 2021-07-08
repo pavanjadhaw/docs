@@ -1,35 +1,21 @@
 import fs from 'fs';
 import * as matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import { flatten, reject } from 'ramda';
 import React from 'react';
 import sitemap from '../lib/sitemap';
-import Page from './components/layout/Page';
+import DocPage from './components/DocPage';
 
 interface Props {
   metadata?: { [key: string]: any };
   mdxSource?: MDXRemoteSerializeResult;
 }
 
-export default function Document({ mdxSource, metadata = {} }: Props) {
-  const { title, subtitle } = metadata;
-
-  return (
-    <Page title={title || 'Docs'}>
-      <h1 className="mt-12 mb-2">{title}</h1>
-      <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
-      {mdxSource ? (
-        <article className="mdx-content">
-          <MDXRemote {...mdxSource} />
-        </article>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </Page>
-  );
+export default function DynamicDocument({ mdxSource, metadata = {} }: Props) {
+  return <DocPage mdxSource={mdxSource} {...metadata} />;
 }
 
 // @ts-ignore

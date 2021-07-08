@@ -1,11 +1,11 @@
 import fs from 'fs';
 import * as matter from 'gray-matter';
 import { GetStaticProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import React from 'react';
-import Page from '../components/layout/Page';
+import DocPage from '../components/DocPage';
 
 interface Props {
   metadata?: { [key: string]: any };
@@ -19,18 +19,9 @@ export default function reference({
   metadata = {},
 }: Props) {
   return (
-    <Page>
-      <h1 className="mt-12 mb-2">{metadata.title}</h1>
-      <h3 className="mb-12 font-normal text-gray-500">{metadata.subtitle}</h3>
-      {mdxAuthenticationSource ? (
-        <article className="mdx-content">
-          <MDXRemote {...mdxAuthenticationSource} />
-        </article>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <hr className="my-8" />
-    </Page>
+    <DocPage mdxSource={mdxAuthenticationSource} {...metadata}>
+      <hr />
+    </DocPage>
   );
 }
 
