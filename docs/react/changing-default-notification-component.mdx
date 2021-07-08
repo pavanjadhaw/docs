@@ -11,7 +11,7 @@ You can change the default notification component in two easy steps:
 
 MagicBell uses a reactive approach to render your notification inbox. Therefore, you must register your custom components as observers of the state. You can do it by simply wrapping your components with the `observer` function, which you can also import from our [react package](https://www.npmjs.com/package/@magicbell/magicbell-react).
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { observer } from '@magicbell/magicbell-react';
 
@@ -29,7 +29,7 @@ export default observer(CustomNotification);
 
 Then, pass it to the `FloatingNotificationInbox` component:
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { observer } from '@magicbell/magicbell-react';
 import CustomNotification from './CustomNotification';
@@ -55,7 +55,7 @@ You can choose any method of your liking to style your custom notification compo
 
 You may access MagicBell's theme context using the `useTheme` hook from our [react package](https://www.npmjs.com/package/@magicbell/magicbell-react).
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { useTheme, observer } from '@magicbell/magicbell-react';
 

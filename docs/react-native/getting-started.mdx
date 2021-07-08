@@ -8,7 +8,7 @@ Our [`@magicbell/react-headless`](https://www.npmjs.com/package/@magicbell/react
 
 To get started, install the NPM package:
 
-```shell
+```shell hideHeader
 npm install @magicbell/magicbell-react
 # Or
 yarn add @magicbell/magicbell-react
@@ -18,7 +18,7 @@ yarn add @magicbell/magicbell-react
 
 Then, wrap your app with the headless `MagicBellProvider` component. You can initialize it with either the email or ID of the user.
 
-```jsx
+```jsx title=React
 import { MagicBellProvider } from '@magicbell/react-headless';
 import { Text, View } from 'react-native';
 
@@ -35,7 +35,7 @@ export default function App() {
 
 Now you can display notifications using the `useNotifications` hook. In the following example, you can see how to render a list of notifications.
 
-```jsx
+```jsx title=React
 import { observer, useNotifications } from '@magicbell/react-headless';
 import React from 'react';
 import { FlatList } from 'react-native';

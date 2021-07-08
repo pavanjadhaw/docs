@@ -6,7 +6,7 @@ title: Play a sound when a notification arrives
 
 You might want to play a sound or show toast when a new notification arrives. To accomplish this, you can define a function and pass it to your `MagicBell` component as the `onNewNotification` property.
 
-```jsx
+```jsx title=React
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -35,9 +35,9 @@ export default function Notifications() {
 
 MagicBell also provides a hook called `useMagicBellEvent` which can help you to accomplish that. This hook expects a callback function. Play your audio inside that function:
 
-<Code>
+<Tabs>
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 import { useMagicBellEvent } from '@magicbell/magicbell-react';
 
 useMagicBellEvent('notifications.new', (notification) => {
@@ -51,7 +51,7 @@ useMagicBellEvent('notifications.new', (notification) => {
 });
 ```
 
-```ts
+```ts title=TYPESCRIPT hideHeader noTopBorderRadius
 import { Notification, useMagicBellEvent } from '@magicbell/magicbell-react';
 
 useMagicBellEvent('notifications.new', (notification: Notification) => {
@@ -65,7 +65,7 @@ useMagicBellEvent('notifications.new', (notification: Notification) => {
 });
 ```
 
-</Code>
+</Tabs>
 
 The only requirement to use that hook is that the component you use is wrapped with the `MagicBellProvider`.
 
@@ -73,9 +73,9 @@ The only requirement to use that hook is that the component you use is wrapped w
 
 Since this is a headless component, it is safe to wrap your app with the `MagicBellProvider`.
 
-<Code>
+<Tabs>
 
-```jsx
+```jsx title=REACT hideHeader noTopBorderRadius
 import React from 'react';
 import MagicBell, {
   MagicBellProvider,
@@ -105,7 +105,7 @@ function Notifications() {
 }
 ```
 
-```tsx
+```tsx title=TYPESCRIPT hideHeader noTopBorderRadius
 import React from 'react';
 import MagicBell, {
   Notification,
@@ -136,6 +136,6 @@ function Notifications() {
 }
 ```
 
-</Code>
+</Tabs>
 
 Notice that the `Notifications` component is part of the component tree where the `MagicBellProvider` is available. That's why it is possible to add the `useMagicBellEvent` hook in that component.

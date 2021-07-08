@@ -14,21 +14,21 @@ By default, HMAC is turned off because it makes it easier to test the integratio
 
 Use your MagicBell project's API secret to compute an HMAC code of the user's email or id in your server. Do not perform the calculation of the HMAC in the client.
 
-<Code>
+<Tabs>
 
-```ruby
+```ruby title=RUBY hideHeader noTopBorderRadius
 digest = OpenSSL::Digest::Digest.new('sha256')
 user_email_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, MAGICBELL_API_SECRET, user_email))
 ```
 
-```node
+```node title=NODE hideHeader noTopBorderRadius
 const userEmailHMAC = crypto
   .createHmac('sha256', MAGICBELL_API_SECRET)
   .update(userEmail)
   .digest('base64');
 ```
 
-```java
+```java title=JAVA hideHeader noTopBorderRadius
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.Mac;
 import java.security.InvalidKeyException;
@@ -58,27 +58,27 @@ class Main {
 }
 ```
 
-```javascript
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 import Base64 from 'crypto-js/enc-base64';
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 
 const userEmailHMAC = Base64.stringify(hmacSHA256(userEmail, MAGICBELL_API_SECRET));
 ```
 
-```php
+```php title=PHP hideHeader noTopBorderRadius
 $hexHash = hash_hmac('sha256', $userEmail, utf8_encode($magicBellAPISecret));
 $hmac = base64_encode(hex2bin($hexHash));
 ```
 
-</Code>
+</Tabs>
 
 ## How do I use it?
 
 Next, provide the HMAC code along with your MagicBell's projects API key and the user's email or id when initializing MagicBell's notification inbox.
 
-<Code>
+<Tabs>
 
-```html
+```html title=HTML hideHeader noTopBorderRadius
 <div id="notifications-inbox" />
 <script type="text/javascript">
   // Other initialization code...
@@ -92,7 +92,7 @@ Next, provide the HMAC code along with your MagicBell's projects API key and the
 </script>
 ```
 
-```jsx
+```jsx title=REACT hideHeader noTopBorderRadius
 import React from "react";
 import MagicBell, { FloatingNotificationInbox } from "@magicbell/magicbell-react";
 
@@ -105,10 +105,14 @@ export default function Notifications() {
 )
 ```
 
-</Code>
+</Tabs>
 
 Deploy your website and wait for a few hours (so your users refresh your website or close/open your website) and have the latest JavaScript containing this new initialization code. Enable HMAC authentication in the Settings section of your MagicBell project.
 
-<img className="full-mobile" src="/docs/uploads/5020c85d-2588-4119-b3ad-91e8e33e9323.png" style={{ width: "80%", height: 'intrinsic' }} />
+<img
+  className="full-mobile"
+  src="/docs/uploads/5020c85d-2588-4119-b3ad-91e8e33e9323.png"
+  style={{ width: '80%', height: 'intrinsic' }}
+/>
 
 Remember that this is secure as long as your private key is kept safe. Never publish your private key!
