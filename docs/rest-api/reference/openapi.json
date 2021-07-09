@@ -265,7 +265,7 @@
         "operationId": "mark-user-notification-as-read",
         "tags": ["User Notification Actions APIs", "real-time"],
         "summary": "Mark a notification as read",
-        "description": "Mark a user notification as read. The notification will be automatically marked as seen, too. The new state will be reflected in the user's notification inbox in real-time.",
+        "description": "Mark a user notification as read. The notification will be automatically marked as seen, too.\n\nThe new state will be reflected in the user's notification inbox in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -446,7 +446,7 @@
         "operationId": "create-user",
         "tags": ["Users APIs"],
         "summary": "Create a user",
-        "description": "Create a user. Please note that you must provide the user's email or the external id so MagicBell can uniquely identify the user. The external id, if provided, must be unique to the user.",
+        "description": "Create a user. Please note that you must provide the user's email or the external id so MagicBell can uniquely identify the user.\n\nThe external id, if provided, must be unique to the user.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" }
@@ -581,7 +581,7 @@
         "operationId": "delete-user",
         "tags": ["Users APIs"],
         "summary": "Delete a user",
-        "description": "Delete a user by id, email or external_id. We will delete the user completely 7 days after. If the user makes a request to the API, the deletion will be canceled. This will happen when the notification inbox for this user is loaded, for example.",
+        "description": "Delete a user by id, email or external_id.\n\nWe will delete the user completely 7 days after. If the user makes a request to the API, the deletion will be canceled. This will happen when the notification inbox for this user is loaded in your app, for example.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
@@ -623,7 +623,7 @@
         ],
         "tags": ["User notification preference APIs"],
         "summary": "Fetch user notification preferences",
-        "description": "Fetch a user's notification preferences. If a user did not disable a channel explicitly, we would send notifications through that channel as long as your project is enabled.",
+        "description": "Fetch a user's notification preferences. If a user does not disable a channel explicitly, we would send notifications through that channel as long as your project is enabled.",
         "operationId": "get-preferences",
         "responses": {
           "200": {
@@ -738,7 +738,7 @@
         "tags": ["Subscription to push notifications APIs"],
         "summary": "Register a device",
         "operationId": "create-push-subscription",
-        "description": "Register a device token for push notifications. Please keep in mind that mobile push notifications will be delivered to this device only if the channel is configured and enabled.",
+        "description": "Register a device token for push notifications.\n\nPlease keep in mind that mobile push notifications will be delivered to this device only if the channel is configured and enabled.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
