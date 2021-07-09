@@ -144,9 +144,9 @@
                   "notifications": [
                     {
                       "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                      "title": "A guide to notification center design",
+                      "title": "A guide to designing your notification inbox",
                       "action_url": "https://magicbell.com/blog/notification-system-design",
-                      "content": "Notification system design is a complex topic",
+                      "content": "<p style='font-size: 20px'>Notification system design is a complex topic</p>",
                       "category": "new_message",
                       "custom_attributes": {
                         "encoding": "utf-8",
@@ -205,9 +205,9 @@
                 "example": {
                   "notification": {
                     "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                    "title": "A guide to notification center design",
+                    "title": "A guide to designing your notification inbox",
                     "action_url": "https://magicbell.com/blog/notification-system-design",
-                    "content": "Notification system design is a complex topic",
+                    "content": "<p>Notification system design is a complex topic</p>",
                     "category": "new_message",
                     "custom_attributes": {
                       "encoding": "utf-8",
@@ -1079,7 +1079,7 @@
           "action_url": {
             "type": "string",
             "format": "url",
-            "description": "A URL to redirect the user to when they click on the notification in MagicBell's embeddable notification center"
+            "description": "A URL to redirect the user to when they click the notification in their notification inbox."
           },
           "custom_attributes": {
             "type": "object",
