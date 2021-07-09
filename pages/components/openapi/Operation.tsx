@@ -26,7 +26,11 @@ export default function Operation({ pathKey, operation, method }: Props) {
       ) : null}
       <div className="flex space-x-0 xl:space-x-4 flex-wrap xl:flex-nowrap">
         <main className="w-full xl:w-1/2">
-          <p>{operation.description}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: operation.description?.replace(/\n/g, '<br/>') || '',
+            }}
+          />
           <HeaderParameters
             parameteres={operation.parameters as OpenAPIV3.ParameterObject[]}
           />
