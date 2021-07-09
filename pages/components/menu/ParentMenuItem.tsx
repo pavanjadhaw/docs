@@ -5,8 +5,9 @@ import { useToggle } from 'react-use';
 import { SitemapItem } from '../../../lib/sitemap';
 import MenuItem from './MenuItem';
 
-export default function ParentMenuItem({ name, icon, children }: SitemapItem) {
+export default function ParentMenuItem({ name, icon, children, ...props }: SitemapItem) {
   const [isOpen, toggle] = useToggle(false);
+  console.warn({ name, props });
 
   return (
     <div className="submenu">
@@ -19,13 +20,16 @@ export default function ParentMenuItem({ name, icon, children }: SitemapItem) {
           className={classNames(isOpen ? 'rotate-90' : 'rotate-0', 'transform h-4 w-4')}
         />
       </button>
-      {isOpen && (
-        <ul className="border-l border-gray-200 border-dashed ml-9">
-          {children?.map((item, index) => (
-            <MenuItem key={index} {...item} />
-          ))}
-        </ul>
-      )}
+      <ul
+        className={classNames(
+          'border-l border-gray-200 border-dashed ml-9',
+          isOpen ? '' : 'hidden',
+        )}
+      >
+        {children?.map((item, index) => (
+          <MenuItem key={index} {...item} />
+        ))}
+      </ul>
     </div>
   );
 }
