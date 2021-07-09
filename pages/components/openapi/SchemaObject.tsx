@@ -16,7 +16,7 @@ export default function SchemaObject({
   if (!object) return null;
   if (object.type === 'object' && object.properties)
     return (
-      <section className="space-y-4">
+      <section className="space-y-8">
         {Object.keys(object.properties).map((propertyName, index) => {
           return (
             <SchemaObject
@@ -34,13 +34,13 @@ export default function SchemaObject({
   const propertyName = last(objectPathAcc);
   return (
     <div>
-      <p className="m-0 font-mono white break-all">
+      <p className="font-mono white break-all mb-0.5">
         <span className="opacity-60">{objectParents.join('.') + '.'}</span>
         <span>{propertyName}</span>
         {required && <span className="text-red-500 mx-4 text-xs">required</span>}
       </p>
-      <p className="m-0 opacity-60">{object.description}</p>
-      <p className="opacity-60 capitalize">{object.type}</p>
+      <p className="m-0 opacity-80">{object.description}</p>
+      <p className="opacity-80 capitalize">{object.type}</p>
     </div>
   );
 }
