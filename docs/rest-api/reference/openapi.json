@@ -81,7 +81,11 @@
                   }
                 },
                 "example": {
-                  "errors": ["Recipient can't be blank"]
+                  "errors": [
+                    {
+                      "message": "Param 'notification.recipients' is missing"
+                    }
+                  ]
                 }
               }
             }
