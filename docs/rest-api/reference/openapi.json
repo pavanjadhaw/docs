@@ -773,24 +773,29 @@
         "properties": {
           "title": {
             "type": "string",
-            "description": "Title of the notification"
+            "description": "Title of the notification",
+            "nullable": false
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to"
+            "description": "Category the notification belongs to",
+            "nullable": true
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification"
+            "description": "Content of the notification",
+            "nullable": true
           },
           "action_url": {
             "type": "string",
             "format": "url",
-            "description": "A URL to redirect the user to when they click on the notification in MagicBell's embeddable notification center"
+            "description": "A URL to redirect the user to when they click on the notification in MagicBell's embeddable notification center",
+            "nullable": true
           },
           "recipients": {
             "$ref": "#/components/schemas/Recipients",
             "description": "Users to send the notification to",
+            "nullable": false,
             "minItems": 1,
             "maxItems": 100
           },
@@ -803,6 +808,7 @@
           "overrides": {
             "type": "object",
             "description": "Optional overrides to configure notifications per target destination",
+            "nullable": true,
             "properties": {
               "channels": {
                 "type": "object",
