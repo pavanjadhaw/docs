@@ -9,16 +9,23 @@ interface Props {
 export default function RequestBody({ requestBody }: Props) {
   if (!requestBody) return null;
 
-  // @ts-ignore
-  const properties = requestBody.content?.['application/json']?.schema?.properties as {
+  const schema = requestBody.content?.['application/json']
+    ?.schema as OpenAPIV3.SchemaObject;
+
+  const schemaProperties = schema?.properties as {
     [name: string]: OpenAPIV3.SchemaObject;
   };
 
+  if (!schemaProperties) return null;
   return (
     <div className="mt-8 mb-12 overflow-hidden">
       <p className="uppercase text-sm border-b border-gray-200 pb-2">Body Parameters</p>
-      {Object.keys(properties || {}).map((key, index) => (
-        <SchemaObject key={index} object={properties[key]} objectPathAcc={[key]} />
+      {Object.keys(schemaProperties).map((propertyName, index) => (
+        <SchemaObject
+          key={index}
+          object={schemaProperties[propertyName]}
+          objectPathAcc={[propertyName]}
+        />
       ))}
     </div>
   );

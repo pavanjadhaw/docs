@@ -1,24 +1,32 @@
 import { OpenAPIV3 } from 'openapi-types';
-import { init, last } from 'ramda';
+import { contains, init, last } from 'ramda';
 import React from 'react';
 
 interface Props {
   object?: OpenAPIV3.SchemaObject;
   objectPathAcc: string[];
+  required?: boolean;
 }
 
-export default function SchemaObject({ object, objectPathAcc = [] }: Props) {
+export default function SchemaObject({
+  object,
+  objectPathAcc = [],
+  required = false,
+}: Props) {
   if (!object) return null;
-  if (object.type === 'object')
+  if (object.type === 'object' && object.properties)
     return (
       <>
-        {Object.keys(object.properties || {}).map((p, index) => (
-          <SchemaObject
-            key={index}
-            object={object.properties?.[p] as OpenAPIV3.SchemaObject}
-            objectPathAcc={[...objectPathAcc, p]}
-          />
-        ))}
+        {Object.keys(object.properties).map((propertyName, index) => {
+          return (
+            <SchemaObject
+              key={index}
+              object={object.properties?.[propertyName] as OpenAPIV3.SchemaObject}
+              objectPathAcc={[...objectPathAcc, propertyName]}
+              required={contains(propertyName, object.required || [])}
+            />
+          );
+        })}
       </>
     );
 
@@ -29,7 +37,7 @@ export default function SchemaObject({ object, objectPathAcc = [] }: Props) {
       <p className="m-0 font-mono white break-all">
         <span className="opacity-60">{objectParents.join('.') + '.'}</span>
         <span>{propertyName}</span>
-        {object.nullable && <span className="text-red-500 mx-4 text-xs">required</span>}
+        {required && <span className="text-red-500 mx-4 text-xs">required</span>}
       </p>
       <p className="m-0 opacity-60">{object.description}</p>
       <p className="opacity-60 capitalize ">{object.type}</p>
