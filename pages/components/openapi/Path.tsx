@@ -8,12 +8,20 @@ interface Props {
 }
 
 export default function Path({ pathKey, path }: Props) {
-  if (path?.post)
-    return <Operation pathKey={pathKey} operation={path.post} method="POST" />;
-  if (path?.put) return <Operation pathKey={pathKey} operation={path.put} method="PUT" />;
-  if (path?.get) return <Operation pathKey={pathKey} operation={path.get} method="GET" />;
-  if (path?.delete)
-    return <Operation pathKey={pathKey} operation={path.delete} method="DELETE" />;
-
-  return null;
+  return (
+    <>
+      {path?.post ? (
+        <Operation pathKey={pathKey} operation={path.post} method="POST" />
+      ) : null}
+      {path?.put ? (
+        <Operation pathKey={pathKey} operation={path.put} method="PUT" />
+      ) : null}
+      {path?.get ? (
+        <Operation pathKey={pathKey} operation={path.get} method="GET" />
+      ) : null}
+      {path?.delete ? (
+        <Operation pathKey={pathKey} operation={path.delete} method="DELETE" />
+      ) : null}
+    </>
+  );
 }
