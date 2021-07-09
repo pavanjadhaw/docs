@@ -23,11 +23,17 @@
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedNotification" },
               "example": {
-                "title": "The notification inbox for your product",
-                "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
-                "overrides": {
-                  "email": {
-                    "title": "The notification inbox for your product"
+                "notification": {
+                  "title": "The notification inbox for your product",
+                  "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
+                  "recipients": [
+                    { "email": "john@example.com" },
+                    { "external_id": "987a-83fd034" }
+                  ],
+                  "overrides": {
+                    "email": {
+                      "title": "The notification inbox for your product"
+                    }
                   }
                 }
               }
@@ -940,10 +946,10 @@
           },
           "recipients": {
             "$ref": "#/components/schemas/Recipients",
-            "description": "Users to send the notification to",
+            "description": "Users to send the notification to. You can notifiy up to 1000 users at once.",
             "nullable": false,
             "minItems": 1,
-            "maxItems": 100
+            "maxItems": 1000
           },
           "custom_attributes": {
             "type": "object",
