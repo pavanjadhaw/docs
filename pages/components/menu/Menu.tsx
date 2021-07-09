@@ -1,6 +1,6 @@
-import React from "react";
-import { SitemapItem } from "../../../lib/sitemap";
-import MenuItem from "./MenuItem";
+import React from 'react';
+import { SitemapItem } from '../../../lib/sitemap';
+import MenuItem from './MenuItem';
 
 interface Props {
   navigationItems: SitemapItem[];
