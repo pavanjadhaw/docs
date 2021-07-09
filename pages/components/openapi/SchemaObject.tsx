@@ -16,7 +16,7 @@ export default function SchemaObject({
   if (!object) return null;
   if (object.type === 'object' && object.properties)
     return (
-      <>
+      <section className="space-y-4">
         {Object.keys(object.properties).map((propertyName, index) => {
           return (
             <SchemaObject
@@ -27,7 +27,7 @@ export default function SchemaObject({
             />
           );
         })}
-      </>
+      </section>
     );
 
   const objectParents = init(objectPathAcc);
@@ -40,7 +40,7 @@ export default function SchemaObject({
         {required && <span className="text-red-500 mx-4 text-xs">required</span>}
       </p>
       <p className="m-0 opacity-60">{object.description}</p>
-      <p className="opacity-60 capitalize ">{object.type}</p>
+      <p className="opacity-60 capitalize">{object.type}</p>
     </div>
   );
 }
