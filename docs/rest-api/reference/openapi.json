@@ -139,7 +139,8 @@
                       "recipient": { "email": "john@example.com" },
                       "seen_at": null,
                       "sent_at": 1601549080,
-                      "read_at": null
+                      "read_at": null,
+                      "archived_at": 1625852784
                     },
                     {
                       "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
@@ -151,7 +152,8 @@
                       "recipient": { "email": "john@example.com" },
                       "seen_at": 1601388747,
                       "sent_at": 1601388730,
-                      "read_at": null
+                      "read_at": null,
+                      "archived_at": 1625852012
                     }
                   ]
                 }
@@ -198,7 +200,8 @@
                     "recipient": { "email": "john@example.com" },
                     "seen_at": null,
                     "sent_at": 1601549080,
-                    "read_at": null
+                    "read_at": null,
+                    "archived_at": 1625852784
                   }
                 }
               }
