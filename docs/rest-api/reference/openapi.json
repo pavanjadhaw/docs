@@ -11,9 +11,9 @@
     "/notifications": {
       "post": {
         "operationId": "create-notification",
-        "tags": ["Notification Send API"],
+        "tags": ["Notification Send API", "real-time"],
         "summary": "Create notification",
-        "description": "Send a notification to one or multiple users. You can identify users by their email address or by an external_id.",
+        "description": "Send a notification to one or multiple users. You can identify users by their email address or by an external_id. The new notification will be shown in the user's notification inboxes in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" }
@@ -185,7 +185,7 @@
         "tags": ["User Notifications APIs"],
         "summary": "Fetch a notification",
         "operationId": "get-notification",
-        "description": "Fetch a user's notification by its ID",
+        "description": "Fetch a user's notification by its ID.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -240,9 +240,9 @@
         }
       },
       "delete": {
-        "tags": ["User Notifications APIs"],
-        "summary": "Delete user notification",
-        "description": "Delete a user's notification",
+        "tags": ["User Notifications APIs", "real-time"],
+        "summary": "Delete a notification",
+        "description": "Delete a user's notification by its ID. The notification is deleted immediately and removed from the user's notification inbox in real-time.",
         "operationId": "delete-notification",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -262,9 +262,9 @@
     "/notifications/{notification_id}/read": {
       "post": {
         "operationId": "mark-user-notification-as-read",
-        "tags": ["User Notification Actions APIs"],
-        "summary": "Mark as read",
-        "description": "Mark a user notification as read. Please keep in mind that the notification will be automatically marked as seen, too.",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Mark a notification as read",
+        "description": "Mark a user notification as read. Please keep in mind that the notification will be automatically marked as seen, too. The new state will be reflected in the user's notification inbox in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -297,9 +297,9 @@
     "/notifications/{notification_id}/unread": {
       "post": {
         "operationId": "mark-user-notification-as-unread",
-        "tags": ["User Notification Actions APIs"],
-        "summary": "Mark as unread",
-        "description": "Mark a user notification as unread",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Mark a notification as unread",
+        "description": "Mark a user notification as unread. The new state will be reflected in the user's notification inbox in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -331,9 +331,9 @@
     },
     "/notifications/{notification_id}/archive": {
       "post": {
-        "operationId": "mark-user-notification-as-archived",
-        "tags": ["User Notification Actions APIs"],
-        "summary": "Mark as archived",
+        "operationId": "archive-notification",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Archive a notification",
         "description": "Mark a user notification as archived.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -362,15 +362,48 @@
             }
           }
         }
+      },
+      "delete": {
+        "operationId": "unarchive-notification",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Unarchive a notification",
+        "description": "Mark a user notification as unarchived.",
+        "parameters": [
+          { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
+          { "$ref": "#/components/parameters/notification_id" }
+        ],
+        "responses": {
+          "204": {
+            "description": "User notification marked as unarchived"
+          },
+          "404": {
+            "description": "The notification is not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A notification_archive with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
 
     "/notifications/read": {
       "post": {
         "operationId": "mark-a-users-notification-as-read",
-        "tags": ["User Notification Actions APIs"],
-        "summary": "Mark all as read",
-        "description": "Mark all notifications of a user as read",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Mark all notifications as read",
+        "description": "Mark all notifications of a user as read. When you call this endpoint, the notification inboxes of this user will be updated in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -389,9 +422,9 @@
     "/notifications/seen": {
       "post": {
         "operationId": "mark-a-users-notification-as-seen",
-        "tags": ["User Notification Actions APIs"],
-        "summary": "Mark all as seen",
-        "description": "Mark all notifications of a user as seen",
+        "tags": ["User Notification Actions APIs", "real-time"],
+        "summary": "Mark all notifications as seen",
+        "description": "Mark all notifications of a user as seen. When you call this endpoint, the notification inboxes of this user will be updated in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -411,8 +444,8 @@
       "post": {
         "operationId": "create-user",
         "tags": ["Users APIs"],
-        "summary": "Create user",
-        "description": "Create a user.\nPlease note that you must provide the user's email or the external id so MagicBell can uniquely identify the user. The external id, if provided, must be unique to the user.\n",
+        "summary": "Create a user",
+        "description": "Create a user. Please note that you must provide the user's email or the external id so MagicBell can uniquely identify the user. The external id, if provided, must be unique to the user.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" }
@@ -481,8 +514,8 @@
       "put": {
         "operationId": "update-user",
         "tags": ["Users APIs"],
-        "summary": "Update user",
-        "description": "Update a user",
+        "summary": "Update a user",
+        "description": "Update a user's data. If you identify users by their email addresses, then you need to update the MagicBell data for this user so they can still access their notifications.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
@@ -559,7 +592,23 @@
             "schema": { "type": "string", "minimum": 1 }
           }
         ],
-        "responses": { "204": { "description": "OK" } }
+        "responses": {
+          "204": { "description": "OK" },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A user with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/notification_preferences": {
