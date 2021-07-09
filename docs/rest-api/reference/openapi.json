@@ -264,7 +264,7 @@
         "operationId": "mark-user-notification-as-read",
         "tags": ["User Notification Actions APIs", "real-time"],
         "summary": "Mark a notification as read",
-        "description": "Mark a user notification as read. Please keep in mind that the notification will be automatically marked as seen, too. The new state will be reflected in the user's notification inbox in real-time.",
+        "description": "Mark a user notification as read. The notification will be automatically marked as seen, too. The new state will be reflected in the user's notification inbox in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -515,7 +515,7 @@
         "operationId": "update-user",
         "tags": ["Users APIs"],
         "summary": "Update a user",
-        "description": "Update a user's data. If you identify users by their email addresses, then you need to update the MagicBell data for this user so they can still access their notifications.",
+        "description": "Update a user's data. If you identify users by their email addresses, you need to update the MagicBell data, so this user can still access their notifications.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
@@ -579,8 +579,8 @@
       "delete": {
         "operationId": "delete-user",
         "tags": ["Users APIs"],
-        "summary": "Delete user",
-        "description": "Delete a user by id, email or external_id. The user will be completely deleted 7 days after. Please note that the deletion will be cancelled if the user makes a request to the API before the deletion is complete.",
+        "summary": "Delete a user",
+        "description": "Delete a user by id, email or external_id. We will delete the user completely 7 days after. If the user makes a request to the API, the deletion will be canceled. This will happen when the notification inbox for this user is loaded, for example.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
@@ -622,7 +622,7 @@
         ],
         "tags": ["User notification preference APIs"],
         "summary": "Fetch user notification preferences",
-        "description": "Fetch a user's notification preferences",
+        "description": "Fetch a user's notification preferences. If a user did not disable a channel explicitly, we would send notifications through that channel as long as your project is enabled.",
         "operationId": "get-preferences",
         "responses": {
           "200": {
@@ -737,7 +737,7 @@
         "tags": ["Subscription to push notifications APIs"],
         "summary": "Register a device",
         "operationId": "create-push-subscription",
-        "description": "Register a device token for push notifications.\nYou must provide the token of the device that will receive push notifications.\n",
+        "description": "Register a device token for push notifications. Please keep in mind that mobile push notifications will be delivered to this device only if the channel is configured and enabled.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -812,7 +812,7 @@
       "delete": {
         "tags": ["Subscription to push notifications APIs"],
         "summary": "Unregister a device",
-        "description": "Remove the subscription of a device to mobile push notifications.",
+        "description": "Remove the subscription of a device to mobile push notifications. The device will be discarded immediately.",
         "operationId": "delete-push-subscription",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -886,19 +886,19 @@
         "properties": {
           "email": {
             "type": "boolean",
-            "description": "Whether to send an email notification for this category or not."
+            "description": "A flag to enable or disable email messages for this category when a new notification is created."
           },
           "in_app": {
             "type": "boolean",
-            "description": "Whether to send the notification to the notification inbox or not."
+            "description": "Whether to send new notifications to the notification inbox or not."
           },
           "mobile_push": {
             "type": "boolean",
-            "description": "Whether to send a mobile push notification for this category or not."
+            "description": "A flag to enable or disable mobile push notifications for this category when a new notification is created."
           },
           "web_push": {
             "type": "boolean",
-            "description": "Whether to send an browser push notification for this category or not."
+            "description": "A flag to enable or disable browser push notifications for this category when a new notification is created."
           }
         }
       },
@@ -933,7 +933,7 @@
         "properties": {
           "external_id": {
             "type": "string",
-            "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
+            "description": "A unique string that MagicBell can utilize to identify the user uniquely. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
           },
           "email": {
             "type": "string",
@@ -949,7 +949,7 @@
           },
           "custom_attributes": {
             "type": "object",
-            "description": "Any customers attributes that you'd like to associate with the user. These custom attributes can later be utilized in MagicBell's web interface (when writing email templates for example)."
+            "description": "Any customer attributes that you'd like to associate with the user. You may want to use these attributes later when writing email templates, for example."
           }
         }
       },
@@ -979,28 +979,28 @@
         "properties": {
           "title": {
             "type": "string",
-            "description": "Title of the notification",
+            "description": "Title of the notification.",
             "nullable": false
           },
           "category": {
             "type": "string",
-            "description": "Category the notification belongs to",
+            "description": "Category the notification belongs to. This is useful to allow users to set their preferences.",
             "nullable": true
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification. If you provide HTMl content, the notification inbox will render it properly.",
+            "description": "Content of the notification. If you provide HTML content, the notification inbox will render it correctly.",
             "nullable": true
           },
           "action_url": {
             "type": "string",
             "format": "url",
-            "description": "A URL to redirect the user to when they click on the notification in MagicBell's embeddable notification center",
+            "description": "A URL to redirect the user to when they click the notification in their notification inbox.",
             "nullable": true
           },
           "recipients": {
             "$ref": "#/components/schemas/Recipients",
-            "description": "Users to send the notification to. You can notifiy up to 1000 users at once.",
+            "description": "Users to send the notification to. You can notify up to 1000 users at once.",
             "nullable": false,
             "minItems": 1,
             "maxItems": 1000
@@ -1168,7 +1168,7 @@
           },
           "app_bundle_id": {
             "type": "string",
-            "description": "The bundle ID of your app. This value is used to determine the delivery mechanism for mobile push notifications based on your workflow, so you can link several mobile applications to one project."
+            "description": "The bundle ID of your app. This value is used to determine the delivery mechanism for mobile push notifications based on your workflow so that you can link several mobile applications to one project."
           }
         },
         "required": ["device_token", "platform"]
