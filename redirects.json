@@ -1,5 +1,10 @@
 [
   {
+    "source": "/reference",
+    "destination": "/rest-api/reference",
+    "permanent": true
+  },
+  {
     "source": "/core-concepts",
     "destination": "/glossary",
     "permanent": true
