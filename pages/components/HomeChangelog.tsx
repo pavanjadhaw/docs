@@ -81,8 +81,7 @@ export default function HomeChangelog() {
               </time>
               <p className="md:col-start-3 md:col-span-6 xl:col-span-7 ml-9 md:ml-0 text-gray-600">
                 We've added support for multiple push apps per project. This is useful if
-                you use different app bundles for test/canary/production. Please see the
-                updated documentation or write us if you have any questions.
+                you use different app bundles for test/canary/production.
               </p>
             </a>
           </article>
