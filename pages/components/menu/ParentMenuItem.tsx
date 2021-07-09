@@ -1,18 +1,15 @@
 import { ChevronRightIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
-import { includes, isNil, reject } from 'ramda';
+import { includes } from 'ramda';
 import React from 'react';
 import { useToggle } from 'react-use';
-import { SitemapItem } from '../../../lib/sitemap';
+import { getAllChildrenPaths, SitemapItem } from '../../../lib/sitemap';
 import MenuItem from './MenuItem';
 
 export default function ParentMenuItem({ name, children }: SitemapItem) {
   const router = useRouter();
-  const allChildrenPaths = reject(
-    isNil,
-    children?.map((child) => child.to) || [],
-  ) as string[];
+  const allChildrenPaths = getAllChildrenPaths({ children });
   const defaulIsOpen = includes(router.asPath, allChildrenPaths);
   const [isOpen, toggle] = useToggle(defaulIsOpen);
 

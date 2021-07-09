@@ -1,4 +1,5 @@
-import sitemap from "../sitemap.json";
+import { flatten, isNil, reject } from 'ramda';
+import sitemap from '../sitemap.json';
 
 export type SitemapItem = {
   name: string;
@@ -9,3 +10,8 @@ export type SitemapItem = {
 };
 
 export default sitemap as SitemapItem[];
+
+export function getAllChildrenPaths(element: any): string[] {
+  if (element.to) return element.to;
+  return reject(isNil, flatten(element.children.map(getAllChildrenPaths)));
+}
