@@ -12,7 +12,7 @@
       "post": {
         "operationId": "create-notification",
         "tags": ["Notification Send API", "real-time"],
-        "summary": "Create notification",
+        "summary": "Create notifications",
         "description": "Send a notification to one or multiple users. You can identify users by their email address or by an external_id. The new notification will be shown in the user's notification inboxes in real-time.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -27,12 +27,13 @@
                   "title": "The notification inbox for your product",
                   "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
                   "recipients": [
-                    { "email": "john@example.com" },
-                    { "external_id": "987a-83fd034" }
+                    { "email": "dan@example.com" },
+                    { "external_id": "83d987a-83fd034" }
                   ],
                   "overrides": {
                     "email": {
-                      "title": "[RE] The notification inbox for your product"
+                      "title": "[MagicBell] The notification inbox for your product",
+                      "content": "If you need help, or have any questions please don't hesitate to reach out to us directly at hello@magicbell.io"
                     }
                   }
                 }
@@ -144,15 +145,15 @@
                   "notifications": [
                     {
                       "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                      "title": "A guide to designing your notification inbox",
-                      "action_url": "https://magicbell.com/blog/notification-system-design",
-                      "content": "<p style='font-size: 20px'>Notification system design is a complex topic</p>",
-                      "category": "new_message",
+                      "title": "Pickup Instructions – In-Store",
+                      "action_url": "https://magicbell.com/pricing",
+                      "content": "<ul><li>Bring your valid government-issued photo ID.</li></ul>",
+                      "category": "order_ready",
                       "custom_attributes": {
                         "encoding": "utf-8",
                         "word_count": "500"
                       },
-                      "recipient": { "email": "john@example.com" },
+                      "recipient": { "email": "dan@example.com" },
                       "seen_at": null,
                       "sent_at": 1601549080,
                       "read_at": null,
@@ -160,12 +161,12 @@
                     },
                     {
                       "id": "6ed53e8e-0b07-4354-8b56-44ea3ea0816c",
-                      "title": "Why MagicBell",
+                      "title": "[Billing] Action required to prevent account suspension",
                       "action_url": "https://magicbell.com",
-                      "content": "<p>User notifications significantly increase engagement in social apps and productivity in business apps.</p>",
-                      "category": "new_message",
+                      "content": "Unfortunately we were unable to automatically renew your account. It looks like we had trouble processing your credit card.",
+                      "category": "billing",
                       "custom_attributes": {},
-                      "recipient": { "email": "john@example.com" },
+                      "recipient": { "email": "dan@example.com" },
                       "seen_at": 1601388747,
                       "sent_at": 1601388730,
                       "read_at": null,
@@ -205,15 +206,15 @@
                 "example": {
                   "notification": {
                     "id": "7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c",
-                    "title": "A guide to designing your notification inbox",
+                    "title": "Your Check-in Window to pick up Order W771201863",
                     "action_url": "https://magicbell.com/blog/notification-system-design",
-                    "content": "<p>Notification system design is a complex topic</p>",
-                    "category": "new_message",
+                    "content": "<p>We look forward to seeing you during your Check-in Window. Please bring your valid government-issued photo ID.</p>",
+                    "category": "order_ready",
                     "custom_attributes": {
                       "encoding": "utf-8",
                       "word_count": "500"
                     },
-                    "recipient": { "email": "john@example.com" },
+                    "recipient": { "email": "dan@example.com" },
                     "seen_at": null,
                     "sent_at": 1601549080,
                     "read_at": null,
@@ -635,17 +636,17 @@
                 "example": {
                   "notification_preferences": {
                     "categories": {
-                      "new_message": {
-                        "email": true,
-                        "in_app": true,
-                        "mobile_push": true,
-                        "web_push": true
-                      },
-                      "comment": {
+                      "billing": {
                         "email": true,
                         "in_app": true,
                         "mobile_push": false,
                         "web_push": true
+                      },
+                      "new_comment": {
+                        "email": true,
+                        "in_app": true,
+                        "mobile_push": true,
+                        "web_push": false
                       }
                     }
                   }
@@ -677,7 +678,7 @@
               "example": {
                 "notification_preferences": {
                   "categories": {
-                    "new_message": { "email": false, "web_push": false }
+                    "billing": { "email": true, "web_push": false }
                   }
                 }
               }
@@ -695,17 +696,17 @@
                 "example": {
                   "notification_preferences": {
                     "categories": {
-                      "new_message": {
-                        "email": false,
-                        "in_app": true,
+                      "billing": {
+                        "email": true,
+                        "in_app": false,
                         "mobile_push": false,
                         "web_push": false
                       },
-                      "comment": {
+                      "new_comment": {
                         "email": true,
                         "in_app": true,
                         "mobile_push": false,
-                        "web_push": true
+                        "web_push": false
                       }
                     }
                   }
