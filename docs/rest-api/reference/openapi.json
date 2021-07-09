@@ -685,7 +685,8 @@
                 "example": {
                   "push_subscription": {
                     "id": "f80a7574-b309-4395-bb26-c503fe697d52",
-                    "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV"
+                    "device_token": "x4doKe98yEZ21Kum2Qq39M3b8jkhonuIupobyFnL0wJMSWAZ8zoTp2dyHgV",
+                    "platform": "ios"
                   }
                 }
               }
@@ -720,7 +721,7 @@
       "delete": {
         "tags": ["Subscription to push notifications APIs"],
         "summary": "Unregister a device",
-        "description": "Unregister a device subscribed to push notifications",
+        "description": "Remove the subscription of a device to mobile push notifications",
         "operationId": "delete-push-subscription",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -751,32 +752,34 @@
         "name": "X-MAGICBELL-API-KEY",
         "schema": { "type": "string" },
         "required": true,
-        "description": "API key of your MagicBell project"
+        "description": "API key of your MagicBell project."
       },
       "x_magicbell_api_secret_header": {
         "in": "header",
         "name": "X-MAGICBELL-API-SECRET",
         "schema": { "type": "string" },
         "required": true,
-        "description": "API secret of your MagicBell project"
+        "description": "API secret of your MagicBell project."
       },
       "x_magicbell_user_email_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-EMAIL",
         "schema": { "type": "string" },
         "required": true,
-        "description": "Email address of the user"
+        "description": "Email address of the user."
       },
       "x_magicbell_user_external_id_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-EXTERNAL-ID",
         "schema": { "type": "string" },
-        "required": true
+        "required": true,
+        "description": "ID of the user. Provide the X-MAGICBELL-USER-EMAIL header instead if you identify users by email."
       },
       "x_magicbell_user_hmac_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-HMAC",
-        "schema": { "type": "string" }
+        "schema": { "type": "string" },
+        "description": "HMAC calculated with the API secret and ID, or email, of the user."
       },
       "notification_id": {
         "in": "path",
@@ -1057,7 +1060,8 @@
         "type": "object",
         "properties": {
           "id": { "type": "string" },
-          "device_token": { "type": "string" }
+          "device_token": { "type": "string" },
+          "platform": { "type": "string" }
         }
       },
       "PushSubscription": {
@@ -1065,15 +1069,15 @@
         "properties": {
           "device_token": {
             "type": "string",
-            "description": "ID of the device."
+            "description": "Token that identifies the device. This is usually generated automatically by your app once installed."
           },
           "platform": {
             "type": "string",
-            "description": "The platform where the device token was generated from. This value determines the delivery mechanism for mobile push notifications. Either 'ios', 'android' or 'safari'."
+            "description": "The platform where the device token was generated from. This value is used to determine the delivery mechanism for mobile push notifications. Either 'ios', 'android' or 'safari'."
           },
           "app_bundle_id": {
             "type": "string",
-            "description": "The bundle ID of your app"
+            "description": "The bundle ID of your app. This value is used to determine the delivery mechanism for mobile push notifications based on your workflow, so you can link several mobile applications to one project."
           }
         },
         "required": ["device_token", "platform"]
