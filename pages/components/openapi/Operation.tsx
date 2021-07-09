@@ -21,7 +21,7 @@ export default function Operation({ pathKey, operation, method }: Props) {
     <article id={operation.operationId} className="py-36 border-t">
       <h2 className="mt-0">{operation.summary} </h2>
       {realTimeEnabled ? (
-        <p className="text-xs rounded-md bg-blue-500 px-4 py-2 text-white uppercase font-mono mb-4 inline-block">
+        <p className="text-xs rounded bg-blue-500 px-3 py-2 text-blue-100 uppercase font-mono mb-4 inline-block">
           real-time
         </p>
       ) : null}
