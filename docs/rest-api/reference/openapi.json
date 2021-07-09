@@ -367,6 +367,7 @@
     },
     "/users": {
       "post": {
+        "operationId": "create-user",
         "tags": ["Users APIs"],
         "summary": "Create user",
         "description": "Create a user.\nPlease note that you must provide the user's email or the external id so MagicBell can uniquely identify the user. The external id, if provided, must be unique to the user.\n",
@@ -436,6 +437,7 @@
     },
     "/users/{user_id}": {
       "put": {
+        "operationId": "update-user",
         "tags": ["Users APIs"],
         "summary": "Update user",
         "description": "Update a user",
@@ -500,6 +502,7 @@
         }
       },
       "delete": {
+        "operationId": "delete-user",
         "tags": ["Users APIs"],
         "summary": "Delete user",
         "description": "Delete a user by id, email or external_id. The user will be completely deleted 7 days after. Please note that the deletion will be cancelled if the user makes a request to the API before the deletion is complete.",
