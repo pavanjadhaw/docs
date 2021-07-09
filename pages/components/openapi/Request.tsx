@@ -98,7 +98,7 @@ export default function Request({ method, location, operation }: Props) {
             hideHeader
             noTopBorderRadius
           >
-            {snippet.convert('python', 'requests')}
+            {snippet.convert('python', 'requests-improved')}
           </HighlightedCode>
         </div>
         <div>
