@@ -1,4 +1,5 @@
 import { OpenAPIV3 } from 'openapi-types';
+import { init, last } from 'ramda';
 import React from 'react';
 
 interface Props {
@@ -21,10 +22,13 @@ export default function RequestBodyParameter({ object, objectPathAcc = [] }: Pro
       </>
     );
 
+  const objectParents = init(objectPathAcc);
+  const propertyName = last(objectPathAcc);
   return (
     <div>
       <p className="m-0 font-mono white break-all">
-        {objectPathAcc.join('.')}{' '}
+        <span className="opacity-60">{objectParents.join('.') + '.'}</span>
+        <span>{propertyName}</span>
         {object.nullable && <span className="text-red-500 mx-4 text-xs">required</span>}
       </p>
       <p className="m-0 opacity-60">{object.description}</p>
