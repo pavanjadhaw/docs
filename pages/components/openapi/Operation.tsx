@@ -2,6 +2,7 @@ import { OpenAPIV3 } from 'openapi-types';
 import { includes } from 'ramda';
 import React from 'react';
 import HeaderParameters from './HeaderParameters';
+import QueryParameters from './QueryParameters';
 import Request from './Request';
 import RequestBody from './RequestBody';
 import Responses from './Responses';
@@ -32,6 +33,9 @@ export default function Operation({ pathKey, operation, method }: Props) {
             }}
           />
           <HeaderParameters
+            parameteres={operation.parameters as OpenAPIV3.ParameterObject[]}
+          />
+          <QueryParameters
             parameteres={operation.parameters as OpenAPIV3.ParameterObject[]}
           />
           <RequestBody
