@@ -9,6 +9,7 @@ import json from 'highlight.js/lib/languages/json';
 import php from 'highlight.js/lib/languages/php';
 import python from 'highlight.js/lib/languages/python';
 import ruby from 'highlight.js/lib/languages/ruby';
+import swift from 'highlight.js/lib/languages/swift';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 // @ts-ignore
@@ -28,6 +29,7 @@ hljs.registerLanguage('php', php);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('ruby', ruby);
 hljs.registerLanguage('shell', bash);
+hljs.registerLanguage('swift', swift);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('xml', xml);
 
