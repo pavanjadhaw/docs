@@ -302,7 +302,18 @@
             "description": "User notification marked as unread"
           },
           "404": {
-            "description": "The notification is not found"
+            "description": "The notification is not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A notification_read with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
           }
         }
       }
