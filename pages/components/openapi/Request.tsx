@@ -2,10 +2,9 @@ import classNames from 'classnames';
 import { OpenAPIV3 } from 'openapi-types';
 import { reject } from 'ramda';
 import React from 'react';
+import { buildRequestSnippet } from '../../../lib/codeSnippet';
 import HighlightedCode from '../code/HighlightedCode';
 import Tabs from '../tabs/Tabs';
-
-const HTTPSnippet = require('httpsnippet');
 
 interface Props {
   location?: string;
@@ -31,23 +30,17 @@ export default function Request({ method, location, operation }: Props) {
     parameters as OpenAPIV3.ParameterObject[],
   );
 
-  const headers = Object.keys(headerParams).map((param, index) => ({
-    name: headerParams[index].name,
-    value: 'STRING_VALUE',
-  }));
-
-  const postData = example
-    ? {
-        mimeType: 'application/json',
-        text: JSON.stringify(example),
-      }
-    : null;
-  const snippet = new HTTPSnippet({
+  const snippet = buildRequestSnippet(
+    location,
     method,
-    url: 'https://api.magicbell.com' + location,
-    postData,
-    headers,
-  });
+    headerParams,
+    example
+      ? {
+          mimeType: 'application/json',
+          text: JSON.stringify(example),
+        }
+      : null,
+  );
 
   return (
     <div>
