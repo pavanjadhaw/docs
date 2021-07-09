@@ -26,12 +26,12 @@ export default function RequestBody({ requestBody }: Props) {
       );
     return (
       <div>
-        <p className="m-0 font-mono">
+        <p className="m-0 font-mono white break-all">
           {acc.join('.')}{' '}
           {prop.nullable && <span className="text-red-500 mx-4 text-xs">required</span>}
         </p>
         <p className="m-0 opacity-60">{prop.description}</p>
-        <p className="opacity-60 capitalize">{prop.type}</p>
+        <p className="opacity-60 capitalize ">{prop.type}</p>
       </div>
     );
   };
