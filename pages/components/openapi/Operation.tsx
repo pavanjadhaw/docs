@@ -14,7 +14,7 @@ interface Props {
 export default function Operation({ pathKey, operation, method }: Props) {
   if (!operation) return null;
   return (
-    <article id={operation.operationId} className="py-40 border-t">
+    <article id={operation.operationId} className="py-36 border-t">
       <h2 className="mt-0">{operation.summary} </h2>
       {operation.tags?.indexOf('real-time') && (
         <p className="text-xs rounded-md bg-blue-500 px-4 py-2 text-white uppercase font-mono mb-4 inline-block">
