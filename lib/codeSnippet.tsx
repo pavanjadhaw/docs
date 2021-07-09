@@ -3,8 +3,11 @@ import { OpenAPIV3 } from 'openapi-types';
 
 const HTTPSnippet = require('httpsnippet');
 const httparty = require('./httpsnippet-ruby-httparty');
+const requests = require('./httpsnippet-python-requests');
+
 try {
   HTTPSnippet.addTargetClient('ruby', httparty);
+  HTTPSnippet.addTargetClient('python', requests);
 } catch (err) {}
 
 const pupa = require('pupa');
