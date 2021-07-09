@@ -23,11 +23,11 @@
             "application/json": {
               "schema": { "$ref": "#/components/schemas/WrappedNotification" },
               "example": {
-                "title": "A guide to notification inbox design",
-                "content": "Content of the notification inbox",
+                "title": "The notification inbox for your product",
+                "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
                 "overrides": {
                   "email": {
-                    "title": "A guide to notification inbox design"
+                    "title": "The notification inbox for your product"
                   }
                 }
               }
@@ -49,7 +49,13 @@
                 },
                 "example": {
                   "notification": {
-                    "id": "ffffff66-ea4f-4da2-afc6-84148b51657a"
+                    "id": "ffffff66-ea4f-4da2-afc6-84148b51657a",
+                    "title": "The notification inbox for your product",
+                    "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
+                    "action_url": null,
+                    "category": "",
+                    "custom_attributes": null,
+                    "sent_at": 1625853246
                   }
                 }
               }
