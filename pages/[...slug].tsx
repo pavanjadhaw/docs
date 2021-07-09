@@ -14,7 +14,8 @@ interface Props {
   mdxSource?: MDXRemoteSerializeResult;
 }
 
-export default function DynamicDocument({ mdxSource, metadata = {} }: Props) {
+export default function DynamicDocument({ mdxSource, metadata }: Props) {
+  if (!metadata) return null;
   return <DocPage mdxSource={mdxSource} {...metadata} />;
 }
 
