@@ -32,7 +32,7 @@
                   ],
                   "overrides": {
                     "email": {
-                      "title": "The notification inbox for your product"
+                      "title": "[RE] The notification inbox for your product"
                     }
                   }
                 }
@@ -253,7 +253,8 @@
           { "$ref": "#/components/parameters/notification_id" }
         ],
         "responses": {
-          "204": { "description": "User notification delete successfully" }
+          "204": { "description": "User notification delete successfully" },
+          "404": { "description": "User notification not found" }
         },
         "deprecated": false
       }
@@ -616,7 +617,7 @@
         ],
         "tags": ["User notification preference APIs"],
         "summary": "Update user notification preferences",
-        "description": "Update a user's notification preferences",
+        "description": "Update a user's notification preferences. These preferences will be applied only to channels you enabled for your project.",
         "operationId": "put-preferences",
         "requestBody": {
           "content": {
@@ -762,7 +763,7 @@
       "delete": {
         "tags": ["Subscription to push notifications APIs"],
         "summary": "Unregister a device",
-        "description": "Remove the subscription of a device to mobile push notifications",
+        "description": "Remove the subscription of a device to mobile push notifications.",
         "operationId": "delete-push-subscription",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
@@ -939,7 +940,7 @@
           },
           "content": {
             "type": "string",
-            "description": "Content of the notification",
+            "description": "Content of the notification. If you provide HTMl content, the notification inbox will render it properly.",
             "nullable": true
           },
           "action_url": {
