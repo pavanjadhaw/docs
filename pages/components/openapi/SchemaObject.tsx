@@ -7,13 +7,13 @@ interface Props {
   objectPathAcc: string[];
 }
 
-export default function RequestBodyParameter({ object, objectPathAcc = [] }: Props) {
+export default function SchemaObject({ object, objectPathAcc = [] }: Props) {
   if (!object) return null;
   if (object.type === 'object')
     return (
       <>
         {Object.keys(object.properties || {}).map((p, index) => (
-          <RequestBodyParameter
+          <SchemaObject
             key={index}
             object={object.properties?.[p] as OpenAPIV3.SchemaObject}
             objectPathAcc={[...objectPathAcc, p]}
