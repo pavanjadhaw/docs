@@ -2,6 +2,11 @@ import faker from 'faker';
 import { OpenAPIV3 } from 'openapi-types';
 
 const HTTPSnippet = require('httpsnippet');
+const httparty = require('./httpsnippet-ruby-httparty');
+try {
+  HTTPSnippet.addTargetClient('ruby', httparty);
+} catch (err) {}
+
 const pupa = require('pupa');
 const BASE_URL = 'https://api.magicbell.com'; // @todo Take it from the OpenAPI file
 

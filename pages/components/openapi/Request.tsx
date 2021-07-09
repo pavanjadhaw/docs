@@ -88,7 +88,7 @@ export default function Request({ method, location, operation }: Props) {
         </div>
         <div>
           <HighlightedCode className="ruby" title="RUBY" hideHeader noTopBorderRadius>
-            {snippet.convert('ruby')}
+            {snippet.convert('ruby', 'httparty')}
           </HighlightedCode>
         </div>
         <div>
