@@ -95,7 +95,7 @@
       },
       "get": {
         "tags": ["User Notifications APIs"],
-        "summary": "Fetch user notifications",
+        "summary": "Fetch notifications",
         "description": "Fetch a user's notifications",
         "operationId": "get-notifications",
         "parameters": [
@@ -183,7 +183,7 @@
     "/notifications/{notification_id}": {
       "get": {
         "tags": ["User Notifications APIs"],
-        "summary": "Fetch a user's notification",
+        "summary": "Fetch a notification",
         "operationId": "get-notification",
         "description": "Fetch a user's notification by its ID",
         "parameters": [
