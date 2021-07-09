@@ -72,33 +72,73 @@ export default function Request({ method, location, operation }: Props) {
           </div>
         ) : null}
         <div>
-          <HighlightedCode className="curl" title="cURL" hideHeader noTopBorderRadius>
+          <HighlightedCode
+            className="language-curl"
+            title="cURL"
+            hideHeader
+            noTopBorderRadius
+          >
             {snippet.convert('shell', 'curl')}
           </HighlightedCode>
         </div>
         <div>
-          <HighlightedCode className="node" title="NODE" hideHeader noTopBorderRadius>
+          <HighlightedCode
+            className="language-node"
+            title="NODE"
+            hideHeader
+            noTopBorderRadius
+          >
             {snippet.convert('node')}
           </HighlightedCode>
         </div>
         <div>
-          <HighlightedCode className="python" title="PYTHON" hideHeader noTopBorderRadius>
+          <HighlightedCode
+            className="language-python"
+            title="PYTHON"
+            hideHeader
+            noTopBorderRadius
+          >
             {snippet.convert('python', 'requests')}
           </HighlightedCode>
         </div>
         <div>
-          <HighlightedCode className="ruby" title="RUBY" hideHeader noTopBorderRadius>
+          <HighlightedCode
+            className="language-ruby"
+            title="RUBY"
+            hideHeader
+            noTopBorderRadius
+          >
             {snippet.convert('ruby', 'httparty')}
           </HighlightedCode>
         </div>
         <div>
-          <HighlightedCode className="go" title="GO" hideHeader noTopBorderRadius>
+          <HighlightedCode
+            className="language-java"
+            title="JAVA"
+            hideHeader
+            noTopBorderRadius
+          >
+            {snippet.convert('java', 'okhttp')}
+          </HighlightedCode>
+        </div>
+        <div>
+          <HighlightedCode
+            className="language-go"
+            title="GO"
+            hideHeader
+            noTopBorderRadius
+          >
             {snippet.convert('go')}
           </HighlightedCode>
         </div>
         <div>
-          <HighlightedCode className="java" title="JAVA" hideHeader noTopBorderRadius>
-            {snippet.convert('java', 'okhttp')}
+          <HighlightedCode
+            className="language-swift"
+            title="SWIFT"
+            hideHeader
+            noTopBorderRadius
+          >
+            {snippet.convert('swift')}
           </HighlightedCode>
         </div>
       </Tabs>
