@@ -7,9 +7,9 @@ import { useToggle } from 'react-use';
 import { getAllChildrenPaths, SitemapItem } from '../../../lib/sitemap';
 import MenuItem from './MenuItem';
 
-export default function ParentMenuItem({ name, children }: SitemapItem) {
+export default function ParentMenuItem({ name, children = [] }: SitemapItem) {
   const router = useRouter();
-  const allChildrenPaths = getAllChildrenPaths({ children });
+  const allChildrenPaths = getAllChildrenPaths({ children: children });
   const defaulIsOpen = includes(router.asPath, allChildrenPaths);
   const [isOpen, toggle] = useToggle(defaulIsOpen);
 
@@ -30,7 +30,7 @@ export default function ParentMenuItem({ name, children }: SitemapItem) {
           isOpen ? '' : 'hidden',
         )}
       >
-        {children?.map((item, index) => (
+        {children.map((item, index) => (
           <MenuItem key={index} {...item} />
         ))}
       </ul>
