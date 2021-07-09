@@ -13,7 +13,7 @@ export default function Content({ children }: Props) {
           <SearchBar />
         </div>
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
-          <div className="p-4 md:p-0 w-full">{children}</div>
+          <div className="p-4 w-full">{children}</div>
         </main>
       </div>
     </div>
