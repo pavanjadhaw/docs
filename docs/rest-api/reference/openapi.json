@@ -167,7 +167,7 @@
         "tags": ["User Notifications APIs"],
         "summary": "Fetch a user's notification",
         "operationId": "get-notification",
-        "description": "Fetch a user's notification",
+        "description": "Fetch a user's notification by its ID",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
@@ -203,6 +203,9 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "The notification is not found"
           }
         }
       },
@@ -240,7 +243,23 @@
           { "$ref": "#/components/parameters/notification_id" }
         ],
         "responses": {
-          "204": { "description": "User notification marked as read" }
+          "204": {
+            "description": "User notification marked as read"
+          },
+          "404": {
+            "description": "The notification is not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A notification_read with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -259,10 +278,51 @@
           { "$ref": "#/components/parameters/notification_id" }
         ],
         "responses": {
-          "204": { "description": "User notification marked as unread" }
+          "204": {
+            "description": "User notification marked as unread"
+          },
+          "404": {
+            "description": "The notification is not found"
+          }
         }
       }
     },
+    "/notifications/{notification_id}/archive": {
+      "post": {
+        "operationId": "mark-user-notification-as-archived",
+        "tags": ["User Notification Actions APIs"],
+        "summary": "Mark as archived",
+        "description": "Mark a user notification as archived.",
+        "parameters": [
+          { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
+          { "$ref": "#/components/parameters/notification_id" }
+        ],
+        "responses": {
+          "204": {
+            "description": "User notification marked as archived"
+          },
+          "404": {
+            "description": "The notification is not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A notification_archive with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
     "/notifications/read": {
       "post": {
         "operationId": "mark-a-users-notification-as-read",
@@ -356,6 +416,20 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A user must have an external id or an email so MagicBell can uniquely identify the user"
+                    }
+                  ]
+                }
+              }
+            }
           }
         }
       }
@@ -405,6 +479,20 @@
                       "preferred_pronoun": "She"
                     }
                   }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A user with the the given id doesn't exist"
+                    }
+                  ]
                 }
               }
             }
@@ -530,6 +618,21 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "code": "no_user_with_provided_email",
+                      "message": "A user with the email was not found in project with this API key"
+                    }
+                  ]
+                }
+              }
+            }
           }
         },
         "deprecated": false
@@ -597,6 +700,12 @@
                       "description": "List of validation errors"
                     }
                   }
+                },
+                "example": {
+                  "errors": [
+                    { "message": "Param 'push_subscription.device_token' is missing" },
+                    { "message": "Param 'push_subscription.platform' is missing" }
+                  ]
                 }
               }
             }
@@ -957,11 +1066,11 @@
           },
           "platform": {
             "type": "string",
-            "description": "Either 'ios', 'android' or 'safari'."
+            "description": "The platform where the device token was generated from. This value determines the delivery mechanism for mobile push notifications. Either 'ios', 'android' or 'safari'."
           },
           "app_bundle_id": {
             "type": "string",
-            "description": "The bundle ID of your app (optional)"
+            "description": "The bundle ID of your app"
           }
         },
         "required": ["device_token", "platform"]
