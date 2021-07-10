@@ -24,8 +24,8 @@
               "schema": { "$ref": "#/components/schemas/WrappedNotification" },
               "example": {
                 "notification": {
-                  "title": "The notification inbox for your product",
-                  "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
+                  "title": "We're processing your order",
+                  "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
                   "category": "account_created",
                   "recipients": [
                     { "email": "dan@example.com" },
@@ -33,8 +33,8 @@
                   ],
                   "overrides": {
                     "email": {
-                      "title": "[MagicBell] The notification inbox for your product",
-                      "content": "If you need help, or have any questions please don't hesitate to reach out to us directly at hello@magicbell.io"
+                      "title": "[MagicBell] We're processing your order",
+                      "content": "Thank you for your order. If you need help, or have any questions please don't hesitate to reach out to us directly at hello@magicbell.io"
                     }
                   }
                 }
@@ -58,8 +58,8 @@
                 "example": {
                   "notification": {
                     "id": "ffffff66-ea4f-4da2-afc6-84148b51657a",
-                    "title": "The notification inbox for your product",
-                    "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
+                    "title": "We're processing your order",
+                    "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
                     "action_url": null,
                     "category": "account_created",
                     "custom_attributes": null,
