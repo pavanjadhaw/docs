@@ -11,11 +11,11 @@ MagicBell uses system fonts by default (`'-apple-system, BlinkMacSystemFont, "Se
 
 In the following example, we are changing the font to [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans), a font available at [Google Fonts](https://fonts.google.com/).
 
-```html
+```html title=ESM
 <script type="module">
   import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 
-  var theme = {
+  let theme = {
     header: { fontFamily: 'IBM Plex Sans' },
     footer: { fontFamily: 'IBM Plex Sans' },
     notification: {
@@ -25,13 +25,13 @@ In the following example, we are changing the font to [IBM Plex Sans](https://fo
     },
   };
 
-  var stylesheets = [
+  let stylesheets = [
     'https://fonts.gstatic.com',
     'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500',
   ];
 
-  var target = document.getElementById('notifications-inbox');
-  var options = {
+  let target = document.getElementById('notifications-inbox');
+  let options = {
     apiKey: 'MAGICBELL_API_KEY',
     userEmail: 'mary@example.com',
     height: 500,
@@ -48,5 +48,36 @@ In the following example, we are changing the font to [IBM Plex Sans](https://fo
 </Note>
 
 <Warning>
-  The MagicBell widget sets 500 as the notification's title weight. Therefore, make sure to include in the 200 and 500 weight variations, as shown in the previous example.
+  The MagicBell widget sets 500 as the notification's title weight. Therefore, make sure
+  to include in the 200 and 500 weight variations, as shown in the previous example.
 </Warning>
+
+## Change the font size
+
+Pass the font size to all elements you want to customize. In the following example we show how to set 16px as the font size for notifications in any state and 13px for the header:
+
+```html title=ESM
+<div id="notifications-inbox" />
+<script type="text/javascript">
+  import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
+
+  let theme = {
+    header: { fontSize: '13px' },
+    notification: {
+      default: { fontSize: '16px' },
+      unseen: { fontFamily: '16px' },
+      unread: { fontFamily: '16px' },
+    },
+  };
+
+  let targetEl = document.getElementById('notifications-inbox');
+  let options = {
+    apiKey: MAGICBELL_API_KEY,
+    userEmail: CURRENT_USER_EMAIL,
+    height: 500,
+    theme,
+  };
+
+  magicbell('render', targetEl, options);
+</script>
+```
