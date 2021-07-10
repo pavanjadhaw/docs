@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
+import clojure from 'highlight.js/lib/languages/clojure';
 import diff from 'highlight.js/lib/languages/diff';
 import go from 'highlight.js/lib/languages/go';
 import java from 'highlight.js/lib/languages/java';
@@ -18,6 +19,7 @@ import React from 'react';
 import HighlightedCodeHeader from './HighlightedCodeHeader';
 
 hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('clojure', clojure);
 hljs.registerLanguage('curl', curl);
 hljs.registerLanguage('diff-html', diff);
 hljs.registerLanguage('go', go);
