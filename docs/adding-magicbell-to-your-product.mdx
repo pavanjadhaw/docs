@@ -22,6 +22,7 @@ For example, to display the notifications for Mary, whose email was mary@example
 ```html title=HTML hideHeader noTopBorderRadius
 <div id="notifications-inbox" />
 <script type="text/javascript">
+  // prettier-ignore
   (function(i,s,o,g,r,a,m) {i['MagicBellObject'] = r;(i[r] =i[r] ||function() {
   (i[r].q = i[r].q || []).push(arguments);}),(i[r].l = 1 * new Date());(a = s.createElement(o)), (
   m = s.getElementsByTagName(o)[0]);a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
@@ -72,7 +73,9 @@ yarn add @magicbell/magicbell-react
 
 Then add it to your app:
 
-```jsx title=React
+<Tabs>
+
+```jsx title=JAVASCRIPT hideHeader noTopBorderRadius
 import React from 'react';
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 
@@ -84,6 +87,26 @@ export default function Notifications() {
   );
 }
 ```
+
+```clojure title=CLOJURE hideHeader noTopBorderRadius
+(def React (.-default (js/require "react")))
+
+(def MagicBell (.-default (js/require "@magicbell/magicbell-react")))
+
+(do
+ (defn
+  notifications
+  []
+  (html
+   (ui/MagicBell
+    {:apiKey "MAGICBELL_API_KEY", :userEmail "mary@example.com"}
+    (fn
+     [props]
+     (ui/FloatingNotificationInbox (merge props {:height 500}))))))
+ nil)
+```
+
+</Tabs>
 
 Check our React guides to know more about how you can customize the default notification inbox or build your own. You can tailor it to your needs as much as you want to.
 
