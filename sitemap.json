@@ -112,6 +112,10 @@
           {
             "name": "Changing the default font",
             "to": "/browser/changing-default-font"
+          },
+          {
+            "name": "Changing the default images",
+            "to": "/browser/changing-default-images"
           }
         ]
       }
