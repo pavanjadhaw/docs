@@ -35,10 +35,6 @@
     @apply mt-10 mb-4;
   }
 
-  main p {
-    font-size: 1.05rem;
-  }
-
   p {
     @apply mb-3;
   }
