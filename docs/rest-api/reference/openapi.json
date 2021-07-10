@@ -85,6 +85,9 @@
                 "example": {
                   "errors": [
                     {
+                      "message": "Param 'notification.title' is missing"
+                    },
+                    {
                       "message": "Param 'notification.recipients' is missing"
                     }
                   ]
