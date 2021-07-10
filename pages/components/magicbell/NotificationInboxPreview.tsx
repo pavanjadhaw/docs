@@ -1,6 +1,5 @@
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 import React from 'react';
-import HighlightedCode from '../code/HighlightedCode';
 
 export default function NotificationInboxPreview({ code }: { code: string }) {
   return (
@@ -11,8 +10,8 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
       <div className="py-3 px-4 rounded-t-md font-mono text-xs text-gr uppercase text-white font-bold mb-2">
         Preview
       </div>
-      <div className="px-4 h-full flex flex-wrap xl:flex-nowrap">
-        <div className="w-full xl:w-1/2" style={{ minHeight: '430px' }}>
+      <div className="px-4 h-full">
+        <div style={{ minHeight: '430px' }}>
           <div className="inline-block ml-12">
             <MagicBell
               apiKey="MAGICBELL_API_KEY"
@@ -46,13 +45,6 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
               )}
             </MagicBell>
           </div>
-        </div>
-        <div className="w-full xl:w-1/2 xl:mr-6" style={{ borderColor: '#1d1f2b' }}>
-          {code && (
-            <HighlightedCode className="language-js" hideHeader>
-              {code}
-            </HighlightedCode>
-          )}
         </div>
       </div>
     </div>
