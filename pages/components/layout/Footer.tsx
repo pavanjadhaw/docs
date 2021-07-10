@@ -79,10 +79,12 @@ export default function Footer() {
           <h6 className="uppercase mb-4 text-sm">Learn</h6>
           <ul>
             <li className="mb-3">
-              <a href="https://magicbell.com/docs/api-reference">API Documentation</a>
+              <a href="https://magicbell.com/docs/rest-api/reference">
+                API Documentation
+              </a>
             </li>
             <li className="mb-3">
-              <a href="https://magicbell.com/docs">Reference Guides</a>
+              <a href="https://magicbell.com/docs">Docs</a>
             </li>
             <li className="mb-3">
               <a href="https://community.magicbell.io/">Developer Community Forum</a>
