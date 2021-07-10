@@ -5,14 +5,24 @@ subtitle: Learn how to add the MagicBell UI libraries to your product
 
 Let's move on to the fun part and add MagicBell to your product. It will look something like this:
 
-<div class="mx-auto w-full xl:w-2/3">
-  <div class="w-full">
-    <div>
-      <NotificationInboxPreview />
-    </div>
-  </div>
-</div>
+<NotificationInboxPreview
+  code={`<MagicBell
+  apiKey="MAGICBELL_API_KEY"
+  userEmail="dan@example.com"
+  defaultIsOpen
+>
+  {(props) => (
+    <FloatingNotificationInbox
+      height={350}
+      width={350}
+      placement="bottom-start"
+      {...props}
+    />
+  )}
+</MagicBell>`}
+/>
 
+<br />
 Depending on your tech stack, there are several choices. Let's explore them.
 
 <Note>
