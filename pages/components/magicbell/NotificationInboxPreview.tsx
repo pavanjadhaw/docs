@@ -4,12 +4,12 @@ import HighlightedCode from '../code/HighlightedCode';
 
 export default function NotificationInboxPreview({ code }: { code: string }) {
   return (
-    <div className="w-full rounded-md overflow-hidden relative z-0 mb-4 bg-gray-200">
+    <div className="w-full rounded-md relative z-0 mb-4 bg-gray-200">
       <div className="py-3 px-4 rounded-t-md font-mono text-xs uppercase text-gray-700 border-b border-white font-bold">
         Preview
       </div>
       <div className="p-4 md:p-8 h-full flex flex-wrap xl:flex-nowrap">
-        <div className="w-full xl:w-1/2" style={{ minHeight: '510px' }}>
+        <div className="w-full xl:w-1/2" style={{ minHeight: '470px' }}>
           <div className="inline-block ml-6 bg-white p-4 rounded shadow-inner">
             <MagicBell
               apiKey="MAGICBELL_API_KEY"
@@ -23,8 +23,8 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
             >
               {(props) => (
                 <FloatingNotificationInbox
-                  height={440}
-                  width={390}
+                  height={400}
+                  width={500}
                   placement="bottom-start"
                   closeOnClickOutside={false}
                   layout={['header', 'content']}
