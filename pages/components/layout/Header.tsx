@@ -14,7 +14,7 @@ export default function Header({ onToggleMenu }: Props) {
   return (
     <header className="z-10 flex-shrink-0 flex sticky top-0">
       <button
-        className="px-4 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden h-20"
+        className="px-4 text-white focus:outline-none md:hidden h-20"
         onClick={toggleMenu}
       >
         <span className="sr-only">Open main menu</span>
