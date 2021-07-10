@@ -10,6 +10,18 @@ When you initialize MagicBell's embeddable Notification Inbox in your website, y
 
 By default, HMAC is turned off because it makes it easier to test the integration. However, we highly recommend turning it on before going live. You can do this from your [MagicBell dashboard](https://app.magicbell.com). Look for it on the Settings page.
 
+## How do I enable it?
+
+You can enable HMAC authentication in the Settings section of your [MagicBell Dashboard](https://app.magicbell.com). If you have multiple MagicBell projects, you can select one to enable HMAC using the main menu.
+
+<img
+  className="full-mobile"
+  src="/docs/uploads/5020c85d-2588-4119-b3ad-91e8e33e9323.png"
+  style={{ width: '80%', height: 'intrinsic' }}
+/>
+
+Remember that this is secure as long as your private key is kept safe. NEVER PUBLISH YOUR PRIVATE KEY!
+
 ## How do I compute it?
 
 Use your MagicBell project's API secret to compute an HMAC code of the user's email or id in your server. Do not perform the calculation of the HMAC in the client.
@@ -74,9 +86,24 @@ $hmac = base64_encode(hex2bin($hexHash));
 
 ## How do I use it?
 
-Next, provide the HMAC code along with your MagicBell's projects API key and the user's email or id when initializing MagicBell's notification inbox.
+Next, provide the HMAC code in the `userKey` property.
+
+You still need to set your API key and the user's email or id when initializing MagicBell's notification inbox.
 
 <Tabs>
+
+```jsx title=REACT hideHeader noTopBorderRadius
+import React from "react";
+import MagicBell, { FloatingNotificationInbox } from "@magicbell/magicbell-react";
+
+export default function Notifications() {
+  return (
+    <MagicBell apiKey="MAGICBELL_API_KEY" userEmail="mary@example.com" userKey="userEmailHmac">
+      {(props) => <FloatingNotificationInbox height={500} {...props} />}
+    </MagicBell>
+  );
+)
+```
 
 ```html title=HTML hideHeader noTopBorderRadius
 <div id="notifications-inbox" />
@@ -92,27 +119,4 @@ Next, provide the HMAC code along with your MagicBell's projects API key and the
 </script>
 ```
 
-```jsx title=REACT hideHeader noTopBorderRadius
-import React from "react";
-import MagicBell, { FloatingNotificationInbox } from "@magicbell/magicbell-react";
-
-export default function Notifications() {
-  return (
-    <MagicBell apiKey="MAGICBELL_API_KEY" userEmail="mary@example.com" userKey="userEmailHmac">
-      {(props) => <FloatingNotificationInbox height={500} {...props} />}
-    </MagicBell>
-  );
-)
-```
-
 </Tabs>
-
-Deploy your website and wait for a few hours (so your users refresh your website or close/open your website) and have the latest JavaScript containing this new initialization code. Enable HMAC authentication in the Settings section of your MagicBell project.
-
-<img
-  className="full-mobile"
-  src="/docs/uploads/5020c85d-2588-4119-b3ad-91e8e33e9323.png"
-  style={{ width: '80%', height: 'intrinsic' }}
-/>
-
-Remember that this is secure as long as your private key is kept safe. Never publish your private key!
