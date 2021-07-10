@@ -26,6 +26,7 @@
                 "notification": {
                   "title": "The notification inbox for your product",
                   "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
+                  "category": "account_created",
                   "recipients": [
                     { "email": "dan@example.com" },
                     { "external_id": "83d987a-83fd034" }
@@ -60,7 +61,7 @@
                     "title": "The notification inbox for your product",
                     "content": "<p>Welcome to MagicBell</p><p>Get started in minutes!</p>",
                     "action_url": null,
-                    "category": "",
+                    "category": "account_created",
                     "custom_attributes": null,
                     "sent_at": 1625853246
                   }
