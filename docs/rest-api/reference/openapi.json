@@ -259,7 +259,20 @@
         ],
         "responses": {
           "204": { "description": "User notification delete successfully" },
-          "404": { "description": "User notification not found" }
+          "404": {
+            "description": "User notification not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A notification with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         },
         "deprecated": false
       }
