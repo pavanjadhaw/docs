@@ -103,7 +103,7 @@ header a {
   @apply font-bold;
 }
 
-a.main-button {
+header a.main-button {
   color: #532f70 !important;
   @apply bg-white rounded-md;
 }
