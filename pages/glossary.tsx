@@ -17,7 +17,8 @@ interface Props {
   entries?: GlossaryEntry[];
 }
 
-export default function glossary({ entries = [] }: Props) {
+export default function glossary({ entries }: Props) {
+  if (!entries) return null;
   return (
     <DocPageLayout title="Glossary">
       <h1 className="mt-12 mb-2">Glossary</h1>

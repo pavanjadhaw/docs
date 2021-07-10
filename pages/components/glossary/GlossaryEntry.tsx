@@ -7,7 +7,8 @@ interface Props {
   mdxSource?: MDXRemoteSerializeResult;
 }
 
-export default function GlossaryEntry({ mdxSource, metadata = {} }: Props) {
+export default function GlossaryEntry({ mdxSource, metadata }: Props) {
+  if (!metadata) return null;
   return (
     <div>
       <h3 id={slugify(metadata.title).toLowerCase()} className="mt-16 mb-0">
