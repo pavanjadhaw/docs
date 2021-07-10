@@ -72,7 +72,7 @@
             "to": "/react/identifying-users"
           },
           {
-            "name": "Customizing the theme",
+            "name": "Customize the theme",
             "to": "/react/theme-customization"
           },
           {
@@ -80,15 +80,15 @@
             "to": "/react/localization-internationalization"
           },
           {
-            "name": "Changing the position of the notification inbox",
+            "name": "Change the position of the notification inbox",
             "to": "/react/positioning-floating-notification-inbox"
           },
           {
-            "name": "Setting a custom click handler",
+            "name": "Set a custom click handler",
             "to": "/react/setting-notification-click-handler"
           },
           {
-            "name": "Changing the default notification component",
+            "name": "Change the default notification component",
             "to": "/react/changing-default-notification-component"
           },
           {
@@ -110,11 +110,11 @@
         "name": "Browser",
         "children": [
           {
-            "name": "Changing the default font",
+            "name": "Change the default font",
             "to": "/browser/changing-default-font"
           },
           {
-            "name": "Changing the default images",
+            "name": "Change the default images",
             "to": "/browser/changing-default-images"
           }
         ]
