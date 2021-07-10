@@ -14,7 +14,7 @@ export default function DocPage({ title, subtitle, mdxSource, children }: Props)
 
   return (
     <DocPageLayout title={pageTitle}>
-      <h1 className="mt-12 mb-2">{title}</h1>
+      <h1 className="mt-12 mb-1">{title}</h1>
       <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (
         <article className="mdx-content">
