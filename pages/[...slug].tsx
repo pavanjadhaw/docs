@@ -3,6 +3,7 @@ import * as matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import Error from 'next/error';
 import path from 'path';
 import { flatten, reject } from 'ramda';
 import React from 'react';
@@ -10,11 +11,13 @@ import sitemap from '../lib/sitemap';
 import DocPage from './components/DocPage';
 
 interface Props {
+  notFound?: boolean;
   metadata?: { [key: string]: any };
   mdxSource?: MDXRemoteSerializeResult;
 }
 
-export default function DynamicDocument({ mdxSource, metadata }: Props) {
+export default function DynamicDocument({ mdxSource, metadata, notFound }: Props) {
+  if (notFound) return <Error statusCode={404} />;
   if (!metadata) return null;
   return <DocPage mdxSource={mdxSource} {...metadata} />;
 }
@@ -40,10 +43,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const filename = slug?.join('/') + '.mdx';
   const docsDirectory = path.join(process.cwd(), 'docs');
   const filePath = path.join(docsDirectory, filename);
-  const fileContents = fs.readFileSync(filePath, 'utf8');
 
-  // @ts-ignore
-  const { content, data } = matter(fileContents);
-  const mdxSource = await serialize(content);
-  return { props: { mdxSource, metadata: data } };
+  try {
+    const fileContents = fs.readFileSync(filePath, 'utf8');
+
+    // @ts-ignore
+    const { content, data } = matter(fileContents);
+    const mdxSource = await serialize(content);
+    return { props: { mdxSource, metadata: data } };
+  } catch (err) {
+    return { props: { notFound: true } };
+  }
 };
