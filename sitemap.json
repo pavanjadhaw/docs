@@ -116,6 +116,10 @@
           {
             "name": "Change the default images",
             "to": "/browser/changing-default-images"
+          },
+          {
+            "name": "Notify users when a new notification arrives",
+            "to": "/browser/new-notification-hook"
           }
         ]
       }
