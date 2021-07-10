@@ -31,8 +31,14 @@ export default function MobileMenu({ isOpen, navigationItems, toggle }: Props) {
           >
             <XIcon className="h-6 w-6" />
           </button>
-          <div className="mt-12">
+          <div className="mt-12 flex flex-col overflow-scroll">
             <Menu navigationItems={navigationItems} />
+            <a
+              className="m-6 mobile-signup-button text-center"
+              href="https://app.magicbell.com"
+            >
+              Sign Up
+            </a>
           </div>
         </motion.div>
       ) : null}

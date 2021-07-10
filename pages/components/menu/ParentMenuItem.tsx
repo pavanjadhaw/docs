@@ -19,7 +19,7 @@ export default function ParentMenuItem({ name, children = [] }: SitemapItem) {
         className="group py-3 px-6 flex items-center w-full hover:bg-white group-hover:text-gray-800"
         onClick={toggle}
       >
-        <a className="flex-1 text-sm text-left text-gray-800">{name}</a>
+        <a className="flex-1 md:text-sm text-left text-gray-800">{name}</a>
         <ChevronRightIcon
           className={classNames(isOpen ? 'rotate-90' : 'rotate-0', 'transform h-4 w-4')}
         />

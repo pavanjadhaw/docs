@@ -99,9 +99,15 @@ header a {
   @apply font-bold;
 }
 
-header a.main-button {
+a.main-button {
   color: #532f70 !important;
   @apply bg-white rounded-md;
+}
+
+a.mobile-signup-button {
+  background-color: #532f70 !important;
+  color: white !important;
+  @apply rounded-md py-3 px-6 font-bold;
 }
 
 /* Footer */

@@ -15,7 +15,7 @@ export default function PageLink({ name, to, icon }: SitemapItem) {
           isActive
             ? 'bg-white text-gray-800 font-bold'
             : 'text-gray-600 hover:bg-white group-hover:text-gray-800',
-          'group py-3 px-6 flex items-center text-sm',
+          'group py-3 px-6 flex items-center md:text-sm',
         )}
       >
         {name}
