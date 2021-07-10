@@ -19,14 +19,16 @@ export default function RequestBody({ requestBody }: Props) {
   if (!schemaProperties) return null;
   return (
     <div className="mt-8 mb-12 overflow-hidden">
-      <p className="uppercase text-sm border-b border-gray-200 pb-2">Body Parameters</p>
-      {Object.keys(schemaProperties).map((propertyName, index) => (
-        <SchemaObject
-          key={index}
-          object={schemaProperties[propertyName]}
-          objectPathAcc={[propertyName]}
-        />
-      ))}
+      <p className="uppercase text-sm">Body Parameters</p>
+      <ul className="border border-gray-200 rounded divide-y m-0">
+        {Object.keys(schemaProperties).map((propertyName, index) => (
+          <SchemaObject
+            key={index}
+            object={schemaProperties[propertyName]}
+            objectPathAcc={[propertyName]}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
