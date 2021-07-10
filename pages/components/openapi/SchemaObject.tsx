@@ -1,6 +1,7 @@
 import { OpenAPIV3 } from 'openapi-types';
 import { contains, init, last } from 'ramda';
 import React from 'react';
+import CollapsedSection from '../CollapsedSection';
 
 interface Props {
   object?: OpenAPIV3.SchemaObject;
@@ -16,7 +17,7 @@ export default function SchemaObject({
   if (!object) return null;
   if (object.type === 'object' && object.properties)
     return (
-      <section className="divide-y">
+      <CollapsedSection className="divide-y">
         {Object.keys(object.properties).map((propertyName, index) => {
           return (
             <SchemaObject
@@ -27,7 +28,7 @@ export default function SchemaObject({
             />
           );
         })}
-      </section>
+      </CollapsedSection>
     );
 
   const objectParents = init(objectPathAcc);
