@@ -48,10 +48,10 @@ export default function Request({ method, location, operation }: Props) {
         <span
           className={classNames(
             'py-1 px-2 text-white text-xs uppercase rounded-sm',
-            method === 'POST' && 'bg-green-500',
-            method === 'GET' && 'bg-blue-500',
-            method === 'PUT' && 'bg-purple-500',
-            method === 'DELETE' && 'bg-red-500',
+            method === 'POST' && 'bg-green-500 text-green-50',
+            method === 'GET' && 'bg-blue-500 text-blue-50',
+            method === 'PUT' && 'bg-purple-500 text-purple-50',
+            method === 'DELETE' && 'bg-red-500 text-red-50',
           )}
         >
           {method}
