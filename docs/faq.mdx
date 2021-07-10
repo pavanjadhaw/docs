@@ -2,6 +2,26 @@
 title: MagicBell Developer FAQ
 ---
 
+## Do I have to import my users?
+
+No. When you [create a notification through our API](https://magicbell.com/docs/rest-api/reference#create-notification), we will create the users automatically if they don't already exist.
+
+You can also send your users' data in the payload to the create notification endpoint to update the records we have on that user.
+
+On the other hand, if you identify users by their email address and it changes in your system, you will have to [update the email address through our API](https://magicbell.com/docs/rest-api/reference#update-user) to ensure this user can still access their notifications.
+
+## Why do I see the "We can't seem to retrieve your notifications. Please check back soon" message in the notification inbox?
+
+There are three possible reasons:
+
+- MagicBell temporarily lost connection. Please check your internet connection.
+- You set the wrong API key. Please grab the correct key from your [MagicBell Dashboard](https://app.magicbell.com/).
+- You enabled HMAC authentication but did not provide a `userKey` to the notification inbox, or the provided value is invalid. Please make sure you are using the correct API secret to generate this value.
+
+## What do I have to do to enable real-time for my notification inbox?
+
+Nothing at all! Real-time capabilities are enabled by default for everyone, whether you have the free plan or you upgraded it.
+
 ### Can I add a hook to be executed when a new notification arrives?
 
 Yes! You might want to play a sound or show a toast when a new notification arrives. To achieve it, just add a function called `onNewNotification` to the initialization options. This function receives the new notification as its only argument. For example:
