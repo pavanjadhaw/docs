@@ -10,7 +10,7 @@ You can also send your users' data in the payload to the create notification end
 
 On the other hand, if you identify users by their email address and it changes in your system, you will have to [update the email address through our API](https://magicbell.com/docs/rest-api/reference#update-user) to ensure this user can still access their notifications.
 
-## Why do I see the "We can't seem to retrieve your notifications. Please check back soon" message in the notification inbox?
+## Why do I see the "We can't seem to retrieve your notifications" message in the notification inbox?
 
 There are three possible reasons:
 
@@ -20,30 +20,4 @@ There are three possible reasons:
 
 ## What do I have to do to enable real-time for my notification inbox?
 
-Nothing at all! Real-time capabilities are enabled by default for everyone, whether you have the free plan or you upgraded it.
-
-### Can I add a hook to be executed when a new notification arrives?
-
-Yes! You might want to play a sound or show a toast when a new notification arrives. To achieve it, just add a function called `onNewNotification` to the initialization options. This function receives the new notification as its only argument. For example:
-
-```diff-html
-<div id="notifications-inbox" />
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m) {i['MagicBellObject'] = r;(i[r] =i[r] ||function() {
-  (i[r].q = i[r].q || []).push(arguments);}),(i[r].l = 1 * new Date());(a = s.createElement(o)), (
-  m = s.getElementsByTagName(o)[0]);a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
-  })(window,document,'script','https://assets.magicbell.io/magicbell.min.js','magicbell');
-
-  var targetEl = document.getElementById('notifications-inbox');
-  var options = {
-    apiKey: MAGICBELL_API_KEY,
-    userEmail: CURRENT_USER_EMAIL,
-    height: 500,
-+   onNewNotification: function(notification) {
-+     alert(notification.title);
-+   },
-  };
-
-  magicbell('render', targetEl, options);
-</script>
-```
+Nothing at all! Real-time capabilities are enabled by default for everyone, even if you are in the free plan.
