@@ -2,6 +2,7 @@ import { SearchIcon } from '@heroicons/react/outline';
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
+import FormSubmitter from '../FormSubmitter';
 
 interface Props {
   currentRefinement: string;
@@ -16,7 +17,7 @@ function SearchBox({ refine }: Props) {
 
   return (
     <Formik onSubmit={handleSubmit} initialValues={{ query: '' }}>
-      {() => (
+      {(formik) => (
         <Form className="w-full flex">
           <label htmlFor="search-field" className="sr-only">
             Search
@@ -32,6 +33,7 @@ function SearchBox({ refine }: Props) {
               name="query"
             />
           </div>
+          <FormSubmitter formik={formik} />
         </Form>
       )}
     </Formik>
