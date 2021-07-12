@@ -12,7 +12,7 @@ export default function Header({ onToggleMenu }: Props) {
   };
 
   return (
-    <header className="z-10 flex-shrink-0 flex sticky top-0">
+    <header className="z-20 flex-shrink-0 flex sticky top-0">
       <button
         className="px-4 text-white focus:outline-none md:hidden h-20"
         onClick={toggleMenu}
