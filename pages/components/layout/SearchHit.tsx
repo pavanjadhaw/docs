@@ -14,7 +14,7 @@ interface Props {
 export default function SearchHit({ hit }: Props) {
   const { _highlightResult } = hit;
   return (
-    <article className="p-4 text-white hover:bg-gray-700">
+    <article className="py-4 px-8 text-white hover:bg-gray-700">
       <p
         className="m-0"
         dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}
