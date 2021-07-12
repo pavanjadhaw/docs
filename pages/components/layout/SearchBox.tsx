@@ -3,6 +3,7 @@ import { Field, Form, Formik } from 'formik';
 import React from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import FormSubmitter from '../FormSubmitter';
+import SearchBoxShortcut from './SearchBoxShortcut';
 
 interface Props {
   currentRefinement: string;
@@ -33,6 +34,7 @@ function SearchBox({ refine }: Props) {
               name="query"
             />
           </div>
+          <SearchBoxShortcut />
           <FormSubmitter formik={formik} />
         </Form>
       )}
