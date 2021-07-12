@@ -20,6 +20,7 @@
     "dayjs": "^1.10.6",
     "dotenv": "^10.0.0",
     "faker": "^5.5.3",
+    "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.0.1",
