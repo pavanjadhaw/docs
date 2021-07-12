@@ -16,7 +16,9 @@ function SearchResults({ searchState, searchResults, children }: Props) {
       {searchResults?.nbHits !== 0 ? (
         children
       ) : (
-        <p className="m-0 p-4">No results have been found for {searchState.query}</p>
+        <p className="m-0 py-4 px-8">
+          No results have been found for {searchState.query}
+        </p>
       )}
     </div>
   );
