@@ -119,3 +119,8 @@ footer {
 footer a {
   color: white !important;
 }
+
+/* Search (algolia) */
+ais-highlight-0000000000 {
+  @apply bg-blue-100 text-blue-600;
+}
