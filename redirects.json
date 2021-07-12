@@ -1,5 +1,10 @@
 [
   {
+    "source": "/api-reference",
+    "destination": "/rest-api/reference",
+    "permanent": true
+  },
+  {
     "source": "/reference",
     "destination": "/rest-api/reference",
     "permanent": true
