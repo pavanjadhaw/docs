@@ -44,6 +44,7 @@
     "@types/faker": "^5.5.7",
     "@types/httpsnippet": "^1.23.1",
     "@types/react": "17.0.13",
+    "@types/react-instantsearch-dom": "^6.10.2",
     "autoprefixer": "^10.2.6",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
