@@ -13,12 +13,15 @@ export default function SearchBoxShortcut() {
   }, []);
 
   return (
-    <div className="hidden md:flex space-x-1 items-center">
-      <span className="border border-gray-200 text-gray-500 p-1 w-7 font-bold text-center rounded text-sm">
-        &#x2318;
-      </span>
-      <span className="border border-gray-200 text-gray-500 p-1 w-7 font-bold text-center rounded text-sm">
-        K
+    <div>
+      <span className="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300 rounded-md">
+        <span className="sr-only">Press </span>
+        <kbd className="font-sans">
+          <span title="Command">⌘</span>
+        </kbd>
+        <span className="sr-only"> and </span>
+        <kbd className="font-sans">K</kbd>
+        <span className="sr-only"> to search</span>
       </span>
     </div>
   );

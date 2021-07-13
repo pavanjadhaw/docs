@@ -16,7 +16,7 @@ export default function SearchBox({ onSubmit }: Props) {
   return (
     <Formik onSubmit={handleSubmit} initialValues={{ query: '' }}>
       {(formik) => (
-        <Form className="w-full flex">
+        <Form className="w-full flex items-center">
           <label htmlFor="search-field" className="sr-only">
             Search
           </label>
