@@ -1,19 +1,16 @@
 import { SearchIcon } from '@heroicons/react/outline';
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
-import { connectSearchBox } from 'react-instantsearch-dom';
 import FormSubmitter from '../FormSubmitter';
 import SearchBoxShortcut from './SearchBoxShortcut';
 
 interface Props {
-  currentRefinement: string;
-  isSearchStalled: boolean;
-  refine: (query: string) => void;
+  onSubmit: (query: string) => void;
 }
 
-function SearchBox({ refine }: Props) {
+export default function SearchBox({ onSubmit }: Props) {
   const handleSubmit = ({ query }: { query: string }) => {
-    refine(query);
+    onSubmit(query);
   };
 
   return (
@@ -41,5 +38,3 @@ function SearchBox({ refine }: Props) {
     </Formik>
   );
 }
-
-export default connectSearchBox(SearchBox);
