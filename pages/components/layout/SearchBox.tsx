@@ -29,6 +29,7 @@ export default function SearchBox({ onSubmit }: Props) {
               className="block h-full w-full border-transparent md:py-2 py-4 pl-8 text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent"
               placeholder="Quick search"
               name="query"
+              autocomplete="off"
             />
           </div>
           <SearchBoxShortcut />
