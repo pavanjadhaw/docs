@@ -93,7 +93,9 @@ function buildSearchObjects(posts) {
         objectID: slug + ':' + index,
         title: data.heading ? data.title + ' > ' + data.heading : data.title,
         breadcrumbs: [data.title, data.heading],
-        slug: data.heading ? `${slug}#${slugify(data.heading)}` : slug,
+        slug: data.heading
+          ? `${slug}#${slugify(data.heading, { lower: true, remove: /\"|\?/ })}`
+          : slug,
         content,
       })),
     ),
