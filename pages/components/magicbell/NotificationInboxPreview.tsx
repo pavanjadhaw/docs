@@ -19,7 +19,7 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
         Preview
       </div>
       <div className="p-4 md:p-8 h-full flex flex-wrap xl:flex-nowrap">
-        <div className="w-full xl:w-1/2" style={{ minHeight: '470px' }}>
+        <div className="w-full xl:w-1/3" style={{ minHeight: '470px' }}>
           <div className="inline-block ml-6 bg-white p-4 rounded shadow-inner">
             <MagicBell
               apiKey="MAGICBELL_API_KEY"
@@ -54,7 +54,7 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
             </MagicBell>
           </div>
         </div>
-        <div className="w-full mt-8 -mb-4 xl:mt-0 xl:w-1/2">
+        <div className="w-full mt-8 -mb-4 xl:mt-0 xl:w-2/3">
           {code && (
             <HighlightedCode className="language-js" hideHeader>
               {code}
