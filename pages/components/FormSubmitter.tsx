@@ -1,26 +1,25 @@
 import { useEffect, useState } from 'react';
 
-export default function SubmitListener(props: any) {
-  const [lastValues, updateState] = useState(props.formik.values);
+interface Props {
+  formik?: any;
+  onChange?: () => void;
+}
+
+export default function FormSubmitter({ formik, onChange }: Props) {
+  const [lastValues, updateState] = useState(formik?.values);
 
   useEffect(() => {
-    const valuesEqualLastValues = lastValues === props.formik.values;
-    const valuesEqualInitialValues = props.formik.values === props.formik.initialValues;
+    const valuesEqualLastValues = lastValues === formik?.values;
+    const valuesEqualInitialValues = formik?.values === formik?.initialValues;
 
     if (!valuesEqualLastValues) {
-      updateState(props.formik.values);
+      updateState(formik?.values);
     }
 
     if (!valuesEqualLastValues && !valuesEqualInitialValues) {
-      props.formik.submitForm();
+      formik?.submitForm();
     }
-  }, [
-    lastValues,
-    props.formik.values,
-    props.formik.initialValues,
-    props.onChange,
-    props.formik,
-  ]);
+  }, [lastValues, formik?.values, formik?.initialValues, onChange, formik]);
 
   return null;
 }
