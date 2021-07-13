@@ -63,13 +63,7 @@ function getPost(context, directory) {
   return { slug: context.to, contents };
 }
 
-/**
- * Function to generate the contents of all the posts based on the sitemap.json
- * file.
- *
- * @returns An array containing all the posts' content and metadata
- */
-async function getAllPosts() {
+function getPostsFromSitemap() {
   const posts = [];
   const docsDirectory = path.join(process.cwd(), 'docs');
   const sitemapPaths = flatten(sitemap.map((entry) => extractPath(entry)));
@@ -84,6 +78,56 @@ async function getAllPosts() {
   }
 
   return posts;
+}
+
+function getPostsFromOpenAPI() {
+  const posts = [];
+  const filePath = path.join(
+    process.cwd(),
+    'docs',
+    'rest-api',
+    'reference',
+    'openapi.json',
+  );
+
+  const fileContents = fs.readFileSync(filePath, 'utf-8');
+  const schema = JSON.parse(fileContents);
+
+  for (item of Object.keys(schema.paths)) {
+    const operations = schema.paths[item];
+    for (operationKey of Object.keys(operations)) {
+      const operation = operations[operationKey];
+      const operationData = {
+        slug: `/rest-api/reference#${operation.operationId}`,
+        contents: [
+          {
+            content: operation.description,
+            data: {
+              title: 'API Reference',
+              heading: operation.summary,
+            },
+          },
+        ],
+      };
+      posts.push(operationData);
+    }
+  }
+
+  return posts;
+}
+
+/**
+ * Function to generate the contents of all the posts based on the sitemap.json
+ * file.
+ *
+ * @returns An array containing all the posts' content and metadata
+ */
+async function getAllPosts() {
+  const posts = [];
+  const docsPosts = getPostsFromSitemap();
+  const openAPIPosts = getPostsFromOpenAPI();
+
+  return [...docsPosts, ...openAPIPosts];
 }
 
 function buildSearchObjects(posts) {
