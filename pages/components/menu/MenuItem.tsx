@@ -1,10 +1,20 @@
-import React from "react";
-import { SitemapItem } from "../../../lib/sitemap";
-import PageLink from "./PageLink";
-import ParentMenuItem from "./ParentMenuItem";
+import React from 'react';
+import { SitemapItem } from '../../../lib/sitemap';
+import OpenAPILinks from './OpenAPILinks';
+import PageLink from './PageLink';
+import ParentMenuItem from './ParentMenuItem';
 
 export default function MenuItem(props: SitemapItem) {
   if (props.children) return <ParentMenuItem {...props} />;
-  if (props.to) return <PageLink {...props} />;
+  if (props.to) {
+    if (props.to === '/rest-api/reference')
+      return (
+        <>
+          <PageLink {...props} />
+          <OpenAPILinks />
+        </>
+      );
+    return <PageLink {...props} />;
+  }
   return null;
 }
