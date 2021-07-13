@@ -19,7 +19,7 @@ export default function SearchHit({ hit }: Props) {
 
   return (
     <Link href={slug} passHref>
-      <article className="p-8 text-white hover:bg-gray-700 cursor-pointer">
+      <article className="px-8 py-4 text-white hover:bg-gray-700 cursor-pointer">
         <p
           className="m-0"
           dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}
