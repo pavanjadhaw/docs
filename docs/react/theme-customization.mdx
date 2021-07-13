@@ -5,7 +5,35 @@ subtitle: Learn how to change the default theme
 
 The notification inbox has a default theme, but you might want to change it, so it matches your site's style. You can do so by overriding default rules.
 
-In the following example, we show how to change the color of the bell icon, the header's font, and the background color of the footer of the notification inbox.
+In the following example, we show how to change the color of the bell icon, and the background color, border radius and font of the footer of the notification inbox.
+
+<NotificationInboxPreview
+  magicBellProps={{
+    theme: {
+      icon: { borderColor: '#2c73d2' },
+      header: { fontFamily: 'Arial', backgroundColor: '#c34a36', borderRadius: '2px' },
+      footer: { backgroundColor: '#c34a36' },
+    },
+  }}
+  code={`<MagicBell
+  apiKey="MAGICBELL_API_KEY"
+  userEmail="dan@example.com"
+  theme={{ 
+    icon: { borderColor: '#2c73d2' },
+    header: { fontFamily: 'Arial', backgroundColor: '#c34a36', borderRadius: '2px' },
+    footer: { backgroundColor: '#c34a36' },
+  }}
+  defaultIsOpen
+>
+  {(props) => (
+    <FloatingNotificationInbox
+      height={350}
+      {...props}
+    />
+  )}
+</MagicBell>
+`}
+/>
 
 <Tabs>
 
@@ -16,9 +44,9 @@ import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react
 export default function Notifications() {
   // Your custom theme definition
   const theme = {
-    icon: { borderColor: 'white' },
-    header: { fontFamily: 'Arial' },
-    footer: { backgroundColor: 'blue' },
+    icon: { borderColor: '#2c73d2' },
+    header: { fontFamily: 'Arial', backgroundColor: '#c34a36', borderRadius: '2px' },
+    footer: { backgroundColor: '#c34a36' },
   };
 
   return (
@@ -35,9 +63,9 @@ export default function Notifications() {
 
   // Your custom theme definition
   let theme = {
-    icon: { borderColor: 'white' },
-    header: { fontFamily: 'Arial' },
-    footer: { backgroundColor: 'blue' },
+    icon: { borderColor: '#2c73d2' },
+    header: { fontFamily: 'Arial', backgroundColor: '#c34a36', borderRadius: '2px' },
+    footer: { backgroundColor: '#c34a36' },
   };
 
   let targetEl = document.getElementById('notifications-inbox');
@@ -163,9 +191,63 @@ And this is the default style of an unread (but seen) notification:
 
 By combining the above options you can get a huge variety of themes. For example, this is the definition of a dark theme:
 
+<NotificationInboxPreview
+  magicBellProps={{
+    theme: {
+      icon: { borderColor: '#292d3e' },
+      header: {
+        backgroundColor: '#FAD776',
+        backgroundOpacity: 0,
+        borderRadius: '4px',
+        textColor: 'white',
+      },
+      footer: {
+        backgroundColor: '#292d3e',
+        backgroundOpacity: 1,
+        borderRadius: '4px',
+        textColor: 'white',
+      },
+      container: { backgroundColor: '#292d3e' },
+      notification: {
+        default: {
+          backgroundColor: '#292d3e',
+          borderRadius: '4px',
+          textColor: 'white',
+        },
+        unread: {
+          backgroundColor: '#212328',
+          backgroundOpacity: 0.75,
+          borderRadius: '4px',
+          textColor: 'white',
+        },
+        unseen: {
+          backgroundColor: '#867555',
+          backgroundOpacity: 0.2,
+          borderRadius: '4px',
+          textColor: 'white',
+        },
+      },
+    },
+  }}
+  code={`<MagicBell
+  apiKey="MAGICBELL_API_KEY"
+  userEmail="dan@example.com"
+  theme={darkTheme}
+  defaultIsOpen
+>
+  {(props) => (
+    <FloatingNotificationInbox
+      height={350}
+      {...props}
+    />
+  )}
+</MagicBell>
+`}
+/>
+
 ```javascript
 var theme = {
-  icon: { borderColor: 'white' },
+  icon: { borderColor: '#292d3e' },
   header: {
     backgroundColor: '#FAD776',
     backgroundOpacity: 0,
@@ -173,15 +255,15 @@ var theme = {
     textColor: 'white',
   },
   footer: {
-    backgroundColor: '#333A40',
+    backgroundColor: '#292d3e',
     backgroundOpacity: 1,
     borderRadius: '4px',
     textColor: 'white',
   },
-  container: { backgroundColor: '#333A40' },
+  container: { backgroundColor: '#292d3e' },
   notification: {
     default: {
-      backgroundColor: '#333A40',
+      backgroundColor: '#292d3e',
       borderRadius: '4px',
       textColor: 'white',
     },
@@ -192,7 +274,7 @@ var theme = {
       textColor: 'white',
     },
     unseen: {
-      backgroundColor: '#009FF6',
+      backgroundColor: '#867555',
       backgroundOpacity: 0.2,
       borderRadius: '4px',
       textColor: 'white',
@@ -206,9 +288,3 @@ var options = {
   theme: theme,
 };
 ```
-
-<img
-  className="full-mobile"
-  src="/docs/uploads/7a5e8cd-Screen_Shot_2020-12-17_at_11.46.51_PM.png"
-  style={{ width: '80%', height: 'intrinsic' }}
-/>
