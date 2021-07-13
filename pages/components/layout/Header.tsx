@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { MenuAlt2Icon } from '@heroicons/react/outline';
+import { MenuIcon } from '@heroicons/react/outline';
 import React from 'react';
 
 interface Props {
@@ -13,13 +13,6 @@ export default function Header({ onToggleMenu }: Props) {
 
   return (
     <header className="z-20 flex-shrink-0 flex sticky top-0">
-      <button
-        className="px-4 text-white focus:outline-none md:hidden h-20"
-        onClick={toggleMenu}
-      >
-        <span className="sr-only">Open main menu</span>
-        <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
-      </button>
       <div className="flex-1 hidden justify-between py-2 px-4 md:flex max-w-screen-2xl mx-auto">
         <div className="flex-1 flex items-center">
           <a href="https://magicbell.com">
@@ -37,6 +30,18 @@ export default function Header({ onToggleMenu }: Props) {
           </a>
         </div>
       </div>
+      <div className="flex-1 flex items-center md:hidden">
+        <a href="https://magicbell.com">
+          <img src="/docs/white-logo.png" alt="MagicBell" style={{ height: '40px' }} />
+        </a>
+      </div>
+      <button
+        className="px-4 text-white focus:outline-none md:hidden h-20"
+        onClick={toggleMenu}
+      >
+        <span className="sr-only">Open main menu</span>
+        <MenuIcon className="h-6 w-6" aria-hidden="true" />
+      </button>
     </header>
   );
 }
