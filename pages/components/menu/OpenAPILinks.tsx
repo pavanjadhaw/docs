@@ -6,8 +6,12 @@ import PathLinks from './PathLinks';
 export default function OpenAPILinks() {
   const { paths } = OpenAPI;
 
-  return Object.keys(paths).map((pathKey: string) => (
-    // @ts-ignore
-    <PathLinks key={pathKey} path={prop(pathKey, paths)} />
-  ));
+  return (
+    <>
+      {Object.keys(paths).map((pathKey: string) => (
+        // @ts-ignore
+        <PathLinks key={pathKey} path={prop(pathKey, paths)} />
+      ))}
+    </>
+  );
 }
