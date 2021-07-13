@@ -7,7 +7,7 @@ interface Props {
 
 export default function Content({ children }: Props) {
   return (
-    <div className="flex-1 mb-20 overflow-x-hidden w-full md:px-8">
+    <div className="flex-1 pb-24 overflow-x-hidden w-full md:px-8">
       <div className="flex flex-col">
         <div className="md:mt-4 md:py-4 px-4 md:px-0 border-b border-gray-200">
           <SearchBar />
