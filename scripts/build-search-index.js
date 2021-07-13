@@ -80,6 +80,21 @@ function getPostsFromSitemap() {
   return posts;
 }
 
+function buildOperationData(operation) {
+  return {
+    slug: `/rest-api/reference#${operation.operationId}`,
+    contents: [
+      {
+        content: operation.description,
+        data: {
+          title: 'API Reference',
+          heading: operation.summary,
+        },
+      },
+    ],
+  };
+}
+
 function getPostsFromOpenAPI() {
   const posts = [];
   const filePath = path.join(
@@ -97,18 +112,8 @@ function getPostsFromOpenAPI() {
     const operations = schema.paths[item];
     for (operationKey of Object.keys(operations)) {
       const operation = operations[operationKey];
-      const operationData = {
-        slug: `/rest-api/reference#${operation.operationId}`,
-        contents: [
-          {
-            content: operation.description,
-            data: {
-              title: 'API Reference',
-              heading: operation.summary,
-            },
-          },
-        ],
-      };
+      const operationData = buildOperationData(operation);
+
       posts.push(operationData);
     }
   }
