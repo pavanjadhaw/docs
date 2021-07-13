@@ -28,7 +28,7 @@ export default function DocPageLayout({ title = 'Docs', description, children }:
   return (
     <div className="min-h-screen flex flex-col">
       <NextSeo
-        title={title}
+        title={`MagicBell - ${title}`}
         description={description}
         canonical={path.join('https://magicbell.com', router.basePath, router.asPath)}
       />
