@@ -1,4 +1,3 @@
-const { convert } = require('html-to-text');
 const { flatten, reject, isNil } = require('ramda');
 const algoliasearch = require('algoliasearch/lite');
 const dotenv = require('dotenv');
@@ -8,6 +7,9 @@ const matter = require('gray-matter');
 const path = require('path');
 const remark = require('remark');
 const sitemap = require('../sitemap.json');
+const searchable = require('remark-mdx-searchable');
+const gfm = require('remark-gfm');
+const { default: slugify } = require('slugify');
 
 /**
  * Read and parse the contents of an MDX file.
@@ -17,12 +19,15 @@ const sitemap = require('../sitemap.json');
  * @param {string} encoding
  * @returns An object containing the metada and its content in plain text.
  */
-function parseMDXFile(filePath, encoding = 'utf8') {
+function parseMDXFile(filePath, context, encoding = 'utf8') {
   const fileContents = fs.readFileSync(filePath, encoding);
   const { content, data } = matter(fileContents);
-  const htmlContent = remark().use(html).processSync(content);
+  const compiled = remark().use(html).use(searchable).use(gfm).processSync(content);
 
-  return { content: convert(htmlContent), data };
+  return compiled.data.map((item) => ({
+    content: item.text,
+    data: { heading: item.heading, ...data },
+  }));
 }
 
 /**
@@ -33,16 +38,29 @@ function parseMDXFile(filePath, encoding = 'utf8') {
  * @returns A list of the paths
  */
 function extractPath(element) {
-  if (element.to) return element.to;
+  if (element.to) return { to: element.to, name: element.name };
   return reject(isNil, flatten(element.children.map(extractPath)));
 }
 
-function getPost(filePath, directory) {
-  const fileName = filePath === '/' ? 'index.mdx' : filePath + '.mdx';
+function getPost(context, directory) {
+  const fileName = context.to === '/' ? 'index.mdx' : context.to + '.mdx';
   const postPath = path.join(directory, fileName);
-  const { content, data } = parseMDXFile(postPath);
+  const contents = parseMDXFile(postPath, context);
 
-  return { id: filePath, content, data };
+  // {
+  //   slug: string;
+  //   contents: [
+  //     {
+  //       content: string;
+  //       data: {
+  //         title: string;
+  //         subtitle: string;
+  //         heading: string;
+  //       }
+  //     }
+  //   ]
+  // }
+  return { slug: context.to, contents };
 }
 
 /**
@@ -69,14 +87,17 @@ async function getAllPosts() {
 }
 
 function buildSearchObjects(posts) {
-  return posts.map(({ id, data, content }) => {
-    return {
-      objectID: id,
-      title: data.title,
-      description: data.subtitle,
-      content,
-    };
-  });
+  return flatten(
+    posts.map(({ slug, contents }) =>
+      contents.map(({ content, data }, index) => ({
+        objectID: slug + ':' + index,
+        title: data.heading ? data.title + ' > ' + data.heading : data.title,
+        breadcrumbs: [data.title, data.heading],
+        slug: data.heading ? `${slug}#${slugify(data.heading)}` : slug,
+        content,
+      })),
+    ),
+  );
 }
 
 (async function () {
@@ -93,7 +114,7 @@ function buildSearchObjects(posts) {
 
     const index = client.initIndex('docs');
     const response = await index.saveObjects(searchObjects);
-    console.warn(response);
+    console.log(response);
   } catch (error) {
     console.error(error);
   }
