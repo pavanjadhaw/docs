@@ -4,7 +4,15 @@ import { useEffectOnce } from 'react-use';
 import { createMagicBellServer } from '../../../lib/magicbellServer';
 import HighlightedCode from '../code/HighlightedCode';
 
-export default function NotificationInboxPreview({ code }: { code: string }) {
+interface Props {
+  code: string;
+  floatingNotificationInboxProps: { [key: string]: string };
+}
+
+export default function NotificationInboxPreview({
+  code,
+  floatingNotificationInboxProps,
+}: Props) {
   useEffectOnce(() => {
     const server = createMagicBellServer();
 
@@ -48,6 +56,7 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
                       },
                     ],
                   }}
+                  {...floatingNotificationInboxProps}
                   {...props}
                 />
               )}
@@ -56,7 +65,7 @@ export default function NotificationInboxPreview({ code }: { code: string }) {
         </div>
         <div className="w-full mt-8 -mb-4 xl:mt-0 xl:w-2/3">
           {code && (
-            <HighlightedCode className="language-js" hideHeader>
+            <HighlightedCode className="language-jsx" hideHeader>
               {code}
             </HighlightedCode>
           )}
