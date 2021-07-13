@@ -13,7 +13,7 @@ export default function DocPage({ title, subtitle, mdxSource, children }: Props)
   const pageTitle = title || 'Docs';
 
   return (
-    <DocPageLayout title={pageTitle}>
+    <DocPageLayout title={pageTitle} description={subtitle}>
       <h1 className="mt-12 mb-1">{title}</h1>
       <h3 className="mb-12 font-normal text-gray-500">{subtitle}</h3>
       {mdxSource ? (

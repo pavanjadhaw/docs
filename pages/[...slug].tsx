@@ -60,8 +60,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     });
 
-    console.warn(mdxSource);
-
     return { props: { mdxSource, metadata: data } };
   } catch (err) {
     return { props: { notFound: true } };
