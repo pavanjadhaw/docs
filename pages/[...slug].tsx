@@ -7,6 +7,8 @@ import Error from 'next/error';
 import path from 'path';
 import { flatten, reject } from 'ramda';
 import React from 'react';
+import autolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import sitemap from '../lib/sitemap';
 import DocPage from './components/DocPage';
 
@@ -49,7 +51,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     // @ts-ignore
     const { content, data } = matter(fileContents);
-    const mdxSource = await serialize(content);
+    const mdxSource = await serialize(content, {
+      mdxOptions: {
+        rehypePlugins: [
+          [rehypeSlug, {}],
+          [autolinkHeadings, {}],
+        ],
+      },
+    });
+
+    console.warn(mdxSource);
+
     return { props: { mdxSource, metadata: data } };
   } catch (err) {
     return { props: { notFound: true } };

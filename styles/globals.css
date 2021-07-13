@@ -31,6 +31,10 @@
     @apply text-xl font-bold;
   }
 
+  .mdx-content h2 {
+    @apply border-b border-gray-200 pb-3;
+  }
+
   .mdx-content h3 {
     @apply mt-10 mb-4;
   }
