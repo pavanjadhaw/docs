@@ -2,9 +2,14 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { SitemapItem } from '../../../lib/sitemap';
 
-export default function PageLink({ name, to, icon }: SitemapItem) {
+interface Props {
+  name: string | JSX.Element;
+  to?: string | undefined;
+  staticRoute?: boolean | undefined;
+}
+
+export default function PageLink({ name, to }: Props) {
   const router = useRouter();
   const isActive = router.asPath === to;
 
