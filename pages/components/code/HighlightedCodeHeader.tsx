@@ -9,13 +9,13 @@ interface Props {
 export default function HighlightedCodeHeader({ title, code }: Props) {
   return (
     <div
-      className="px-6 py-3 rounded-t-md uppercase text-xs font-bold text-white flex items-center"
+      className="pl-6 px-3 rounded-t-md uppercase text-xs font-bold text-white flex items-center h-10"
       style={{
         background: '#222337',
       }}
     >
-      <span className="flex-1">{title}</span>
-      <div className="border-l border-gray-500 pl-2">
+      <div className="flex-1">{title}</div>
+      <div className="border-l border-gray-500 py-0.5 pl-2">
         <CopyButton text={code} />
       </div>
     </div>

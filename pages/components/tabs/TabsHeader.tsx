@@ -19,7 +19,7 @@ export default function TabsHeader({ tabs, children, currentTabIndex }: Props) {
   if (!tabs) return null;
   return (
     <div
-      className="px-3 rounded-t-md space-x-2 text-white flex items-center"
+      className="px-3 py-1 rounded-t-md space-x-2 text-white flex items-center"
       style={{ background: 'rgb(34, 35, 55)' }}
     >
       <div className="flex-1">{tabs.map((tab, index) => children(tab, index))}</div>
