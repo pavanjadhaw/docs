@@ -4,6 +4,26 @@ title: Localization and internationalization (i18n)
 
 MagicBell is available in 3 languages out of the box: English, Spanish and Brazilian Portuguese. English (`en`) is the default one. However, you can also translate the entire UI into any language you want.
 
+<NotificationInboxPreview
+  magicBellProps={{
+    locale: 'es',
+  }}
+  code={`<MagicBell
+  apiKey="MAGICBELL_API_KEY"
+  userEmail="dan@example.com"
+  locale="es"
+  defaultIsOpen
+>
+  {(props) => (
+    <FloatingNotificationInbox
+      height={350}
+      {...props}
+    />
+  )}
+</MagicBell>
+`}
+/>
+
 ## Localization
 
 To change the default language, we expose the `locale` property. Set it to
