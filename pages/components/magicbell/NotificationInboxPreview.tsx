@@ -6,12 +6,14 @@ import HighlightedCode from '../code/HighlightedCode';
 
 interface Props {
   code: string;
-  floatingNotificationInboxProps: { [key: string]: string };
+  floatingNotificationInboxProps?: { [key: string]: string };
+  magicBellProps?: { [key: string]: string };
 }
 
 export default function NotificationInboxPreview({
   code,
-  floatingNotificationInboxProps,
+  magicBellProps = {},
+  floatingNotificationInboxProps = {},
 }: Props) {
   useEffectOnce(() => {
     const server = createMagicBellServer();
@@ -38,6 +40,7 @@ export default function NotificationInboxPreview({
                 header: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
                 footer: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
               }}
+              {...magicBellProps}
             >
               {(props) => (
                 <FloatingNotificationInbox
