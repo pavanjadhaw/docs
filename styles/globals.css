@@ -125,6 +125,7 @@ footer a {
 }
 
 /* Search (algolia) */
+/* This class was set manually at https://www.algolia.com/apps/HV8SJIDSDY/explorer/configuration/docs/highlighting */
 em.highlight {
   @apply bg-blue-100 text-gray-900 px-1 rounded-sm;
   font-style: inherit;
