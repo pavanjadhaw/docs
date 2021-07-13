@@ -5,6 +5,11 @@
     "permanent": true
   },
   {
+    "source": "/browser-js",
+    "destination": "/react/identifying-users",
+    "permanent": true
+  },
+  {
     "source": "/reference",
     "destination": "/rest-api/reference",
     "permanent": true
