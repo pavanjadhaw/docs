@@ -23,9 +23,7 @@ Follow these steps to register a new key:
 />
 
 <br />
-MagicBell needs the p8 key, its ID, the team ID for your Apple account and the bundle ID of
-your iOS app. Please [contact us](mailto:hello@magicbell.io) so we can help you set them up
-for your account.
+MagicBell needs the p8 key, its ID, the team ID for your Apple account, and your iOS app's bundle ID. Please (contact us)[mailto:hello@magicbell.io] so we can help you set them up for your account.
 
 ## Setup Android push notifications
 
@@ -36,17 +34,16 @@ Follow these steps to do it:
 - Login to your [Firebase account](https://console.firebase.google.com), pick your project and open the settings page of that project. If you don't have a project yet, create one.
 - Open the Cloud Messaging settings tab, copy the server key and sender ID.
 
-MagicBell needs the project's server key and sender ID, and the bundle ID of your Android app.
-Please [contact us](mailto:hello@magicbell.io) so we can help you set them up for your account.
+MagicBell needs the project's server key, sender ID, and the bundle ID of your Android app. Please (get in touch with us)[mailto:hello@magicbell.io] so we can help you set them up for your account.
 
 ## Configure your mobile app
 
 Once your credentials are set, MagicBell will deliver mobile push notifications
 when you create notifications through [the create notifications API endpoint](https://magicbell.com/docs/rest-api/reference#create-notification).
-However, you still need to setup your app.
+However, you still need to configure your app.
 
-If you are developing your app with [Expo](https://expo.io) or any other [React Native](https://reactnative.dev/) library we recommend to use
-[this React Native library](https://github.com/zo0r/react-native-push-notification). This is a short example:
+If you are developing your app with [Expo](https://expo.io) or any other [React Native](https://reactnative.dev/) library we recommend using
+[this React Native library](https://github.com/zo0r/react-native-push-notification). Here you have a short example:
 
 ```jsx title=React-Native
 import React, { Component } from 'react';
@@ -80,7 +77,7 @@ PushNotification.configure({
 ```
 
 If you face any issues while configuring the library, please feel free to shoot us a note, we will be happy to help.
-You might also find helpful to read the [full React Native example](https://github.com/magicbell-io/react-native-notifications-example) we created.
+You might also find it helpful to read the [full React Native example](https://github.com/magicbell-io/react-native-notifications-example) we created.
 
 This is a sample payload MagicBell will push to your app:
 
