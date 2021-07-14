@@ -61,7 +61,7 @@
 }
 
 .hljs-params {
-  color: #ffcb6b;
+  color: rgb(244, 191, 78);
 }
 
 .hljs-meta {
@@ -75,7 +75,7 @@
 
 .hljs-title.class_,
 .hljs-section {
-  color: #ffc66d;
+  color: rgb(244, 191, 78);
 }
 
 .hljs-addition {
@@ -93,7 +93,7 @@
 }
 
 .hljs-selector-class {
-  color: #ffcb6b;
+  color: rgb(244, 191, 78);
 }
 
 .hljs-selector-id {
