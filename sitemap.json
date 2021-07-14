@@ -94,6 +94,10 @@
           {
             "name": "Play a sound when a notification arrives",
             "to": "/react/play-sound-new-notification"
+          },
+          {
+            "name": "Render notifications in a sidebar",
+            "to": "/react/render-notifications-sidebar"
           }
         ]
       },
