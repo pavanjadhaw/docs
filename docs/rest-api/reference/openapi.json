@@ -154,8 +154,8 @@
                       "content": "<ul><li>Bring your valid government-issued photo ID.</li></ul>",
                       "category": "order_ready",
                       "custom_attributes": {
-                        "encoding": "utf-8",
-                        "word_count": "500"
+                        "order_number": "W846MD",
+                        "part_number": "MRJL74/C"
                       },
                       "recipient": { "email": "dan@example.com" },
                       "seen_at": null,
@@ -169,7 +169,12 @@
                       "action_url": "https://magicbell.com",
                       "content": "Unfortunately we were unable to automatically renew your account. It looks like we had trouble processing your credit card.",
                       "category": "billing",
-                      "custom_attributes": {},
+                      "custom_attributes": {
+                        "sender": {
+                          "name": "George Taylor",
+                          "email": "george_t@example.com"
+                        }
+                      },
                       "recipient": { "email": "dan@example.com" },
                       "seen_at": 1601388747,
                       "sent_at": 1601388730,
@@ -1025,7 +1030,7 @@
           },
           "custom_attributes": {
             "type": "object",
-            "description": "Set of key-value pairs that you can attach to a notification. You can use it to share data between channels or to render a custom UI.",
+            "description": "Set of key-value pairs that you can attach to a notification. It accepts objects for the value of a key.\n\nYou can use it to share data between channels or to render a custom UI.",
             "nullable": true,
             "additionalProperties": true
           },
