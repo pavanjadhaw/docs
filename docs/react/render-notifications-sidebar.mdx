@@ -20,13 +20,7 @@ Here you have a full example:
 import React, { useState } from 'react';
 import { Bell, NotificationList, useNotifications } from '@magicbell/magicbell-react';
 
-function App() {
-  <MagicBellProvider apiKey="MAGICBELL_API_KEY" userEmail="dan@example.com">
-    <Header />
-  </MagicBellProvider>;
-}
-
-export default function Header() {
+function Header() {
   const notifications = useNotifications();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -41,6 +35,12 @@ export default function Header() {
       ) : null}
     </header>
   );
+}
+
+export default function App() {
+  <MagicBellProvider apiKey="MAGICBELL_API_KEY" userEmail="dan@example.com">
+    <Header />
+  </MagicBellProvider>;
 }
 ```
 
