@@ -31,6 +31,7 @@ export default function OperationLink({ operationKey, operation }: Props) {
           <div>{operation.summary}</div>
         </div>
       }
+      style={{ padding: '6px 0' }}
     />
   );
 }

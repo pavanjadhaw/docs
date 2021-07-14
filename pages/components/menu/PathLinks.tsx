@@ -5,7 +5,7 @@ import OperationLink from './OperationLink';
 export default function PathLinks({ path }: { path: any }) {
   if (!path) return null;
   return (
-    <ul>
+    <ul className="py-3">
       {Object.keys(path).map((operationKey) => (
         <li key={operationKey}>
           <OperationLink
