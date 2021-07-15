@@ -141,9 +141,11 @@
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/Notifications" },
                 "example": {
+                  "project_id": 83,
                   "unseen_count": 1,
+                  "unread_count": 2,
                   "total": 2,
-                  "pages": 1,
+                  "total_pages": 1,
                   "per_page": 15,
                   "current_page": 1,
                   "notifications": [
@@ -157,7 +159,14 @@
                         "order_number": "W846MD",
                         "part_number": "MRJL74/C"
                       },
-                      "recipient": { "email": "dan@example.com" },
+                      "recipient": {
+                        "id": "dd1502be-1d07-4906-8217-38dbe4c6ea6b",
+                        "email": "dan@example.com",
+                        "external_id": null,
+                        "first_name": null,
+                        "last_name": null,
+                        "custom_attributes": {}
+                      },
                       "seen_at": null,
                       "sent_at": 1601549080,
                       "read_at": null,
@@ -175,7 +184,14 @@
                           "email": "george_t@example.com"
                         }
                       },
-                      "recipient": { "email": "dan@example.com" },
+                      "recipient": {
+                        "id": "dd1502be-1d07-4906-8217-38dbe4c6ea6b",
+                        "email": "dan@example.com",
+                        "external_id": null,
+                        "first_name": null,
+                        "last_name": null,
+                        "custom_attributes": {}
+                      },
                       "seen_at": 1601388747,
                       "sent_at": 1601388730,
                       "read_at": null,
@@ -223,7 +239,14 @@
                       "encoding": "utf-8",
                       "word_count": "500"
                     },
-                    "recipient": { "email": "dan@example.com" },
+                    "recipient": {
+                      "id": "dd1502be-1d07-4906-8217-38dbe4c6ea6b",
+                      "email": "dan@example.com",
+                      "external_id": null,
+                      "first_name": null,
+                      "last_name": null,
+                      "custom_attributes": {}
+                    },
                     "seen_at": null,
                     "sent_at": 1601549080,
                     "read_at": null,
