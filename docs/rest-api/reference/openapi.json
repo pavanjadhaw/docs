@@ -890,7 +890,20 @@
         ],
         "responses": {
           "204": { "description": "Subscription delete successfully" },
-          "404": { "description": "The device token is not found" }
+          "404": {
+            "description": "The device token was not registered",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "No subscription with the provided device token was found"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         },
         "deprecated": false
       }
