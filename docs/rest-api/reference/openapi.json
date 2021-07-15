@@ -606,6 +606,20 @@
               }
             }
           },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "Param 'notification_preferences.categories' is missing"
+                    }
+                  ]
+                }
+              }
+            }
+          },
           "404": {
             "description": "User not found",
             "content": {
