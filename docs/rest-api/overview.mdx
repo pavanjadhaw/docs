@@ -42,8 +42,8 @@ includes an array that contains all the errors that have happened. For example:
 }
 ```
 
-Each error has a `code` that briefly describes the error that has happened.
-These are the available error codes:
+As shown above, some errors also have a `code` that briefly describes the error
+that has happened. These are the available error codes:
 
 - `api_key_not_provided`
 - `incorrect_api_key`
@@ -53,9 +53,9 @@ These are the available error codes:
 - `neither_user_hmac_nor_api_secret_provided`
 - `user_email_not_provided`
 
-You can programmatically handle these error codes and take necessary action,
-like displaying an appropriate error message to the users or reporting the event
-to your error tracker. For example:
+You can handle these errors and take necessary action, like displaying an
+appropriate error message to the users or reporting the event to your error
+tracker. For example:
 
 ```js title=Node
 const axios = require('axios');
