@@ -113,25 +113,31 @@
             "in": "query",
             "name": "per_page",
             "schema": { "type": "integer" },
-            "description": "Set this to a number between 1 and 100 to change the number of notifications per page. Defaults to 15."
+            "description": "A limit on the number of notifications to be returned. It can range between 1 and 100, and the default is 15."
           },
           {
             "in": "query",
             "name": "page",
             "schema": { "type": "integer" },
-            "description": "Provide this parameter to retrieve a different page. Defaults to 1."
+            "description": "A parameter for use in pagination. Defaults to 1."
           },
           {
             "in": "query",
             "name": "read",
             "schema": { "type": "boolean" },
-            "description": "Set this to true to fetch read notifications. Set this to false to fetch unread notifications. Don't provide this parameter to fetch all notifications."
+            "description": "A filter on the notifications based on the read state. If false, only unread notifications will be returned. Defaults to null."
           },
           {
             "in": "query",
             "name": "seen",
             "schema": { "type": "boolean" },
-            "description": "Set this to true to fetch seen notifications. Set this to false to fetch unseen notifications. Don't provide this parameter to fetch all notifications."
+            "description": "A filter on the notifications based on the seen state. If false, only unseen notifications will be returned. Defaults to null."
+          },
+          {
+            "in": "query",
+            "name": "archived",
+            "schema": { "type": "boolean" },
+            "description": "A filter on the notifications based on the archived state. If false, only unarchived notifications will be returned. Defaults to null."
           }
         ],
         "responses": {
