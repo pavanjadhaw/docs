@@ -552,7 +552,7 @@
                 "example": {
                   "errors": [
                     {
-                      "message": "A user must have an external id or an email so MagicBell can uniquely identify the user"
+                      "message": "Param 'user' must have an external id or an email so MagicBell can uniquely identify the user"
                     }
                   ]
                 }
