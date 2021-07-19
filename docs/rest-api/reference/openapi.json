@@ -1212,12 +1212,12 @@
           },
           "unseen_count": {
             "type": "integer",
-            "description": "Number of unseen notifications.",
+            "description": "Number of unseen notifications. Any filters applied affect this number.",
             "readOnly": true
           },
           "unread_count": {
             "type": "integer",
-            "description": "Number of unread notifications.",
+            "description": "Number of unread notifications. Any filters applied affect this number.",
             "readOnly": true
           },
           "notifications": {
