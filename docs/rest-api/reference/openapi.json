@@ -138,6 +138,12 @@
             "name": "archived",
             "schema": { "type": "boolean" },
             "description": "A filter on the notifications based on the archived state. If false, only unarchived notifications will be returned. Defaults to null."
+          },
+          {
+            "in": "query",
+            "name": "categories",
+            "schema": { "type": "array" },
+            "description": "A filter on the notifications based on the category. The value can be either an array of strings or a comma-separated string."
           }
         ],
         "responses": {
