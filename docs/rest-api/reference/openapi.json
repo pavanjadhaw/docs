@@ -142,7 +142,12 @@
           {
             "in": "query",
             "name": "categories",
-            "schema": { "type": "array" },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "description": "A filter on the notifications based on the category. The value can be either an array of strings or a comma-separated string."
           }
         ],
