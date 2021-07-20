@@ -17,15 +17,15 @@ export default function OperationLink({ operationKey, operation }: Props) {
           <div className="mt-1">
             <span
               className={classNames(
-                'uppercase font-mono text-white rounded-sm w-7 text-center block',
-                operationKey === 'post' && 'bg-green-500 text-green-50',
-                operationKey === 'get' && 'bg-blue-500 text-blue-50',
-                operationKey === 'put' && 'bg-purple-500 text-purple-50',
-                operationKey === 'delete' && 'bg-red-500 text-red-50',
+                'uppercase font-mono w-6 block',
+                operationKey === 'post' && 'text-green-500',
+                operationKey === 'get' && 'text-blue-500',
+                operationKey === 'put' && 'text-purple-500',
+                operationKey === 'delete' && 'text-red-500',
               )}
-              style={{ fontSize: '6px', padding: '3px 1px', lineHeight: 1 }}
+              style={{ fontSize: '10px', lineHeight: 1.3 }}
             >
-              {operationKey}
+              {operationKey.replace('delete', 'del')}
             </span>
           </div>
           <div>{operation.summary}</div>
