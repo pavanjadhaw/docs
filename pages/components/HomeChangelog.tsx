@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import ChangelogEntry from './changelog/ChangelogEntry';
 
@@ -9,10 +10,22 @@ export default function HomeChangelog() {
       </div>
       <ul className="bg-gray-50 rounded-3xl p-2 sm:p-5 xl:p-6 list-none space-y-0 m-0">
         <ChangelogEntry
-          title="Postmark improvements"
-          timestamp="2021-07-09"
+          title="Filter notifications by category"
+          timestamp="2021-07-19"
           isHighlighted
         >
+          <>
+            <p>
+              We've added support for filtering notifications by category. You might find
+              it useful to add tabs to your notification inbox. Please check the{' '}
+              <Link href="/rest-api/reference#get-notifications">
+                fetch notifications API endpoint documentation
+              </Link>{' '}
+              for details.
+            </p>
+          </>
+        </ChangelogEntry>
+        <ChangelogEntry title="Postmark improvements" timestamp="2021-07-09">
           <>
             <p>
               We send to Postmark both the notification ID and the notification broadcast
