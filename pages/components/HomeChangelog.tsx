@@ -33,8 +33,8 @@ export default function HomeChangelog() {
               reconcile deliveries.
             </p>
             <p>
-              To help you test faster, when you create a new project the email channel
-              will be enabled by default. If you want to, you can disable it from your{' '}
+              To help you test faster, the email channel will be enabled by default when
+              you create a new project. You can disable it from your{' '}
               <a href="https://app.magicbell.com" target="_blank" rel="noreferrer">
                 MagicBell dashboard
               </a>
