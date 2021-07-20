@@ -147,7 +147,7 @@
                 "type": "string"
               }
             },
-            "description": "A filter on the notifications based on the category. The value can be either an array of strings or a comma-separated string."
+            "description": "A filter on the notifications based on the category. If you want to get uncategorized notifications, use the \"uncategorized\" value.\nThe value can be either an array of strings or a comma-separated string."
           }
         ],
         "responses": {
