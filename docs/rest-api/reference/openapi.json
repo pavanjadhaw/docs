@@ -95,8 +95,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       },
       "get": {
         "tags": ["User Notifications APIs"],
@@ -219,8 +218,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       }
     },
     "/notifications/{notification_id}": {
@@ -318,8 +316,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       }
     },
     "/notifications/{notification_id}/read": {
@@ -730,8 +727,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       },
       "put": {
         "parameters": [
@@ -805,8 +801,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       }
     },
     "/push_subscriptions": {
@@ -921,8 +916,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       }
     }
   },
