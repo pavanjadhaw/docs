@@ -2,18 +2,18 @@
 title: Idempotent Requests
 ---
 
-Our API supports idempotent requests, to prevent the same operation from being performed twice.
-If you attempt an operation twice or more, only the first attempt will be processed.
-For example, if a request to create a notification does not respond due to a network connection error,
-you can retry the request with the same idempotency key, and no additional notification will be created.
+Our API supports idempotent requests to prevent the same operation from being performed twice.
+If you attempt an operation twice or more, it will process only the first attempt.
+For example, suppose a request to create a notification does not respond due to a network connection error. In that case, you can retry the request with the same idempotency key and it will create no additional notification.
 
-To perform an idempotent request, you need to add a `Idempotency-Key: <key>` header, on the request.
-An idempotency key is a unique value generated on your side which the server uses to recognize subsequent retries of the same request.
+To perform an idempotent request, you need to add an `Idempotency-Key: <key>` header on the request.
+An idempotency key is a unique value generated on your side, which the server uses to recognize subsequent retries of the same request.
 We suggest using V4 UUID to avoid collisions.
 
 
 The resulting status code and body of the first request will be cached. Subsequent requests with the same
-idempotency key will return the same result. The request results are cached for 24 hours.
+idempotency key will return the same result. The cached results will expire after 24 hours.
+
 
 <Tabs>
 
@@ -110,3 +110,5 @@ axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
 </Tabs>
+
+Credit: https://stripe.com/docs/api/idempotent_requests
