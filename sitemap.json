@@ -39,6 +39,10 @@
         "name": "API reference",
         "to": "/rest-api/reference",
         "staticRoute": true
+      },
+      {
+        "name": "Idempotent Requests",
+        "to": "/idempotent-requests"
       }
     ]
   },
@@ -51,10 +55,6 @@
     "name": "Guides",
     "icon": "book-open",
     "children": [
-      {
-        "name": "Idempotent Requests",
-        "to": "/idempotent-requests"
-      },
       {
         "name": "Turn on HMAC authentication",
         "to": "/turn-on-hmac-authentication"
