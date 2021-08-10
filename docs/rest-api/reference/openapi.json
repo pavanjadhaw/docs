@@ -107,6 +107,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           {
             "in": "query",
@@ -941,7 +944,7 @@
         "name": "X-MAGICBELL-USER-EMAIL",
         "schema": { "type": "string" },
         "required": true,
-        "description": "Email address of the user."
+        "description": "Email address of the user. Provide the X-MAGICBELL-USER-EXTERNAL-ID header instead if you identify users by ID."
       },
       "x_magicbell_user_external_id_header": {
         "in": "header",
