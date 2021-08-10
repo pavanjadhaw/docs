@@ -36,13 +36,13 @@
         "to": "/rest-api/overview"
       },
       {
+        "name": "Idempotent Requests",
+        "to": "/rest-api/idempotent-requests"
+      },
+      {
         "name": "API reference",
         "to": "/rest-api/reference",
         "staticRoute": true
-      },
-      {
-        "name": "Idempotent Requests",
-        "to": "/idempotent-requests"
       }
     ]
   },
