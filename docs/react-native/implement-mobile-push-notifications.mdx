@@ -40,14 +40,13 @@ MagicBell needs the project's server key, sender ID, and the bundle ID of your A
 
 ## Configure your mobile app
 
-Once your credentials are set, MagicBell will deliver mobile push notifications
-when you create notifications through [the create notifications API endpoint](https://magicbell.com/docs/rest-api/reference#create-notification).
-However, you still need to configure your app.
+Good, your credentials are set! However, you still need to configure your app.
 
 If you are developing your app with [Expo](https://expo.io) or any other [React Native](https://reactnative.dev/) library we recommend using
 [this React Native library](https://github.com/zo0r/react-native-push-notification). Here you have a short example:
 
 ```jsx title=React-Native
+import PushNotification from 'react-native-push-notification';
 import React, { Component } from 'react';
 import { Alert, View, Text } from 'react-native';
 
@@ -100,3 +99,39 @@ This is a sample payload MagicBell will push to your app:
 ```
 
 If you set [overrides](https://magicbell.com/docs/rest-api/reference#create-notification) for the `mobile_push` channel, those values will be pushed to your app.
+
+## Forward device tokens to MagicBell
+
+The OS will generate a registration token when someone installs your app on their
+device. Please retrieve it and forward it to MagicBell.
+
+```jsx title=React-Native
+import { Platform } from 'react-native';
+import PushNotification from 'react-native-push-notification';
+
+PushNotification.configure({
+  onRegister: (token) => {
+    fetch('https://api.magicbell.com/push_subscriptions', {
+      method: 'POST',
+      headers: {
+        'X-MAGICBELL-API-KEY': MAGICBELL_API_KEY,
+        'X-MAGICBELL-USER-EXTERNAL-ID': CURRENT_USER_ID,
+      },
+      body: JSON.stringify({
+        push_subscription: {
+          device_token: token,
+          platform: Platform.OS,
+        },
+      }),
+    });
+  },
+  requestPermissions: true,
+});
+```
+
+Keep in mind that a new device token will be generated when the user
+reinstalls the app or clears the app data. Therefore, you will have to forward
+the new token to MagicBell each time a new one is generated.
+
+Now MagicBell will deliver mobile push notifications when you create notifications
+through [the create notifications API endpoint](https://magicbell.com/docs/rest-api/reference#create-notification)!
