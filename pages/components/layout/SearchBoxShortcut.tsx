@@ -14,7 +14,7 @@ export default function SearchBoxShortcut() {
 
   return (
     <div>
-      <span className="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300 rounded-md">
+      <span className="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300 rounded-md w-9">
         <span className="sr-only">Press </span>
         <kbd className="font-sans">
           <span title="Command">⌘</span>
