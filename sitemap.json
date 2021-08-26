@@ -1,13 +1,11 @@
 [
   {
     "name": "Home",
-    "icon": "home",
     "to": "/",
     "staticRoute": true
   },
   {
     "name": "Getting started",
-    "icon": "info",
     "children": [
       {
         "name": "Getting started with MagicBell",
@@ -29,7 +27,6 @@
   },
   {
     "name": "Rest API",
-    "icon": "terminal",
     "children": [
       {
         "name": "Overview",
@@ -48,12 +45,10 @@
   },
   {
     "name": "API wrappers and libraries",
-    "icon": "library",
     "to": "/libraries-api-wrappers"
   },
   {
     "name": "Guides",
-    "icon": "book-open",
     "children": [
       {
         "name": "Turn on HMAC authentication",
@@ -139,13 +134,11 @@
   },
   {
     "name": "Glossary",
-    "icon": "newspaper",
     "to": "/glossary",
     "staticRoute": true
   },
   {
     "name": "FAQ",
-    "icon": "support",
     "to": "/faq"
   }
 ]
