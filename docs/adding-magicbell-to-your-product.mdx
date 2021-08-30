@@ -144,7 +144,7 @@ npm install @magicbell/embeddable
 yarn add @magicbell/embeddable
 ```
 
-After grabbing the library, you can import the ESM build and use it.
+After grabbing the library, you can import the `renderWidget` function to render the notification inbox.
 
 ```html title=Vue.js
 <template>
@@ -168,6 +168,46 @@ After grabbing the library, you can import the ESM build and use it.
 ```
 
 If you prefer to use the CDN bundle, replace the import statement (line 6) with
+
+```javascript hideHeader
+import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
+```
+
+## Angular
+
+You can also use the ESM build to render a MagicBell in your Angular app easily.
+
+You can either grab it from our CDN or install the embeddable package from NPM.
+
+```shell hideHeader
+npm install @magicbell/embeddable
+# Or
+yarn add @magicbell/embeddable
+```
+
+After grabbing the library, you can import the `renderWidget` function to render the notification inbox.
+
+```typescript title=Angular
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { renderWidget } from '@magicbell/embeddable/dist/magicbell.esm.js';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+export class AppComponent implements AfterViewInit {
+  @ViewChild('notifications') notifications: ElementRef;
+
+  ngAfterViewInit() {
+    renderWidget(this.notifications.nativeElement, {
+      apiKey: MAGICBELL_API_KEY,
+      userEmail: 'mary@example.com',
+    });
+  }
+}
+```
+
+If you prefer to use the CDN bundle, replace the import statement (line 2) with
 
 ```javascript hideHeader
 import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
