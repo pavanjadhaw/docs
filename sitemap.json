@@ -138,6 +138,18 @@
     ]
   },
   {
+    "name": "What's New",
+    "icon": "changelog",
+    "to": "/changelog",
+    "staticRoute": true
+  },
+  {
+    "name": "Roadmap",
+    "icon": "roadmap",
+    "to": "/roadmap",
+    "staticRoute": true
+  },
+  {
     "name": "Glossary",
     "icon": "newspaper",
     "to": "/glossary",
