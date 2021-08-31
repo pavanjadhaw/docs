@@ -11,7 +11,7 @@ export default function DesktopMenu({ navigationItems }: Props) {
     <div className="sticky top-24 h-full">
       <div
         className="flex-shrink-0 w-72 hidden md:block overflow-y-scroll"
-        style={{ maxHeight: '70vh' }}
+        style={{ maxHeight: '85vh' }}
       >
         <Menu navigationItems={navigationItems} />
       </div>
