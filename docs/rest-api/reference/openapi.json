@@ -1120,6 +1120,32 @@
                     "$ref": "#/components/schemas/ChannelOverrides"
                   }
                 }
+              },
+              "providers": {
+                "type": "object",
+                "description": "Overrides for specific providers (Sendgrid, Postmark, APNs, etc)",
+                "properties": {
+                  "sendgrid": {
+                    "type": "object",
+                    "description": "Set of key-value pairs that you can pass on to Sendgrid. Applied only if it is configured for your project."
+                  },
+                  "mailgun": {
+                    "type": "object",
+                    "description": "Set of key-value pairs that you can pass on to Mailgun. Applied only if it is configured for your project."
+                  },
+                  "postmark": {
+                    "type": "object",
+                    "description": "Set of key-value pairs that you can pass on to Postmark. Applied only if it is configured for your project."
+                  },
+                  "ios": {
+                    "type": "object",
+                    "description": "Set of key-value pairs that you can pass on to APNs. Applied only if it is configured for your project."
+                  },
+                  "android": {
+                    "type": "object",
+                    "description": "Set of key-value pairs that you can pass on to FCM. Applied only if it is configured for your project."
+                  }
+                }
               }
             }
           }

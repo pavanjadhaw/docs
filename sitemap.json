@@ -7,7 +7,6 @@
   },
   {
     "name": "Getting started",
-    "icon": "info",
     "children": [
       {
         "name": "1. Welcome to MagicBell!",
@@ -22,14 +21,13 @@
         "to": "/sending-notifications"
       },
       {
-        "name": "4. That's it! What's next?",
+        "name": "4. Whats next?",
         "to": "/whats-next"
       }
     ]
   },
   {
     "name": "Guides",
-    "icon": "book-open",
     "children": [
       {
         "name": "Announcements",
@@ -38,6 +36,10 @@
       {
         "name": "Channels",
         "to": "/channels"
+      },
+      {
+        "name": "Categories",
+        "to": "/categories"
       },
       {
         "name": "React",
@@ -90,6 +92,15 @@
         ]
       },
       {
+        "name": "Angular",
+        "children": [
+          {
+            "name": "Getting started",
+            "to": "/angular"
+          }
+        ]
+      },
+      {
         "name": "Browser",
         "children": [
           {
@@ -107,10 +118,10 @@
         ]
       },
       {
-        "name": "Email Setup",
+        "name": "Email integrations with SendGrid & Mailgun",
         "children": [
           {
-            "name": "3rd party email providers",
+            "name": "Setting up 3rd party email providers",
             "to": "/email/3rd-party-email-providers"
           }
         ]
@@ -159,13 +170,11 @@
   },
   {
     "name": "Glossary",
-    "icon": "newspaper",
     "to": "/glossary",
     "staticRoute": true
   },
   {
     "name": "FAQ",
-    "icon": "support",
     "to": "/faq"
   }
 ]

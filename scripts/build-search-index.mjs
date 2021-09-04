@@ -1,15 +1,14 @@
-const { flatten, reject, isNil } = require('ramda');
-const algoliasearch = require('algoliasearch/lite');
-const dotenv = require('dotenv');
-const fs = require('fs');
-const html = require('remark-html');
-const matter = require('gray-matter');
-const path = require('path');
-const remark = require('remark');
-const sitemap = require('../sitemap.json');
-const searchable = require('remark-mdx-searchable');
-const gfm = require('remark-gfm');
-const { default: slugify } = require('slugify');
+import algoliasearch from 'algoliasearch';
+import dotenv from 'dotenv';
+import fs from 'fs';
+import * as matter from 'gray-matter';
+import path from 'path';
+import { flatten, isNil, reject } from 'ramda';
+import { remark } from 'remark';
+import gfm from 'remark-gfm';
+import html from 'remark-html';
+import searchable from 'remark-mdx-searchable';
+import slugify from 'slugify';
 
 /**
  * Read and parse the contents of an MDX file.
@@ -21,7 +20,7 @@ const { default: slugify } = require('slugify');
  */
 function parseMDXFile(filePath, context, encoding = 'utf8') {
   const fileContents = fs.readFileSync(filePath, encoding);
-  const { content, data } = matter(fileContents);
+  const { content, data } = matter.default(fileContents);
   const compiled = remark().use(html).use(searchable).use(gfm).processSync(content);
 
   return compiled.data.map((item) => ({
@@ -64,11 +63,13 @@ function getPost(context, directory) {
 }
 
 function getPostsFromSitemap() {
+  const sitemap = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'sitemap.json')));
+
   const posts = [];
   const docsDirectory = path.join(process.cwd(), 'docs');
   const sitemapPaths = flatten(sitemap.map((entry) => extractPath(entry)));
 
-  for (entryFilePath of sitemapPaths) {
+  for (let entryFilePath of sitemapPaths) {
     try {
       const post = getPost(entryFilePath, docsDirectory);
       posts.push(post);
@@ -108,9 +109,9 @@ function getPostsFromOpenAPI() {
   const fileContents = fs.readFileSync(filePath, 'utf-8');
   const schema = JSON.parse(fileContents);
 
-  for (item of Object.keys(schema.paths)) {
+  for (let item of Object.keys(schema.paths)) {
     const operations = schema.paths[item];
-    for (operationKey of Object.keys(operations)) {
+    for (let operationKey of Object.keys(operations)) {
       const operation = operations[operationKey];
       const operationData = buildOperationData(operation);
 
