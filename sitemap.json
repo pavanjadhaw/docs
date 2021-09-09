@@ -30,10 +30,6 @@
     "name": "Guides",
     "children": [
       {
-        "name": "Announcements",
-        "to": "/announcements"
-      },
-      {
         "name": "Channels",
         "to": "/channels"
       },
@@ -92,15 +88,6 @@
         ]
       },
       {
-        "name": "Angular",
-        "children": [
-          {
-            "name": "Getting started",
-            "to": "/angular"
-          }
-        ]
-      },
-      {
         "name": "Browser",
         "children": [
           {
@@ -118,7 +105,7 @@
         ]
       },
       {
-        "name": "Email integrations with SendGrid & Mailgun",
+        "name": "Email integrations with SendGrid, Postmark, & Mailgun",
         "children": [
           {
             "name": "Setting up 3rd party email providers",
