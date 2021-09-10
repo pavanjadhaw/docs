@@ -88,6 +88,10 @@
         ]
       },
       {
+        "name": "Angular",
+        "to": "/angular"
+      },
+      {
         "name": "Browser",
         "children": [
           {
