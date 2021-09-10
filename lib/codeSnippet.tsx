@@ -1,5 +1,6 @@
 import faker from 'faker';
 import { OpenAPIV3 } from 'openapi-types';
+import pupa from 'pupa';
 
 const HTTPSnippet = require('httpsnippet');
 const httparty = require('./httpsnippet-ruby-httparty');
@@ -10,7 +11,6 @@ try {
   HTTPSnippet.addTargetClient('python', requests);
 } catch (err) {}
 
-const pupa = require('pupa');
 const BASE_URL = 'https://api.magicbell.com'; // @todo Take it from the OpenAPI file
 
 // To generate the same values accross example
@@ -21,10 +21,11 @@ const TEMPLATE_CONTEXT = {
   x_magicbell_api_key: faker.random.alphaNumeric(40),
   x_magicbell_api_secret: faker.random.alphaNumeric(40),
   x_magicbell_user_external_id: faker.datatype.number({ min: 1000 }),
+  x_magicbell_user_email: 'jBarker@example.com',
 };
 
 export function replaceVariables(codeSnippet: string) {
-  return pupa(codeSnippet, TEMPLATE_CONTEXT);
+  return pupa(codeSnippet, TEMPLATE_CONTEXT, { ignoreMissing: true });
 }
 
 export function buildUrl(url: URL) {
