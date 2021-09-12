@@ -16,7 +16,7 @@ interface Props {
 export default function index({ mdxSource, metadata = {} }: Props) {
   return (
     <DocPage mdxSource={mdxSource} {...metadata}>
-      <HomeChangelog />
+
     </DocPage>
   );
 }

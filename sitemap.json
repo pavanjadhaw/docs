@@ -1,6 +1,7 @@
 [
   {
-    "name": "Home",
+    "name": "👋 Hello. We're MagicBell!",
+    "icon": "home",
     "to": "/",
     "staticRoute": true
   },
@@ -8,60 +9,33 @@
     "name": "Getting started",
     "children": [
       {
-        "name": "Getting started with MagicBell",
+        "name": "1. Welcome to MagicBell!",
         "to": "/getting-started-with-magicbell"
       },
       {
-        "name": "Sending notifications",
-        "to": "/sending-notifications"
-      },
-      {
-        "name": "Adding MagicBell to your product",
+        "name": "2. Adding MagicBell to your product",
         "to": "/adding-magicbell-to-your-product"
       },
       {
-        "name": "What's next?",
+        "name": "3. Sending notifications",
+        "to": "/sending-notifications"
+      },
+      {
+        "name": "4. Whats next?",
         "to": "/whats-next"
       }
     ]
   },
   {
-    "name": "Rest API",
-    "children": [
-      {
-        "name": "Overview",
-        "to": "/rest-api/overview"
-      },
-      {
-        "name": "Idempotent Requests",
-        "to": "/rest-api/idempotent-requests"
-      },
-      {
-        "name": "API reference",
-        "to": "/rest-api/reference",
-        "staticRoute": true
-      }
-    ]
-  },
-  {
-    "name": "API wrappers and libraries",
-    "to": "/libraries-api-wrappers"
-  },
-  {
     "name": "Guides",
     "children": [
       {
-        "name": "Turn on HMAC authentication",
-        "to": "/turn-on-hmac-authentication"
+        "name": "Channels",
+        "to": "/channels"
       },
       {
-        "name": "Email Setup",
-        "children": [
-          {
-            "name": "3rd party email providers",
-            "to": "/email/3rd-party-email-providers"
-          }
-        ]
+        "name": "Categories",
+        "to": "/categories"
       },
       {
         "name": "React",
@@ -114,6 +88,10 @@
         ]
       },
       {
+        "name": "Angular",
+        "to": "/angular"
+      },
+      {
         "name": "Browser",
         "children": [
           {
@@ -129,8 +107,45 @@
             "to": "/browser/new-notification-hook"
           }
         ]
+      },
+      {
+        "name": "Email integrations with SendGrid, Postmark, & Mailgun",
+        "children": [
+          {
+            "name": "Setting up 3rd party email providers",
+            "to": "/email/3rd-party-email-providers"
+          }
+        ]
+      },
+      {
+        "name": "Turn on HMAC authentication",
+        "to": "/turn-on-hmac-authentication"
       }
     ]
+  },
+  {
+    "name": "Rest API",
+    "icon": "terminal",
+    "children": [
+      {
+        "name": "Overview",
+        "to": "/rest-api/overview"
+      },
+      {
+        "name": "Idempotent Requests",
+        "to": "/rest-api/idempotent-requests"
+      },
+      {
+        "name": "API reference",
+        "to": "/rest-api/reference",
+        "staticRoute": true
+      }
+    ]
+  },
+  {
+    "name": "API wrappers and libraries",
+    "icon": "library",
+    "to": "/libraries-api-wrappers"
   },
   {
     "name": "What's New",
