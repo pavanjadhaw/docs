@@ -2,25 +2,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Install XCode and Git on your machine.
-2. Clone the repo
+1. Clone the repo
 
    ```bash
-   git clone https://github.com/magicbell-io/docs.git`
+   git clone git@github.com:magicbell-io/docs.git
    ```
-3. Install dependencies
+2. Install dependencies
 
    ```bash
    yarn install
    ```
 
-4. Spin up your development server, run:
+3. To spin up your development server, run:
 
    ```bash
    yarn dev
    ```
 
-5. Open [http://localhost:3000/docs](http://localhost:3000/docs) with your browser to see the result.
+4. Open [http://localhost:3000/docs](http://localhost:3000/docs) with your browser to see the result.
 
 The `docs` directory contains all entries for the site.
 
