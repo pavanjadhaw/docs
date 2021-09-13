@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Make sure XCode, Homebrew, and Git are installed on your machine, and you have a MagicBell Github account.
+1. Make sure XCode, Homebrew, and Git are installed on your machine.
 2. Navigate to the parent directory (folder) you want to place your code in.
 3. In terminal, run:
 
