@@ -39,10 +39,20 @@ Now all users will receive the notification!
 
 <i>After clicking Everyone, you may notice <a href="https://magicbell.com/docs/categories">Category</a> toggles to Announcement. Assigning notifications a Category is a great way to customize your inbox and derive insights from analytics down the road.</i>
 
-## Programatically
+## Programmatically
 
+All users can receive a notification by including the "matches" attribute with the "email" key, leaving the value an empty string.
 
+```shell hideHeader
+{
+  matches: [
+    {
+      "email": ""
+    }
+  ]
+}
+```
 
 ## How to Manage Users 
 
-Users can 
+Our team built a page specifically to view, add, and delete users. These are the users who will receive a notification. If a user has not logged onto your site since implementing MagicBell - and they should receive an announcement - you must manually add them.
