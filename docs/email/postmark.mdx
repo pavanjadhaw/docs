@@ -1,11 +1,46 @@
 ---
-title: Postmark Integration
+title: Postmark integration
 subtitle: How to use Postmark with MagicBell's API
 ---
 
-<Note>
-Soon MagicBell will integrate with Mailgun temlplates. ✉️ Email hello@magicbell.com if you urgently need this feature!
-</Note>
-
 ## Sending Postmark emails from MagicBell's API
 
+### Initial setup
+
+- Sign up for Postmark and obtain a server API token
+- Verify your sender signature in Postmark
+- ✉️ Email your **server ID token** and **verified sender signature** (email address) in your account to hello@magicbell.com
+- Verify the emails channel in MagicBell is enabled
+
+### Sending the email
+
+**No additional work is needed to send an email through Postmark**. Now that your account is set up, the default is send emails using Postmark. You can verify an email was sent in Postmark's application. MagicBell also automatically injects notification_id and broadcast_id as metadata into Postmark.
+
+### Sending emails with additional or unique content
+
+The `overrides` attribute allows you to send content unique to email, differing from other channels.
+
+`Overrides` accept the exact attributes directly from [Postmark's documentation](https://postmarkapp.com/developer/api/email-api). Below is an example of a notification with an email subject line different from the title of other channels.
+
+```shell hideHeader
+"notification": {
+    "title": "Welcome to MagicBell",
+    "content": "The notification inbox for your product. Get started in minutes.",
+    "category": "new_message",
+    "action_url": "https://developer.magicbell.com",
+    "recipients": [{
+        "email": "dan@magicbell.com"
+    }],
+    "overrides": {
+        "providers": {
+            "postmark": {
+                "subject": "New subject header"
+            }
+        }
+    }
+}
+```
+
+<Note>
+Email hello@magicbell.com if you wish to use Postmark templates!
+</Note>
