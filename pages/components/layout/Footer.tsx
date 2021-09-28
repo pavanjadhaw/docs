@@ -87,9 +87,6 @@ export default function Footer() {
               <a href="https://magicbell.com/docs">Docs</a>
             </li>
             <li className="mb-3">
-              <a href="https://community.magicbell.io/">Developer Community Forum</a>
-            </li>
-            <li className="mb-3">
               <a href="https://magicbell.com/blog/building-a-user-notification-system">
                 Building a Notification System
               </a>
