@@ -54,12 +54,13 @@ Create a template in SendGrid, and grab its ID. Then create a notification with
 the `template_id` attribute set in `overrides.providers.sendgrid` when creating
 a notification. MagicBell will use `custom_attributes` to fill in your template.
 
-```json
+<Tabs>
+
+```json title=PAYLOAD hideHeader noTopBorderRadius
 "notification": {
-  "title": "We're processing your order",
-  "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
+  "title": "We are processing your order",
   "recipients": [{
-    "email": "dan@magicbell.com"
+    "email": "dan@example.com"
   }],
   "custom_attributes": {
     "name": "Dan",
@@ -76,3 +77,36 @@ a notification. MagicBell will use `custom_attributes` to fill in your template.
   }
 }
 ```
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/notifications \
+  --request POST \
+  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
+  --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
+  --data '{
+    "notification": {
+      "title": "We are processing your order",
+      "recipients": [
+        { "email": "dan@example.com" },
+      ],
+      "custom_attributes": {
+        "name": "Dan",
+        "company": {
+          "name": "Example Inc"
+        }
+      }
+      "overrides": {
+        "providers": {
+          "sendgrid": {
+            "template_id": "[sengrid_template_id]"
+          }
+        }
+      }
+    }
+  }'
+```
+
+</Tabs>
+
+Keep in mind that the content of the notification is ignored when you use a
+template. Sending will use the template content instead.
