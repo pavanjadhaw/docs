@@ -59,6 +59,10 @@
     @apply ml-4;
   }
 
+  main ul > li > p:first-child {
+    @apply inline-block;
+  }
+
   pre,
   code {
     font-size: 1rem;
