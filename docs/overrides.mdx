@@ -13,18 +13,22 @@ Below illustrates how to make the subject of an email different from the title
 of other notifications.
 
 ```json
-"notification": {
-  "title": "Welcome to MagicBell",
-  "content": "The notification inbox for your product. Get started in minutes.",
-  "category": "new_message",
-  "action_url": "https://developer.magicbell.com",
-  "recipients": [{
-    "email": "dan@magicbell.com"
-  }],
-  "overrides": {
-    "channels": {
-      "email": {
-        "title": "New title of email"
+{
+  "notification": {
+    "title": "Welcome to MagicBell",
+    "content": "The notification inbox for your product. Get started in minutes.",
+    "category": "new_message",
+    "action_url": "https://developer.magicbell.com",
+    "recipients": [
+      {
+        "email": "dan@magicbell.com"
+      }
+    ],
+    "overrides": {
+      "channels": {
+        "email": {
+          "title": "New title of email"
+        }
       }
     }
   }
@@ -66,19 +70,23 @@ For example, you can add cc and bcc recipients for Postmark sending this payload
 to the create notifications endpoint:
 
 ```json
-"notification": {
-  "title": "Welcome to MagicBell",
-  "content": "The notification inbox for your product. Get started in minutes.",
-  "category": "new_message",
-  "action_url": "https://developer.magicbell.com",
-  "recipients": [{
-    "email": "dan@magicbell.com"
-  }],
-  "overrides": {
-    "providers": {
-      "postmark": {
-        "Cc": "dan@magicbell.com",
-        "Bcc": "hana@magicbell.com"
+{
+  "notification": {
+    "title": "Welcome to MagicBell",
+    "content": "The notification inbox for your product. Get started in minutes.",
+    "category": "new_message",
+    "action_url": "https://developer.magicbell.com",
+    "recipients": [
+      {
+        "email": "dan@magicbell.com"
+      }
+    ],
+    "overrides": {
+      "providers": {
+        "postmark": {
+          "Cc": "dan@magicbell.com",
+          "Bcc": "hana@magicbell.com"
+        }
       }
     }
   }

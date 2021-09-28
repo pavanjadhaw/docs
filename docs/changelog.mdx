@@ -25,12 +25,14 @@ You can now send email notifications using your own SendGrid and Mailgun
 templates. [Learn more](https://magicbell.com/docs/email/sendgrid).
 
 ```json hideHeader
-"notification": {
-  "title": "Your order with Example 923270",
-  "overrides": {
-    "providers": {
-      "sendgrid": {
-        "template_id": "[sengrid_template_id]"
+{
+  "notification": {
+    "title": "Your order with Example 923270",
+    "overrides": {
+      "providers": {
+        "sendgrid": {
+          "template_id": "[sengrid_template_id]"
+        }
       }
     }
   }
@@ -47,12 +49,14 @@ the create notification API. This is helpful when you want to leverage extra
 functionality offered by your providers.
 
 ```json hideHeader
-"notification": {
-  "title": "Your order with Example 923270",
-  "overrides": {
-    "providers": {
-      "ios": {
-        "badge": 2
+{
+  "notification": {
+    "title": "Your order with Example 923270",
+    "overrides": {
+      "providers": {
+        "ios": {
+          "badge": 2
+        }
       }
     }
   }

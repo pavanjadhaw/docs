@@ -29,12 +29,16 @@ If the notification has an action url set, it will be opened in a new tab.
 Create a notification with the `action_url` parameter set:
 
 ```json title=PAYLOAD
-"notification": {
-  "title": "Welcome to MagicBell",
-  "action_url": "https://developer.magicbell.com",
-  "recipients": [{
-    "email": "dan@example.com"
-  }]
+{
+  "notification": {
+    "title": "Welcome to MagicBell",
+    "action_url": "https://developer.magicbell.com",
+    "recipients": [
+      {
+        "email": "dan@example.com"
+      }
+    ]
+  }
 }
 ```
 

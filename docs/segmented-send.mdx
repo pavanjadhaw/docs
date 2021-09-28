@@ -57,6 +57,12 @@ notifications API endpoint:
   "email = *@example.com"
   ```
 
+- Notify all users whose external ID ends with "001"
+
+  ```json hideHeader
+  "external_id = *001"
+  ```
+
 - Notify all users that belong to the "Example" company
 
   ```json hideHeader
@@ -67,12 +73,6 @@ notifications API endpoint:
 
   ```json hideHeader
   "custom_attributes.company.name = Example OR external_id = AB*"
-  ```
-
-- Notify all users whose external ID ends with "001"
-
-  ```json hideHeader
-  "custom_attributes.company.name = *001"
   ```
 
 ## Setting custom attributes
