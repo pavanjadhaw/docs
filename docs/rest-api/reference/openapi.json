@@ -1058,7 +1058,7 @@
           },
           "matches": {
             "type": "string",
-            "description": "Search conditions to be applied to existing users. Set it to \"*\" to send a notification to all users."
+            "description": "An SQL-like expression to match users by their stored attributes. Set it to \"*\" to send a notification to all users."
           }
         }
       },
