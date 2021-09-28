@@ -136,7 +136,7 @@
         ]
       },
       {
-        "name": "Email integrations with SendGrid, Postmark, & Mailgun",
+        "name": "Email",
         "children": [
           {
             "name": "Setting up 3rd party email providers",

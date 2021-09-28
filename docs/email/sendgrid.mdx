@@ -1,68 +1,76 @@
 ---
 title: SendGrid Integration
-subtitle: How to use SendGrid with MagicBell's API
+subtitle: How to use SendGrid with MagicBell
 ---
 
-## Sending SendGrid emails from MagicBell's API
+## Deliver email notifications with your SendGrid account
 
-### Initial setup
+To configure SendGrid for your MagicBell project, follow these steps:
 
-- Sign up for SendGrid and obtain an API key
-- ✉️ Email your **API key** (with full access to the Mail Send endpoint) and your **verified sender identity** (email address) to hello@magicbell.com
+- Sign up for SendGrid and obtain an API key. It must have full access to the Mail Send endpoint.
+- Send us your API key and your verified sender identity (email address).
 - Verify the emails channel in MagicBell is enabled
 
-### Sending emails
+Once your account is set up, MagicBell will automatically deliver email
+notifications through your SendGrid account, no other action is needed. You will
+be able to use SendGrid's [activity feed](https://app.sendgrid.com/email_activity)
+to view your activity.
 
-**No additional work is needed to send an email through SendGrid**. Your account is set up after emailing our team the necessary information. Now, emails sent through MagicBell's API will use SendGrid. You can verify your team sent an email in SendGrid's [activity feed](https://app.sendgrid.com/email_activity).
+## Sending emails with additional or unique content
 
-### Sending emails with additional or unique content
+Our create notification endpoint allows you to customize the content sent to
+SendGrid by setting [`overrides`](/docs/overrides).
 
-The `overrides` attribute allows you to send content unique to email, differing from other channels.
+Check [SendGrid's Web API](https://docs.sendgrid.com/api-reference/mail-send/mail-send) for a
+comprehensive list of allowed parameters. Below you can see how to send an email
+notification with custom headers.
 
-`Overrides` accept the exact attributes directly from [SendGrid's documentation](https://docs.sendgrid.com/api-reference/mail-send/mail-send). Below is an example of a notification with an email subject line different from the title of other channels.
-
-```shell hideHeader
+```json title=payload
 "notification": {
-    "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
-    "action_url": "https://developer.magicbell.com",
-    "recipients": [{
-        "email": "dan@magicbell.com"
-    }],
-    "overrides": {
-        "providers": {
-            "sendgrid": {
-                "subject": "New subject header"
-            }
+  "title": "Welcome to MagicBell",
+  "content": "The notification inbox for your product. Get started in minutes.",
+  "recipients": [{
+    "email": "dan@example.com"
+  }],
+  "overrides": {
+    "providers": {
+      "sendgrid": {
+        "headers": {
+          "X-Delivered-To": "dan@example.com"
         }
+      }
     }
+  }
 }
 ```
 
 ## Using SendGrid email templates
 
-After creating a template in SendGrid, copy the template ID. Then add the `template_id` attribute to `overrides`. You can also pass custom data for SendGrid templates into the `custom_attributes` attribute. Below is an example showing how to add a specific user's name to a SendGrid template with a custom subject line.
+MagicBell can deliver email notifications using your SendGrid email templates.
+To do it create a template in SendGrid, and its ID.
 
-```shell hideHeader
+Then set the `template_id` attribute in `overrides` when creating a
+notification. MagicBell will use `custom_attributes` to fill in your template.
+
+```json title=payload
 "notification": {
-    "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
-    "action_url": "https://developer.magicbell.com",
-    "recipients": [{
-        "email": "dan@magicbell.com"
-    }],
-    "custom_attributes": {
-        "name": "Dan"
+  "title": "Welcome to MagicBell",
+  "content": "The notification inbox for your product. Get started in minutes.",
+  "recipients": [{
+    "email": "dan@magicbell.com"
+  }],
+  "custom_attributes": {
+    "name": "Dan",
+    "company": {
+      "name": "Example Inc"
     }
-    "overrides": {
-        "providers": {
-            "sendgrid": {
-                "subject": "New subject header",
-                "template_id": "paste template id here"
-            }
-        }
+  }
+  "overrides": {
+    "providers": {
+      "sendgrid": {
+        "template_id": "paste template id here"
+      }
     }
+  }
 }
 ```
