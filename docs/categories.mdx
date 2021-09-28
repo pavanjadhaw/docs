@@ -9,6 +9,16 @@ characters and it should not contain spaces.
 
 <Tabs>
 
+```json title=PAYLOAD hideHeader noTopBorderRadius
+{
+  "notification": {
+    "title": "Task assigned to you: Upgrade to Startup plan",
+    "category": "annoucement",
+    "recipients": [{ "matches": "*" }]
+  }
+}
+```
+
 ```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request POST \

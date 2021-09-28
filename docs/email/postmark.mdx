@@ -34,7 +34,7 @@ Below is an example of a tagged message with custom headers.
   "notification": {
     "title": "Welcome to MagicBell",
     "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
+    "category": "signup",
     "action_url": "https://developer.magicbell.com",
     "recipients": [
       {
@@ -44,7 +44,7 @@ Below is an example of a tagged message with custom headers.
     "overrides": {
       "providers": {
         "postmark": {
-          "Tag": "onboarding",
+          "Tag": "signup",
           "Headers": {
             "X-Original-To": "devs@example.com"
           }

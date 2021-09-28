@@ -9,7 +9,9 @@ email address or their ID. [Learn more](http://magicbell.com/docs/sending-notifi
 However, you can also specify a group of users to notify. To that end, you can
 provide an SQL-like string to the `notification.recipients.matches` parameter.
 
-```json
+<Tabs>
+
+```json title=PAYLOAD hideHeader noTopBorderRadius
 {
   "notification": {
     "title": "We are processing your order",
@@ -21,6 +23,81 @@ provide an SQL-like string to the `notification.recipients.matches` parameter.
   }
 }
 ```
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/notifications \
+  --request POST \
+  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
+  --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
+  --data '{
+    "notification": {
+        "title": "Task assigned to you: Upgrade to Startup plan",
+        "recipients": [
+          { "matches": "*" },
+        ]
+    }
+  }'
+```
+
+```ruby title=RUBY hideHeader noTopBorderRadius
+require 'httparty'
+
+headers = {
+  "X-MAGICBELL-API-KEY": "MAGICBELL_API_KEY",
+  "X-MAGICBELL-API-SECRET": "MAGICBELL_API_SECRET",
+}
+
+body = {
+  notification: {
+    title: "Task assigned to you: Upgrade to Startup plan",
+    recipients: [
+      { matches: "*" },
+    ]
+  }
+}
+
+response = HTTParty.post("https://api.magicbell.com", { body: body.to_json, headers: headers })
+```
+
+```python title=PYTHON hideHeader noTopBorderRadius
+import requests
+
+headers = {
+    'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+    'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
+}
+
+data = {
+    "notification": {
+        "title": "Task assigned to you: Upgrade to Startup plan",
+        "recipients": [
+            { "matches": "*"},
+        ]
+    }
+}
+
+response = requests.post('https://api.magicbell.com/notifications', headers=headers, json=data)
+```
+
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
+import axios from 'axios';
+
+const headers = {
+  'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+  'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
+};
+
+const data = {
+  notification: {
+    title: 'Task assigned to you: Upgrade to Startup plan',
+    recipients: [{ matches: '*' }],
+  },
+};
+
+axios.post('https://api.magicbell.com/notifications', data, { headers });
+```
+
+</Tabs>
 
 ## Format
 

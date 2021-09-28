@@ -17,9 +17,9 @@ of other notifications.
 ```json title=PAYLOAD hideHeader noTopBorderRadius
 {
   "notification": {
-    "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product.",
-    "category": "signup",
+    "title": "Task assigned to you: Upgrade to Startup plan",
+    "content": "Hello, please upgrade us to the Startup plan. Thank you.",
+    "category": "billing",
     "recipients": [
       {
         "email": "dan@example.com"
@@ -28,8 +28,10 @@ of other notifications.
     "overrides": {
       "channels": {
         "email": {
-          "title": "Your account is ready",
-          "content": "Get started in minutes."
+          "title": "[Urgent] Upgrade to Startup plan"
+        },
+        "web_push": {
+          "title": "Task assigned to you"
         }
       }
     }
@@ -44,9 +46,9 @@ curl https://api.magicbell.com/notifications \
   --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
   --data '{
     "notification": {
-      "title": "Welcome to MagicBell",
-      "content": "The notification inbox for your product.",
-      "category": "signup",
+      "title": "Task assigned to you: Upgrade to Startup plan",
+      "content": "Hello, please upgrade us to the Startup plan. Thank you.",
+      "category": "billing",
       "recipients": [
         {
           "email": "dan@example.com"
@@ -55,13 +57,115 @@ curl https://api.magicbell.com/notifications \
       "overrides": {
         "channels": {
           "email": {
-            "title": "Your account is ready",
-            "content": "Get started in minutes."
+            "title": "[Urgent] Upgrade to Startup plan"
+          },
+          "web_push": {
+            "title": "Task assigned to you"
           }
         }
       }
     }
   }'
+```
+
+```ruby title=RUBY hideHeader noTopBorderRadius
+require 'httparty'
+
+headers = {
+  "X-MAGICBELL-API-KEY": "MAGICBELL_API_KEY",
+  "X-MAGICBELL-API-SECRET": "MAGICBELL_API_SECRET",
+}
+
+body = {
+  notification: {
+    title: "Task assigned to you: Upgrade to Startup plan",
+    content: "Hello, please upgrade us to the Startup plan. Thank you.",
+    category: "billing",
+    recipients: [
+      {
+        email: "dan@example.com"
+      }
+    ],
+    overrides: {
+      channels: {
+        email: {
+          title: "[Urgent] Upgrade to Startup plan"
+        },
+        web_push: {
+          title: "Task assigned to you"
+        }
+      }
+    }
+  }
+}
+
+response = HTTParty.post("https://api.magicbell.com", { body: body.to_json, headers: headers })
+```
+
+```python title=PYTHON hideHeader noTopBorderRadius
+import requests
+
+headers = {
+    'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+    'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
+}
+
+data = {
+    "notification": {
+        "title": "Task assigned to you: Upgrade to Startup plan",
+        "content": "Hello, please upgrade us to the Startup plan. Thank you.",
+        "category": "billing",
+        "recipients": [
+            { "email": "dan@example.com" }
+        ],
+        "overrides": {
+            "channels": {
+                "email": {
+                    "title": "[Urgent] Upgrade to Startup plan"
+                },
+                "web_push": {
+                    "title": "Task assigned to you"
+                }
+            }
+        }
+    }
+}
+
+response = requests.post('https://api.magicbell.com/notifications', headers=headers, json=data)
+```
+
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
+import axios from 'axios';
+
+const headers = {
+  'X-MAGICBELL-API-SECRET': 'MAGICBELL_API_KEY',
+  'X-MAGICBELL-API-KEY': 'MAGICBELL_API_SECRET',
+};
+
+const data = {
+  notification: {
+    title: 'Task assigned to you: Upgrade to Startup plan',
+    content: 'Hello, please upgrade us to the Startup plan. Thank you.',
+    category: 'billing',
+    recipients: [
+      {
+        email: 'dan@example.com',
+      },
+    ],
+    overrides: {
+      channels: {
+        email: {
+          title: '[Urgent] Upgrade to Startup plan',
+        },
+        web_push: {
+          title: 'Task assigned to you',
+        },
+      },
+    },
+  },
+};
+
+axios.post('https://api.magicbell.com/notifications', data, { headers });
 ```
 
 </Tabs>
@@ -83,19 +187,19 @@ The keys accepted are:
 
 ## Provider Overrides
 
-If you have a custom email provider configured for your account, you can use
-`notification.overrides` to send payoad specific to
-[Postmark](https://magicbell.com/docs/email/postmark),
-[SendGrid](https://magicbell.com/docs/email/sendgrid), or
-[Mailgun](https://magicbell.com/docs/email/mailgun).
+You can use `notification.overrides` to send payoad specific to a
+delivery provider like [Postmark](https://magicbell.com/docs/email/postmark),
+[Mailgun](https://magicbell.com/docs/email/mailgun) or
+[Firebase](https://firebase.google.com/).
 
-The data is sent to the email provider's API. MagicBell does not validate or
+The data is sent to the provider's API. MagicBell does not validate or
 transform this data. Please refer to your provider's API reference, here you
 have links to some of the providers we integrate with:
 
 - [Postmark](https://postmarkapp.com/developer/api/email-api)
 - [SendGrid](https://docs.sendgrid.com/api-reference/mail-send/mail-send)
 - [Mailgun](https://documentation.mailgun.com/en/latest/api-sending.html#sending)
+- [iOS](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html)
 
 For example, you can add cc and bcc recipients for Postmark sending this payload
 to the create notifications endpoint:
@@ -105,9 +209,9 @@ to the create notifications endpoint:
 ```json title=PAYLOAD hideHeader noTopBorderRadius
 {
   "notification": {
-    "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "signup",
+    "title": "Task assigned to you: Upgrade to Startup plan",
+    "content": "Hello, please upgrade us to the Startup plan. Thank you.",
+    "category": "billing",
     "recipients": [
       {
         "email": "dan@example.com"
@@ -132,9 +236,9 @@ curl https://api.magicbell.com/notifications \
   --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
   --data '{
     "notification": {
-      "title": "Welcome to MagicBell",
-      "content": "The notification inbox for your product.",
-      "category": "signup",
+      "title": "Task assigned to you: Upgrade to Startup plan",
+      "content": "Hello, please upgrade us to the Startup plan. Thank you.",
+      "category": "billing",
       "recipients": [
         {
           "email": "dan@example.com"
