@@ -27,6 +27,25 @@
     ]
   },
   {
+    "name": "Rest API",
+    "icon": "terminal",
+    "children": [
+      {
+        "name": "Overview",
+        "to": "/rest-api/overview"
+      },
+      {
+        "name": "Idempotent Requests",
+        "to": "/rest-api/idempotent-requests"
+      },
+      {
+        "name": "API reference",
+        "to": "/rest-api/reference",
+        "staticRoute": true
+      }
+    ]
+  },
+  {
     "name": "Guides",
     "children": [
       {
@@ -140,25 +159,6 @@
       {
         "name": "Turn on HMAC authentication",
         "to": "/turn-on-hmac-authentication"
-      }
-    ]
-  },
-  {
-    "name": "Rest API",
-    "icon": "terminal",
-    "children": [
-      {
-        "name": "Overview",
-        "to": "/rest-api/overview"
-      },
-      {
-        "name": "Idempotent Requests",
-        "to": "/rest-api/idempotent-requests"
-      },
-      {
-        "name": "API reference",
-        "to": "/rest-api/reference",
-        "staticRoute": true
       }
     ]
   },
