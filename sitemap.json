@@ -115,23 +115,6 @@
         ]
       },
       {
-        "name": "Browser",
-        "children": [
-          {
-            "name": "Change the default font",
-            "to": "/browser/changing-default-font"
-          },
-          {
-            "name": "Change the default images",
-            "to": "/browser/changing-default-images"
-          },
-          {
-            "name": "Notify users when a new notification arrives",
-            "to": "/browser/new-notification-hook"
-          }
-        ]
-      },
-      {
         "name": "Email",
         "children": [
           {
@@ -153,11 +136,28 @@
         ]
       },
       {
+        "name": "Browser",
+        "children": [
+          {
+            "name": "Change the default font",
+            "to": "/browser/changing-default-font"
+          },
+          {
+            "name": "Change the default images",
+            "to": "/browser/changing-default-images"
+          },
+          {
+            "name": "Notify users when a new notification arrives",
+            "to": "/browser/new-notification-hook"
+          }
+        ]
+      },
+      {
         "name": "Angular",
         "to": "/angular"
       },
       {
-        "name": "Compose",
+        "name": "Compose UI",
         "to": "/compose"
       }
     ]
