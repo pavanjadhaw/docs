@@ -18,10 +18,10 @@ const TEMPLATE_CONTEXT = {
   notification_id: '7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c',
   user_id: faker.datatype.uuid(),
   device_token: faker.random.alphaNumeric(64),
-  x_magicbell_api_key: faker.random.alphaNumeric(40),
-  x_magicbell_api_secret: faker.random.alphaNumeric(40),
-  x_magicbell_user_external_id: faker.datatype.number({ min: 1000 }),
-  x_magicbell_user_email: 'jBarker@example.com',
+  x_magicbell_api_key: 'MAGICBELL_API_KEY',
+  x_magicbell_api_secret: 'MAGICBELL_API_SECRET',
+  x_magicbell_user_external_id: 'USER_ID',
+  x_magicbell_user_email: 'USER_EMAIL',
 };
 
 export function replaceVariables(codeSnippet: string) {
