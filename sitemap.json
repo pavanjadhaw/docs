@@ -13,12 +13,12 @@
         "to": "/getting-started-with-magicbell"
       },
       {
-        "name": "2. Adding MagicBell to your product",
-        "to": "/adding-magicbell-to-your-product"
+        "name": "2. Sending notifications",
+        "to": "/sending-notifications"
       },
       {
-        "name": "3. Sending notifications",
-        "to": "/sending-notifications"
+        "name": "3. Adding MagicBell to your product",
+        "to": "/adding-magicbell-to-your-product"
       },
       {
         "name": "4. Whats next?",
@@ -63,6 +63,10 @@
       {
         "name": "Overrides",
         "to": "/overrides"
+      },
+      {
+        "name": "Turn on HMAC authentication",
+        "to": "/turn-on-hmac-authentication"
       },
       {
         "name": "React",
@@ -115,10 +119,6 @@
         ]
       },
       {
-        "name": "Angular",
-        "to": "/angular"
-      },
-      {
         "name": "Browser",
         "children": [
           {
@@ -157,8 +157,8 @@
         ]
       },
       {
-        "name": "Turn on HMAC authentication",
-        "to": "/turn-on-hmac-authentication"
+        "name": "Angular",
+        "to": "/angular"
       }
     ]
   },
