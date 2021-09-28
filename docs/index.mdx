@@ -66,7 +66,9 @@ The theme of your inbox can easily be changed using our application or directly 
 
 ### MagicBell dashboard
 
-At [app.magicbell.com/projects](https://app.magicbell.com/projects) you can change colors, typography, and additional styling. You must then copy the code in 'Notification Inbox Code' and paste the updated code into your application.
+At [app.magicbell.com/projects](https://app.magicbell.com/projects) you can
+change colors, typography, and additional styling. Then copy the code generated
+from 'Notification Inbox Code' and paste the updated code into your application.
 
 <img
   className="full-mobile"
@@ -76,26 +78,50 @@ At [app.magicbell.com/projects](https://app.magicbell.com/projects) you can chan
 
 ### JavaScript
 
-Developers can change styling directly in the JavaScript snippet as well.
+Developers can change the styling directly in code as well.
 
-<img
-  className="full-mobile"
-  src="/docs/uploads/jsSnippetTheme.png"
-  style={{ width: '80%', height: 'intrinsic' }}
-/>
+```html title=ESM
+<script type="module">
+  import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 
-### React SDK
+  let theme = {
+    icon: { borderColor: 'white', width: '20px' },
+    header: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
+    footer: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
+  };
 
-Our team built a ReactSDK to give you more power! An example is the ability to completely customize the in-app notification inbox to match the design of your product. See our [ReactSDK documentation](https://magicbell.com/docs/react/theme-customization) and the [React package](https://www.npmjs.com/package/@magicbell/magicbell-react) to learn more!
+  magicbell('render', target, {
+    apiKey: 'MAGICBELL_API_KEY',
+    userEmail: 'mary@example.com',
+    height: 500,
+    theme,
+  });
+</script>
+```
+
+### React
+
+Our team built two React libraries to give you more power! An example is the
+ability to completely customize the in-app notification inbox to match the
+design of your product. See our [theming guide](https://magicbell.com/docs/react/theme-customization) and the
+[package documentation](https://www.npmjs.com/package/@magicbell/magicbell-react) to
+learn more.
 
 ## Our Vision with MagicBell
 
-Our goal is for customers to have a notification system as fast as possible - in under 30 mins - and continue to wow day after day. We vow to continue to make MagicBell a more powerful tool without compromising ease of use.
+Our goal is for customers to have a notification system as fast as possible - in
+under 30 mins - and continue to wow day after day. We vow to continue to make
+MagicBell a more powerful tool without compromising ease of use.
 
-Building a notification system in-house is hard! There's a lot of complexity and a wide breadth of features needed: the in-app experience, multiple channels (email, SMS, push), managing notification preferences, branding, and more.
+Building a notification system in-house is hard! There's a lot of complexity and
+a wide breadth of features needed: the in-app experience, multiple channels
+(email, SMS, push), managing notification preferences, branding, and more.
 
-MagicBell takes care of all the work, so you never have to think about notifications again! 🙂
+MagicBell takes care of all the work, so you never have to think about
+notifications again! 🙂
 
 ## Still Have Questions?
 
-Contact hello@magicbell.com, and we'll answer as soon as humanly possible! Or [request a demo](https://calendly.com/hana_mohan/demo-magicbell) if you want to learn more.
+Contact us at [hello@magicbell.com](mailto:hello@magicbell.com), and we'll
+answer as soon as humanly possible! Or [request a demo](https://calendly.com/hana_mohan/demo-magicbell)
+if you want to learn more.
