@@ -1,0 +1,81 @@
+---
+title: Segmented send
+subtitle: Learn how to send a notification to a segment of users
+---
+
+MagicBell allows you to create a notification specifying users by either their
+email address or their ID. [Learn more](http://magicbell.com/docs/sending-notifications).
+
+However, you can also specify a group of users to notify. To that end, you can
+provide an SQL-like string to the `notification.recipients.matches` parameter.
+
+```json
+{
+  "notification": {
+    "title": "We are processing your order",
+    "recipients": [
+      {
+        "matches": "*"
+      }
+    ]
+  }
+}
+```
+
+## Format
+
+The matches string accepts a wildcard char: `*`, and these logic operators:
+`=`, `AND` and `OR`.
+
+With these you form strings that MagicBell can use to search for existing users
+either by their email address, external ID or a custom attribute.
+
+These are examples of valid strings that you can pass to the create
+notifications API endpoint:
+
+- Notify all users
+
+  ```json hideHeader
+  "*"
+  ```
+
+- Notify the user whose email is "dan@example.com"
+
+  ```json hideHeader
+  "email = dan@example.com"
+  ```
+
+- Notify all users whose email starts with "dan"
+
+  ```json hideHeader
+  "email = dan@*"
+  ```
+
+- Notify all users whose email's domain is "example.com"
+
+  ```json hideHeader
+  "email = *@example.com"
+  ```
+
+- Notify all users that belong to the "Example" company
+
+  ```json hideHeader
+  "custom_attributes.company.name = Example"
+  ```
+
+- Notify all users that belong to the "Example" company or their external ID starts with "AB"
+
+  ```json hideHeader
+  "custom_attributes.company.name = Example OR external_id = AB*"
+  ```
+
+- Notify all users whose external ID ends with "001"
+
+  ```json hideHeader
+  "custom_attributes.company.name = *001"
+  ```
+
+## Setting custom attributes
+
+In order to take full advantage of this feature, we encourage you to set custom
+attributes on your MagicBell users. You can do it using our [users API endpoints](https://magicbell.com/docs/rest-api/reference#create-user).

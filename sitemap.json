@@ -61,6 +61,10 @@
         "to": "/overrides"
       },
       {
+        "name": "Segmented send",
+        "to": "/segmented-send"
+      },
+      {
         "name": "Turn on HMAC authentication",
         "to": "/turn-on-hmac-authentication"
       },
