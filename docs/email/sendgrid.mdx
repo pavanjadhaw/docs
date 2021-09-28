@@ -12,7 +12,7 @@ To configure SendGrid for your MagicBell project, follow these steps:
 - Verify the emails channel in MagicBell is enabled
 
 Once your account is set up, MagicBell will automatically deliver email
-notifications through your SendGrid account, no other action is needed. You will
+notifications through your SendGrid account, **no additional work is needed**. You will
 be able to use SendGrid's [activity feed](https://app.sendgrid.com/email_activity)
 to view your activity.
 
@@ -21,11 +21,12 @@ to view your activity.
 Our create notification endpoint allows you to customize the content sent to
 SendGrid by setting [`overrides`](/docs/overrides).
 
-Check [SendGrid's Web API](https://docs.sendgrid.com/api-reference/mail-send/mail-send) for a
-comprehensive list of allowed parameters. Below you can see how to send an email
-notification with custom headers.
+The `overrides` parameter accepts all of the [SendGrid's Web API](https://docs.sendgrid.com/api-reference/mail-send/mail-send)
+parameters.
 
-```json title=payload
+Below you can see how to send an email notification with custom headers.
+
+```json
 "notification": {
   "title": "Welcome to MagicBell",
   "content": "The notification inbox for your product. Get started in minutes.",
@@ -36,7 +37,7 @@ notification with custom headers.
     "providers": {
       "sendgrid": {
         "headers": {
-          "X-Delivered-To": "dan@example.com"
+          "X-Original-To": "team@example.com"
         }
       }
     }
@@ -52,7 +53,7 @@ To do it create a template in SendGrid, and its ID.
 Then set the `template_id` attribute in `overrides` when creating a
 notification. MagicBell will use `custom_attributes` to fill in your template.
 
-```json title=payload
+```json
 "notification": {
   "title": "Welcome to MagicBell",
   "content": "The notification inbox for your product. Get started in minutes.",
