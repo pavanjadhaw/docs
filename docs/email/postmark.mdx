@@ -9,8 +9,8 @@ To configure Postmark for your MagicBell project, follow these steps:
 
 - Sign up for Postmark and obtain a server API token
 - Verify your sender signature in Postmark
-- Send us your **server ID token** and **verified sender signature** (email address)
-- Verify the emails channel in MagicBell is enabled
+- Send us your server ID token and verified sender signature (email address)
+- Verify the email channel in MagicBell is enabled
 
 Once your account is set up, MagicBell will automatically deliver email
 notifications through your Postmark account, **no additional work is needed**.
@@ -20,8 +20,9 @@ and `broadcast_id` in the metadata of messages sent to Postmark.
 
 ## Sending emails with additional or unique content
 
-Our create notification endpoint allows you to customize the content sent to
-SendGrid by setting [`overrides`](/docs/overrides).
+Our [create notifications endpoint](https://magicbell.com/docs/rest-api/reference#create-notification)
+allows you to customize the content sent to Postmark by setting
+[`overrides`](https://magicbell.com/docs/overrides).
 
 The `overrides` parameter accepts all of the body parameters of
 [Postmark's Email API](https://postmarkapp.com/developer/api/email-api).
