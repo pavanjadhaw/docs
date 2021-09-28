@@ -24,35 +24,21 @@ Nothing at all! Real-time capabilities are enabled by default for everyone, even
 
 ## What happens if a user clicks on our notifications? Can I control this behavior?
 
-There are two ways to direct users after clicking a notification:
+If the notification has an action url set, it will be opened in a new tab.
 
-1. The `action_url` API attribute. It accepts one URL and will direct the user there on click.
+Create a notification with the `action_url` parameter set:
 
-
-```shell hideHeader
+```json title=PAYLOAD
 "notification": {
-    "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
-    "action_url": "https://developer.magicbell.com",
-    "recipients": [{
-        "email": "dan@magicbell.com"
-    }]
+  "title": "Welcome to MagicBell",
+  "action_url": "https://developer.magicbell.com",
+  "recipients": [{
+    "email": "dan@example.com"
+  }]
 }
 ```
 
+Omit this parameter if you don't want this behavior.
 
-2. The `onNotificationClick()` method within the frontend notification inbox code. This method provides more flexibility than the 'action_url' attribute.
-
-
-```shell hideHeader
-<script type="text/javascript">
-  var options = {
-    ...
-    onNotificationClick: function(notification) {
-      if (notification.actionUrl) window.open(notification.actionUrl, '_self');
-    },
-    ...
-  };
-</script>
-```
+You can also provide the `onNotificationClick` callback when you initialize your
+notification inbox. Learn more about this [in our guide](https://magicbell.com/docs/react/setting-notification-click-handler).
