@@ -1,5 +1,5 @@
 ---
-title: Overrides API Parameter
+title: Overriding API Parameter
 subtitle: How to control content across channels and providers
 ---
 
@@ -12,28 +12,59 @@ that content should differ from other channels.
 Below illustrates how to make the subject of an email different from the title
 of other notifications.
 
-```json
+<Tabs>
+
+```json title=PAYLOAD hideHeader noTopBorderRadius
 {
   "notification": {
     "title": "Welcome to MagicBell",
-    "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
-    "action_url": "https://developer.magicbell.com",
+    "content": "The notification inbox for your product.",
+    "category": "signup",
     "recipients": [
       {
-        "email": "dan@magicbell.com"
+        "email": "dan@example.com"
       }
     ],
     "overrides": {
       "channels": {
         "email": {
-          "title": "New title of email"
+          "title": "Your account is ready",
+          "content": "Get started in minutes."
         }
       }
     }
   }
 }
 ```
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/notifications \
+  --request POST \
+  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
+  --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
+  --data '{
+    "notification": {
+      "title": "Welcome to MagicBell",
+      "content": "The notification inbox for your product.",
+      "category": "signup",
+      "recipients": [
+        {
+          "email": "dan@example.com"
+        }
+      ],
+      "overrides": {
+        "channels": {
+          "email": {
+            "title": "Your account is ready",
+            "content": "Get started in minutes."
+          }
+        }
+      }
+    }
+  }'
+```
+
+</Tabs>
 
 The keys accepted are:
 
@@ -69,26 +100,56 @@ have links to some of the providers we integrate with:
 For example, you can add cc and bcc recipients for Postmark sending this payload
 to the create notifications endpoint:
 
-```json
+<Tabs>
+
+```json title=PAYLOAD hideHeader noTopBorderRadius
 {
   "notification": {
     "title": "Welcome to MagicBell",
     "content": "The notification inbox for your product. Get started in minutes.",
-    "category": "new_message",
-    "action_url": "https://developer.magicbell.com",
+    "category": "signup",
     "recipients": [
       {
-        "email": "dan@magicbell.com"
+        "email": "dan@example.com"
       }
     ],
     "overrides": {
       "providers": {
         "postmark": {
-          "Cc": "dan@magicbell.com",
-          "Bcc": "hana@magicbell.com"
+          "Cc": "mila@example.com",
+          "Bcc": "hana@example.com"
         }
       }
     }
   }
 }
 ```
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/notifications \
+  --request POST \
+  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
+  --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
+  --data '{
+    "notification": {
+      "title": "Welcome to MagicBell",
+      "content": "The notification inbox for your product.",
+      "category": "signup",
+      "recipients": [
+        {
+          "email": "dan@example.com"
+        }
+      ],
+      "overrides": {
+        "providers": {
+          "postmark": {
+            "Cc": "mila@example.com",
+            "Bcc": "hana@example.com"
+          }
+        }
+      }
+    }
+  }'
+```
+
+</Tabs>
