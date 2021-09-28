@@ -4,7 +4,8 @@ title: Angular.js and MagicBell
 
 ## Quickstart
 
-You can use the ESM build to render a MagicBell in your Angular app easily.
+Though we do not offer a native Angular UI library at the moment, you can use
+the ESM build to render a MagicBell in your Angular app.
 
 You can either grab it from our CDN or install the embeddable package from NPM.
 
@@ -14,7 +15,8 @@ npm install @magicbell/embeddable
 yarn add @magicbell/embeddable
 ```
 
-After grabbing the library, you can import the `renderWidget` function to render the notification inbox.
+After grabbing the library, you can import the `renderWidget` function to render
+the notification inbox.
 
 ```typescript title=Angular
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
@@ -41,13 +43,3 @@ If you prefer to use the CDN bundle, replace the import statement (line 2) with
 ```javascript hideHeader
 import { renderWidget } from 'https://assets.magicbell.com/magicbell.esm.js';
 ```
-
-### Building a custom UI in any framework
-
-If you use any other JavaScript framework, check our [core package](https://www.npmjs.com/package/@magicbell/core), it handles the network calls and real-time updates and build your UI on top of it.
-
-We'll be adding more SDKs soon.
-
-## Walkthrough
-
-Hana - MagicBell's CEO - [wrote a great tutorial a while ago on how to build MagicBell using Angular](https://magicbell.com/blog/building-a-notification-system-in-angular). A caveat is parts may already be outdated, but it should highlight key concepts.
