@@ -29,7 +29,8 @@
                   "category": "account_created",
                   "recipients": [
                     { "email": "dan@example.com" },
-                    { "external_id": "83d987a-83fd034" }
+                    { "external_id": "83d987a-83fd034" },
+                    { "matches": "custom_attributes.order.id = 88492" }
                   ],
                   "overrides": {
                     "email": {
@@ -1054,6 +1055,10 @@
           "external_id": {
             "type": "string",
             "description": "A unique string that MagicBell can utilize to uniquely identify the user. We recommend setting this attribute to the ID of the user in your database. Provide the external id if the user's email is unavailable."
+          },
+          "matches": {
+            "type": "string",
+            "description": "Search conditions to be applied to existing users. Set it to \"*\" to send a notification to all users."
           }
         }
       },
