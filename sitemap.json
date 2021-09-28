@@ -57,7 +57,7 @@
         "to": "/categories"
       },
       {
-        "name": "Overrides",
+        "name": "Override content accross channels",
         "to": "/overrides"
       },
       {
