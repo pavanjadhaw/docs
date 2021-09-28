@@ -49,10 +49,6 @@
     "name": "Guides",
     "children": [
       {
-        "name": "Compose",
-        "to": "/compose"
-      },
-      {
         "name": "Channels",
         "to": "/channels"
       },
@@ -159,6 +155,10 @@
       {
         "name": "Angular",
         "to": "/angular"
+      },
+      {
+        "name": "Compose",
+        "to": "/compose"
       }
     ]
   },
