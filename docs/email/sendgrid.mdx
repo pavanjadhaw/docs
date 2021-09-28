@@ -20,9 +20,9 @@ to view your activity.
 
 Our [create notifications endpoint](https://magicbell.com/docs/rest-api/reference#create-notification)
 allows you to customize the content sent to SendGrid by setting
-[`overrides`](https://magicbell.com/docs/overrides).
+[`notification.overrides`](https://magicbell.com/docs/overrides).
 
-The `overrides` parameter accepts all of the [SendGrid's Web API](https://docs.sendgrid.com/api-reference/mail-send/mail-send)
+The `notification.overrides` parameter accepts all of the [SendGrid's Web API](https://docs.sendgrid.com/api-reference/mail-send/mail-send)
 body parameters.
 
 Below you can see how to send an email notification with custom headers.
@@ -55,7 +55,7 @@ Below you can see how to send an email notification with custom headers.
 MagicBell can deliver email notifications using SendGrid email templates.
 
 Create a template in SendGrid, and grab its ID. Then create a notification with
-the `template_id` attribute set in `overrides.providers.sendgrid` when creating
+the `template_id` attribute set in `notification.overrides.providers.sendgrid` when creating
 a notification. MagicBell will use `custom_attributes` to fill in your template.
 
 <Tabs>
