@@ -55,7 +55,7 @@
     "@types/httpsnippet": "^1.23.1",
     "@types/react": "^17.0.20",
     "@types/react-instantsearch-dom": "^6.10.2",
-    "autoprefixer": "^10.3.4",
+    "autoprefixer": "^10.3.6",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "postcss": "^8.3.8",
