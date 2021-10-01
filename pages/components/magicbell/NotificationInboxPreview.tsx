@@ -30,6 +30,7 @@ export default function NotificationInboxPreview({
                 header: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
                 footer: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
               }}
+              _baseURL="/docs/api/magicbell"
               {...magicBellProps}
             >
               {(props) => (
