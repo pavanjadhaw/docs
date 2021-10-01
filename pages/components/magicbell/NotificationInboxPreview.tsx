@@ -1,7 +1,5 @@
 import MagicBell, { FloatingNotificationInbox } from '@magicbell/magicbell-react';
 import React from 'react';
-import { useEffectOnce } from 'react-use';
-import { createMagicBellServer } from '../../../lib/magicbellServer';
 import HighlightedCode from '../code/HighlightedCode';
 
 interface Props {
@@ -15,14 +13,6 @@ export default function NotificationInboxPreview({
   magicBellProps = {},
   floatingNotificationInboxProps = {},
 }: Props) {
-  useEffectOnce(() => {
-    const server = createMagicBellServer();
-
-    return () => {
-      server.shutdown();
-    };
-  });
-
   return (
     <div className="w-full rounded-md relative z-0 mb-4 bg-gray-200">
       <div className="py-3 px-4 rounded-t-md font-mono text-xs uppercase text-gray-700 border-b border-white font-bold">
