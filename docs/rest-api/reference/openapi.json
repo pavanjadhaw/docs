@@ -27,6 +27,7 @@
                   "title": "We're processing your order",
                   "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
                   "category": "account_created",
+                  "topic": "order:33098",
                   "recipients": [
                     { "email": "dan@example.com" },
                     { "external_id": "83d987a-83fd034" },
@@ -63,6 +64,7 @@
                     "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
                     "action_url": null,
                     "category": "account_created",
+                    "topic": "order:33098",
                     "custom_attributes": null,
                     "sent_at": 1625853246
                   }
@@ -152,6 +154,17 @@
               }
             },
             "description": "A filter on the notifications based on the category. If you want to get uncategorized notifications, use the \"uncategorized\" value.\nThe value can be either an array of strings or a comma-separated string."
+          },
+          {
+            "in": "query",
+            "name": "topics",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": "A filter on the notifications based on the topic."
           }
         ],
         "responses": {
@@ -175,6 +188,7 @@
                       "action_url": "https://magicbell.com/pricing",
                       "content": "<ul><li>Bring your valid government-issued photo ID.</li></ul>",
                       "category": "order_ready",
+                      "topic": "order:33098",
                       "custom_attributes": {
                         "order_number": "W846MD",
                         "part_number": "MRJL74/C"
@@ -198,6 +212,7 @@
                       "action_url": "https://magicbell.com",
                       "content": "Unfortunately we were unable to automatically renew your account. It looks like we had trouble processing your credit card.",
                       "category": "billing",
+                      "topic": null,
                       "custom_attributes": {
                         "sender": {
                           "name": "George Taylor",
@@ -254,6 +269,7 @@
                     "action_url": "https://magicbell.com/blog/notification-system-design",
                     "content": "<p>We look forward to seeing you during your Check-in Window. Please bring your valid government-issued photo ID.</p>",
                     "category": "order_ready",
+                    "topic": "order:33098",
                     "custom_attributes": {
                       "encoding": "utf-8",
                       "word_count": "500"
@@ -1079,6 +1095,11 @@
             "description": "Category the notification belongs to. This is useful to allow users to set their preferences.",
             "nullable": true
           },
+          "topic": {
+            "type": "string",
+            "description": "Topic the notification belongs to. This is useful to create threads.",
+            "nullable": true
+          },
           "content": {
             "type": "string",
             "description": "Content of the notification. If you provide HTML content, the notification inbox will render it correctly.",
@@ -1192,6 +1213,10 @@
           "category": {
             "type": "string",
             "description": "Category the notification belongs to"
+          },
+          "topic": {
+            "type": "string",
+            "description": "Topic the notification belongs to"
           },
           "content": {
             "type": "string",
