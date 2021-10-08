@@ -8,7 +8,7 @@ interface Props {
   children: JSX.Element[];
 }
 
-export default function CollapsedSection({ children, className, maxItems = 6 }: Props) {
+export default function CollapsedSection({ children, className, maxItems = 7 }: Props) {
   const [collapsed, toggleCollapsed] = useToggle(true);
   const childrenArray = React.Children.toArray(children);
   const truncate = childrenArray.length > maxItems && collapsed;
