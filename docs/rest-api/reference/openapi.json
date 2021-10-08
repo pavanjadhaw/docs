@@ -1095,11 +1095,6 @@
             "description": "Category the notification belongs to. This is useful to allow users to set their preferences.",
             "nullable": true
           },
-          "topic": {
-            "type": "string",
-            "description": "Topic the notification belongs to. This is useful to create threads.",
-            "nullable": true
-          },
           "content": {
             "type": "string",
             "description": "Content of the notification. If you provide HTML content, the notification inbox will render it correctly.",
@@ -1123,6 +1118,11 @@
             "description": "Set of key-value pairs that you can attach to a notification. It accepts objects for the value of a key.\n\nYou can use it to share data between channels or to render a custom UI.",
             "nullable": true,
             "additionalProperties": true
+          },
+          "topic": {
+            "type": "string",
+            "description": "Topic the notification belongs to. This is useful to create threads.",
+            "nullable": true
           },
           "overrides": {
             "type": "object",
