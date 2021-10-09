@@ -11,21 +11,66 @@ subtitle: The latest releases and improvements to MagicBell
 
 ## October 11, 2021
 
-### Topics
+### Introducing....Topics!
 
-fill in
+Topics are a way to label notifications in addition to categories. The API now accepts 'topic' as an attribute. An example is when [sending an announcement](https://magicbell.com/docs/announcements) to all users. The category should be 'announcement'. There are different types of announcements though. You can use topics to discern these different types. Topics are flexible and powerful - you can use them for different kinds of orders, posts, documents, interests, etc. An example is below.
 
-### Updated Compose functionality
+```json hideHeader
+{
+  "notification": {
+    "title": "Your Account Needs Some Attention",
+    "recipients": [
+      {
+        "email": "josue@magicbell.io",
+        "external_id": "00001"
+      }
+    ],
+    "topic": "thread:0002"
+  }
+}
+```
 
-fill in
+### New GraphQL endpoint
 
-### GraphQL endpoint
+You can now use GraphQL to fetch notifications. It is available at https://api.magicbell.com/graphql. If you use a client like [Insomnia](https://insomnia.rest/) or Postman you will be able to see the schema documentation. An example is below.
 
-fill in
+```json hideHeader
+{
+  notifications(first: 15, read: false, categories: ["uncategorized"]) {
+    totalCount
+	unreadCount
+	unseenCount
+	pageInfo {
+	  hasNextPage
+	  hasPreviousPage
+	}
+	edges {
+      node {
+        id
+		title
+        content
+        actionUrl
+        customAttributes
+        readAt
+	  }       
+	}
+  }
+}
+```
 
-### Bugs Josue was working on?
+### Compose now supports Announcements and Categories
 
-fill in
+Compose now supports announcements and categories. You can send an announcement simply by clicking the 'Send to everyone' button. Mila - our talented designer - updated the overall functionality and design as well.
+
+<img
+  className="full-mobile"
+  src="/docs/uploads/composeNoBackground.png"
+  style={{ width: '100%', height: 'intrinsic' }}
+/>
+
+### Improved performance
+
+A handful of tweaks and bugs were made to increase performance.
 
 ## September 27, 2021
 
@@ -130,7 +175,7 @@ After a project is created, it can be edited and / or deleted.
 
 ### **Idempotent requests**
 
-Our API API now supports [idempotency](https://magicbell.com/docs/idempotent-requests)
+Our API now supports [idempotency](https://magicbell.com/docs/idempotent-requests)
 for safely retrying requests without accidentally performing the same operation
 twice. This is useful when an API call is disrupted in transit and you do not
 receive a response.
