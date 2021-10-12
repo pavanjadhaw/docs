@@ -25,7 +25,7 @@ export default function Header({ onToggleMenu }: Props) {
           <a href="https://magicbell.com/blog">Blog</a>
           <a href="https://magicbell.com/about">About</a>
           <a href="https://app.magicbell.com">Login</a>
-          <a className="secondary-button bg-transparent" href="https://calendly.com/hana_mohan/demo-magicbell">
+          <a className="secondary-button bg-transparent" href="https://magicbell.typeform.com/to/AgrVeIk5">
             Schedule a Demo
           </a>
           <a className="main-button" href="https://app.magicbell.com">

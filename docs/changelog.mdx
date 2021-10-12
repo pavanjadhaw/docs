@@ -9,6 +9,59 @@ subtitle: The latest releases and improvements to MagicBell
   <a href="https://twitter.com/magicbell_io">Twitter</a>!
 </Note>
 
+## October 11, 2021
+
+### Introducing....Topics!
+
+Topics are a way to label notifications in addition to categories. The API now accepts 'topic' as an attribute. Let's use GitHub as an example. An example category is 'comment'.  Users comment on various kinds of activity - one example being pull requests. The topic in this example is 'pull request'. Topics are flexible and powerful. You can use them for different kinds of orders, posts, documents, interests, etc. An example is below.
+
+```json hideHeader
+{
+  "notification": {
+    "title": "Your Account Needs Some Attention",
+    "recipients": [
+      {
+        "email": "josue@magicbell.io",
+        "external_id": "00001"
+      }
+    ],
+    "topic": "thread:0002"
+  }
+}
+```
+
+### New GraphQL endpoint
+
+You can now use GraphQL to fetch notifications. It is available at https://api.magicbell.com/graphql. If you use a client like [Insomnia](https://insomnia.rest/) or Postman you will be able to see the schema documentation. An example is below.
+
+```json hideHeader
+{
+  notifications(first: 15, read: false, categories: ["uncategorized"]) {
+    totalCount
+	unreadCount
+	unseenCount
+	pageInfo {
+	  hasNextPage
+	  hasPreviousPage
+	}
+	edges {
+      node {
+        id
+		title
+        content
+        actionUrl
+        customAttributes
+        readAt
+	  }       
+	}
+  }
+}
+```
+
+### Improved performance
+
+A handful of tweaks and bugs were made to increase performance.
+
 ## September 27, 2021
 
 ### Segmented send
@@ -112,7 +165,7 @@ After a project is created, it can be edited and / or deleted.
 
 ### **Idempotent requests**
 
-Our API API now supports [idempotency](https://magicbell.com/docs/idempotent-requests)
+Our API now supports [idempotency](https://magicbell.com/docs/idempotent-requests)
 for safely retrying requests without accidentally performing the same operation
 twice. This is useful when an API call is disrupted in transit and you do not
 receive a response.
