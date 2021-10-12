@@ -13,7 +13,7 @@ subtitle: The latest releases and improvements to MagicBell
 
 ### Introducing....Topics!
 
-Topics are a way to label notifications in addition to categories. The API now accepts 'topic' as an attribute. An example is when [sending an announcement](https://magicbell.com/docs/announcements) to all users. The category should be 'announcement'. There are different types of announcements though. You can use topics to discern these different types. Topics are flexible and powerful - you can use them for different kinds of orders, posts, documents, interests, etc. An example is below.
+Topics are a way to label notifications in addition to categories. The API now accepts 'topic' as an attribute. Let's use GitHub as an example. An example category is 'comment'.  Users comment on various kinds of activity - one example being pull requests. The topic in this example is 'pull request'. Topics are flexible and powerful. You can use them for different kinds of orders, posts, documents, interests, etc. An example is below.
 
 ```json hideHeader
 {
@@ -57,16 +57,6 @@ You can now use GraphQL to fetch notifications. It is available at https://api.m
   }
 }
 ```
-
-### Compose now supports Announcements and Categories
-
-Compose now supports announcements and categories. You can send an announcement simply by clicking the 'Send to everyone' button. Mila - our talented designer - updated the overall functionality and design as well.
-
-<img
-  className="full-mobile"
-  src="/docs/uploads/composeNoBackground.png"
-  style={{ width: '100%', height: 'intrinsic' }}
-/>
 
 ### Improved performance
 
