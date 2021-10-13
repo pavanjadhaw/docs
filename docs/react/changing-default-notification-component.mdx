@@ -3,14 +3,18 @@ title: Change the Default Notification Component
 subtitle: Learn how to use your own component to render notifications in the notification inbox
 ---
 
-You can change the default notification component in two easy steps:
+MagicBell exposes components and hooks that can help you to create your own
+notification inbox in a breeze. To change the default notification component:
 
 - Define your custom component for rendering notifications
 - Pass it to the `FloatingNotificationInbox` component using the `NotificationItem` property
 
 ## Creating a custom notification component
 
-MagicBell uses a reactive approach to render your notification inbox. Therefore, you must register your custom components as observers of the state. You can do it by simply wrapping your components with the `observer` function, which you can also import from our [react package](https://www.npmjs.com/package/@magicbell/magicbell-react).
+The `useNotification` hook will return data you can use to render a notification
+in your custom component. It also gives your component real-time capabilities,
+so it will be automatically updated to reflect changes in other tabs, for
+example.
 
 ```jsx title=React
 import React from 'react';
@@ -18,12 +22,16 @@ import MagicBell, { useNotification } from '@magicbell/magicbell-react';
 
 export default function CustomNotification({ notification }) {
   const state = useNotification(notification);
+  const handleClick = () => state.markAsRead();
 
   return (
-    <a href={state.actionUrl}>
-      <b>{state.title}</b>
-      <p>{state.content}</p>
-    </a>
+    <div>
+      <a href={state.actionUrl}>
+        <b>{state.title}</b>
+        <p>{state.content}</p>
+      </a>
+      <button onClick={handleClick}>Mark as read</button>
+    <div>
   );
 }
 ```
@@ -32,7 +40,7 @@ Then, pass it to the `FloatingNotificationInbox` component:
 
 ```jsx title=React
 import React from 'react';
-import MagicBell, { observer } from '@magicbell/magicbell-react';
+import MagicBell from '@magicbell/magicbell-react';
 import CustomNotification from './CustomNotification';
 
 export default function Notifications() {

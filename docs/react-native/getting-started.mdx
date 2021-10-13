@@ -37,12 +37,12 @@ export default function App() {
 Now you can display notifications using the `useNotifications` hook. In the following example, you can see how to render a list of notifications.
 
 ```jsx title=React
-import { observer, useNotifications } from '@magicbell/react-headless';
+import { useNotifications } from '@magicbell/react-headless';
 import React from 'react';
 import { FlatList } from 'react-native';
 import Notification from './Notification';
 
-function NotificationInbox() {
+export default function NotificationInbox() {
   const store = useNotifications();
 
   if (!store) return null;
@@ -54,11 +54,7 @@ function NotificationInbox() {
     />
   );
 }
-
-export default observer(NotificationInbox);
 ```
-
-Notice that this component is wrapped with the `observer` function to automatically update notifications in real-time.
 
 ## Complete example
 
