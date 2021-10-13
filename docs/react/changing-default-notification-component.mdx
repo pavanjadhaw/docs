@@ -14,18 +14,18 @@ MagicBell uses a reactive approach to render your notification inbox. Therefore,
 
 ```jsx title=React
 import React from 'react';
-import MagicBell, { observer } from '@magicbell/magicbell-react';
+import MagicBell, { useNotification } from '@magicbell/magicbell-react';
 
-function CustomNotification(notification) {
+export default function CustomNotification({ notification }) {
+  const state = useNotification(notification);
+
   return (
-    <a href={notification.actionUrl}>
-      <b>{notification.title}</b>
-      <p>{notification.content}</p>
+    <a href={state.actionUrl}>
+      <b>{state.title}</b>
+      <p>{state.content}</p>
     </a>
   );
 }
-
-export default observer(CustomNotification);
 ```
 
 Then, pass it to the `FloatingNotificationInbox` component:
@@ -58,26 +58,25 @@ You may access MagicBell's theme context using the `useTheme` hook from our [rea
 
 ```jsx title=React
 import React from 'react';
-import MagicBell, { useTheme, observer } from '@magicbell/magicbell-react';
+import MagicBell, { useNotification, useTheme } from '@magicbell/magicbell-react';
 
-function CustomNotification(notification) {
+export default function CustomNotification(notification) {
+  const state = useNotification(notification);
   const theme = useTheme();
 
   return (
     <a
-      href={notification.actionUrl}
+      href={state.actionUrl}
       style={{
         backgroundColor: theme.notification.default.backgroundColor,
         fontSize: theme.notification.default.fontSize,
       }}
     >
-      <b>{notification.title}</b>
-      <p>{notification.content}</p>
+      <b>{state.title}</b>
+      <p>{state.content}</p>
     </a>
   );
 }
-
-export default observer(CustomNotification);
 ```
 
 Please refer to our [theming guide](/react/theme-customization) for a complete description of the theme context.
