@@ -1,15 +1,17 @@
-const redirects = require("./redirects.json");
+const withPlugins = require('next-compose-plugins');
+const redirects = require('./redirects.json');
+const withSvgr = require('next-svgr');
 
-module.exports = {
+module.exports = withPlugins([withSvgr], {
   reactStrictMode: true,
-  basePath: "/docs",
+  basePath: '/docs',
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.mdx?/,
       use: [
         options.defaultLoaders.babel,
         {
-          loader: "raw-loader",
+          loader: 'raw-loader',
           options: {},
         },
       ],
@@ -20,4 +22,4 @@ module.exports = {
   async redirects() {
     return redirects;
   },
-};
+});
