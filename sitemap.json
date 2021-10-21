@@ -57,6 +57,10 @@
         "to": "/categories"
       },
       {
+        "name": "Smart Notifications",
+        "to": "/smart-notifications"
+      },
+      {
         "name": "Override content accross channels",
         "to": "/overrides"
       },
@@ -140,6 +144,10 @@
           {
             "name": "Mailgun",
             "to": "/email/mailgun"
+          },
+          {
+            "name": "Ping (Webhook)",
+            "to": "/email/ping"
           }
         ]
       },
