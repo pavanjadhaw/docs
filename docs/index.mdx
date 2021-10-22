@@ -7,26 +7,43 @@ subtitle: The notification inbox for your product
 
 ## Building blocks of MagicBell
 
-- <b>
-    <a href="https://magicbell.com/docs/adding-magicbell-to-your-product">Embed</a>
-  </b> our <b>notification inbox</b> in your app via our JavaScript snippet in under <b>
-    ~30 minutes
-  </b>
-- <b>Fully customize</b> your inbox using our UI or with the <b>
-    <a href="https://magicbell.com/docs/react/theme-customization">React SDK</a>
-  </b>
-- Select the <b><a href="https://magicbell.com/docs/channels">channels</a></b> you want to deliver notifications to: <b>In-app</b>, <b>email</b>, <b>web push</b> and <b>mobile push</b> <i>(SMS coming soon!)</i>
-- Use our [API](https://magicbell.com/docs/rest-api/reference) to start sending notifications. `recipients` can be designated using an email address or `external_id`. You can also use our [API wrappers](https://magicbell.com/docs/libraries-api-wrappers) instead of making HTTP calls directly.
-- <b>Announcements</b> allow you to easily send notifications to <i>all</i> users.{' '}
-- Notification **content** supports HTML - make your notifications as pretty and robust as you want using inline CSS, images, inputs, etc
-- Assign a <b><a href="https://magicbell.com/docs/categories">category</a></b> to each notification to enable users to manage their notification preferences. Categories also allow you to customize the delivery channels for a notification.
-- `action_url` controls where a user goes when clicking on the notification. You can also define a `onNotificationClick` function to program this behavior.
+<Grid>
+  <Card title="Notification inbox">
+    Add the notification inbox to your app in under <b>~30 minutes</b>.
+  </Card>
+  <Card title="Rich text">
+    Notification content supports HTML - make your notifications as pretty and robust as
+    you want using inline CSS, images, inputs, etc.
+  </Card>
+  <Card title="Customization">
+    <b>Fully customize</b> your inbox using our UI or with one of our React packages.
+  </Card>
+  <Card title="Categories">
+    Assign a category to each notification to enable users to manage their notification
+    preferences. Categories also allow you to customize the delivery channels for a
+    notification.
+  </Card>
+  <Card title="API">
+    <p>
+      Use our Rest API to send notifications. You can send notifications to your users
+      using an email address or an id.
+    </p>
+    <p>We offer API wrappers for convenience.</p>
+  </Card>
+  <Card title="Channels">
+    Select the <b>channels</b> you want to deliver notifications to: <b>In-app</b>,{' '}
+    <b>email</b>, <b>web push</b> and <b>mobile push</b>.
+  </Card>
+  <Card title="Announcements">
+    Easily send notifications to <i>all</i> users or a segment of them.
+  </Card>
+</Grid>
 
 Whether you are using MagicBell's inbox or building your UI, our SDKs take care of real-time updates and asynchronous state management for you.
 
-<i>
+<strong>
   Refer to <a href="https://magicbell.com/docs/channels">our guides</a> to learn more!
-</i>
+</strong>
 
 ## Try MagicBell
 
