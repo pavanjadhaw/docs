@@ -14,7 +14,7 @@ export default function NotificationInboxPreview({
   floatingNotificationInboxProps = {},
 }: Props) {
   return (
-    <div className="w-full rounded-md relative z-0 mb-4 bg-gray-200">
+    <div className="w-full rounded-md relative z-0 mb-4 bg-gray-100">
       <div className="py-3 px-4 rounded-t-md font-mono text-xs uppercase text-gray-700 border-b border-white font-bold">
         Preview
       </div>
@@ -27,8 +27,8 @@ export default function NotificationInboxPreview({
               defaultIsOpen={true}
               theme={{
                 icon: { borderColor: '#232323' },
-                header: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
-                footer: { backgroundColor: '#7fccc4', textColor: '#f2faf9' },
+                header: { backgroundColor: '#5225C1', textColor: '#f2faf9' },
+                footer: { backgroundColor: '#5225C1', textColor: '#f2faf9' },
               }}
               _baseURL="/docs/api/magicbell"
               {...magicBellProps}
