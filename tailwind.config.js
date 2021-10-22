@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         darkPurple: '#230F65',
       },
+      fontFamily: {
+        sans: ['HarmoniaSans', 'Helvetica', 'Arial', 'sans-serif'],
+      },
     },
   },
   variants: {

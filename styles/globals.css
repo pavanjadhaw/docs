@@ -1,13 +1,16 @@
 /* Fonts */
 @font-face {
-  font-family: Moderata;
-  src: url(../fonts/Moderata-Light.woff2);
+  font-family: 'HarmoniaSans';
+  font-weight: 400;
+  src: url('../fonts/HarmoniaSansRegular.woff2') format('woff2'),
+    url('../fonts/HarmoniaSansRegular.woff') format('woff');
 }
 
 @font-face {
-  font-family: Moderata;
-  src: url(../fonts/Moderata.woff2);
-  font-weight: bold;
+  font-family: 'HarmoniaSans';
+  font-weight: 600;
+  src: url('../fonts/HarmoniaSansSemiBold.woff2') format('woff2'),
+    url('../fonts/HarmoniaSansSemiBold.woff') format('woff');
 }
 
 /* Tailwind */
@@ -15,8 +18,10 @@
 @layer base {
   body,
   html {
-    font-family: Moderata;
     font-size: 16px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1 {
@@ -119,14 +124,6 @@ a.mobile-signup-button {
 }
 
 /* Footer */
-footer {
-  background-color: rgb(52, 23, 75);
-  @apply text-white;
-}
-
-footer a {
-  color: white !important;
-}
 
 /* Search (algolia) */
 /* This class was set manually at https://www.algolia.com/apps/HV8SJIDSDY/explorer/configuration/docs/highlighting */
