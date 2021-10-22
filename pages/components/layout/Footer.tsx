@@ -80,7 +80,7 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} MagicBell, Inc. All rights reserved.
         </small>
       </div>
-      <div className="grid gap-y-8 gap-x-10 grid-cols-none md:grid-cols-2 md:mb-0 mb-14">
+      <div className="grid gap-y-8 gap-x-10 grid-cols-none sm:grid-cols-2 md:mb-0 mb-14">
         <div>
           <h4 className="font-bold text-2xl">Company</h4>
           <ul className="flex flex-col gap-4 mt-4" aria-label="Company pages">
