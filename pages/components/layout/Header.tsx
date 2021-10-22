@@ -26,7 +26,7 @@ export default function Header({ onToggleMenu }: Props) {
               />
             </a>
             <div className="flex-1 space-x-6">
-              <a href="https://magicbell.com/about">Notification Spec</a>
+              <a href="https://magicbell.com/spec">Notification Spec</a>
               <a href="https://magicbell.com/docs">Docs</a>
               <a href="https://magicbell.com/pricing">Pricing</a>
             </div>
