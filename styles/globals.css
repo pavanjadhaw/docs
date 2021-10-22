@@ -101,7 +101,7 @@ header {
 }
 
 a.mobile-signup-button {
-  background-color: #532f70 !important;
+  background-color: #230f65 !important;
   color: white !important;
   @apply rounded-md py-3 px-6 font-bold;
 }
