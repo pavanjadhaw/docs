@@ -1,13 +1,23 @@
 /* Fonts */
 @font-face {
-  font-family: Moderata;
-  src: url(../fonts/Moderata-Light.woff2);
+  font-family: 'HarmoniaSans';
+  font-weight: 400;
+  src: url('../fonts/HarmoniaSansRegular.woff2') format('woff2'),
+    url('../fonts/HarmoniaSansRegular.woff') format('woff');
 }
 
 @font-face {
-  font-family: Moderata;
-  src: url(../fonts/Moderata.woff2);
-  font-weight: bold;
+  font-family: 'HarmoniaSans';
+  font-weight: 600;
+  src: url('../fonts/HarmoniaSansSemiBold.woff2') format('woff2'),
+    url('../fonts/HarmoniaSansSemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ITCSouvenir';
+  font-weight: 600;
+  src: url('../fonts/ITCSouvenirDemi.woff2') format('woff2'),
+    url('../fonts/ITCSouvenirDemi.woff') format('woff');
 }
 
 /* Tailwind */
@@ -15,12 +25,17 @@
 @layer base {
   body,
   html {
-    font-family: Moderata;
     font-size: 16px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1 {
     @apply text-4xl mb-14 font-bold;
+    @apply text-darkPurple;
+
+    font-family: ITCSouvenir, Times, 'Times New Roman', serif;
   }
 
   h2 {
@@ -44,10 +59,11 @@
   }
 
   a {
-    color: #7217bd;
+    @apply text-pink;
   }
 
   a:hover {
+    @apply text-purple;
     text-decoration: none !important;
   }
 
@@ -91,41 +107,22 @@
 
 /* Header */
 header {
-  background-color: #532f70;
-  font-size: 17px;
-
-  @apply text-white;
-}
-
-header a:not(:hover) {
-  color: white !important;
-}
-
-header a {
-  @apply px-4;
-  @apply py-2;
-  @apply font-bold;
-}
-
-header a.main-button {
-  color: #532f70 !important;
-  @apply bg-white rounded-md;
+  font-size: 20px;
 }
 
 a.mobile-signup-button {
-  background-color: #532f70 !important;
+  background-color: #230f65 !important;
   color: white !important;
   @apply rounded-md py-3 px-6 font-bold;
 }
 
 /* Footer */
-footer {
-  background-color: rgb(52, 23, 75);
-  @apply text-white;
+footer a {
+  @apply text-darkPurple;
 }
 
-footer a {
-  color: white !important;
+footer a:hover {
+  @apply text-pink;
 }
 
 /* Search (algolia) */

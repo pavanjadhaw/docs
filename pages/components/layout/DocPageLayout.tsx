@@ -23,7 +23,7 @@ export default function DocPageLayout({ title = 'Docs', description, children }:
 
   useEffect(() => {
     setSidebarOpen(false);
-  }, [router.asPath]);
+  }, [router.asPath]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="min-h-screen flex flex-col">
