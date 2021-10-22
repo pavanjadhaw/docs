@@ -49,10 +49,11 @@
   }
 
   a {
-    color: #7217bd;
+    @apply text-darkPurple;
   }
 
   a:hover {
+    @apply text-pink;
     text-decoration: none !important;
   }
 
