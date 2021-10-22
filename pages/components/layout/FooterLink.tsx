@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function FooterLink({ link }: Props) {
+  if (!link) return null;
   return (
     <li>
       <Link href={link.url}>
