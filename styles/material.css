@@ -7,7 +7,7 @@
 
 .hljs::selection,
 .hljs *::selection {
-  background: #21233b;
+  background: rgba(110, 119, 140, 0.5);
 }
 
 .hljs-comment {
