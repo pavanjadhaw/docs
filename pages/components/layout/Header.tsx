@@ -66,14 +66,17 @@ export default function Header({ onToggleMenu }: Props) {
       <div className="flex-1 flex items-center md:hidden px-4 py-6">
         <a href="https://magicbell.com">
           <MagicBellLogo
-            className="h-6 fill-current text-darkPurple"
+            className="h-7 fill-current text-darkPurple"
             role="img"
             aria-label="MagicBell logo"
             focusable="false"
           />
         </a>
       </div>
-      <button className="p-4 focus:outline-none md:hidden" onClick={toggleMenu}>
+      <button
+        className="p-4 focus:outline-none md:hidden text-darkPurple"
+        onClick={toggleMenu}
+      >
         <span className="sr-only">Open main menu</span>
         <MenuIcon className="h-6 w-6" aria-hidden="true" />
       </button>
