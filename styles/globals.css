@@ -97,25 +97,7 @@
 
 /* Header */
 header {
-  background-color: #532f70;
-  font-size: 17px;
-
-  @apply text-white;
-}
-
-header a:not(:hover) {
-  color: white !important;
-}
-
-header a {
-  @apply px-4;
-  @apply py-2;
-  @apply font-bold;
-}
-
-header a.main-button {
-  color: #532f70 !important;
-  @apply bg-white rounded-md;
+  font-size: 20px;
 }
 
 a.mobile-signup-button {
