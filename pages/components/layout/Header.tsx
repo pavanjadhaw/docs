@@ -13,8 +13,8 @@ export default function Header({ onToggleMenu }: Props) {
   };
 
   return (
-    <header className="z-20 flex-shrink-0 flex sticky top-0 bg-white md:px-8 p-4">
-      <div className="flex-1 hidden justify-between md:flex max-w-screen-xl mx-auto">
+    <header className="z-20 flex-shrink-0 flex sticky top-0 bg-white">
+      <div className="flex-1 hidden justify-between md:flex max-w-screen-xl mx-auto md:px-8 p-4">
         <div className="flex-1 flex items-center space-x-10 py-4">
           <div className="flex-1 flex space-x-24">
             <a href="https://magicbell.com" aria-label="Go to homepage">
@@ -38,7 +38,7 @@ export default function Header({ onToggleMenu }: Props) {
           </a>
         </div>
       </div>
-      <div className="flex-1 flex items-center md:hidden">
+      <div className="flex-1 flex items-center md:hidden px-4 py-6">
         <a href="https://magicbell.com">
           <MagicBellLogo
             className="h-6 fill-current text-darkPurple"
