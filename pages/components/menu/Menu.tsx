@@ -13,7 +13,7 @@ interface Props {
 export default function Menu({ navigationItems = [] }: Props) {
   return (
     <div className="pb-4 overflow-y-auto">
-      <nav className="py-8">
+      <nav>
         {navigationItems.map((item, index) => (
           <MenuItem key={index} {...item} />
         ))}
