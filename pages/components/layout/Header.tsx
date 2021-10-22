@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { MenuIcon } from '@heroicons/react/outline';
 import React from 'react';
+import Arrow from '../../../public/arrow.svg';
 import MagicBellLogo from '../../../public/magicbell.svg';
 
 interface Props {
@@ -34,10 +35,21 @@ export default function Header({ onToggleMenu }: Props) {
             </div>
           </div>
           <a
-            className="font-bold text-2xl hover:text-darkPurple"
+            className="font-bold text-2xl hover:text-darkPurple text-darkPurple"
             href="https://app.magicbell.com"
           >
-            Sign up
+            <div className="flex items-center space-x-4">
+              <span>Sign up</span>
+              <span
+                className="rounded-full h-10 w-10 relative"
+                style={{ backgroundColor: 'rgb(255, 222, 0)' }}
+              >
+                <Arrow
+                  className="h-4 w-4 fill-current text-darkPurple absolute m-auto left-0 right-0 bottom-0 top-0"
+                  role="img"
+                />
+              </span>
+            </div>
           </a>
         </div>
       </div>
