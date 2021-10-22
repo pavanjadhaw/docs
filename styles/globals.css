@@ -105,6 +105,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    .masonry {
+      column-count: 2;
+      column-gap: 1.5em;
+    }
+
+    .break-inside {
+      break-inside: avoid;
+    }
+  }
+}
+
 /* Header */
 header {
   font-size: 20px;
