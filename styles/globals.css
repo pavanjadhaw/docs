@@ -13,6 +13,13 @@
     url('../fonts/HarmoniaSansSemiBold.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'ITCSouvenir';
+  font-weight: 600;
+  src: url('../fonts/ITCSouvenirDemi.woff2') format('woff2'),
+    url('../fonts/ITCSouvenirDemi.woff') format('woff');
+}
+
 /* Tailwind */
 @tailwind base;
 @layer base {
@@ -26,6 +33,9 @@
 
   h1 {
     @apply text-4xl mb-14 font-bold;
+    @apply text-darkPurple;
+
+    font-family: ITCSouvenir, Times, 'Times New Roman', serif;
   }
 
   h2 {
