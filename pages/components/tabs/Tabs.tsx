@@ -43,8 +43,10 @@ export default function Tabs({ children: allChildren, defaultIndex = 0 }: CodeTa
           <button
             key={index}
             className={classNames(
-              'py-2 px-3 text-xs font-bold font-mono',
-              focusedIndex === index ? 'text-white' : 'text-gray-400',
+              'py-2 px-3 text-xs font-bold font-mono text-white',
+              focusedIndex === index
+                ? 'text-opacity-100'
+                : 'text-opacity-60 hover:text-opacity-100',
             )}
             onClick={() => setFocusedIndex(index)}
           >

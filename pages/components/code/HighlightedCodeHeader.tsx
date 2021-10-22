@@ -11,11 +11,11 @@ export default function HighlightedCodeHeader({ title, code }: Props) {
     <div
       className="pl-6 px-3 rounded-t-md uppercase text-xs font-bold text-white flex items-center h-10"
       style={{
-        background: '#222337',
+        background: '#5225c1',
       }}
     >
       <div className="flex-1">{title}</div>
-      <div className="border-l border-gray-500 py-0.5 pl-2">
+      <div className="border-l border-white border-opacity-25 py-0.5 pl-2">
         <CopyButton text={code} />
       </div>
     </div>
