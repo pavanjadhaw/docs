@@ -59,11 +59,11 @@
   }
 
   a {
-    @apply text-darkPurple;
+    @apply text-pink;
   }
 
   a:hover {
-    @apply text-pink;
+    @apply text-purple;
     text-decoration: none !important;
   }
 
@@ -117,6 +117,13 @@ a.mobile-signup-button {
 }
 
 /* Footer */
+footer a {
+  @apply text-darkPurple;
+}
+
+footer a:hover {
+  @apply text-pink;
+}
 
 /* Search (algolia) */
 /* This class was set manually at https://www.algolia.com/apps/HV8SJIDSDY/explorer/configuration/docs/highlighting */
