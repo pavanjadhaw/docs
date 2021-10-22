@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="copyright" content="MagicBell, Inc." />
+          <meta property="og:type" content="website" />
           <link rel="shortcut icon" href="/docs/favicon.ico" />
           <link
             rel="icon"
