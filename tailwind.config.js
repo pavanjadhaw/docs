@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         darkPurple: '#230F65',
+        pink: '#C977FE',
       },
       fontFamily: {
         sans: ['HarmoniaSans', 'Helvetica', 'Arial', 'sans-serif'],
