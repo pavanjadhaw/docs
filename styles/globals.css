@@ -104,16 +104,21 @@
 
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 @layer utilities {
-  @variants responsive {
+  .masonry {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+
+  .break-inside {
+    break-inside: avoid;
+  }
+
+  @screen md {
     .masonry {
       column-count: 2;
-      column-gap: 1rem;
-    }
-
-    .break-inside {
-      break-inside: avoid;
     }
   }
 }
