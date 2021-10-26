@@ -42,6 +42,12 @@ export default function Header({ onToggleMenu }: Props) {
               >
                 Pricing
               </a>
+              <a
+                href="https://magicbell.com/careers"
+                className="text-darkPurple hover:text-pink"
+              >
+                Careers
+              </a>
             </div>
           </div>
           <a
