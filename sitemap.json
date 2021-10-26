@@ -203,9 +203,5 @@
   {
     "name": "FAQ",
     "to": "/faq"
-  },
-  {
-    "name": "careers",
-    "to": "https://magicbell.com/careers"
   }
 ]
