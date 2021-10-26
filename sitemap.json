@@ -206,6 +206,7 @@
   },
   {
     "name": "Careers",
-    "to": "https://magicbell.com/careers"
+    "to": "https://magicbell.com/careers",
+    "staticRoute": true
   }
 ]
