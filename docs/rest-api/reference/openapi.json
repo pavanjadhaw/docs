@@ -26,7 +26,7 @@
                 "notification": {
                   "title": "We're processing your order",
                   "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
-                  "category": "account_created",
+                  "category": "order_created",
                   "topic": "order:33098",
                   "recipients": [
                     { "email": "dan@example.com" },
@@ -63,7 +63,7 @@
                     "title": "We're processing your order",
                     "content": "<p>Thank you for your order. We'll notify you when these items are ready.</p>",
                     "action_url": null,
-                    "category": "account_created",
+                    "category": "order_created",
                     "topic": "order:33098",
                     "custom_attributes": null,
                     "sent_at": 1625853246
