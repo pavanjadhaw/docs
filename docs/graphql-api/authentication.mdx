@@ -58,6 +58,7 @@ curl https://api.magicbell.com/graphql \
   --header 'Content-Type: application/json' \
   --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
   --header 'X-MAGICBELL-USER-EXTERNAL-ID: [USER_ID]'
+  --header 'X-MAGICBELL-USER-HMAC: [USER_ID_HMAC]'
   --data '{ "query": "{ notifications(first: 2) { totalCount } }" }'
 ```
 
@@ -67,6 +68,7 @@ fetch('https://api.magicbell.com/graphql', {
   headers: {
     'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
     'X-MAGICBELL-USER-EXTERNAL-ID', '[USER_ID]',
+    'X-MAGICBELL-USER-HMAC', '[USER_ID_HMAC]',
   },
   body: JSON.stringify({ query: "{ notifications(first: 2) { totalCount } }" })
 });
@@ -85,6 +87,7 @@ curl https://api.magicbell.com/graphql \
   --header 'Content-Type: application/json' \
   --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
   --header 'X-MAGICBELL-USER-EMAIL: [USER_EMAIL]'
+  --header 'X-MAGICBELL-USER-HMAC: [USER_EMAIL_HMAC]'
   --data '{ "query": "{ notifications(first: 2) { totalCount } }" }'
 ```
 
@@ -94,6 +97,7 @@ fetch('https://api.magicbell.com/graphql', {
   headers: {
     'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
     'X-MAGICBELL-USER-EMAIL', '[USER_EMAIL]',
+    'X-MAGICBELL-USER-HMAC', '[USER_EMAIL_HMAC]',
   },
   body: JSON.stringify({ query: "{ notifications(first: 2) { totalCount } }" })
 });
