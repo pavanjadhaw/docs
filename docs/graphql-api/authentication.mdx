@@ -1,0 +1,109 @@
+---
+title: GraphQL API Reference
+subtitle: Explore our GraphQL API
+---
+
+## Authentication
+
+MagicBell's GraphQL API utilizes your MagicBell's project's API key and secret
+to authenticate requests. Your MagicBell project's API key and secret are
+available in the "Settings" section of your MagicBell Admin Dashboard.
+
+### Admin queries and mutations
+
+All API requests to an admin query or mutation (like fetch all users or create
+notifications) require:
+
+- the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
+- the `X-MAGIBCELL-API-SECRET` header containing your MagicBell project's API secret
+
+<Tabs>
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/graphql \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-API-SECRET: [MAGICBELL_API_SECRET]' \
+  --data '{ "query": "{ users(first: 2) { totalCount } }" }'
+```
+
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
+fetch('https://api.magicbell.com/graphql', {
+  method: 'POST',
+  headers: {
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-API-SECRET', '[MAGICBELL_API_SECRET]',
+  },
+  body: JSON.stringify({ query: "{ users(first: 2) { totalCount } }" })
+});
+```
+
+</Tabs>
+
+### Other queries and mutations
+
+Any user can perform some queries and mutations (like fetch notifications).
+These API requests require:
+
+- the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
+- the `X-MAGICBELL-USER-EXTERNAL-ID` header containing the ID of the user performing the request
+- the `X-MAGICBELL-USER-HMAC` header containing the computed hash for the user
+
+<Tabs>
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/graphql \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-USER-EXTERNAL-ID: [USER_ID]'
+  --data '{ "query": "{ notifications(first: 2) { totalCount } }" }'
+```
+
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
+fetch('https://api.magicbell.com/graphql', {
+  method: 'POST',
+  headers: {
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-USER-EXTERNAL-ID', '[USER_ID]',
+  },
+  body: JSON.stringify({ query: "{ notifications(first: 2) { totalCount } }" })
+});
+```
+
+</Tabs>
+
+On the other hand, if you identify users in your app by email, set the
+`X-MAGICBELL-USER-EMAIL` header instead:
+
+<Tabs>
+
+```curl title=cURL hideHeader noTopBorderRadius
+curl https://api.magicbell.com/graphql \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-USER-EMAIL: [USER_EMAIL]'
+  --data '{ "query": "{ notifications(first: 2) { totalCount } }" }'
+```
+
+```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
+fetch('https://api.magicbell.com/graphql', {
+  method: 'POST',
+  headers: {
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-USER-EMAIL', '[USER_EMAIL]',
+  },
+  body: JSON.stringify({ query: "{ notifications(first: 2) { totalCount } }" })
+});
+```
+
+</Tabs>
+
+You can set both an email and the external ID when performing a request.
+
+If you're yet to turn to HMAC authentication for your MagicBell project, you
+don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly
+recommend [turning on HMAC authentication](/docs/turn-on-hmac-authentication)
+before releasing MagicBell to your users.
