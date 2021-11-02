@@ -5,7 +5,9 @@ subtitle: Learn how to interact with our API
 
 ## Authentication
 
-MagicBell's REST API utilizes your MagicBell's project's API key and secret to authenticate requests. Your MagicBell project's API key and secret are available in the "Settings" section of your MagicBell Admin Dashboard.
+MagicBell's REST API utilizes your MagicBell's project's API key and secret to
+authenticate requests. Your MagicBell project's API key and secret are available
+in the "Settings" section of your MagicBell Admin Dashboard.
 
 ### Expected headers
 
@@ -57,9 +59,11 @@ fetch('https://api.magicbell.com/notifications', {
 
 </Tabs>
 
-Some API endpoints require an additional header to identify the user whose notifications you want to read, delete, etc.
+Some API endpoints require an additional header to identify the user whose
+notifications you want to read, delete, etc.
 
-If you identify users in your app by email, provide the `X-MAGICBELL-USER-EMAIL` header, like this:
+If you identify users in your app by email, provide the `X-MAGICBELL-USER-EMAIL`
+header, like this:
 
 <Tabs>
 
@@ -81,7 +85,8 @@ fetch('https://api.magicbell.com/notifications', {
 
 </Tabs>
 
-If you don't use emails to identify your users, provide the `X-MAGICBELL-USER-EXTERNAL-ID` with the ID of the user from your database:
+If you don't use emails to identify your users, provide the
+`X-MAGICBELL-USER-EXTERNAL-ID` with the ID of the user from your database:
 
 <Tabs>
 
@@ -105,9 +110,15 @@ fetch('https://api.magicbell.com/notifications', {
 
 ### Requests on behalf of your users
 
-Your users can and will make requests to some MagicBell API endpoints to fetch their notifications, for example. To prevent users from fetching data from other users of your app, enable HMAC authentication. When HMAC is enabled, you need to provide one additional header: `X-MAGICBELL-USER-HMAC`.
+Your users can and will make requests to some MagicBell API endpoints to fetch
+their notifications, for example. To prevent users from fetching data from other
+users of your app, enable HMAC authentication. When HMAC is enabled, you need to
+provide one additional header: `X-MAGICBELL-USER-HMAC`.
 
-Use your API secret to compute an HMAC of the user's email or id. Then, when performing API requests on behalf of your user, provide the `X-MAGICBELL-USER-HMAC` header containing the HMAC instead of the `X-MAGICBELL-API-SECRET` header.
+Use your API secret to compute an HMAC of the user's email or id. Then, when
+performing API requests on behalf of your user, provide the
+`X-MAGICBELL-USER-HMAC` header containing the HMAC instead of the
+`X-MAGICBELL-API-SECRET` header.
 
 <Tabs>
 
@@ -131,4 +142,7 @@ fetch('https://api.magicbell.com/notifications', {
 
 </Tabs>
 
-If you're yet to turn to HMAC authentication for your MagicBell project, you don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly recommend [turning on HMAC authentication](/docs/turn-on-hmac-authentication) before releasing MagicBell to your users.
+If you're yet to turn to HMAC authentication for your MagicBell project, you
+don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly
+recommend [turning on HMAC authentication](/docs/turn-on-hmac-authentication)
+before releasing MagicBell to your users.
