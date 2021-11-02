@@ -46,6 +46,16 @@
     ]
   },
   {
+    "name": "GraphQL API",
+    "icon": "terminal",
+    "children": [
+      {
+        "name": "Overview",
+        "to": "/graphql-api/overview"
+      }
+    ]
+  },
+  {
     "name": "Guides",
     "children": [
       {
