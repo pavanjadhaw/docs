@@ -1,0 +1,166 @@
+schema {
+  query: Query
+}
+
+scalar JSON
+scalar ISO8601DateTime
+
+type Query {
+  notifications(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    seen: Boolean
+    read: Boolean
+    archived: Boolean
+    categories: [String!]
+    topics: [String!]
+    inApp: String
+  ): NotificationsConnection
+
+  users(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    matches: String
+  ): UsersConnection
+
+  logs(
+    after: String
+    before: String
+    first: Int
+    last: Int
+    user: UserAttributes
+    notification: NotificationAttributes
+    channels: [String!]
+  ): DeliveryLogConnection!
+}
+
+type PageInfo {
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+}
+
+type NotificationsConnection {
+  # A list of edges.
+  edges: [NotificationsEdge]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Total number of notifications for this user
+  totalCount: Int!
+
+  # Total number of unread notifications
+  unreadCount: Int!
+
+  # Total number of unseen notifications
+  unseenCount: Int!
+}
+
+type NotificationsEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: Notification
+}
+
+type Notification {
+  id: ID!
+  title: String!
+  content: String
+  actionUrl: String
+  archivedAt: ISO8601DateTime
+  category: String
+  topic: String
+  customAttributes: JSON
+  readAt: ISO8601DateTime
+  seenAt: ISO8601DateTime
+  sentAt: ISO8601DateTime!
+}
+
+type UsersConnection {
+  # A list of edges.
+  edges: [UsersEdge]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Total number of users
+  totalCount: Int!
+}
+
+type UsersEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: User
+}
+
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  externalId: String
+  customAttributes: JSON
+}
+
+type UserAttributes {
+  # User's email
+  email: String
+
+  # User's external ID
+  externalId: String
+
+  # User's ID
+  id: ID
+}
+
+type NotificationAttributes {
+  # Notification ID
+  id: ID
+
+  # Notification Title
+  title: String
+}
+
+type DeliveryLogConnection {
+  # A list of edges.
+  edges: [DeliveryLogEdge]
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+}
+
+type DeliveryLogEdge {
+  # A cursor for use in pagination.
+  cursor: String!
+
+  # The item at the end of the edge.
+  node: DeliveryLog
+}
+
+type DeliveryLog {
+  id: ID!
+  notification: Notification!
+  user: User!
+  channel: String!
+  data: JSON
+  request: JSON
+  response: JSON
+  createdAt: ISO8601DateTime!
+}
