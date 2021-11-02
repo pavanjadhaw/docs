@@ -9,29 +9,26 @@ MagicBell's REST API utilizes your MagicBell's project's API key and secret to
 authenticate requests. Your MagicBell project's API key and secret are available
 in the "Settings" section of your MagicBell Admin Dashboard.
 
-### Authentication headers
+### Admin endpoints
 
-When performing an API request, provide:
+All API requests to an admin API endpoint (like fetch all users or create
+notifications) require:
 
 - the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
 - the `X-MAGIBCELL-API-SECRET` header containing your MagicBell project's API secret
-
-Here's an example:
 
 <Tabs>
 
 ```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request POST \
-  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
-  --header 'X-MAGICBELL-API-SECRET: MAGICBELL_API_SECRET' \
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-API-SECRET: [MAGICBELL_API_SECRET]' \
   --data '{
     "notification": {
       "title": "Ticket assigned to you: Do you offer demos?",
-      "content": "Hi, can you give us a demo?",
-      "category": "new_reply",
       "recipients": [{
-          "email": "richard@example.com"
+        "email": "richard@example.com"
       }]
     }
   }'
@@ -41,14 +38,12 @@ curl https://api.magicbell.com/notifications \
 fetch('https://api.magicbell.com/notifications', {
   method: 'POST',
   headers: {
-    'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
-    'X-MAGICBELL-API-SECRET', 'MAGICBELL_API_SECRET',
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-API-SECRET', '[MAGICBELL_API_SECRET]',
   },
   body: JSON.stringify({
     notification: {
       title: "Ticket assigned to you: Do you offer demos?",
-      content: "Hi, can you give us a demo?",
-      category: "new_reply",
       recipients: [{
         email: "richard@example.com"
       }]
@@ -59,90 +54,69 @@ fetch('https://api.magicbell.com/notifications', {
 
 </Tabs>
 
-Some API endpoints require an additional header to identify the user whose
-notifications you want to read, delete, etc.
+### Other endpoints
 
-If you identify users in your app by email, provide the `X-MAGICBELL-USER-EMAIL`
-header, like this:
+Your users will make requests to some of the MagicBell REST API endpoints to fetch
+and delete their notifications, for example. These requests require:
+
+- the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
+- the `X-MAGICBELL-USER-EXTERNAL-ID` header containing the ID of the user performing the request
+- the `X-MAGICBELL-USER-HMAC` header containing the computed hash for the user ID
 
 <Tabs>
 
 ```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request GET \
-  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
-  --header 'X-MAGICBELL-USER-EMAIL: richard@example.com'
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-USER-EXTERNAL-ID: [USER_ID]'
+  --header 'X-MAGICBELL-USER-HMAC: [USER_ID_HMAC]'
 ```
 
 ```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   headers: {
-    'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
-    'X-MAGICBELL-USER-EMAIL', 'richard@example.com',
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-USER-EXTERNAL-ID', '[USER_ID]',
+    'X-MAGICBELL-USER-HMAC', '[USER_ID_HMAC]',
   },
 });
 ```
 
 </Tabs>
 
-If you don't use emails to identify your users, provide the
-`X-MAGICBELL-USER-EXTERNAL-ID` with the ID of the user from your database:
+On the other hand, if you identify users in your app by email, set the
+`X-MAGICBELL-USER-EMAIL` header instead:
 
 <Tabs>
 
 ```curl title=cURL hideHeader noTopBorderRadius
 curl https://api.magicbell.com/notifications \
   --request GET \
-  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
-  --header 'X-MAGICBELL-USER-EXTERNAL-ID: 0e8277ec'
+  --header 'X-MAGICBELL-API-KEY: [MAGICBELL_API_KEY]' \
+  --header 'X-MAGICBELL-USER-EMAIL: [USER_EMAIL]'
+  --header 'X-MAGICBELL-USER-HMAC: [USER_EMAIL_HMAC]'
 ```
 
 ```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
 fetch('https://api.magicbell.com/notifications', {
   headers: {
-    'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
-    'X-MAGICBELL-USER-EXTERNAL-ID', '0e8277ec',
+    'X-MAGICBELL-API-KEY', '[MAGICBELL_API_KEY]',
+    'X-MAGICBELL-USER-EMAIL', '[USER_EMAIL]',
+    'X-MAGICBELL-USER-HMAC', '[USER_EMAIL_HMAC]',
   },
 });
 ```
 
 </Tabs>
 
-### Requests on behalf of your users
+Notice that in this scenario, you should use your API secret to compute an HMAC
+of the user's email, instead of the user's id.
 
-Your users can and will make requests to some MagicBell API endpoints to fetch
-their notifications, for example. To prevent users from fetching data from other
-users of your app, enable HMAC authentication. When HMAC is enabled, you need to
-provide one additional header: `X-MAGICBELL-USER-HMAC`.
-
-Use your API secret to compute an HMAC of the user's email or id. Then, when
-performing API requests on behalf of your user, provide the
-`X-MAGICBELL-USER-HMAC` header containing the HMAC instead of the
-`X-MAGICBELL-API-SECRET` header.
-
-<Tabs>
-
-```curl title=cURL hideHeader noTopBorderRadius
-curl https://api.magicbell.com/notifications \
-  --request GET \
-  --header 'X-MAGICBELL-API-KEY: MAGICBELL_API_KEY' \
-  --header 'X-MAGICBELL-USER-EXTERNAL-ID: 0e8277ec' \
-  --header 'X-MAGICBELL-USER-HMAC: USER_ID_HMAC'
-```
-
-```javascript title=JAVASCRIPT hideHeader noTopBorderRadius
-fetch('https://api.magicbell.com/notifications', {
-  headers: {
-    'X-MAGICBELL-API-KEY', 'MAGICBELL_API_KEY',
-    'X-MAGICBELL-USER-EXTERNAL-ID', '0e8277ec',
-    'X-MAGICBELL-USER-HMAC': 'USER_ID_HMAC'
-  }
-});
-```
-
-</Tabs>
+You can set both an email and the external ID when performing a request.
 
 If you're yet to turn to HMAC authentication for your MagicBell project, you
 don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly
 recommend [turning on HMAC authentication](/docs/turn-on-hmac-authentication)
-before releasing MagicBell to your users.
+before releasing MagicBell to your users. This will help preventing users from
+fetching data from other users of your app.
