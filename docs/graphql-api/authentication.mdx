@@ -1,17 +1,21 @@
 ---
 title: GraphQL API Reference
-subtitle: Explore our GraphQL API
+subtitle: Explore the MagicBell GraphQL API
 ---
 
 ## Authentication
 
-MagicBell's GraphQL API utilizes your MagicBell's project's API key and secret
-to authenticate requests. Your MagicBell project's API key and secret are
-available in the "Settings" section of your MagicBell Admin Dashboard.
+The MagicBell GraphQL API utilizes an HTTP header based authentication using
+your MagicBell's project's API key and secret. Your MagicBell project's API key
+and secret are available in the "Settings" section of your MagicBell Admin
+Dashboard.
 
-### Admin queries and mutations
+While the API key of your project can be distributed freely, **do not publish
+the API secret**.
 
-All API requests to an admin query or mutation (like fetch all users or create
+### Admin operations
+
+All API requests that perform an admin operation (like fetch all users or create
 notifications) require:
 
 - the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
@@ -41,10 +45,13 @@ fetch('https://api.magicbell.com/graphql', {
 
 </Tabs>
 
-### Other queries and mutations
+While the API key of your project can be distributed freely, do not publish the
+API secret.
 
-Any user can perform some queries and mutations (like fetch notifications).
-These API requests require:
+### Other operations
+
+Your users can perform some operations over their notifications (like
+fetch and delete them). All API requests that perform these operations require:
 
 - the `X-MAGICBELL-API-KEY` header containing your MagicBell project's API key
 - the `X-MAGICBELL-USER-EXTERNAL-ID` header containing the ID of the user performing the request
