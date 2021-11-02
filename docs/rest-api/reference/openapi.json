@@ -489,8 +489,7 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
-          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
-          { "$ref": "#/components/parameters/notification_id" }
+          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
         "responses": {
           "204": {
@@ -510,8 +509,7 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
-          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
-          { "$ref": "#/components/parameters/notification_id" }
+          { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
         "responses": {
           "204": {
