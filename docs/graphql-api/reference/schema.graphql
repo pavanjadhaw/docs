@@ -6,74 +6,113 @@ scalar JSON
 scalar ISO8601DateTime
 
 type Query {
+  "Fetch a user's notifications"
   notifications(
-    after: String
-    before: String
+    "Return the first n elements. Defaults to 50."
     first: Int
+
+    "Return the last n elements."
     last: Int
-    seen: Boolean
+
+    "Return the elements that come after the specified cursor."
+    after: String
+
+    "Return the elements that come before the specified cursor."
+    before: String
+
+    "A filter on the notifications based on the read state. If false, only unread notifications will be returned. Defaults to null."
     read: Boolean
+
+    "A filter on the notifications based on the seen state. If false, only unseen notifications will be returned. Defaults to null."
+    seen: Boolean
+
+    "A filter on the notifications based on the archived state. If false, only unarchived notifications will be returned. Defaults to null."
     archived: Boolean
+
+    "A filter on the notifications based on the category. If you want to get uncategorized notifications, use the \"uncategorized\" value.\nThe value can be either an array of strings or a comma-separated string."
     categories: [String!]
+
+    "A filter on the notifications based on the topic."
     topics: [String!]
+
+    "A filter based on whether the notification was sent to the inbox or not. Defaults to true."
     inApp: String
   ): NotificationsConnection
 
+  "Fetch a project's users"
   users(
-    after: String
-    before: String
+    "Return the first n elements. Defaults to 50."
     first: Int
+
+    "Return the last n elements."
     last: Int
+
+    "Return the elements that come after the specified cursor."
+    after: String
+
+    "Return the elements that come before the specified cursor."
+    before: String
+
+    "A filter based on the stored attributes. The string is expected to be an SQL-like expression."
     matches: String
   ): UsersConnection
 
+  "Fetch logs"
   logs(
-    after: String
-    before: String
+    "Return the first n elements."
     first: Int
+
+    "Return the last n elements."
     last: Int
-    user: UserAttributes
-    notification: NotificationAttributes
+
+    "Return the elements that come after the specified cursor."
+    after: String
+
+    "Return the elements that come before the specified cursor/"
+    before: String
+
+    user: UserFilter
+    notification: NotificationFilter
     channels: [String!]
   ): DeliveryLogConnection!
 }
 
 type PageInfo {
-  # When paginating forwards, the cursor to continue.
+  "When paginating forwards, the cursor to continue"
   endCursor: String
 
-  # When paginating forwards, are there more items?
+  "When paginating forwards, are there more items?"
   hasNextPage: Boolean!
 
-  # When paginating backwards, are there more items?
+  "When paginating backwards, are there more items?"
   hasPreviousPage: Boolean!
 
-  # When paginating backwards, the cursor to continue.
+  "When paginating backwards, the cursor to continue."
   startCursor: String
 }
 
 type NotificationsConnection {
-  # A list of edges.
+  "A list of edges."
   edges: [NotificationsEdge]
 
-  # Information to aid in pagination.
+  "Information to aid in pagination."
   pageInfo: PageInfo!
 
-  # Total number of notifications for this user
+  "Total number of notifications for this user"
   totalCount: Int!
 
-  # Total number of unread notifications
+  "Total number of unread notifications"
   unreadCount: Int!
 
-  # Total number of unseen notifications
+  "Total number of unseen notifications"
   unseenCount: Int!
 }
 
 type NotificationsEdge {
-  # A cursor for use in pagination.
+  "A cursor for use in pagination."
   cursor: String!
 
-  # The item at the end of the edge.
+  "The item at the end of the edge."
   node: Notification
 }
 
@@ -92,21 +131,21 @@ type Notification {
 }
 
 type UsersConnection {
-  # A list of edges.
+  "A list of edges."
   edges: [UsersEdge]
 
-  # Information to aid in pagination.
+  "Information to aid in pagination."
   pageInfo: PageInfo!
 
-  # Total number of users
+  "Total number of users."
   totalCount: Int!
 }
 
 type UsersEdge {
-  # A cursor for use in pagination.
+  "A cursor for use in pagination."
   cursor: String!
 
-  # The item at the end of the edge.
+  "The item at the end of the edge."
   node: User
 }
 
@@ -119,38 +158,38 @@ type User {
   customAttributes: JSON
 }
 
-type UserAttributes {
-  # User's email
+type UserFilter {
+  "User's email"
   email: String
 
-  # User's external ID
+  "User's external ID"
   externalId: String
 
-  # User's ID
+  "User's ID"
   id: ID
 }
 
-type NotificationAttributes {
-  # Notification ID
+type NotificationFilter {
+  "Notification ID"
   id: ID
 
-  # Notification Title
+  "Notification Title"
   title: String
 }
 
 type DeliveryLogConnection {
-  # A list of edges.
+  "A list of edges."
   edges: [DeliveryLogEdge]
 
-  # Information to aid in pagination.
+  "Information to aid in pagination."
   pageInfo: PageInfo!
 }
 
 type DeliveryLogEdge {
-  # A cursor for use in pagination.
+  "A cursor for use in pagination."
   cursor: String!
 
-  # The item at the end of the edge.
+  "The item at the end of the edge."
   node: DeliveryLog
 }
 
