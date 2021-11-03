@@ -89,13 +89,10 @@ type Query {
 
     "Filters based on the channel a notification belongs to."
     channels: [String!]
-  ): DeliveryLogConnection!
+  ): DeliveryLogConnection
 }
 
 type PageInfo {
-  "When paginating forwards, the cursor to continue"
-  endCursor: String
-
   "When paginating forwards, are there more items?"
   hasNextPage: Boolean!
 
@@ -104,15 +101,12 @@ type PageInfo {
 
   "When paginating backwards, the cursor to continue."
   startCursor: String
+
+  "When paginating forwards, the cursor to continue"
+  endCursor: String
 }
 
 type NotificationsConnection {
-  "A list of edges."
-  edges: [NotificationsEdge]
-
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-
   "Total number of notifications for this user"
   totalCount: Int!
 
@@ -121,6 +115,12 @@ type NotificationsConnection {
 
   "Total number of unseen notifications"
   unseenCount: Int!
+
+  "A list of edges."
+  edges: [NotificationsEdge]
+
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
 }
 
 type NotificationsEdge {
@@ -136,24 +136,24 @@ type Notification {
   title: String!
   content: String
   actionUrl: String
-  archivedAt: ISO8601DateTime
   category: String
   topic: String
   customAttributes: JSON
+  sentAt: ISO8601DateTime!
   readAt: ISO8601DateTime
   seenAt: ISO8601DateTime
-  sentAt: ISO8601DateTime!
+  archivedAt: ISO8601DateTime
 }
 
 type UsersConnection {
+  "Total number of users."
+  totalCount: Int!
+
   "A list of edges."
   edges: [UsersEdge]
 
   "Information to aid in pagination."
   pageInfo: PageInfo!
-
-  "Total number of users."
-  totalCount: Int!
 }
 
 type UsersEdge {
