@@ -3,17 +3,22 @@ import React from 'react';
 import Field from './Field';
 
 interface Props {
-  schema: GraphQLSchema;
   operation: GraphQLObjectType<any, any>;
+  schema: GraphQLSchema;
 }
 
-export default function Operation({ operation }: Props) {
+export default function Operation({ operation, schema }: Props) {
   const fields = operation.getFields();
 
   return (
     <>
       {Object.keys(fields).map((fieldKey, index) => (
-        <Field key={index} field={fields[fieldKey]} operation={operation} />
+        <Field
+          key={index}
+          field={fields[fieldKey]}
+          operation={operation}
+          schema={schema}
+        />
       ))}
     </>
   );
