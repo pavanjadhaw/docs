@@ -6,7 +6,7 @@ interface Props {
   schema: GraphQLSchema;
 }
 
-export default function Document({ schema }: Props) {
+export default function Schema({ schema }: Props) {
   const query = schema.getQueryType();
   const mutation = schema.getMutationType();
 

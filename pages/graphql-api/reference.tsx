@@ -7,23 +7,23 @@ import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import React from 'react';
 import DocPage from '../components/DocPage';
-import Document from '../components/graphql/Document';
+import Schema from '../components/graphql/Schema';
 
 interface Props {
   metadata?: { [key: string]: any };
   mdxAuthenticationSource?: MDXRemoteSerializeResult;
-  schema: string;
+  serializedSchema: string;
 }
 
 export default function reference({
   mdxAuthenticationSource,
-  schema,
+  serializedSchema,
   metadata = {},
 }: Props) {
   return (
     <DocPage mdxSource={mdxAuthenticationSource} {...metadata}>
       <div className="my-12">
-        <Document schema={buildSchema(schema)} />
+        <Schema schema={buildSchema(serializedSchema)} />
       </div>
     </DocPage>
   );
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const schemaFilePath = path.join(docsDirectory, 'graphql-api/reference/schema.graphql');
   const schemaFileContents = fs.readFileSync(schemaFilePath, 'utf8');
-  let schema = schemaFileContents;
+  let serializedSchema = schemaFileContents;
 
   // @ts-ignore
   const { content, data } = matter(fileContents);
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       mdxAuthenticationSource,
       metadata: data,
-      schema,
+      serializedSchema,
     },
   };
 };
