@@ -1,6 +1,7 @@
 import { query } from 'gql-query-builder';
 import { GraphQLField, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import prettier from 'prettier';
+import parserGraphql from 'prettier/parser-graphql';
 import React from 'react';
 import { buildQueryFields } from '../../../lib/graphql';
 import HighlightedCode from '../code/HighlightedCode';
@@ -23,7 +24,10 @@ export default function Request({ field, schema }: Props) {
 
   return (
     <HighlightedCode title="Payload" className="graphql">
-      {prettier.format(gqlQuery.query, { parser: 'graphql' })}
+      {prettier.format(gqlQuery.query, {
+        parser: 'graphql',
+        plugins: [parserGraphql],
+      })}
     </HighlightedCode>
   );
 }
