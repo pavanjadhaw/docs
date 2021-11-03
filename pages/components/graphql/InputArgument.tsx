@@ -2,11 +2,11 @@ import { GraphQLArgument } from 'graphql';
 import React from 'react';
 
 interface Props {
-  input: GraphQLArgument;
+  argument: GraphQLArgument;
 }
 
-export default function InputValue({ input }: Props) {
-  const { name, type, description } = input;
+export default function InputArgument({ argument }: Props) {
+  const { name, type, description } = argument;
 
   return (
     <li className="list-none p-2">

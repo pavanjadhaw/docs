@@ -9,6 +9,7 @@ interface Props {
 
 export default function Field({ field, operation }: Props) {
   const { args, name, description: descriptionNode } = field;
+
   const href = `${name}-${operation.name}`.toLowerCase();
   const [title, description] = descriptionNode
     ? descriptionNode.replace(/\n+/, ':::').split(':::')
