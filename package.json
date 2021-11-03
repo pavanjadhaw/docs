@@ -25,6 +25,7 @@
     "faker": "^5.5.3",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
+    "gql-query-builder": "^3.5.5",
     "graphql": "^16.0.1",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.3.1",
