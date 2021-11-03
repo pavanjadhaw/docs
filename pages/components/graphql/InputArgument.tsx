@@ -6,6 +6,8 @@ interface Props {
 }
 
 export default function InputArgument({ argument }: Props) {
+  if (!argument) return null;
+
   const { name, type, description } = argument;
 
   return (

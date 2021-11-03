@@ -10,6 +10,8 @@ interface Props {
 }
 
 export default function Field({ field, operation, schema }: Props) {
+  if (!field) return null;
+
   const { args, name, description: descriptionNode } = field;
 
   const href = `${name}-${operation.name}`.toLowerCase();

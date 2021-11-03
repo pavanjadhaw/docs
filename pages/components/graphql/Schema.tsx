@@ -7,6 +7,8 @@ interface Props {
 }
 
 export default function Schema({ schema }: Props) {
+  if (!schema) return null;
+
   const query = schema.getQueryType();
   const mutation = schema.getMutationType();
 

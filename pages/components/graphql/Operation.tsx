@@ -8,6 +8,8 @@ interface Props {
 }
 
 export default function Operation({ operation, schema }: Props) {
+  if (!operation) return null;
+
   const fields = operation.getFields();
 
   return (

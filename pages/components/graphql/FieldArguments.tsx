@@ -8,6 +8,8 @@ interface Props {
 }
 
 export default function FieldArguments({ args }: Props) {
+  if (!args) return null;
+
   return (
     <div className="mt-8 mb-12">
       <p className="uppercase text-sm">GraphQL Arguments</p>

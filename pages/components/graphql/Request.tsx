@@ -11,6 +11,8 @@ interface Props {
 }
 
 export default function Request({ field, schema }: Props) {
+  if (!field) return null;
+
   const { name, type } = field;
   const node = schema.getTypeMap()[type.toString()] as GraphQLObjectType | null;
 
