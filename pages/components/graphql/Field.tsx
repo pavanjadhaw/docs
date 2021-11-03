@@ -1,13 +1,15 @@
-import { GraphQLField, GraphQLObjectType } from 'graphql';
+import { GraphQLField, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import React from 'react';
 import FieldArguments from './FieldArguments';
+import Request from './Request';
 
 interface Props {
   field: GraphQLField<any, any, any>;
   operation: GraphQLObjectType<any, any>;
+  schema: GraphQLSchema;
 }
 
-export default function Field({ field, operation }: Props) {
+export default function Field({ field, operation, schema }: Props) {
   const { args, name, description: descriptionNode } = field;
 
   const href = `${name}-${operation.name}`.toLowerCase();
@@ -30,7 +32,9 @@ export default function Field({ field, operation }: Props) {
           />
           {args ? <FieldArguments args={args} /> : null}
         </main>
-        <aside className="w-full xl:w-1/2 space-y-12"></aside>
+        <aside className="w-full xl:w-1/2 space-y-12">
+          <Request field={field} schema={schema} />
+        </aside>
       </div>
     </article>
   );
