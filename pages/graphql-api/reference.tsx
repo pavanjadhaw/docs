@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { buildSchema } from 'graphql';
 import * as matter from 'gray-matter';
 import { GetStaticProps } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -11,7 +12,7 @@ import Document from '../components/graphql/Document';
 interface Props {
   metadata?: { [key: string]: any };
   mdxAuthenticationSource?: MDXRemoteSerializeResult;
-  schema: Record<string, any>;
+  schema: string;
 }
 
 export default function reference({
@@ -22,7 +23,7 @@ export default function reference({
   return (
     <DocPage mdxSource={mdxAuthenticationSource} {...metadata}>
       <div className="my-12">
-        <Document schema={schema} />
+        <Document schema={buildSchema(schema)} />
       </div>
     </DocPage>
   );

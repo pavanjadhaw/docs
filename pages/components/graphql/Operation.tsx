@@ -1,27 +1,19 @@
-import {
-  DocumentNode,
-  ObjectTypeDefinitionNode,
-  OperationTypeDefinitionNode,
-} from 'graphql';
-import { find, pathEq } from 'ramda';
+import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 import React from 'react';
 import Field from './Field';
 
 interface Props {
-  schema: DocumentNode;
-  operation: OperationTypeDefinitionNode;
+  schema: GraphQLSchema;
+  operation: GraphQLObjectType<any, any>;
 }
 
-export default function Operation({ schema, operation }: Props) {
-  const definition = find(
-    pathEq(['name', 'value'], operation.type.name.value),
-    schema.definitions,
-  ) as ObjectTypeDefinitionNode;
+export default function Operation({ operation }: Props) {
+  const fields = operation.getFields();
 
   return (
     <>
-      {definition.fields?.map((field, index) => (
-        <Field key={index} field={field} operationType={operation.type} />
+      {Object.keys(fields).map((fieldKey, index) => (
+        <Field key={index} field={fields[fieldKey]} operation={operation} />
       ))}
     </>
   );

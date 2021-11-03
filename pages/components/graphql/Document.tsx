@@ -1,23 +1,19 @@
-import { DocumentNode, SchemaDefinitionNode } from 'graphql';
-import { find, propEq } from 'ramda';
+import { GraphQLSchema } from 'graphql';
 import React from 'react';
 import Operation from './Operation';
 
 interface Props {
-  schema: DocumentNode;
+  schema: GraphQLSchema;
 }
 
 export default function Document({ schema }: Props) {
-  const definition = find(
-    propEq('kind', 'SchemaDefinition'),
-    schema.definitions,
-  ) as SchemaDefinitionNode;
+  const query = schema.getQueryType();
+  const mutation = schema.getMutationType();
 
   return (
     <section>
-      {definition?.operationTypes.map((operation, index) => (
-        <Operation key={index} operation={operation} schema={schema} />
-      ))}
+      {query && <Operation schema={schema} operation={query} />}
+      {mutation && <Operation schema={schema} operation={mutation} />}
     </section>
   );
 }

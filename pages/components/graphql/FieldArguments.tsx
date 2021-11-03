@@ -1,9 +1,9 @@
-import { InputValueDefinitionNode } from 'graphql';
+import { GraphQLArgument } from 'graphql';
 import React from 'react';
 import InputValue from './InputValue';
 
 interface Props {
-  args: readonly InputValueDefinitionNode[];
+  args: readonly GraphQLArgument[];
 }
 
 export default function FieldArguments({ args }: Props) {
