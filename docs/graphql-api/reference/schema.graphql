@@ -6,73 +6,88 @@ scalar JSON
 scalar ISO8601DateTime
 
 type Query {
-  "Fetch a user's notifications"
+  """
+  Fetch notifications
+  List of notifications that belong to a user. The user is identified by the HTTP authentication headers.
+  """
   notifications(
-    "Return the first n elements. Defaults to 50."
-    first: Int
-
-    "Return the last n elements."
-    last: Int
-
-    "Return the elements that come after the specified cursor."
+    "Returns the elements that come after the specified cursor."
     after: String
 
-    "Return the elements that come before the specified cursor."
+    "Returns the elements that come before the specified cursor."
     before: String
 
-    "A filter on the notifications based on the read state. If false, only unread notifications will be returned. Defaults to null."
+    "Returns the first n elements. Defaults to 50."
+    first: Int
+
+    "Returns the last n elements."
+    last: Int
+
+    "Filters based on the read state. If false, only unread notifications will be returned. Defaults to null."
     read: Boolean
 
-    "A filter on the notifications based on the seen state. If false, only unseen notifications will be returned. Defaults to null."
+    "Filters based on the seen state. If false, only unseen notifications will be returned. Defaults to null."
     seen: Boolean
 
-    "A filter on the notifications based on the archived state. If false, only unarchived notifications will be returned. Defaults to null."
+    "Filters based on the archived state. If false, only unarchived notifications will be returned. Defaults to null."
     archived: Boolean
 
-    "A filter on the notifications based on the category. If you want to get uncategorized notifications, use the \"uncategorized\" value.\nThe value can be either an array of strings or a comma-separated string."
+    "Filters based on the category a notification belongs to. If you want to get uncategorized notifications, use the \"uncategorized\" value.\nThe value can be either an array of strings or a comma-separated string."
     categories: [String!]
 
-    "A filter on the notifications based on the topic."
+    "Filters based on the topic a notification belongs to."
     topics: [String!]
 
-    "A filter based on whether the notification was sent to the inbox or not. Defaults to true."
+    "Filters based on whether a notification was sent to the notification inbox (in-app channel) or not. Defaults to true."
     inApp: String
   ): NotificationsConnection
 
-  "Fetch a project's users"
+  """
+  Fetch users
+  List of users that belong to your project. The project is determined by the HTTP authentication headers.
+  """
   users(
-    "Return the first n elements. Defaults to 50."
-    first: Int
-
-    "Return the last n elements."
-    last: Int
-
-    "Return the elements that come after the specified cursor."
+    "Returns the elements that come after the specified cursor."
     after: String
 
-    "Return the elements that come before the specified cursor."
+    "Returns the elements that come before the specified cursor."
     before: String
 
-    "A filter based on the stored attributes. The string is expected to be an SQL-like expression."
+    "Returns the first n elements. Defaults to 50."
+    first: Int
+
+    "Returns the last n elements."
+    last: Int
+
+    "Filters based on the stored attributes of users. The string is expected to be an SQL-like expression."
     matches: String
   ): UsersConnection
 
-  "Fetch logs"
+  """
+  Fetch logs
+
+  List of logged activity related to notifications you created with the MagicBell API, either using the REST API or the GraphQL API.
+  """
   logs(
-    "Return the first n elements."
-    first: Int
-
-    "Return the last n elements."
-    last: Int
-
-    "Return the elements that come after the specified cursor."
+    "Returns the elements that come after the specified cursor."
     after: String
 
-    "Return the elements that come before the specified cursor/"
+    "Returns the elements that come before the specified cursor"
     before: String
 
+    "Returns the first n elements."
+    first: Int
+
+    "Returns the last n elements."
+    last: Int
+
+    "filters based on the attributes of the recipient of a notification."
     user: UserFilter
+
+    "Filters based on the notification attributes."
     notification: NotificationFilter
+
+    "Filters based on the channel a notification belongs to."
     channels: [String!]
   ): DeliveryLogConnection!
 }
