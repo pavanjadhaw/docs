@@ -112,7 +112,8 @@ fetch('https://api.magicbell.com/graphql', {
 
 </Tabs>
 
-You can set both an email and the external ID when performing a request.
+If you set both the email and the external ID in the HTTP headers when
+performing a request the external ID will take precedence over the email.
 
 If you're yet to turn to HMAC authentication for your MagicBell project, you
 don't have to provide the `X-MAGICBELL-USER-HMAC` header. However, we highly
