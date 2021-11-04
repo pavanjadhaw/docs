@@ -29,6 +29,7 @@ export default function Headers({ field }: Props) {
         headers['X-MAGICBELL-API-KEY'],
         headers['X-MAGICBELL-USER-EXTERNAL-ID'],
         headers['X-MAGICBELL-USER-EMAIL'],
+        headers['X-MAGICBELL-USER-HMAC'],
       ];
 
   return (

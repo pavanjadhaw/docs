@@ -29,6 +29,13 @@ export const headers = {
       'Email address of the user. Provide the X-MAGICBELL-USER-EXTERNAL-ID header instead if you identify users by ID.',
     schema: { type: 'String' },
   },
+  'X-MAGICBELL-USER-HMAC': {
+    name: 'X-MAGICBELL-USER-HMAC',
+    in: '',
+    description:
+      'HMAC calculated with the API secret and ID, or email, of the user. Required if the project has HMAC enabled.',
+    schema: { type: 'String' },
+  },
 };
 
 export function buildQueryField(
