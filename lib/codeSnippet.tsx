@@ -35,7 +35,7 @@ export function buildUrl(url: URL) {
 export function buildRequestSnippet(
   location: string,
   method: string,
-  headers: OpenAPIV3.ParameterObject[],
+  headers: OpenAPIV3.ParameterObject[] | Record<string, any>[],
   data: {
     mimeType: string;
     text: string;
@@ -43,7 +43,9 @@ export function buildRequestSnippet(
 ) {
   const headersArray = Object.keys(headers).map((param, index) => ({
     name: headers[index].name,
-    value: replaceVariables(`{${headers[index].name.toLowerCase().replace(/-/g, '_')}}`),
+    value:
+      headers[index].content ||
+      replaceVariables(`{${headers[index].name.toLowerCase().replace(/-/g, '_')}}`),
   }));
 
   return new HTTPSnippet({
