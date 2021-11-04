@@ -4,6 +4,7 @@ schema {
 
 scalar JSON
 scalar ISO8601DateTime
+directive @adminRequired on FIELD_DEFINITION
 
 type Query {
   """
@@ -61,7 +62,7 @@ type Query {
 
     "Filters based on the stored attributes of users. The string is expected to be an SQL-like expression."
     matches: String
-  ): UsersConnection
+  ): UsersConnection @adminRequired
 
   """
   Fetch logs
@@ -89,7 +90,7 @@ type Query {
 
     "Filters based on the channel a notification belongs to."
     channels: [String!]
-  ): DeliveryLogConnection
+  ): DeliveryLogConnection @adminRequired
 }
 
 type PageInfo {

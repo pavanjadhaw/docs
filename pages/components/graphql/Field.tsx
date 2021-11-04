@@ -1,6 +1,7 @@
 import { GraphQLField, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import React from 'react';
 import FieldArguments from './FieldArguments';
+import Headers from './Headers';
 import Request from './Request';
 
 interface Props {
@@ -32,6 +33,7 @@ export default function Field({ field, operation, schema }: Props) {
               __html: description?.replace(/\n/g, '<br/>'),
             }}
           />
+          <Headers field={field} />
           {args ? <FieldArguments args={args} /> : null}
         </main>
         <aside className="w-full xl:w-1/2 space-y-12">
