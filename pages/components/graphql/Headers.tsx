@@ -36,6 +36,7 @@ export default function Headers({ field }: Props) {
       <p className="uppercase text-sm">HTTP headers</p>
       <ul className="border border-gray-200 rounded divide-y m-0">
         {requestHeaders.map((header, index) => (
+          // @ts-ignore
           <Parameter key={index} param={header} />
         ))}
       </ul>
