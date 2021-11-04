@@ -48,7 +48,7 @@ export default function Headers({ field }: Props) {
 
   return (
     <div className="mt-8 mb-12">
-      <p className="uppercase text-sm">Header parameters</p>
+      <p className="uppercase text-sm">HTTP headers</p>
       <ul className="border border-gray-200 rounded divide-y m-0">
         {headers.map((header, index) => (
           <Parameter key={index} param={header} />
