@@ -970,7 +970,7 @@
         "in": "header",
         "name": "X-MAGICBELL-USER-HMAC",
         "schema": { "type": "string" },
-        "description": "HMAC calculated with the API secret and ID, or email, of the user."
+        "description": "HMAC calculated with the API secret and ID, or email, of the user. Required if the project has HMAC enabled."
       },
       "notification_id": {
         "in": "path",
