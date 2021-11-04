@@ -958,14 +958,12 @@
         "in": "header",
         "name": "X-MAGICBELL-USER-EMAIL",
         "schema": { "type": "string" },
-        "required": true,
         "description": "Email address of the user. Provide the X-MAGICBELL-USER-EXTERNAL-ID header instead if you identify users by ID."
       },
       "x_magicbell_user_external_id_header": {
         "in": "header",
         "name": "X-MAGICBELL-USER-EXTERNAL-ID",
         "schema": { "type": "string" },
-        "required": true,
         "description": "ID of the user. Provide the X-MAGICBELL-USER-EMAIL header instead if you identify users by email."
       },
       "x_magicbell_user_hmac_header": {
