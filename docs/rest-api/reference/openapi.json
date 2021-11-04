@@ -251,6 +251,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
         ],
@@ -317,6 +320,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
         ],
@@ -349,6 +355,9 @@
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
           },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
@@ -385,6 +394,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
         ],
@@ -420,6 +432,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
         ],
@@ -452,6 +467,9 @@
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
           },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           { "$ref": "#/components/parameters/notification_id" }
@@ -489,6 +507,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
         "responses": {
@@ -508,6 +529,9 @@
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
           },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
@@ -710,6 +734,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
         "tags": ["User notification preference APIs"],
@@ -752,6 +779,9 @@
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
           },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
@@ -833,6 +863,9 @@
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
           },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
+          },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" }
         ],
         "requestBody": {
@@ -908,6 +941,9 @@
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           {
             "$ref": "#/components/parameters/x_magicbell_user_external_id_header"
+          },
+          {
+            "$ref": "#/components/parameters/x_magicbell_user_email_header"
           },
           { "$ref": "#/components/parameters/x_magicbell_user_hmac_header" },
           {
