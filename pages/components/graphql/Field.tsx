@@ -22,7 +22,7 @@ export default function Field({ field, operation, schema }: Props) {
   return (
     <article id={href} className="py-36 border-t">
       <h2 className="mt-0">{title}</h2>
-      <p className="text-xs rounded bg-green-50 px-3 py-2 text-green-600 uppercase font-mono mb-4 inline-block">
+      <p className="text-xs rounded bg-blue-50 px-3 py-2 text-blue-600 uppercase font-mono mb-4 inline-block">
         {operation.name}
       </p>
       <div className="flex space-x-0 xl:space-x-4 flex-wrap xl:flex-nowrap">
