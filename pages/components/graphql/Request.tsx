@@ -2,9 +2,10 @@ import { query } from 'gql-query-builder';
 import { GraphQLField, GraphQLObjectType, GraphQLSchema } from 'graphql';
 import prettier from 'prettier';
 import parserGraphql from 'prettier/parser-graphql';
+import { filter, isEmpty } from 'ramda';
 import React from 'react';
 import { buildRequestSnippet } from '../../../lib/codeSnippet';
-import { buildQueryFields } from '../../../lib/graphql';
+import { buildQueryFields, headers } from '../../../lib/graphql';
 import HighlightedCode from '../code/HighlightedCode';
 import Tabs from '../tabs/Tabs';
 
@@ -16,7 +17,11 @@ interface Props {
 export default function Request({ field, schema }: Props) {
   if (!field) return null;
 
-  const { name, type } = field;
+  const { name, type, astNode } = field;
+  const directives = astNode?.directives || [];
+  const requiresAdminRole = !isEmpty(
+    filter((directive) => directive.name.value === 'adminRequired', directives),
+  );
   const node = schema.getTypeMap()[type.toString()] as GraphQLObjectType | null;
 
   const gqlQuery = query({
@@ -24,14 +29,14 @@ export default function Request({ field, schema }: Props) {
     fields: node ? buildQueryFields(node) : [],
   });
 
+  const snippetHeaders = requiresAdminRole
+    ? [headers['X-MAGICBELL-API-KEY'], headers['X-MAGICBELL-API-SECRET']]
+    : [headers['X-MAGICBELL-API-KEY'], headers['X-MAGICBELL-USER-EXTERNAL-ID']];
+
   const snippet = buildRequestSnippet(
     'https://api.magicbell.com/graphql',
     'POST',
-    [
-      { name: 'Content-Type', content: 'application/json' },
-      { name: 'X-MAGICBELL-API-KEY', in: '' },
-      { name: 'X-MAGICBELL-API-SECRET', in: '' },
-    ],
+    [{ name: 'Content-Type', content: 'application/json' }, ...snippetHeaders],
     {
       mimeType: 'application/json',
       text: JSON.stringify({ query: gqlQuery.query }),

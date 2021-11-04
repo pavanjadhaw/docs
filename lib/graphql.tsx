@@ -1,5 +1,36 @@
 import { GraphQLField, GraphQLObjectType, isObjectType, isScalarType } from 'graphql';
 
+export const headers = {
+  'X-MAGICBELL-API-KEY': {
+    name: 'X-MAGICBELL-API-KEY',
+    required: true,
+    in: '',
+    description: 'API key of your MagicBell project.',
+    schema: { type: 'String' },
+  },
+  'X-MAGICBELL-API-SECRET': {
+    name: 'X-MAGICBELL-API-SECRET',
+    required: true,
+    in: '',
+    description: 'API secret of your MagicBell project.',
+    schema: { type: 'String' },
+  },
+  'X-MAGICBELL-USER-EXTERNAL-ID': {
+    name: 'X-MAGICBELL-USER-EXTERNAL-ID',
+    in: '',
+    description:
+      'ID of the user. Provide the X-MAGICBELL-USER-EMAIL header instead if you identify users by email.',
+    schema: { type: 'String' },
+  },
+  'X-MAGICBELL-USER-EMAIL': {
+    name: 'X-MAGICBELL-USER-EMAIL',
+    in: '',
+    description:
+      'Email address of the user. Provide the X-MAGICBELL-USER-EXTERNAL-ID header instead if you identify users by ID.',
+    schema: { type: 'String' },
+  },
+};
+
 export function buildQueryField(
   field: GraphQLField<any, any>,
 ): string | Record<string, any> {
