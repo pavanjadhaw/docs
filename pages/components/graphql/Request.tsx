@@ -23,7 +23,7 @@ export default function Request({ field, schema }: Props) {
   });
 
   return (
-    <HighlightedCode title="Payload" className="graphql">
+    <HighlightedCode title="Query" className="graphql">
       {prettier.format(gqlQuery.query, {
         parser: 'graphql',
         plugins: [parserGraphql],
