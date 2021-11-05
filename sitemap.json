@@ -209,8 +209,8 @@
     "to": "/faq"
   },
   {
-    "name": "Careers",
-    "to": "https://magicbell.com/careers",
+    "name": "Contribute to docs",
+    "to": "https://github.com/magicbell-io/docs",
     "staticRoute": true
   }
 ]
