@@ -24,7 +24,6 @@ export default function DynamicDocument({ mdxSource, metadata, notFound }: Props
   return <DocPage mdxSource={mdxSource} {...metadata} />;
 }
 
-// @ts-ignore
 export const getStaticPaths: GetStaticPaths = async () => {
   // Load routes from the sitemap
   const allRoutes = flatten(
@@ -32,17 +31,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
 
   return {
-    paths: allRoutes.map((item) => item.to),
-    fallback: true,
+    paths: allRoutes.map((item) => {
+      const slug = item.to.startsWith('/') ? item.to.substr(1) : item.to;
+      return { params: { slug: slug.split('/') } };
+    }),
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Read the file that contains the content for the route
-  const { slug } = params!;
+  const slug = params?.slug as string[];
 
-  // @ts-ignore
-  const filename = slug?.join('/') + '.mdx';
+  const filename = slug.join('/') + '.mdx';
   const docsDirectory = path.join(process.cwd(), 'docs');
   const filePath = path.join(docsDirectory, filename);
 
@@ -62,6 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return { props: { mdxSource, metadata: data } };
   } catch (err) {
+    console.log(err);
     return { props: { notFound: true } };
   }
 };
