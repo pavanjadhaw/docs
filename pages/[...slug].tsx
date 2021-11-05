@@ -26,9 +26,12 @@ export default function DynamicDocument({ mdxSource, metadata, notFound }: Props
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Load routes from the sitemap
-  const allRoutes = flatten(
-    reject((item) => item.to === undefined || item.staticRoute === true, sitemap),
-  );
+  const allRoutes = sitemap.flatMap(item => {
+    if(item.children){
+      return [...item.children, item];
+    }
+    return item;
+  }).filter(route => route.to !== undefined && !route.staticRoute);
 
   return {
     paths: allRoutes.map((item) => {
