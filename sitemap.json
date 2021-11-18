@@ -204,8 +204,7 @@
   {
     "name": "Changelog",
     "icon": "changelog",
-    "to": "/changelog",
-    "staticRoute": true
+    "to": "/changelog"
   },
   {
     "name": "Roadmap",
@@ -215,8 +214,7 @@
   },
   {
     "name": "Glossary",
-    "to": "/glossary",
-    "staticRoute": true
+    "to": "/glossary"
   },
   {
     "name": "FAQ",
