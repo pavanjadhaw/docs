@@ -91,6 +91,10 @@
         "to": "/announcements"
       },
       {
+        "name": "Log",
+        "to": "/log"
+      },
+      {
         "name": "Turn on HMAC authentication",
         "to": "/turn-on-hmac-authentication"
       },
