@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<{}, { slug: string[] }> = async ({
       mdxOptions: {
         rehypePlugins: [
           [rehypeSlug, {}],
-          [autolinkHeadings, {}],
+          [autolinkHeadings, { behavior: 'wrap' }],
         ],
       },
     });
