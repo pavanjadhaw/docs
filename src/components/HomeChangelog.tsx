@@ -6,7 +6,7 @@ export default function HomeChangelog() {
   return (
     <section className="mt-8">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="">Latest Updates</h2>
+        <h2>Latest Updates</h2>
       </div>
       <ul className="bg-gray-50 rounded-3xl p-2 sm:p-5 xl:p-6 list-none space-y-0 m-0">
         <ChangelogEntry

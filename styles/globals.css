@@ -154,17 +154,17 @@ img.full-mobile {
   margin: 2rem 0;
 }
 
-.mdx-content h2,
-.mdx-content h3 {
+h2,
+h3 {
   scroll-margin-top: 6.5rem;
 }
 
-.mdx-content h2 a,
-.mdx-content h3 a {
+h2 a,
+h3 a {
   color: inherit;
 }
 
-.mdx-content h2 a:hover,
-.mdx-content h3 a:hover {
+h2 a:hover,
+h3 a:hover {
   @apply text-lightPurple;
 }

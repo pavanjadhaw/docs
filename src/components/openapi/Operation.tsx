@@ -1,6 +1,7 @@
 import { OpenAPIV3 } from 'openapi-types';
 import { includes } from 'ramda';
 import React from 'react';
+import slugify from 'slugify';
 import HeaderParameters from './HeaderParameters';
 import QueryParameters from './QueryParameters';
 import Request from './Request';
@@ -17,9 +18,13 @@ export default function Operation({ pathKey, operation, method }: Props) {
   if (!operation) return null;
 
   const realTimeEnabled = includes('real-time', operation.tags || []);
+  const titleSlug = slugify(operation.summary || '', { lower: true, remove: /\"\|\?/ });
+
   return (
     <article id={operation.operationId} className="py-36 border-t">
-      <h2 className="mt-0">{operation.summary} </h2>
+      <h2 className="mt-0" id={titleSlug}>
+        <a href={`#${titleSlug}`}>{operation.summary}</a>
+      </h2>
       {realTimeEnabled ? (
         <p className="text-xs rounded bg-blue-50 px-3 py-2 text-blue-600 uppercase font-mono mb-4 inline-block">
           real-time
