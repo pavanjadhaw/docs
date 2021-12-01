@@ -153,3 +153,18 @@ em.highlight {
 img.full-mobile {
   margin: 2rem 0;
 }
+
+h2,
+h3 {
+  scroll-margin-top: 6.5rem;
+}
+
+h2 a,
+h3 a {
+  color: inherit;
+}
+
+h2 a:hover,
+h3 a:hover {
+  @apply text-lightPurple;
+}
