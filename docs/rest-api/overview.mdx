@@ -72,3 +72,7 @@ axios.post('https://api.magicbell.com/notifications', data, headers).catch((erro
   ErrorTracker.notify(response.data, response.status);
 });
 ```
+
+## Timestamps
+
+All timestamps returned by the REST API are in seconds since the Unix epoch.
