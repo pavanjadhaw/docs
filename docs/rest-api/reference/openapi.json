@@ -103,7 +103,7 @@
       "get": {
         "tags": ["User Notifications APIs"],
         "summary": "Fetch notifications",
-        "description": "Fetch a user's notifications",
+        "description": "Fetch a user's notifications. Notifications are sorted in descendent order by the sent_at timestamp.",
         "operationId": "get-notifications",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
