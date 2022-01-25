@@ -17,6 +17,8 @@ const BASE_URL = 'https://api.magicbell.com'; // @todo Take it from the OpenAPI 
 const TEMPLATE_CONTEXT = {
   notification_id: '7fb3ce9f-a866-4dff-8ce8-2f64f7c5ed4c',
   user_id: faker.datatype.uuid(),
+  email: 'richard@example.com',
+  external_id: '4c3523c7-8a98-4933-9fcd-394d72940a3d',
   device_token: faker.random.alphaNumeric(64),
   x_magicbell_api_key: '[MAGICBELL_API_KEY]',
   x_magicbell_api_secret: '[MAGICBELL_API_SECRET]',

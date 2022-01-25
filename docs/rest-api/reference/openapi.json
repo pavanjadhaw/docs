@@ -696,7 +696,7 @@
         "operationId": "delete-user",
         "tags": ["Users APIs"],
         "summary": "Delete a user",
-        "description": "Delete a user by id, email or external_id.\n\nWe will delete the user completely 7 days after. If the user makes a request to the API, the deletion will be canceled. This will happen when the notification inbox for this user is loaded in your app, for example.",
+        "description": "Sets a user to be deleted within 7 days.\n\nIf the user makes a request to the API within that period, the deletion will be canceled. For example, when the notification inbox for this user is loaded in your app, the user will be reinstated.",
         "parameters": [
           { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
           { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
@@ -704,6 +704,76 @@
             "in": "path",
             "name": "user_id",
             "description": "The user id is the MagicBell user id. Alternatively, provide an id like `email:theusersemail@example.com` or `external_id:theusersexternalid` as the user id.",
+            "required": true,
+            "schema": { "type": "string", "minimum": 1 }
+          }
+        ],
+        "responses": {
+          "204": { "description": "OK" },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A user with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/email:{user_email}": {
+      "delete": {
+        "operationId": "delete-user-by-email",
+        "tags": ["Users APIs"],
+        "summary": "Delete a user by email",
+        "description": "Sets a user to be deleted within 7 days.\n\nIf the user makes a request to the API within that period, the deletion will be canceled. For example, when the notification inbox for this user is loaded in your app, the user will be reinstated.",
+        "parameters": [
+          { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
+          { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
+          {
+            "in": "path",
+            "name": "user_email",
+            "required": true,
+            "schema": { "type": "string", "minimum": 1 }
+          }
+        ],
+        "responses": {
+          "204": { "description": "OK" },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "message": "A user with the the given id doesn't exist"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/external_id:{external_id}": {
+      "delete": {
+        "operationId": "delete-user-by-external-id",
+        "tags": ["Users APIs"],
+        "summary": "Delete a user by external ID",
+        "description": "Sets a user to be deleted within 7 days.\n\nIf the user makes a request to the API within that period, the deletion will be canceled. For example, when the notification inbox for this user is loaded in your app, the user will be reinstated.",
+        "parameters": [
+          { "$ref": "#/components/parameters/x_magicbell_api_key_header" },
+          { "$ref": "#/components/parameters/x_magicbell_api_secret_header" },
+          {
+            "in": "path",
+            "name": "external_id",
             "required": true,
             "schema": { "type": "string", "minimum": 1 }
           }
@@ -981,14 +1051,14 @@
         "name": "X-MAGICBELL-API-KEY",
         "schema": { "type": "string" },
         "required": true,
-        "description": "API key of your MagicBell project."
+        "description": "The (public) API key of your MagicBell project."
       },
       "x_magicbell_api_secret_header": {
         "in": "header",
         "name": "X-MAGICBELL-API-SECRET",
         "schema": { "type": "string" },
         "required": true,
-        "description": "API secret of your MagicBell project."
+        "description": "The API secret of your MagicBell project."
       },
       "x_magicbell_user_email_header": {
         "in": "header",
