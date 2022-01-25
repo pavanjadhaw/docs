@@ -153,7 +153,7 @@
         "children": [
           {
             "name": "How to use MagicBell with NuxtJS",
-            "to":"/vue/adding-magicbell-to-your-nuxt-application"
+            "to": "/vue/adding-magicbell-to-your-nuxt-application"
           }
         ]
       },
