@@ -8,7 +8,10 @@ interface Props {
 }
 
 export default function QueryParameters({ parameteres = [] }: Props) {
-  const params = reject((param) => param.in !== 'query', parameteres);
+  const params = reject(
+    (param: OpenAPIV3.ParameterObject) => param.in !== 'query',
+    parameteres,
+  );
 
   if (!params.length) return null;
   return (

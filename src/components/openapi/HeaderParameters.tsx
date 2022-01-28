@@ -8,7 +8,10 @@ interface Props {
 }
 
 export default function HeaderParameters({ parameteres = [] }: Props) {
-  const headerParams = reject((param) => param.in !== 'header', parameteres);
+  const headerParams = reject(
+    (param: OpenAPIV3.ParameterObject) => param.in !== 'header',
+    parameteres,
+  );
 
   if (!headerParams.length) return null;
   return (

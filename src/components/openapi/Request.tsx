@@ -26,7 +26,7 @@ export default function Request({ method, location, operation }: Props) {
 
   const example = requestBody?.content?.['application/json'].example;
   const headerParams = reject(
-    (param) => param.in !== 'header' || !param.required,
+    (param: OpenAPIV3.ParameterObject) => param.in !== 'header' || !param.required,
     parameters as OpenAPIV3.ParameterObject[],
   );
 

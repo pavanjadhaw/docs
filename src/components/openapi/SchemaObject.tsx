@@ -1,5 +1,5 @@
 import { OpenAPIV3 } from 'openapi-types';
-import { contains, init, last } from 'ramda';
+import { includes, init, last } from 'ramda';
 import React from 'react';
 import CollapsedSection from '../CollapsedSection';
 
@@ -24,7 +24,7 @@ export default function SchemaObject({
               key={index}
               object={object.properties?.[propertyName] as OpenAPIV3.SchemaObject}
               objectPathAcc={[...objectPathAcc, propertyName]}
-              required={contains(propertyName, object.required || [])}
+              required={includes(propertyName, object.required || [])}
             />
           );
         })}
