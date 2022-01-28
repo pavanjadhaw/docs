@@ -91,6 +91,24 @@ type Query {
     "Filters based on the channel a notification belongs to."
     channels: [String!]
   ): DeliveryLogConnection @adminRequired
+
+  """
+  Fetch categories
+  List of categories that belong to your project. The project is determined by the HTTP authentication headers.
+  """
+  categories(
+    "Returns the elements that come after the specified cursor."
+    after: String
+
+    "Returns the elements that come before the specified cursor."
+    before: String
+
+    "Returns the first n elements. Defaults to 50."
+    first: Int
+
+    "Returns the last n elements."
+    last: Int
+  ): CategoriesConnection @adminRequired
 }
 
 type PageInfo {
@@ -218,4 +236,47 @@ type DeliveryLog {
   request: JSON
   response: JSON
   createdAt: ISO8601DateTime!
+}
+
+type CategoriesConnection {
+  "Total number of categories for the project"
+  totalCount: Int!
+
+  "A list of edges."
+  edges: [CategoriesEdge]
+
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+}
+
+type CategoriesEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+
+  "The item at the end of the edge."
+  node: Category
+}
+
+type Category {
+  id: ID!
+  label: String
+  slug: String!
+  userCanConfigure: Boolean!
+  overrideChannelsConfig: Boolean!
+  channels: Channel!
+  createdAt: ISO8601DateTime!
+}
+
+type Channel {
+  id: ID!
+  label: String!
+  slug: String!
+  configuration: ChannelConfiguration!
+}
+
+type ChannelConfiguration {
+  delay: Int
+  position: Int
+  enabled: Boolean
+  dontDeliverIf: Int
 }
