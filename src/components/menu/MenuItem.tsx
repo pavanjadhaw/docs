@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { SitemapItem } from '../../../lib/sitemap';
+import GraphqlAPILinks from './GraphqlAPILinks';
 import OpenAPILinks from './OpenAPILinks';
 import PageLink from './PageLink';
 import ParentMenuItem from './ParentMenuItem';
@@ -15,6 +16,13 @@ export default function MenuItem(props: SitemapItem) {
         <>
           <PageLink {...props} />
           <OpenAPILinks />
+        </>
+      );
+    if (props.to === '/graphql-api/reference' && router.asPath.startsWith('/graphql-api'))
+      return (
+        <>
+          <PageLink {...props} />
+          <GraphqlAPILinks />
         </>
       );
     return <PageLink {...props} />;
