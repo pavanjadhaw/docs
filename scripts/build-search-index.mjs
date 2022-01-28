@@ -70,6 +70,9 @@ function getPostsFromSitemap() {
   const sitemapPaths = flatten(sitemap.map((entry) => extractPath(entry)));
 
   for (let entryFilePath of sitemapPaths) {
+    // Do not try to index external links
+    if (!entryFilePath.to.startsWith('/')) continue;
+
     try {
       const post = getPost(entryFilePath, docsDirectory);
       posts.push(post);
