@@ -9,7 +9,9 @@ directive @adminRequired on FIELD_DEFINITION
 type Query {
   """
   Fetch notifications
-  List of notifications that belong to a user. The user is identified by the HTTP authentication headers.
+  List of notifications that belong to a user. Notifications are sorted in descendent order by the <code>sentAt</code> timestamp.
+
+  The user is identified by the HTTP authentication headers.
   """
   notifications(
     "Returns the elements that come after the specified cursor."
@@ -45,7 +47,9 @@ type Query {
 
   """
   Fetch users
-  List of users that belong to your project. The project is determined by the HTTP authentication headers.
+  List of users that belong to your project.
+
+  The project is determined by the HTTP authentication headers.
   """
   users(
     "Returns the elements that come after the specified cursor."
@@ -65,9 +69,31 @@ type Query {
   ): UsersConnection @adminRequired
 
   """
+  Fetch categories
+  List of categories that belong to your project.
+
+  The project is determined by the HTTP authentication headers.
+  """
+  categories(
+    "Returns the elements that come after the specified cursor."
+    after: String
+
+    "Returns the elements that come before the specified cursor."
+    before: String
+
+    "Returns the first n elements. Defaults to 50."
+    first: Int
+
+    "Returns the last n elements."
+    last: Int
+  ): CategoriesConnection @adminRequired
+
+  """
   Fetch logs
 
   List of logged activity related to notifications you created with the MagicBell API, either using the REST API or the GraphQL API.
+
+  The project is determined by the HTTP authentication headers.
   """
   logs(
     "Returns the elements that come after the specified cursor."
@@ -91,24 +117,6 @@ type Query {
     "Filters based on the channel a notification belongs to."
     channels: [String!]
   ): DeliveryLogConnection @adminRequired
-
-  """
-  Fetch categories
-  List of categories that belong to your project. The project is determined by the HTTP authentication headers.
-  """
-  categories(
-    "Returns the elements that come after the specified cursor."
-    after: String
-
-    "Returns the elements that come before the specified cursor."
-    before: String
-
-    "Returns the first n elements. Defaults to 50."
-    first: Int
-
-    "Returns the last n elements."
-    last: Int
-  ): CategoriesConnection @adminRequired
 }
 
 type PageInfo {
