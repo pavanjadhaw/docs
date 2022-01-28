@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React from 'react';
 import slugify from 'slugify';
 import PageLink from './PageLink';
@@ -18,10 +17,10 @@ export default function QueryLink({ query }: Props) {
         <div className="flex space-x-2">
           <div className="mt-1">
             <span
-              className={classNames('uppercase font-mono w-6 block text-blue-500')}
+              className={'uppercase font-mono w-6 block text-green-500'}
               style={{ fontSize: '10px', lineHeight: 1.3 }}
             >
-              GET
+              POST
             </span>
           </div>
           <div>{summary}</div>
