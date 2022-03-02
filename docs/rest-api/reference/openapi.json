@@ -825,10 +825,8 @@
                   "notification_preferences": {
                     "categories": [
                       {
-                        "category": {
-                          "slug": "billing",
-                          "label": "Billing"
-                        },
+                        "slug": "billing",
+                        "label": "Billing",
                         "channels": [
                           {
                             "slug": "email",
@@ -848,10 +846,8 @@
                         ]
                       },
                       {
-                        "category": {
-                          "slug": "new_reply",
-                          "label": "New reply"
-                        },
+                        "slug": "new_reply",
+                        "label": "New reply",
                         "channels": [
                           {
                             "slug": "email",
@@ -901,9 +897,15 @@
               },
               "example": {
                 "notification_preferences": {
-                  "categories": {
-                    "billing": { "email": true, "web_push": false }
-                  }
+                  "categories": [
+                    {
+                      "slug": "billing",
+                      "channels": [
+                        { "slug": "email", "enabled": false },
+                        { "slug": "web_push", "enabled": false }
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -919,20 +921,29 @@
                 },
                 "example": {
                   "notification_preferences": {
-                    "categories": {
-                      "billing": {
-                        "email": true,
-                        "in_app": false,
-                        "mobile_push": false,
-                        "web_push": false
-                      },
-                      "new_comment": {
-                        "email": true,
-                        "in_app": true,
-                        "mobile_push": false,
-                        "web_push": false
+                    "categories": [
+                      {
+                        "slug": "billing",
+                        "label": "Billing",
+                        "channels": [
+                          {
+                            "slug": "email",
+                            "label": "Email",
+                            "enabled": false
+                          },
+                          {
+                            "slug": "web_push",
+                            "label": "Web Push",
+                            "enabled": false
+                          },
+                          {
+                            "slug": "mobile_push",
+                            "label": "Mobile Push",
+                            "enabled": false
+                          }
+                        ]
                       }
-                    }
+                    ]
                   }
                 }
               }
@@ -1121,19 +1132,6 @@
       }
     },
     "schemas": {
-      "Category": {
-        "type": "object",
-        "properties": {
-          "label": {
-            "type": "string",
-            "description": "The label of the category"
-          },
-          "slug": {
-            "type": "string",
-            "description": "The slug of the category."
-          }
-        }
-      },
       "CategoryChannels": {
         "type": "object",
         "properties": {
@@ -1158,9 +1156,13 @@
       "NotificationPreferencesCategory": {
         "type": "object",
         "properties": {
-          "category": {
-            "$ref": "#/components/schemas/Category",
-            "description": "Category"
+          "label": {
+            "type": "string",
+            "description": "The label of the category"
+          },
+          "slug": {
+            "type": "string",
+            "description": "The slug of the category."
           },
           "channels": {
             "$ref": "#/components/schemas/NotificationPreferencesChannels",
